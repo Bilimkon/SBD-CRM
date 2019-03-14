@@ -1,0 +1,59 @@
+#cancelShop {
+    /*-fx-border-color: red;*/
+}
+.table-view .column-header  {
+    -fx-background-color: #009966;
+}
+.button {
+    -fx-background-color: #009966;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );
+}
+.button:pressed {
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0) , 0,0,0,0 );
+}
+
+.label {
+    -fx-text-fill: white;
+    -fx-padding: 4;
+}
+
+.scroll-pane, .table-view {
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );
+}
+.Xisoblar-pane{
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );
+}
+.text-black{
+    -fx-text-fill: black;
+
+}
+.table-row-cell:odd{
+    -fx-background-color:   #eaeaee;
+}
+.table-row-cell:selected {
+    -fx-background-color: #005797;
+}
+.color-text{
+    -fx-text-fill:#009966;
+}
+.check-box .box {
+
+    -fx-background-color: white;
+    -fx-border-color:grey;
+    -fx-border-radius:3px;
+}
+.check-box:selected .mark {
+
+    -fx-background-color: white;
+}
+.check-box:selected .box {
+
+    -fx-background-color: #009966;
+}
+.text-white{
+    -fx-text-fill: white;
+}
+.App_profile{
+    -fx-background-color:  #009966;
+}

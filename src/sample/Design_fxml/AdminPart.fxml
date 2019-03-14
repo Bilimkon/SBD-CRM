@@ -1,0 +1,805 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" stylesheets="@../style/css/AdminPage.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AdminPart">
+   <children>
+      <BorderPane layoutX="363.0" layoutY="129.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" onAction="#ActionChiqish" text="Chiqish">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Kirish oynasi" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <center>
+            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+              <tabs>
+                  <Tab id="apple" styleClass="MainTabs" text="Xisob-kitob">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="800" prefWidth="600">
+                           <children>
+                              <BorderPane layoutX="547.0" layoutY="116.0" prefHeight="649.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <left>
+                                    <TableView fx:id="Xtable" prefHeight="543.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+                                 </left>
+                                 <center>
+                                    <BorderPane BorderPane.alignment="CENTER">
+                                       <bottom>
+                                          <GridPane prefHeight="162.0" prefWidth="501.0" BorderPane.alignment="CENTER">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints prefHeight="50.0" vgrow="SOMETIMES" />
+                                                <RowConstraints prefHeight="50.0" vgrow="SOMETIMES" />
+                                              <RowConstraints prefHeight="50.0" vgrow="SOMETIMES" />
+                                                <RowConstraints prefHeight="50.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label fx:id="LabalTotalNaqtCost" alignment="TOP_CENTER" prefHeight="50.0" prefWidth="650.0" style="-fx-background-color: #eaeaee;" text="0" GridPane.rowIndex="2">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font></Label>
+                                                <Label fx:id="LabelTotalCredit" alignment="TOP_CENTER" prefHeight="50.0" prefWidth="650.0" style="-fx-background-color: #eaeaee;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font></Label>
+                                                <Label fx:id="LabelTotalCard" alignment="TOP_CENTER" prefHeight="50.0" prefWidth="650.0" style="-fx-background-color: #eaeaee;" text="0" GridPane.columnIndex="1">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font></Label>
+                                                <Label alignment="TOP_CENTER" prefHeight="50.0" prefWidth="650.0" style="-fx-background-color: #29a329;" text="Umumiy Summa" textFill="#ecfc5e" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label alignment="TOP_CENTER" prefHeight="50.0" prefWidth="650.0" style="-fx-background-color: #29a329;" text="Umumiy qarz summa" textFill="#f0f0f0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label alignment="TOP_CENTER" prefHeight="50.0" prefWidth="650.0" style="-fx-background-color: #29a329;" text="Umumiy karta summa" textFill="#f0f0f0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="LabelTotalCost" alignment="TOP_CENTER" prefHeight="50.0" prefWidth="650.0" style="-fx-background-color: #eaeaee;" text="0">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label alignment="TOP_CENTER" prefHeight="50.0" prefWidth="650.0" style="-fx-background-color: #29a329;" text="Umumiy naqd summa" textFill="WHITE" GridPane.rowIndex="3">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </GridPane>
+                                       </bottom>
+                                       <right>
+                                          <AnchorPane BorderPane.alignment="CENTER" />
+                                       </right>
+                                       <left>
+                                          <Pane BorderPane.alignment="CENTER" />
+                                       </left>
+                                       <center>
+                                          <AreaChart fx:id="XLineChart" BorderPane.alignment="CENTER">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis prefHeight="343.0" prefWidth="27.0" side="LEFT" />
+                                            </yAxis>
+                                          </AreaChart>
+                                       </center></BorderPane>
+                                 </center>
+                                 <top>
+                                    <BorderPane prefHeight="108.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
+                                       <center>
+                                          <GridPane prefHeight="0.0" prefWidth="1080.0" style="-fx-background-color: #eaeaee;" BorderPane.alignment="CENTER">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints maxHeight="0.0" minHeight="40.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                              <RowConstraints maxHeight="0.0" minHeight="40.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="0.0" minHeight="40.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <DatePicker fx:id="XDateValue1" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: green;">
+                                                   <opaqueInsets>
+                                                      <Insets />
+                                                   </opaqueInsets>
+                                                   <GridPane.margin>
+                                                      <Insets bottom="5.0" left="8.0" top="5.0" />
+                                                   </GridPane.margin>
+                                                </DatePicker>
+                                                <DatePicker fx:id="XDateValue2" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets bottom="5.0" left="8.0" top="5.0" />
+                                                   </GridPane.margin>
+                                                </DatePicker>
+                                                <ComboBox fx:id="Xcombo1" nodeOrientation="LEFT_TO_RIGHT" prefHeight="51.0" prefWidth="200.0" promptText="Sotuvchilar" GridPane.rowIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets bottom="5.0" left="8.0" top="5.0" />
+                                                   </GridPane.margin>
+                                                </ComboBox>
+                                                <Button fx:id="XbuttonSaralash" alignment="CENTER" mnemonicParsing="false" onAction="#XisoblarSaralashBtn" prefHeight="52.0" prefWidth="200.0" style="-fx-background-color: blue;" text="Saralash" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                                   <GridPane.margin>
+                                                      <Insets bottom="5.0" left="8.0" top="5.0" />
+                                                   </GridPane.margin>
+                                                </Button>
+                                                <CheckBox fx:id="Xcheckbox1" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Karta" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets left="8.0" top="5.0" />
+                                                   </GridPane.margin>
+                                                </CheckBox>
+                                                <Button mnemonicParsing="false" onAction="#clearTables" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: red;" text="O'chirish(hammasini)" GridPane.columnIndex="3">
+                                                   <GridPane.margin>
+                                                      <Insets bottom="5.0" left="8.0" top="5.0" />
+                                                   </GridPane.margin>
+                                                </Button>
+                                                <Button mnemonicParsing="false" onAction="#XisoblarToExcel" prefHeight="100.0" prefWidth="200.0" text="Excell fayl yaratish" GridPane.columnIndex="2">
+                                                   <GridPane.margin>
+                                                      <Insets bottom="5.0" left="8.0" top="5.0" />
+                                                   </GridPane.margin></Button>
+                                                <CheckBox fx:id="CheckQarzbox" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" text="Qarz" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                   <GridPane.margin>
+                                                      <Insets bottom="5.0" left="8.0" top="5.0" />
+                                                   </GridPane.margin></CheckBox>
+                                                <ChoiceBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+                                                   <GridPane.margin>
+                                                      <Insets bottom="5.0" left="8.0" top="5.0" />
+                                                   </GridPane.margin></ChoiceBox>
+                                                <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                                   <GridPane.margin>
+                                                      <Insets bottom="5.0" left="8.0" top="5.0" />
+                                                   </GridPane.margin>
+                                                </Button>
+                                             </children>
+                                          </GridPane>
+                                       </center>
+                                    </BorderPane>
+                                 </top>
+                              </BorderPane>
+                           </children></AnchorPane>
+                     </content>
+                  </Tab>
+                <Tab styleClass="MainTabs" text="Ombor">
+                     <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                           <center>
+                              <TableView fx:id="AdminTable" prefHeight="50.0" prefWidth="510.0" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets top="7.0" />
+                                 </BorderPane.margin>
+                              </TableView>
+                           </center>
+                           <left>
+                              <GridPane prefHeight="600.0" prefWidth="268.0" BorderPane.alignment="CENTER">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="218.0" minHeight="0.0" prefHeight="37.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="900.0" minHeight="10.0" prefHeight="496.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="128.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <HBox prefHeight="35.0" prefWidth="268.0">
+                                       <children>
+                                          <TextField fx:id="AdminTextSearch" maxHeight="-Infinity" maxWidth="-Infinity" onKeyPressed="#btnIzlashAction" prefHeight="120.0" prefWidth="162.0">
+                                             <HBox.margin>
+                                                <Insets left="10.0" top="7.0" />
+                                             </HBox.margin></TextField>
+                                          <Button fx:id="AdminBtnSearch" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#btnIzlashAction" prefHeight="120.0" prefWidth="100.0" text="Izlash">
+                                             <HBox.margin>
+                                                <Insets bottom="1.0" right="5.0" top="6.0" />
+                                             </HBox.margin></Button>
+                                       </children>
+                                    </HBox>
+                                    <GridPane prefHeight="784.0" prefWidth="268.0" GridPane.rowIndex="1">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="89.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="186.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="106.0" prefWidth="75.0" styleClass="AsosiyLabels" text="Barcode" textFill="#f5f3f3">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" top="3.0" />
+                                             </GridPane.margin>
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font></Label>
+                                          <Label alignment="CENTER" prefHeight="196.0" prefWidth="75.0" styleClass="AsosiyLabels" text="Nomi" textFill="#f5f3f3" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font></Label>
+                                          <Label alignment="CENTER" prefHeight="229.0" prefWidth="75.0" styleClass="AsosiyLabels" text="Turi" textFill="#f5f3f3" GridPane.rowIndex="2">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font></Label>
+                                          <Label alignment="CENTER" prefHeight="209.0" prefWidth="75.0" styleClass="AsosiyLabels" text="Miqdori" textFill="#f5f3f3" GridPane.rowIndex="3">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font></Label>
+                                          <Label alignment="CENTER" prefHeight="233.0" prefWidth="75.0" styleClass="AsosiyLabels" text="Narxi" textFill="#f5f3f3" GridPane.rowIndex="4">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font></Label>
+                                          <Label alignment="CENTER" prefHeight="228.0" prefWidth="75.0" styleClass="AsosiyLabels" text="Sale price" textFill="#f5f3f3" GridPane.rowIndex="5">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font></Label>
+                                          <Label alignment="CENTER" prefHeight="208.0" prefWidth="75.0" styleClass="AsosiyLabels" text="...dan" textFill="#f5f3f3" GridPane.rowIndex="6">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font></Label>
+                                          <Label alignment="CENTER" prefHeight="184.0" prefWidth="75.0" styleClass="AsosiyLabels" text="...gacha" textFill="#f5f3f3" GridPane.rowIndex="7">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font></Label>
+                                          <Label alignment="CENTER" prefHeight="314.0" prefWidth="75.0" styleClass="AsosiyLabels" text="Turlari" textFill="#f5f3f3" GridPane.rowIndex="8">
+                                             <GridPane.margin>
+                                                <Insets bottom="4.0" left="10.0" />
+                                             </GridPane.margin>
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font></Label>
+                                          <TextField fx:id="AdminTextBarcode" prefHeight="50.0" prefWidth="200.0" promptText="11111111111" GridPane.columnIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </GridPane.margin></TextField>
+                                          <TextField fx:id="AdminTextNomi" prefHeight="50.0" prefWidth="200.0" promptText="Nomi" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </GridPane.margin></TextField>
+                                          <TextField fx:id="AdminTextMiqdori" prefHeight="50.0" prefWidth="200.0" promptText="12121" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </GridPane.margin></TextField>
+                                          <TextField fx:id="AdminTextNarxi" prefHeight="50.0" prefWidth="200.0" promptText="Shart emas" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </GridPane.margin></TextField>
+                                          <TextField fx:id="AdminTextSale" prefHeight="50.0" prefWidth="200.0" promptText="Tannarx" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </GridPane.margin></TextField>
+                                          <TextField fx:id="AdminTextTurlari" prefHeight="50.0" prefWidth="200.0" promptText="Maxsulot turlari" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </GridPane.margin></TextField>
+                                          <DatePicker fx:id="AdminTextDan" prefHeight="50.0" prefWidth="200.0" promptText="Ishlab chiqarilgan sana" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </GridPane.margin></DatePicker>
+                                          <DatePicker fx:id="AdminTextGacha" prefHeight="50.0" prefWidth="200.0" promptText="Oxirgi saqlash sanasi" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </GridPane.margin></DatePicker>
+                                          <ComboBox fx:id="ComboTypeList" onAction="#AddTypeComboboxAction" prefHeight="50.0" prefWidth="200.0" promptText="Turlar" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </GridPane.margin>
+                                          </ComboBox>
+                                       </children>
+                                    </GridPane>
+                                    <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
+                                       <children>
+                                          <Button maxHeight="100.0" mnemonicParsing="false" onAction="#maxsulotQoshish" prefHeight="50.0" prefWidth="300.0" text="Maxsulot qo'shish">
+                                             <VBox.margin>
+                                                <Insets bottom="2.0" left="9.0" right="5.0" top="2.0" />
+                                             </VBox.margin></Button>
+                                          <Button maxHeight="100.0" mnemonicParsing="false" onAction="#excelToDB" prefHeight="50.0" prefWidth="254.0" style="-fx-background-color: orange;" text="+">
+                                             <VBox.margin>
+                                                <Insets bottom="2.0" left="9.0" right="5.0" top="2.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                          <Button maxHeight="100.0" mnemonicParsing="false" onAction="#btnOzgartirishAction" prefHeight="50.0" prefWidth="254.0" style="-fx-background-color: blue;" text="O'zgartirish">
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </padding>
+                                             <VBox.margin>
+                                                <Insets bottom="2.0" left="9.0" right="5.0" top="2.0" />
+                                             </VBox.margin></Button>
+                                          <Button maxHeight="100.0" mnemonicParsing="false" onAction="#btnOchirishAction" prefHeight="50.0" prefWidth="254.0" style="-fx-background-color: red;" text="O'chirish">
+                                             <VBox.margin>
+                                                <Insets bottom="2.0" left="9.0" right="5.0" top="2.0" />
+                                             </VBox.margin></Button>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </GridPane>
+                           </left>
+                           <right>
+                              <BorderPane prefHeight="654.0" prefWidth="266.0" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets top="7.0" />
+                                 </BorderPane.margin>
+                                 <top>
+                                    <GridPane prefHeight="59.0" prefWidth="266.0" BorderPane.alignment="CENTER">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#AddTypeAction" prefHeight="80.0" prefWidth="134.0" text="Tur qo'shish">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" right="5.0" top="3.0" />
+                                             </GridPane.margin>
+                                          </Button>
+                                          <Button fx:id="AddTypeBtn" mnemonicParsing="false" prefHeight="85.0" prefWidth="133.0" text="Button" GridPane.columnIndex="1">
+                                             <GridPane.margin>
+                                                <Insets right="5.0" top="3.0" />
+                                             </GridPane.margin>
+                                          </Button>
+                                       </children>
+                                    </GridPane>
+                                 </top>
+                                 <center>
+                                    <GridPane BorderPane.alignment="CENTER">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                    </GridPane>
+                                 </center>
+                              </BorderPane>
+                           </right>
+                        </BorderPane>
+                     </content>
+                </Tab>
+                  <Tab styleClass="MainTabs" text="Qarzlar">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <BorderPane layoutX="294.0" layoutY="63.0" prefHeight="649.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <center>
+                                    <TableView fx:id="QarzlarTable" prefHeight="655.0" prefWidth="1080.0" BorderPane.alignment="CENTER" />
+                                 </center>
+                                 <top>
+                                    <HBox prefHeight="45.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="45.0" prefWidth="222.0" text="Qarzlarning  saralash" />
+                                          <DatePicker fx:id="QarzDate1" prefHeight="60.0" prefWidth="200.0" />
+                                          <DatePicker fx:id="QarzDate2" prefHeight="59.0" prefWidth="200.0" />
+                                          <Button mnemonicParsing="false" onAction="#QarzSaralash" prefHeight="45.0" prefWidth="200.0" text="Saralash" />
+                                          <TextField fx:id="Qarzid" editable="false" prefHeight="58.0" prefWidth="140.0" />
+                                          <Button mnemonicParsing="false" onAction="#deleteQarzlar" prefHeight="45.0" prefWidth="152.0" text="Olib tashlash" />
+                                       </children>
+                                    </HBox>
+                                 </top>
+                              </BorderPane>
+                           </children></AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab styleClass="MainTabs" text="Savdo reyting">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <BorderPane layoutX="356.0" layoutY="105.0" prefHeight="649.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <center>
+                                    <PieChart fx:id="SavdoReytingPieChart" prefHeight="620.0" prefWidth="756.0" BorderPane.alignment="CENTER" />
+                                 </center>
+                                 <bottom>
+                                    <BorderPane prefHeight="46.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
+                                       <center>
+                                          <Button mnemonicParsing="false" onAction="#Update" prefHeight="57.0" prefWidth="216.0" text="Yangilash" BorderPane.alignment="CENTER" />
+                                       </center>
+                                    </BorderPane>
+                                 </bottom>
+                                 <left>
+                                    <TableView fx:id="SavdoRateTable1" prefHeight="620.0" prefWidth="329.0" BorderPane.alignment="CENTER" />
+                                 </left>
+                              </BorderPane>
+                           </children></AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab styleClass="MainTabs" text="Kunlik reyting">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <BorderPane layoutX="244.0" layoutY="73.0" prefHeight="649.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <bottom>
+                                    <BorderPane prefHeight="49.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
+                                       <center>
+                                          <Button mnemonicParsing="false" onAction="#UpdateBarChart" prefHeight="58.0" prefWidth="197.0" text="Yangilash" BorderPane.alignment="CENTER" />
+                                       </center>
+                                    </BorderPane>
+                                 </bottom>
+                                 <center>
+                                    <TableView fx:id="SavdoTable1" prefHeight="278.0" prefWidth="1080.0" BorderPane.alignment="CENTER" />
+                                 </center>
+                                 <top>
+                                    <AreaChart fx:id="KunlikAreaChart" prefHeight="336.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
+                                      <xAxis>
+                                        <CategoryAxis side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis side="LEFT" />
+                                      </yAxis>
+                                    </AreaChart>
+                                 </top>
+                              </BorderPane>
+                           </children></AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab styleClass="MainTabs" text="Tarix">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <BorderPane layoutX="459.0" layoutY="195.0" prefHeight="649.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <center>
+                                    <TableView fx:id="TarixTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                                 </center>
+                                 <top>
+                                    <HBox prefHeight="43.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="43.0" prefWidth="273.0" text="Tarixni saralash" />
+                                          <DatePicker fx:id="TarixDate1" prefHeight="53.0" prefWidth="218.0" />
+                                          <DatePicker fx:id="TarixDate2" prefHeight="52.0" prefWidth="218.0" />
+                                          <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="200.0" text="Saralash" />
+                                       </children>
+                                    </HBox>
+                                 </top>
+                              </BorderPane>
+                           </children></AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab styleClass="MainTabs" text="Sotuvchilar">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <BorderPane layoutX="340.0" layoutY="112.0" prefHeight="649.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <center>
+                                    <TableView fx:id="SotuvchiTable" prefHeight="300.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                       <opaqueInsets>
+                                          <Insets right="5.0" />
+                                       </opaqueInsets>
+                                       <BorderPane.margin>
+                                          <Insets right="5.0" />
+                                       </BorderPane.margin>
+                                    </TableView>
+                                 </center>
+                                 <left>
+                                    <GridPane prefHeight="649.0" prefWidth="234.0" BorderPane.alignment="CENTER">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints maxHeight="190.0" minHeight="10.0" prefHeight="172.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="432.0" minHeight="10.0" prefHeight="308.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="241.0" minHeight="0.0" prefHeight="151.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <ImageView fx:id="ImageSotuvchi" fitHeight="180.0" fitWidth="236.0" pickOnBounds="true" preserveRatio="true">
+                                              <image>
+                                                  <Image url="@../style/Images/user2.png" />
+                                              </image>
+                                          </ImageView>
+                                          <GridPane GridPane.rowIndex="1">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="112.0" minWidth="10.0" prefWidth="88.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="168.0" minWidth="10.0" prefWidth="146.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label alignment="CENTER" prefWidth="200.0" text="Maosh" GridPane.rowIndex="3" />
+                                                <Label alignment="CENTER" prefWidth="200.0" text="Tug'ulgan yil" GridPane.rowIndex="4" />
+                                                <Label alignment="CENTER" prefWidth="200.0" text="Lavozim" GridPane.rowIndex="5" />
+                                                <Label alignment="CENTER" prefWidth="200.0" text="Parol" GridPane.rowIndex="6" />
+                                                <Label alignment="CENTER" prefWidth="200.0" text="Email" GridPane.rowIndex="7" />
+                                                <TextField fx:id="jobTieleS" prefHeight="38.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                   <opaqueInsets>
+                                                      <Insets right="5.0" />
+                                                   </opaqueInsets>
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <TextField fx:id="passwordS" prefHeight="38.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                                   <opaqueInsets>
+                                                      <Insets right="5.0" />
+                                                   </opaqueInsets>
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <TextField fx:id="emailS" prefHeight="38.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                                   <opaqueInsets>
+                                                      <Insets right="5.0" />
+                                                   </opaqueInsets>
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <TextField fx:id="firstNameSo" prefHeight="38.0" GridPane.columnIndex="1">
+                                                   <opaqueInsets>
+                                                      <Insets right="5.0" />
+                                                   </opaqueInsets>
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <TextField fx:id="telephoneS" prefHeight="38.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                   <opaqueInsets>
+                                                      <Insets right="5.0" />
+                                                   </opaqueInsets>
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <TextField fx:id="salaryS" prefHeight="38.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                   <opaqueInsets>
+                                                      <Insets right="5.0" />
+                                                   </opaqueInsets>
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <TextField fx:id="lastNameS" prefHeight="38.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                   <opaqueInsets>
+                                                      <Insets right="5.0" />
+                                                   </opaqueInsets>
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <Label alignment="CENTER" prefWidth="200.0" text="Ism" />
+                                                <Label alignment="CENTER" prefWidth="200.0" text="Familiya" GridPane.rowIndex="1" />
+                                                <Label alignment="CENTER" prefWidth="200.0" text="Telefon" GridPane.rowIndex="2" />
+                                                <DatePicker fx:id="birthDateS" prefHeight="38.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </GridPane.margin></DatePicker>
+                                             </children>
+                                          </GridPane>
+                                          <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
+                                             <children>
+                                                <Button mnemonicParsing="false" onAction="#ADDSeller" prefHeight="300.0" prefWidth="255.0" text="Sotuvchi qo'shish">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="6.0" />
+                                                   </VBox.margin></Button>
+                                                <Button mnemonicParsing="false" onAction="#UpdateSeller" prefHeight="300.0" prefWidth="332.0" style="-fx-background-color: blue;" text="O'zgartirish">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="6.0" />
+                                                   </VBox.margin></Button>
+                                                <Button mnemonicParsing="false" onAction="#deleteSeller" prefHeight="300.0" prefWidth="254.0" style="-fx-background-color: red;" text="O'chirish">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="6.0" />
+                                                   </VBox.margin></Button>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </GridPane>
+                                 </left>
+                              </BorderPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab styleClass="MainTabs" text="Ombor hisobi">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <BorderPane layoutX="340.0" layoutY="112.0" prefHeight="649.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <center>
+                                    <TableView fx:id="OmborHisobiTable" prefHeight="666.0" prefWidth="906.0" BorderPane.alignment="CENTER">
+                                       <opaqueInsets>
+                                          <Insets right="5.0" />
+                                       </opaqueInsets>
+                                       <BorderPane.margin>
+                                          <Insets right="5.0" />
+                                       </BorderPane.margin>
+                                    </TableView>
+                                 </center>
+                                 <right>
+                                    <GridPane prefHeight="666.0" prefWidth="321.0" BorderPane.alignment="CENTER">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <GridPane style="-fx-background-color: yellow;" GridPane.rowIndex="2">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label fx:id="OUmumiySumma" alignment="CENTER" prefHeight="104.0" prefWidth="367.0" style="-fx-background-color: #eaeaee;" text="Umumiy summa">
+                                                   <font>
+                                                      <Font name="System Bold" size="24.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label alignment="CENTER" prefHeight="90.0" prefWidth="385.0" style="-fx-background-color: #29a329;" text="Ombordagi umumiy summa" textFill="WHITE" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="OmborChegirmaLabel" alignment="CENTER" prefHeight="114.0" prefWidth="382.0" style="-fx-background-color: #eaeaee;" text="Umumiy chegirma summa" textAlignment="CENTER" GridPane.rowIndex="2">
+                                                   <font>
+                                                      <Font name="System Bold" size="24.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label alignment="CENTER" prefHeight="113.0" prefWidth="380.0" style="-fx-background-color: #29a329;" text="Umumiy chegirma summa" textFill="WHITE" GridPane.rowIndex="3">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </GridPane>
+                                          <GridPane>
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Button mnemonicParsing="false" onAction="#dbToExcell" prefHeight="102.0" prefWidth="228.0" text="Excelga ko'chirish">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" right="5.0" top="10.0" />
+                                                   </GridPane.margin>
+                                                </Button>
+                                                <Button mnemonicParsing="false" onAction="#Update" prefHeight="102.0" prefWidth="228.0" text="Yangilash" GridPane.columnIndex="1">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" right="10.0" top="10.0" />
+                                                   </GridPane.margin>
+                                                </Button>
+                                                <Button mnemonicParsing="false" onAction="#SetExcelFolder" prefHeight="120.0" prefWidth="228.0" text="Excel fayl joyi" GridPane.rowIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" right="5.0" top="10.0" />
+                                                   </GridPane.margin>
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Button>
+                                                <Button mnemonicParsing="false" onAction="#PrinterAddAction" prefHeight="120.0" prefWidth="228.0" text="Printer qo'shish" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" right="10.0" top="10.0" />
+                                                   </GridPane.margin>
+                                                </Button>
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </GridPane>
+                                 </right>
+                              </BorderPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab styleClass="MainTabs" text="Muhim o'zgartmalar">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <BorderPane layoutX="340.0" layoutY="112.0" prefHeight="649.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <center>
+                                    <TableView fx:id="MuhimChangeTable" prefHeight="300.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                       <opaqueInsets>
+                                          <Insets right="5.0" />
+                                       </opaqueInsets>
+                                       <BorderPane.margin>
+                                          <Insets right="5.0" />
+                                       </BorderPane.margin>
+                                    </TableView>
+                                 </center>
+                              </BorderPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
