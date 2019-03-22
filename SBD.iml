@@ -87,5 +87,7 @@
     <orderEntry type="library" name="mysql-connector-java-8.0.15" level="project" />
     <orderEntry type="library" name="commons-collections4-4.0" level="project" />
     <orderEntry type="library" name="commons-collections4-4.1" level="project" />
+    <orderEntry type="library" name="jfoenix-9.0.8" level="project" />
+    <orderEntry type="library" name="charm-glisten-4.4.1-javadoc" level="project" />
   </component>
 </module>

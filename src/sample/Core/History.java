@@ -26,6 +26,10 @@ public class History {
         this.totalCost = totalCost;
     }
 
+    public History(int tarix_id, String item_name, String item_type, int item_quantity, String paid_date, float total_cost) {
+
+
+    }
 
     public int getUserId() {
         return userId;
@@ -60,8 +64,8 @@ public class History {
         this.itemType = itemType;
     }
 
-    public int getItemQuantity() {
-        return itemQuantity;
+    public Double getItemQuantity() {
+        return Double.valueOf(itemQuantity);
     }
 
     public void setItemQuantity(int itemQuantity) {
@@ -84,7 +88,7 @@ public class History {
         this.paidDate = paidDate;
     }
 
-    public float getTotalCost() {
+    public double getTotalCost() {
         return totalCost;
     }
 

@@ -35,14 +35,14 @@
           <RowConstraints maxHeight="129.0" minHeight="10.0" prefHeight="115.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" onAction="#BtnUpdateAction" prefHeight="100.0" prefWidth="200.0" text="Yangilash" GridPane.rowIndex="1">
+            <Button id="Main-update" mnemonicParsing="false" onAction="#BtnUpdateAction" prefHeight="100.0" prefWidth="200.0" styleClass="calendar" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="5.0" right="5.0" />
                </GridPane.margin>
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>
-            <Button fx:id="cancelShop" mnemonicParsing="false" onAction="#cancelShop" prefHeight="100.0" prefWidth="200.0" text="Bekor Qilish" GridPane.rowIndex="2">
+            <Button id="Main-cancel" fx:id="cancelShop" mnemonicParsing="false" onAction="#cancelShop" prefHeight="100.0" prefWidth="200.0" styleClass="calendar" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="5.0" right="5.0" />
                </GridPane.margin>
@@ -52,7 +52,7 @@
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#actionSell" prefHeight="100.0" prefWidth="200.0" text="Sotish" GridPane.rowIndex="3">
+            <Button id="Main-sell" mnemonicParsing="false" onAction="#actionSell" prefHeight="100.0" prefWidth="200.0" styleClass="calendar" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="5.0" right="5.0" />
                </GridPane.margin>
@@ -102,7 +102,7 @@
                      </font></Label>
                </children>
                <GridPane.margin>
-                  <Insets right="4.0" top="5.0" />
+                  <Insets left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
             </VBox>
          </children>
@@ -145,9 +145,9 @@
                             <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Button fx:id="btnSampleIzlash" maxWidth="-Infinity" mnemonicParsing="false" onAction="#btnActionIzlash" prefHeight="41.0" prefWidth="179.0" style="-fx-background-color: #009966;" text="Izlash" GridPane.columnIndex="1">
+                              <Button fx:id="btnSampleIzlash" maxWidth="-Infinity" mnemonicParsing="false" onAction="#btnActionIzlash" prefHeight="41.0" prefWidth="179.0" style="-fx-background-color: #009966;" styleClass="calendar" text="Izlash" GridPane.columnIndex="1">
                                  <GridPane.margin>
-                                    <Insets bottom="4.0" right="8.0" top="4.0" />
+                                    <Insets bottom="5.0" right="8.0" top="4.0" />
                                  </GridPane.margin>
                                  <font>
                                     <Font name="System Bold" size="12.0" />
@@ -171,9 +171,9 @@
                                  <GridPane.margin>
                                     <Insets bottom="4.0" left="4.0" top="4.0" />
                                  </GridPane.margin></TextField>
-                              <Button defaultButton="true" mnemonicParsing="false" onAction="#onCodeScanClicked" prefHeight="41.0" prefWidth="477.0" style="-fx-background-color: #009966;" text="Ok" GridPane.columnIndex="1">
+                              <Button defaultButton="true" mnemonicParsing="false" onAction="#onCodeScanClicked" prefHeight="41.0" prefWidth="477.0" style="-fx-background-color: #009966;" styleClass="calendar" text="Ok" GridPane.columnIndex="1">
                                  <GridPane.margin>
-                                    <Insets bottom="4.0" right="8.0" top="4.0" />
+                                    <Insets bottom="5.0" right="8.0" top="4.0" />
                                  </GridPane.margin>
                                  <font>
                                     <Font name="System Bold" size="12.0" />
@@ -225,7 +225,7 @@
                                              <HBox.margin>
                                                 <Insets left="10.0" />
                                              </HBox.margin></CheckBox>
-                                          <Button fx:id="btnDiscount" contentDisplay="CENTER" defaultButton="true" disable="true" mnemonicParsing="false" onAction="#onBtnDiscountClicked" prefWidth="200.0" text="Chegirma" textOverrun="CLIP" HBox.hgrow="ALWAYS">
+                                          <Button fx:id="btnDiscount" contentDisplay="CENTER" disable="true" mnemonicParsing="false" onAction="#onBtnDiscountClicked" prefWidth="200.0" text="Chegirma" textOverrun="CLIP" HBox.hgrow="ALWAYS">
                                              <cursor>
                                                 <Cursor fx:constant="DEFAULT" />
                                              </cursor></Button>

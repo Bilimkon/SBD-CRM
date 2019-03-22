@@ -56,4 +56,28 @@
 }
 .App_profile{
     -fx-background-color:  #009966;
+    -fx-border-width: 2;
+    -fx-border-color: #009966;
+}
+.calendar{
+    -fx-border-width: 1;
+    -fx-border-color: #009966;
+}
+.button:hover{
+    -fx-background-color:  #20E27B;
+}
+#Main-update{
+    -fx-graphic: url("../../style/Images/update1.png");
+}
+#Main-cancel{
+    -fx-graphic: url("../../style/Images/cancel1.png");
+}
+#Main-sell{
+    -fx-graphic: url("../../style/Images/sell1.png");
+}
+.table-view .table-cell{
+
+    -fx-font-size:15px;
+
+
 }

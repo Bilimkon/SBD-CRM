@@ -32,6 +32,7 @@ public class LoginController {
         Parent root = null;
 
 
+
         Stage stage = new Stage();
 
         if (isUserExists(ismText, passText)) {

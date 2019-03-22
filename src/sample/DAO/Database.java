@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class Database {
 
-    static   Connection myConn;
+    static Connection myConn;
 
 
     public static Connection getConnection() throws ClassNotFoundException, SQLException {

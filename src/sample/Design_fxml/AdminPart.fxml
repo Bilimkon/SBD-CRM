@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.AreaChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -30,33 +32,22 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" stylesheets="@../style/css/AdminPage.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AdminPart">
+<AnchorPane minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: white;" stylesheets="@../style/css/AdminPage.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AdminPart">
    <children>
       <BorderPane layoutX="363.0" layoutY="129.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <top>
-            <MenuBar BorderPane.alignment="CENTER">
-              <menus>
-                <Menu mnemonicParsing="false" onAction="#ActionChiqish" text="Chiqish">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Kirish oynasi" />
-                  </items>
-                </Menu>
-              </menus>
-            </MenuBar>
-         </top>
          <center>
-            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+            <JFXTabPane prefHeight="200.0" prefWidth="200.0" side="LEFT" style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
               <tabs>
-                  <Tab id="apple" styleClass="MainTabs" text="Xisob-kitob">
+                  <Tab id="Main-tab1" styleClass="MainTabs">
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="800" prefWidth="600">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="800" prefWidth="600" style="-fx-background-color: white;">
                            <children>
                               <BorderPane layoutX="547.0" layoutY="116.0" prefHeight="649.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <left>
-                                    <TableView fx:id="Xtable" prefHeight="543.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+                                    <TableView fx:id="Xtable" prefHeight="601.0" prefWidth="696.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER" />
                                  </left>
                                  <center>
-                                    <BorderPane BorderPane.alignment="CENTER">
+                                    <BorderPane prefHeight="648.0" prefWidth="358.0" BorderPane.alignment="CENTER">
                                        <bottom>
                                           <GridPane prefHeight="162.0" prefWidth="501.0" BorderPane.alignment="CENTER">
                                             <columnConstraints>
@@ -82,17 +73,17 @@
                                                    <font>
                                                       <Font name="System Bold" size="14.0" />
                                                    </font></Label>
-                                                <Label alignment="TOP_CENTER" prefHeight="50.0" prefWidth="650.0" style="-fx-background-color: #29a329;" text="Umumiy Summa" textFill="#ecfc5e" GridPane.rowIndex="1">
+                                                <Label alignment="TOP_CENTER" prefHeight="50.0" prefWidth="650.0" styleClass="label1" text="Umumiy Summa" textFill="WHITE" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="System Bold" size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <Label alignment="TOP_CENTER" prefHeight="50.0" prefWidth="650.0" style="-fx-background-color: #29a329;" text="Umumiy qarz summa" textFill="#f0f0f0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Label alignment="TOP_CENTER" prefHeight="50.0" prefWidth="650.0" styleClass="label1" text="Umumiy qarz summa" textFill="#f0f0f0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="System Bold" size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <Label alignment="TOP_CENTER" prefHeight="50.0" prefWidth="650.0" style="-fx-background-color: #29a329;" text="Umumiy karta summa" textFill="#f0f0f0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Label alignment="TOP_CENTER" prefHeight="50.0" prefWidth="650.0" styleClass="label1" text="Umumiy karta summa" textFill="#f0f0f0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="System Bold" size="14.0" />
                                                    </font>
@@ -102,7 +93,7 @@
                                                       <Font name="System Bold" size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <Label alignment="TOP_CENTER" prefHeight="50.0" prefWidth="650.0" style="-fx-background-color: #29a329;" text="Umumiy naqd summa" textFill="WHITE" GridPane.rowIndex="3">
+                                                <Label alignment="TOP_CENTER" prefHeight="50.0" prefWidth="650.0" styleClass="label1" text="Umumiy naqd summa" textFill="WHITE" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="System Bold" size="14.0" />
                                                    </font>
@@ -117,128 +108,113 @@
                                           <Pane BorderPane.alignment="CENTER" />
                                        </left>
                                        <center>
-                                          <AreaChart fx:id="XLineChart" BorderPane.alignment="CENTER">
+                                          <AreaChart fx:id="XLineChart" prefHeight="480.0" prefWidth="358.0" BorderPane.alignment="CENTER">
                                             <xAxis>
                                               <CategoryAxis side="BOTTOM" />
                                             </xAxis>
                                             <yAxis>
                                               <NumberAxis prefHeight="343.0" prefWidth="27.0" side="LEFT" />
                                             </yAxis>
+                                             <padding>
+                                                <Insets left="20.0" />
+                                             </padding>
                                           </AreaChart>
                                        </center></BorderPane>
                                  </center>
                                  <top>
-                                    <BorderPane prefHeight="108.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
-                                       <center>
-                                          <GridPane prefHeight="0.0" prefWidth="1080.0" style="-fx-background-color: #eaeaee;" BorderPane.alignment="CENTER">
+                                    <BorderPane prefHeight="50.0" prefWidth="877.0" BorderPane.alignment="CENTER">
+                                       <top>
+                                          <GridPane maxHeight="-Infinity" prefHeight="30.0" prefWidth="877.0" style="-fx-background-color: #eaeaee;" BorderPane.alignment="CENTER">
                                             <columnConstraints>
-                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="80.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="80.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                             </columnConstraints>
                                             <rowConstraints>
-                                              <RowConstraints maxHeight="0.0" minHeight="40.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                                              <RowConstraints maxHeight="0.0" minHeight="40.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                                                <RowConstraints maxHeight="0.0" minHeight="40.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                              <RowConstraints maxHeight="0.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                              <children>
-                                                <DatePicker fx:id="XDateValue1" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: green;">
+                                                <JFXDatePicker fx:id="XDateValue1" defaultColor="#1ab394" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="129.0" styleClass="calendar1">
                                                    <opaqueInsets>
                                                       <Insets />
                                                    </opaqueInsets>
                                                    <GridPane.margin>
                                                       <Insets bottom="5.0" left="8.0" top="5.0" />
                                                    </GridPane.margin>
-                                                </DatePicker>
-                                                <DatePicker fx:id="XDateValue2" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="1">
+                                                </JFXDatePicker>
+                                                <JFXDatePicker fx:id="XDateValue2" defaultColor="#1ab394" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="129.0" styleClass="calendar1" GridPane.columnIndex="1">
                                                    <GridPane.margin>
                                                       <Insets bottom="5.0" left="8.0" top="5.0" />
                                                    </GridPane.margin>
-                                                </DatePicker>
-                                                <ComboBox fx:id="Xcombo1" nodeOrientation="LEFT_TO_RIGHT" prefHeight="51.0" prefWidth="200.0" promptText="Sotuvchilar" GridPane.rowIndex="1">
+                                                </JFXDatePicker>
+                                                <JFXComboBox fx:id="Xcombo1" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="200.0" promptText="Sotuvchilar" styleClass="calendar1" unFocusColor="WHITE" GridPane.columnIndex="5">
                                                    <GridPane.margin>
                                                       <Insets bottom="5.0" left="8.0" top="5.0" />
                                                    </GridPane.margin>
-                                                </ComboBox>
-                                                <Button fx:id="XbuttonSaralash" alignment="CENTER" mnemonicParsing="false" onAction="#XisoblarSaralashBtn" prefHeight="52.0" prefWidth="200.0" style="-fx-background-color: blue;" text="Saralash" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                                   <padding>
+                                                      <Insets left="10.0" />
+                                                   </padding>
+                                                </JFXComboBox>
+                                                <JFXButton fx:id="XbuttonSaralash" alignment="CENTER" mnemonicParsing="false" onAction="#XisoblarSaralashBtn" prefHeight="50.0" prefWidth="138.0" styleClass="calendar" text="Saralash" GridPane.columnIndex="4">
                                                    <GridPane.margin>
                                                       <Insets bottom="5.0" left="8.0" top="5.0" />
                                                    </GridPane.margin>
-                                                </Button>
-                                                <CheckBox fx:id="Xcheckbox1" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Karta" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                </JFXButton>
+                                                <JFXCheckBox fx:id="Xcheckbox1" contentDisplay="RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="70.0" text="Karta" GridPane.columnIndex="2">
                                                    <GridPane.margin>
-                                                      <Insets left="8.0" top="5.0" />
+                                                      <Insets left="45.0" />
                                                    </GridPane.margin>
-                                                </CheckBox>
-                                                <Button mnemonicParsing="false" onAction="#clearTables" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: red;" text="O'chirish(hammasini)" GridPane.columnIndex="3">
+                                                </JFXCheckBox>
+                                                <JFXButton mnemonicParsing="false" onAction="#XisoblarToExcel" prefHeight="50.0" prefWidth="200.0" styleClass="calendar" text="Excell fayl yaratish" GridPane.columnIndex="6">
                                                    <GridPane.margin>
-                                                      <Insets bottom="5.0" left="8.0" top="5.0" />
+                                                      <Insets bottom="5.0" left="8.0" right="5.0" top="5.0" />
                                                    </GridPane.margin>
-                                                </Button>
-                                                <Button mnemonicParsing="false" onAction="#XisoblarToExcel" prefHeight="100.0" prefWidth="200.0" text="Excell fayl yaratish" GridPane.columnIndex="2">
+                                                </JFXButton>
+                                                <JFXCheckBox fx:id="CheckQarzbox" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="70.0" text="Qarz" textAlignment="CENTER" GridPane.columnIndex="3">
                                                    <GridPane.margin>
-                                                      <Insets bottom="5.0" left="8.0" top="5.0" />
-                                                   </GridPane.margin></Button>
-                                                <CheckBox fx:id="CheckQarzbox" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" text="Qarz" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                                                   <GridPane.margin>
-                                                      <Insets bottom="5.0" left="8.0" top="5.0" />
-                                                   </GridPane.margin></CheckBox>
-                                                <ChoiceBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
-                                                   <GridPane.margin>
-                                                      <Insets bottom="5.0" left="8.0" top="5.0" />
-                                                   </GridPane.margin></ChoiceBox>
-                                                <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                                                   <GridPane.margin>
-                                                      <Insets bottom="5.0" left="8.0" top="5.0" />
+                                                      <Insets left="8.0" />
                                                    </GridPane.margin>
-                                                </Button>
+                                                </JFXCheckBox>
                                              </children>
+                                             <BorderPane.margin>
+                                                <Insets />
+                                             </BorderPane.margin>
                                           </GridPane>
-                                       </center>
+                                       </top>
                                     </BorderPane>
                                  </top>
                               </BorderPane>
                            </children></AnchorPane>
                      </content>
                   </Tab>
-                <Tab styleClass="MainTabs" text="Ombor">
+                <Tab id="Main-tab2" styleClass="MainTabs">
                      <content>
                         <BorderPane prefHeight="200.0" prefWidth="200.0">
                            <center>
-                              <TableView fx:id="AdminTable" prefHeight="50.0" prefWidth="510.0" BorderPane.alignment="CENTER">
+                              <TableView fx:id="AdminTable" prefHeight="618.0" prefWidth="760.0" BorderPane.alignment="CENTER">
                                  <BorderPane.margin>
-                                    <Insets top="7.0" />
+                                    <Insets />
                                  </BorderPane.margin>
                               </TableView>
                            </center>
-                           <left>
-                              <GridPane prefHeight="600.0" prefWidth="268.0" BorderPane.alignment="CENTER">
+                           <right>
+                              <GridPane prefHeight="611.0" prefWidth="275.0" BorderPane.alignment="CENTER">
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                 </columnConstraints>
                                 <rowConstraints>
-                                  <RowConstraints maxHeight="218.0" minHeight="0.0" prefHeight="37.0" vgrow="SOMETIMES" />
-                                  <RowConstraints maxHeight="900.0" minHeight="10.0" prefHeight="496.0" vgrow="SOMETIMES" />
-                                  <RowConstraints minHeight="10.0" prefHeight="128.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="900.0" minHeight="10.0" prefHeight="374.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="244.0" minHeight="10.0" prefHeight="237.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <HBox prefHeight="35.0" prefWidth="268.0">
-                                       <children>
-                                          <TextField fx:id="AdminTextSearch" maxHeight="-Infinity" maxWidth="-Infinity" onKeyPressed="#btnIzlashAction" prefHeight="120.0" prefWidth="162.0">
-                                             <HBox.margin>
-                                                <Insets left="10.0" top="7.0" />
-                                             </HBox.margin></TextField>
-                                          <Button fx:id="AdminBtnSearch" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#btnIzlashAction" prefHeight="120.0" prefWidth="100.0" text="Izlash">
-                                             <HBox.margin>
-                                                <Insets bottom="1.0" right="5.0" top="6.0" />
-                                             </HBox.margin></Button>
-                                       </children>
-                                    </HBox>
-                                    <GridPane prefHeight="784.0" prefWidth="268.0" GridPane.rowIndex="1">
+                                    <GridPane prefHeight="428.0" prefWidth="275.0">
                                       <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="89.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="186.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="132.0" minWidth="10.0" prefWidth="90.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="202.0" minWidth="10.0" prefWidth="185.0" />
                                       </columnConstraints>
                                       <rowConstraints>
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -252,182 +228,146 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
-                                          <Label alignment="CENTER" prefHeight="106.0" prefWidth="75.0" styleClass="AsosiyLabels" text="Barcode" textFill="#f5f3f3">
+                                          <TextField id="text-red" fx:id="AdminTextBarcode" prefHeight="40.0" prefWidth="200.0" promptText="Barcode" styleClass="labelTextField" GridPane.columnIndex="1">
                                              <GridPane.margin>
-                                                <Insets left="10.0" top="3.0" />
-                                             </GridPane.margin>
-                                             <font>
-                                                <Font name="System Bold" size="15.0" />
-                                             </font></Label>
-                                          <Label alignment="CENTER" prefHeight="196.0" prefWidth="75.0" styleClass="AsosiyLabels" text="Nomi" textFill="#f5f3f3" GridPane.rowIndex="1">
-                                             <GridPane.margin>
-                                                <Insets left="10.0" />
-                                             </GridPane.margin>
-                                             <font>
-                                                <Font name="System Bold" size="15.0" />
-                                             </font></Label>
-                                          <Label alignment="CENTER" prefHeight="229.0" prefWidth="75.0" styleClass="AsosiyLabels" text="Turi" textFill="#f5f3f3" GridPane.rowIndex="2">
-                                             <GridPane.margin>
-                                                <Insets left="10.0" />
-                                             </GridPane.margin>
-                                             <font>
-                                                <Font name="System Bold" size="15.0" />
-                                             </font></Label>
-                                          <Label alignment="CENTER" prefHeight="209.0" prefWidth="75.0" styleClass="AsosiyLabels" text="Miqdori" textFill="#f5f3f3" GridPane.rowIndex="3">
-                                             <GridPane.margin>
-                                                <Insets left="10.0" />
-                                             </GridPane.margin>
-                                             <font>
-                                                <Font name="System Bold" size="15.0" />
-                                             </font></Label>
-                                          <Label alignment="CENTER" prefHeight="233.0" prefWidth="75.0" styleClass="AsosiyLabels" text="Narxi" textFill="#f5f3f3" GridPane.rowIndex="4">
-                                             <GridPane.margin>
-                                                <Insets left="10.0" />
-                                             </GridPane.margin>
-                                             <font>
-                                                <Font name="System Bold" size="15.0" />
-                                             </font></Label>
-                                          <Label alignment="CENTER" prefHeight="228.0" prefWidth="75.0" styleClass="AsosiyLabels" text="Sale price" textFill="#f5f3f3" GridPane.rowIndex="5">
-                                             <GridPane.margin>
-                                                <Insets left="10.0" />
-                                             </GridPane.margin>
-                                             <font>
-                                                <Font name="System Bold" size="15.0" />
-                                             </font></Label>
-                                          <Label alignment="CENTER" prefHeight="208.0" prefWidth="75.0" styleClass="AsosiyLabels" text="...dan" textFill="#f5f3f3" GridPane.rowIndex="6">
-                                             <GridPane.margin>
-                                                <Insets left="10.0" />
-                                             </GridPane.margin>
-                                             <font>
-                                                <Font name="System Bold" size="15.0" />
-                                             </font></Label>
-                                          <Label alignment="CENTER" prefHeight="184.0" prefWidth="75.0" styleClass="AsosiyLabels" text="...gacha" textFill="#f5f3f3" GridPane.rowIndex="7">
-                                             <GridPane.margin>
-                                                <Insets left="10.0" />
-                                             </GridPane.margin>
-                                             <font>
-                                                <Font name="System Bold" size="15.0" />
-                                             </font></Label>
-                                          <Label alignment="CENTER" prefHeight="314.0" prefWidth="75.0" styleClass="AsosiyLabels" text="Turlari" textFill="#f5f3f3" GridPane.rowIndex="8">
-                                             <GridPane.margin>
-                                                <Insets bottom="4.0" left="10.0" />
-                                             </GridPane.margin>
-                                             <font>
-                                                <Font name="System Bold" size="15.0" />
-                                             </font></Label>
-                                          <TextField fx:id="AdminTextBarcode" prefHeight="50.0" prefWidth="200.0" promptText="11111111111" GridPane.columnIndex="1">
-                                             <GridPane.margin>
-                                                <Insets left="5.0" right="5.0" />
+                                                <Insets left="5.0" right="7.0" />
                                              </GridPane.margin></TextField>
-                                          <TextField fx:id="AdminTextNomi" prefHeight="50.0" prefWidth="200.0" promptText="Nomi" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <TextField id="text-red" fx:id="AdminTextNomi" prefHeight="40.0" prefWidth="200.0" promptText="Nomi" styleClass="labelTextField" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <GridPane.margin>
-                                                <Insets left="5.0" right="5.0" />
+                                                <Insets left="5.0" right="7.0" />
                                              </GridPane.margin></TextField>
-                                          <TextField fx:id="AdminTextMiqdori" prefHeight="50.0" prefWidth="200.0" promptText="12121" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                          <TextField id="text-red" fx:id="AdminTextMiqdori" maxHeight="-Infinity" prefHeight="40.0" prefWidth="200.0" promptText="Miqdori" styleClass="labelTextField" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                              <GridPane.margin>
-                                                <Insets left="5.0" right="5.0" />
+                                                <Insets left="5.0" right="7.0" />
                                              </GridPane.margin></TextField>
-                                          <TextField fx:id="AdminTextNarxi" prefHeight="50.0" prefWidth="200.0" promptText="Shart emas" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                          <TextField id="text-red" fx:id="AdminTextNarxi" prefHeight="40.0" prefWidth="200.0" promptText="Sotuv narxi  (shart emas)" styleClass="labelTextField" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                              <GridPane.margin>
-                                                <Insets left="5.0" right="5.0" />
+                                                <Insets left="5.0" right="7.0" />
                                              </GridPane.margin></TextField>
-                                          <TextField fx:id="AdminTextSale" prefHeight="50.0" prefWidth="200.0" promptText="Tannarx" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                          <TextField id="text-red" fx:id="AdminTextSale" prefHeight="40.0" prefWidth="200.0" promptText="Narxi" styleClass="labelTextField" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                              <GridPane.margin>
-                                                <Insets left="5.0" right="5.0" />
+                                                <Insets left="5.0" right="7.0" />
                                              </GridPane.margin></TextField>
-                                          <TextField fx:id="AdminTextTurlari" prefHeight="50.0" prefWidth="200.0" promptText="Maxsulot turlari" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                          <TextField id="text-red" fx:id="AdminTextId" editable="false" prefHeight="40.0" prefWidth="200.0" promptText="Id" styleClass="label1" GridPane.columnIndex="1" GridPane.rowIndex="8">
                                              <GridPane.margin>
-                                                <Insets left="5.0" right="5.0" />
+                                                <Insets right="5.0" top="9.0" />
                                              </GridPane.margin></TextField>
-                                          <DatePicker fx:id="AdminTextDan" prefHeight="50.0" prefWidth="200.0" promptText="Ishlab chiqarilgan sana" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                          <JFXDatePicker id="text-red" fx:id="AdminTextDan" defaultColor="#009966" prefHeight="40.0" prefWidth="200.0" promptText="Ishlab chiqarilgan sana" styleClass="calendar1" GridPane.columnIndex="1" GridPane.rowIndex="6">
                                              <GridPane.margin>
                                                 <Insets left="5.0" right="5.0" />
-                                             </GridPane.margin></DatePicker>
-                                          <DatePicker fx:id="AdminTextGacha" prefHeight="50.0" prefWidth="200.0" promptText="Oxirgi saqlash sanasi" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                             </GridPane.margin></JFXDatePicker>
+                                          <JFXDatePicker id="text-red" fx:id="AdminTextGacha" defaultColor="#009966" prefHeight="40.0" prefWidth="200.0" promptText="Oxirgi saqlash sanasi" styleClass="calendar1" GridPane.columnIndex="1" GridPane.rowIndex="7">
                                              <GridPane.margin>
                                                 <Insets left="5.0" right="5.0" />
-                                             </GridPane.margin></DatePicker>
-                                          <ComboBox fx:id="ComboTypeList" onAction="#AddTypeComboboxAction" prefHeight="50.0" prefWidth="200.0" promptText="Turlar" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             </GridPane.margin></JFXDatePicker>
+                                          <JFXComboBox id="text-red" fx:id="ComboTypeList" onAction="#AddTypeComboboxAction" onContextMenuRequested="#AddTypeComboboxAction" onMouseClicked="#AddTypeComboboxAction" prefHeight="40.0" prefWidth="200.0" promptText="Turlar" styleClass="calendar1" unFocusColor="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                              <GridPane.margin>
                                                 <Insets left="5.0" right="5.0" />
                                              </GridPane.margin>
-                                          </ComboBox>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                          </JFXComboBox>
+                                          <Label alignment="CENTER" prefHeight="76.0" prefWidth="90.0" styleClass="label1" text="Nomi" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" />
+                                             </GridPane.margin></Label>
+                                          <Label alignment="CENTER" prefHeight="112.0" prefWidth="198.0" styleClass="label1" text="Tur" GridPane.rowIndex="2">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" />
+                                             </GridPane.margin></Label>
+                                          <Label alignment="CENTER" prefHeight="176.0" prefWidth="197.0" styleClass="label1" text="Miqdori" GridPane.rowIndex="3">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" />
+                                             </GridPane.margin></Label>
+                                          <Label alignment="CENTER" prefHeight="147.0" prefWidth="227.0" styleClass="label1" text="Sotuv narxi" GridPane.rowIndex="4">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" />
+                                             </GridPane.margin></Label>
+                                          <Label alignment="CENTER" prefHeight="174.0" prefWidth="201.0" styleClass="label1" text="Tannarx" GridPane.rowIndex="5">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" />
+                                             </GridPane.margin></Label>
+                                          <Label alignment="CENTER" prefHeight="131.0" prefWidth="193.0" styleClass="label1" text="..dan" GridPane.rowIndex="6">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" />
+                                             </GridPane.margin></Label>
+                                          <Label alignment="CENTER" prefHeight="164.0" prefWidth="197.0" styleClass="label1" text="...gacha" GridPane.rowIndex="7">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" />
+                                             </GridPane.margin></Label>
+                                          <Label alignment="CENTER" prefHeight="191.0" prefWidth="200.0" styleClass="label1" text="Id" GridPane.rowIndex="8">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" />
+                                             </GridPane.margin></Label>
+                                          <Button mnemonicParsing="false" onAction="#GenerateBarcode" prefHeight="71.0" prefWidth="90.0" text="Barcode">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" />
+                                             </GridPane.margin>
+                                          </Button>
                                        </children>
                                     </GridPane>
-                                    <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
+                                    <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
                                        <children>
-                                          <Button maxHeight="100.0" mnemonicParsing="false" onAction="#maxsulotQoshish" prefHeight="50.0" prefWidth="300.0" text="Maxsulot qo'shish">
+                                          <JFXButton mnemonicParsing="false" onAction="#AddTypeAction" prefHeight="50.0" prefWidth="296.0" styleClass="calendar" text="Tur qo'shish">
                                              <VBox.margin>
-                                                <Insets bottom="2.0" left="9.0" right="5.0" top="2.0" />
-                                             </VBox.margin></Button>
-                                          <Button maxHeight="100.0" mnemonicParsing="false" onAction="#excelToDB" prefHeight="50.0" prefWidth="254.0" style="-fx-background-color: orange;" text="+">
-                                             <VBox.margin>
-                                                <Insets bottom="2.0" left="9.0" right="5.0" top="2.0" />
+                                                <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
                                              </VBox.margin>
-                                          </Button>
-                                          <Button maxHeight="100.0" mnemonicParsing="false" onAction="#btnOzgartirishAction" prefHeight="50.0" prefWidth="254.0" style="-fx-background-color: blue;" text="O'zgartirish">
+                                          </JFXButton>
+                                          <JFXButton mnemonicParsing="false" onAction="#TypeOperation" prefHeight="50.0" prefWidth="273.0" styleClass="calendar" text="\%">
+                                             <VBox.margin>
+                                                <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                                             </VBox.margin>
+                                          </JFXButton>
+                                          <JFXButton maxHeight="100.0" mnemonicParsing="false" onAction="#excelToDB" prefHeight="50.0" prefWidth="312.0" style="-fx-background-color: orange;" styleClass="calendar" text="Excell">
+                                             <VBox.margin>
+                                                <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                                             </VBox.margin>
+                                          </JFXButton>
+                                          <JFXButton maxHeight="100.0" mnemonicParsing="false" onAction="#maxsulotQoshish" prefHeight="50.0" prefWidth="313.0" styleClass="calendar" text="Maxsulot qo'shish">
+                                             <VBox.margin>
+                                                <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                                             </VBox.margin></JFXButton>
+                                          <JFXButton maxHeight="100.0" mnemonicParsing="false" onAction="#btnOzgartirishAction" prefHeight="50.0" prefWidth="323.0" styleClass="calendar" text="O'zgartirish">
                                              <padding>
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                              </padding>
                                              <VBox.margin>
-                                                <Insets bottom="2.0" left="9.0" right="5.0" top="2.0" />
-                                             </VBox.margin></Button>
-                                          <Button maxHeight="100.0" mnemonicParsing="false" onAction="#btnOchirishAction" prefHeight="50.0" prefWidth="254.0" style="-fx-background-color: red;" text="O'chirish">
+                                                <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                                             </VBox.margin></JFXButton>
+                                          <JFXButton maxHeight="100.0" mnemonicParsing="false" onAction="#btnOchirishAction" prefHeight="50.0" prefWidth="341.0" style="-fx-background-color: red;" styleClass="calendar" text="O'chirish">
                                              <VBox.margin>
-                                                <Insets bottom="2.0" left="9.0" right="5.0" top="2.0" />
-                                             </VBox.margin></Button>
+                                                <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                                             </VBox.margin></JFXButton>
                                        </children>
                                     </VBox>
                                  </children>
                               </GridPane>
-                           </left>
-                           <right>
-                              <BorderPane prefHeight="654.0" prefWidth="266.0" BorderPane.alignment="CENTER">
-                                 <BorderPane.margin>
-                                    <Insets top="7.0" />
-                                 </BorderPane.margin>
-                                 <top>
-                                    <GridPane prefHeight="59.0" prefWidth="266.0" BorderPane.alignment="CENTER">
-                                      <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                      </columnConstraints>
-                                      <rowConstraints>
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                      </rowConstraints>
-                                       <children>
-                                          <Button mnemonicParsing="false" onAction="#AddTypeAction" prefHeight="80.0" prefWidth="134.0" text="Tur qo'shish">
-                                             <GridPane.margin>
-                                                <Insets left="5.0" right="5.0" top="3.0" />
-                                             </GridPane.margin>
-                                          </Button>
-                                          <Button fx:id="AddTypeBtn" mnemonicParsing="false" prefHeight="85.0" prefWidth="133.0" text="Button" GridPane.columnIndex="1">
-                                             <GridPane.margin>
-                                                <Insets right="5.0" top="3.0" />
-                                             </GridPane.margin>
-                                          </Button>
-                                       </children>
-                                    </GridPane>
-                                 </top>
-                                 <center>
-                                    <GridPane BorderPane.alignment="CENTER">
-                                      <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                      </columnConstraints>
-                                      <rowConstraints>
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                      </rowConstraints>
-                                    </GridPane>
-                                 </center>
-                              </BorderPane>
                            </right>
+                           <top>
+                              <BorderPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="960.0" BorderPane.alignment="CENTER">
+                                 <center>
+                                    <TextField fx:id="AdminTextSearch" onKeyPressed="#btnIzlashAction" onMouseClicked="#btnIzlashAction" prefHeight="39.0" prefWidth="450.0" promptText="Izlang..." BorderPane.alignment="CENTER">
+                                       <BorderPane.margin>
+                                          <Insets left="5.0" />
+                                       </BorderPane.margin></TextField>
+                                 </center>
+                                 <right>
+                                    <JFXButton fx:id="AdminBtnSearch" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnIzlashAction" prefHeight="39.0" prefWidth="270.0" styleClass="calendar" text="Izlash" BorderPane.alignment="CENTER">
+                                       <font>
+                                          <Font name="System Bold" size="2.0" />
+                                       </font>
+                                       <BorderPane.margin>
+                                          <Insets />
+                                       </BorderPane.margin>
+                                    </JFXButton>
+                                 </right>
+                              </BorderPane>
+                           </top>
                         </BorderPane>
                      </content>
                 </Tab>
-                  <Tab styleClass="MainTabs" text="Qarzlar">
+                  <Tab id="Main-tab3" styleClass="MainTabs">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -436,14 +376,35 @@
                                     <TableView fx:id="QarzlarTable" prefHeight="655.0" prefWidth="1080.0" BorderPane.alignment="CENTER" />
                                  </center>
                                  <top>
-                                    <HBox prefHeight="45.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
+                                    <HBox prefHeight="45.0" prefWidth="1080.0" style="-fx-background-color: #eaeaee;" BorderPane.alignment="CENTER">
                                        <children>
-                                          <Label alignment="CENTER" prefHeight="45.0" prefWidth="222.0" text="Qarzlarning  saralash" />
-                                          <DatePicker fx:id="QarzDate1" prefHeight="60.0" prefWidth="200.0" />
-                                          <DatePicker fx:id="QarzDate2" prefHeight="59.0" prefWidth="200.0" />
-                                          <Button mnemonicParsing="false" onAction="#QarzSaralash" prefHeight="45.0" prefWidth="200.0" text="Saralash" />
-                                          <TextField fx:id="Qarzid" editable="false" prefHeight="58.0" prefWidth="140.0" />
-                                          <Button mnemonicParsing="false" onAction="#deleteQarzlar" prefHeight="45.0" prefWidth="152.0" text="Olib tashlash" />
+                                          <Label alignment="CENTER" prefHeight="45.0" prefWidth="222.0" styleClass="bottom-border" text="Qarzlarning  saralash" textFill="#5b5a5a">
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="3.0" />
+                                             </HBox.margin></Label>
+                                          <JFXDatePicker fx:id="QarzDate1" defaultColor="#009966" prefHeight="60.0" prefWidth="200.0" styleClass="calendar1">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin></JFXDatePicker>
+                                          <JFXDatePicker fx:id="QarzDate2" defaultColor="#009966" prefHeight="59.0" prefWidth="200.0" styleClass="calendar1">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin></JFXDatePicker>
+                                          <JFXButton mnemonicParsing="false" onAction="#QarzSaralash" prefHeight="45.0" prefWidth="200.0" styleClass="calendar" text="Saralash" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font></JFXButton>
+                                          <JFXTextField fx:id="Qarzid" editable="false" prefHeight="58.0" prefWidth="140.0" unFocusColor="WHITE" />
+                                          <JFXButton mnemonicParsing="false" onAction="#deleteQarzlar" prefHeight="45.0" prefWidth="200.0" styleClass="calendar" text="Olib tashlash" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin></JFXButton>
                                        </children>
                                     </HBox>
                                  </top>
@@ -451,29 +412,29 @@
                            </children></AnchorPane>
                      </content>
                   </Tab>
-                  <Tab styleClass="MainTabs" text="Savdo reyting">
+                  <Tab id="Main-tab4" styleClass="MainTabs">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <BorderPane layoutX="356.0" layoutY="105.0" prefHeight="649.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <center>
-                                    <PieChart fx:id="SavdoReytingPieChart" prefHeight="620.0" prefWidth="756.0" BorderPane.alignment="CENTER" />
+                                    <PieChart fx:id="SavdoReytingPieChart" prefHeight="620.0" prefWidth="756.0" style="-fx-background-color: #eaeaee;" BorderPane.alignment="CENTER" />
                                  </center>
                                  <bottom>
                                     <BorderPane prefHeight="46.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
                                        <center>
-                                          <Button mnemonicParsing="false" onAction="#Update" prefHeight="57.0" prefWidth="216.0" text="Yangilash" BorderPane.alignment="CENTER" />
+                                          <JFXButton mnemonicParsing="false" onAction="#Update" prefHeight="57.0" prefWidth="216.0" styleClass="calendar" text="Yangilash" BorderPane.alignment="CENTER" />
                                        </center>
                                     </BorderPane>
                                  </bottom>
                                  <left>
-                                    <TableView fx:id="SavdoRateTable1" prefHeight="620.0" prefWidth="329.0" BorderPane.alignment="CENTER" />
+                                    <TableView fx:id="SavdoRateTable1" prefHeight="605.0" prefWidth="404.0" BorderPane.alignment="CENTER" />
                                  </left>
                               </BorderPane>
                            </children></AnchorPane>
                      </content>
                   </Tab>
-                  <Tab styleClass="MainTabs" text="Kunlik reyting">
+                  <Tab id="Main-tab5" styleClass="MainTabs">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -481,7 +442,7 @@
                                  <bottom>
                                     <BorderPane prefHeight="49.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
                                        <center>
-                                          <Button mnemonicParsing="false" onAction="#UpdateBarChart" prefHeight="58.0" prefWidth="197.0" text="Yangilash" BorderPane.alignment="CENTER" />
+                                          <Button mnemonicParsing="false" onAction="#UpdateBarChart" prefHeight="58.0" prefWidth="197.0" styleClass="calendar" text="Yangilash" BorderPane.alignment="CENTER" />
                                        </center>
                                     </BorderPane>
                                  </bottom>
@@ -502,7 +463,7 @@
                            </children></AnchorPane>
                      </content>
                   </Tab>
-                  <Tab styleClass="MainTabs" text="Tarix">
+                  <Tab id="Main-tab6" styleClass="MainTabs">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -511,20 +472,146 @@
                                     <TableView fx:id="TarixTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
                                  </center>
                                  <top>
-                                    <HBox prefHeight="43.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
+                                    <HBox prefHeight="43.0" prefWidth="1080.0" style="-fx-background-color: #eaeaee;" BorderPane.alignment="CENTER">
                                        <children>
-                                          <Label alignment="CENTER" prefHeight="43.0" prefWidth="273.0" text="Tarixni saralash" />
-                                          <DatePicker fx:id="TarixDate1" prefHeight="53.0" prefWidth="218.0" />
-                                          <DatePicker fx:id="TarixDate2" prefHeight="52.0" prefWidth="218.0" />
-                                          <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="200.0" text="Saralash" />
+                                          <Label alignment="CENTER" prefHeight="43.0" prefWidth="266.0" text="Savdo tarix oynasi">
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXDatePicker fx:id="TarixDate1" defaultColor="#009966" prefHeight="53.0" prefWidth="218.0" styleClass="calendar1" />
+                                          <JFXDatePicker fx:id="TarixDate2" defaultColor="#009966" prefHeight="52.0" prefWidth="218.0" styleClass="calendar1" />
+                                          <JFXButton mnemonicParsing="false" onAction="#tarixtable" prefHeight="43.0" prefWidth="254.0" styleClass="calendar" text="Saralash">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin></JFXButton>
                                        </children>
                                     </HBox>
                                  </top>
+                                 <right>
+                                    <VBox prefHeight="164.0" prefWidth="321.0" style="-fx-background-color: #eaeaee;" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <GridPane prefHeight="346.0" prefWidth="267.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="126.0" minWidth="10.0" prefWidth="108.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="205.0" minWidth="10.0" prefWidth="149.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="103.0" prefWidth="179.0" styleClass="label1" text="Nomi" GridPane.rowIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" />
+                                                   </GridPane.margin>
+                                                </Label>
+                                                <Label alignment="CENTER" prefHeight="106.0" prefWidth="200.0" styleClass="label1" text="Turi" GridPane.rowIndex="2">
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" />
+                                                   </GridPane.margin>
+                                                </Label>
+                                                <Label alignment="CENTER" prefHeight="91.0" prefWidth="194.0" styleClass="label1" text="Miqdori" GridPane.rowIndex="3">
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" />
+                                                   </GridPane.margin>
+                                                </Label>
+                                                <Label alignment="CENTER" prefHeight="89.0" prefWidth="170.0" styleClass="label1" text="Sana" GridPane.rowIndex="4">
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" />
+                                                   </GridPane.margin>
+                                                </Label>
+                                                <Label alignment="CENTER" prefHeight="84.0" prefWidth="183.0" styleClass="label1" text="Summa" GridPane.rowIndex="5">
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" />
+                                                   </GridPane.margin>
+                                                </Label>
+                                                <Label alignment="CENTER" prefHeight="98.0" prefWidth="116.0" styleClass="label1" text="Tartib raqam">
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" />
+                                                   </GridPane.margin>
+                                                </Label>
+                                                <TextField fx:id="TarixId" editable="false" prefHeight="40.0" prefWidth="171.0" styleClass="labelTextField" GridPane.columnIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets right="5.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <TextField fx:id="TarixName" editable="false" prefHeight="40.0" prefWidth="187.0" styleClass="labelTextField" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets right="5.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <TextField fx:id="TarixType" editable="false" prefHeight="40.0" prefWidth="181.0" styleClass="labelTextField" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                   <GridPane.margin>
+                                                      <Insets right="5.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <TextField fx:id="TarixMiqdori" editable="false" prefHeight="40.0" prefWidth="198.0" styleClass="labelTextField" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                   <GridPane.margin>
+                                                      <Insets right="5.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <TextField fx:id="TarixSana" editable="false" prefHeight="40.0" prefWidth="173.0" styleClass="labelTextField" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                   <GridPane.margin>
+                                                      <Insets right="5.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <TextField fx:id="TarixSumma" editable="false" prefHeight="40.0" prefWidth="170.0" styleClass="labelTextField" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                   <GridPane.margin>
+                                                      <Insets right="5.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <Label alignment="CENTER" prefHeight="73.0" prefWidth="197.0" styleClass="label1" text="Maxsulot raqami" GridPane.rowIndex="6">
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" />
+                                                   </GridPane.margin>
+                                                </Label>
+                                                <TextField fx:id="TarixProductId" editable="false" prefHeight="40.0" prefWidth="170.0" styleClass="labelTextField" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                                   <GridPane.margin>
+                                                      <Insets right="5.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                             </children>
+                                          </GridPane>
+                                          <GridPane prefHeight="282.0" prefWidth="267.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <JFXButton prefHeight="202.0" prefWidth="228.0" styleClass="calendar" text="Excelga ko'chirish">
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" right="5.0" top="10.0" />
+                                                   </GridPane.margin>
+                                                </JFXButton>
+                                                <JFXButton onAction="#BtnRevertAction" prefHeight="202.0" prefWidth="228.0" styleClass="calendar" text="Savdoni qaytarish" GridPane.columnIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets left="5.0" right="5.0" top="10.0" />
+                                                   </GridPane.margin>
+                                                </JFXButton>
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </VBox>
+                                 </right>
                               </BorderPane>
                            </children></AnchorPane>
                      </content>
                   </Tab>
-                  <Tab styleClass="MainTabs" text="Sotuvchilar">
+                  <Tab id="Main-tab7" styleClass="MainTabs">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -540,7 +627,7 @@
                                     </TableView>
                                  </center>
                                  <left>
-                                    <GridPane prefHeight="649.0" prefWidth="234.0" BorderPane.alignment="CENTER">
+                                    <GridPane prefHeight="649.0" prefWidth="234.0" style="-fx-background-color: #eaeaee;" BorderPane.alignment="CENTER">
                                       <columnConstraints>
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                       </columnConstraints>
@@ -571,90 +658,114 @@
                                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                              <children>
-                                                <Label alignment="CENTER" prefWidth="200.0" text="Maosh" GridPane.rowIndex="3" />
-                                                <Label alignment="CENTER" prefWidth="200.0" text="Tug'ulgan yil" GridPane.rowIndex="4" />
-                                                <Label alignment="CENTER" prefWidth="200.0" text="Lavozim" GridPane.rowIndex="5" />
-                                                <Label alignment="CENTER" prefWidth="200.0" text="Parol" GridPane.rowIndex="6" />
-                                                <Label alignment="CENTER" prefWidth="200.0" text="Email" GridPane.rowIndex="7" />
-                                                <TextField fx:id="jobTieleS" prefHeight="38.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Label alignment="CENTER" prefWidth="200.0" text="Maosh" GridPane.rowIndex="3">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font></Label>
+                                                <Label alignment="CENTER" prefWidth="200.0" text="Tug'ulgan yil" GridPane.rowIndex="4">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font></Label>
+                                                <Label alignment="CENTER" prefWidth="200.0" text="Lavozim" GridPane.rowIndex="5">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font></Label>
+                                                <Label alignment="CENTER" prefWidth="200.0" text="Parol" GridPane.rowIndex="6">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font></Label>
+                                                <Label alignment="CENTER" prefWidth="200.0" text="Email" GridPane.rowIndex="7">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font></Label>
+                                                <JFXTextField fx:id="jobTieleS" prefHeight="38.0" styleClass="labelTextField" unFocusColor="#4059a9" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <opaqueInsets>
                                                       <Insets right="5.0" />
                                                    </opaqueInsets>
                                                    <GridPane.margin>
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
-                                                </TextField>
-                                                <TextField fx:id="passwordS" prefHeight="38.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                                </JFXTextField>
+                                                <JFXTextField fx:id="passwordS" prefHeight="38.0" styleClass="labelTextField" unFocusColor="#4059a9" GridPane.columnIndex="1" GridPane.rowIndex="6">
                                                    <opaqueInsets>
                                                       <Insets right="5.0" />
                                                    </opaqueInsets>
                                                    <GridPane.margin>
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
-                                                </TextField>
-                                                <TextField fx:id="emailS" prefHeight="38.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                                </JFXTextField>
+                                                <JFXTextField fx:id="emailS" prefHeight="38.0" styleClass="labelTextField" unFocusColor="#4059a9" GridPane.columnIndex="1" GridPane.rowIndex="7">
                                                    <opaqueInsets>
                                                       <Insets right="5.0" />
                                                    </opaqueInsets>
                                                    <GridPane.margin>
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
-                                                </TextField>
-                                                <TextField fx:id="firstNameSo" prefHeight="38.0" GridPane.columnIndex="1">
+                                                </JFXTextField>
+                                                <JFXTextField fx:id="firstNameSo" prefHeight="38.0" styleClass="labelTextField" unFocusColor="#4059a9" GridPane.columnIndex="1">
                                                    <opaqueInsets>
                                                       <Insets right="5.0" />
                                                    </opaqueInsets>
                                                    <GridPane.margin>
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
-                                                </TextField>
-                                                <TextField fx:id="telephoneS" prefHeight="38.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                </JFXTextField>
+                                                <JFXTextField fx:id="telephoneS" prefHeight="38.0" styleClass="labelTextField" unFocusColor="#4059a9" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                                    <opaqueInsets>
                                                       <Insets right="5.0" />
                                                    </opaqueInsets>
                                                    <GridPane.margin>
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
-                                                </TextField>
-                                                <TextField fx:id="salaryS" prefHeight="38.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                </JFXTextField>
+                                                <JFXTextField fx:id="salaryS" prefHeight="38.0" styleClass="labelTextField" unFocusColor="#4059a9" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <opaqueInsets>
                                                       <Insets right="5.0" />
                                                    </opaqueInsets>
                                                    <GridPane.margin>
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
-                                                </TextField>
-                                                <TextField fx:id="lastNameS" prefHeight="38.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                </JFXTextField>
+                                                <JFXTextField fx:id="lastNameS" prefHeight="38.0" styleClass="labelTextField" unFocusColor="#4059a9" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <opaqueInsets>
                                                       <Insets right="5.0" />
                                                    </opaqueInsets>
                                                    <GridPane.margin>
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
-                                                </TextField>
-                                                <Label alignment="CENTER" prefWidth="200.0" text="Ism" />
-                                                <Label alignment="CENTER" prefWidth="200.0" text="Familiya" GridPane.rowIndex="1" />
-                                                <Label alignment="CENTER" prefWidth="200.0" text="Telefon" GridPane.rowIndex="2" />
-                                                <DatePicker fx:id="birthDateS" prefHeight="38.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                </JFXTextField>
+                                                <Label alignment="CENTER" prefWidth="200.0" text="Ism">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font></Label>
+                                                <Label alignment="CENTER" prefWidth="200.0" text="Familiya" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font></Label>
+                                                <Label alignment="CENTER" prefWidth="200.0" text="Telefon" GridPane.rowIndex="2">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font></Label>
+                                                <JFXDatePicker fx:id="birthDateS" defaultColor="#009966" prefHeight="38.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                                    <GridPane.margin>
                                                       <Insets left="5.0" right="5.0" />
-                                                   </GridPane.margin></DatePicker>
+                                                   </GridPane.margin></JFXDatePicker>
                                              </children>
                                           </GridPane>
                                           <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
                                              <children>
-                                                <Button mnemonicParsing="false" onAction="#ADDSeller" prefHeight="300.0" prefWidth="255.0" text="Sotuvchi qo'shish">
+                                                <JFXButton mnemonicParsing="false" onAction="#ADDSeller" prefHeight="300.0" prefWidth="255.0" styleClass="calendar" text="Sotuvchi qo'shish">
                                                    <VBox.margin>
                                                       <Insets bottom="5.0" left="5.0" right="5.0" top="6.0" />
-                                                   </VBox.margin></Button>
-                                                <Button mnemonicParsing="false" onAction="#UpdateSeller" prefHeight="300.0" prefWidth="332.0" style="-fx-background-color: blue;" text="O'zgartirish">
+                                                   </VBox.margin></JFXButton>
+                                                <JFXButton mnemonicParsing="false" onAction="#UpdateSeller" prefHeight="300.0" prefWidth="332.0" styleClass="calendar" text="O'zgartirish">
                                                    <VBox.margin>
                                                       <Insets bottom="5.0" left="5.0" right="5.0" top="6.0" />
-                                                   </VBox.margin></Button>
-                                                <Button mnemonicParsing="false" onAction="#deleteSeller" prefHeight="300.0" prefWidth="254.0" style="-fx-background-color: red;" text="O'chirish">
+                                                   </VBox.margin></JFXButton>
+                                                <JFXButton mnemonicParsing="false" onAction="#deleteSeller" prefHeight="300.0" prefWidth="254.0" style="-fx-background-color: red;" styleClass="calendar" text="O'chirish">
                                                    <VBox.margin>
                                                       <Insets bottom="5.0" left="5.0" right="5.0" top="6.0" />
-                                                   </VBox.margin></Button>
+                                                   </VBox.margin></JFXButton>
                                              </children>
                                           </VBox>
                                        </children>
@@ -665,7 +776,7 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab styleClass="MainTabs" text="Ombor hisobi">
+                  <Tab id="Main-tab8" styleClass="MainTabs">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -681,7 +792,7 @@
                                     </TableView>
                                  </center>
                                  <right>
-                                    <GridPane prefHeight="666.0" prefWidth="321.0" BorderPane.alignment="CENTER">
+                                    <GridPane prefHeight="666.0" prefWidth="321.0" style="-fx-background-color: #eaeaee;" BorderPane.alignment="CENTER">
                                       <columnConstraints>
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                       </columnConstraints>
@@ -707,7 +818,7 @@
                                                       <Font name="System Bold" size="24.0" />
                                                    </font>
                                                 </Label>
-                                                <Label alignment="CENTER" prefHeight="90.0" prefWidth="385.0" style="-fx-background-color: #29a329;" text="Ombordagi umumiy summa" textFill="WHITE" GridPane.rowIndex="1">
+                                                <Label alignment="CENTER" prefHeight="90.0" prefWidth="385.0" styleClass="label1" text="Ombordagi umumiy summa" textFill="WHITE" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="System Bold" size="18.0" />
                                                    </font>
@@ -717,7 +828,7 @@
                                                       <Font name="System Bold" size="24.0" />
                                                    </font>
                                                 </Label>
-                                                <Label alignment="CENTER" prefHeight="113.0" prefWidth="380.0" style="-fx-background-color: #29a329;" text="Umumiy chegirma summa" textFill="WHITE" GridPane.rowIndex="3">
+                                                <Label alignment="CENTER" prefHeight="113.0" prefWidth="380.0" styleClass="label1" text="Umumiy tannarxi" textFill="WHITE" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="System Bold" size="18.0" />
                                                    </font>
@@ -735,38 +846,38 @@
                                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                              <children>
-                                                <Button mnemonicParsing="false" onAction="#dbToExcell" prefHeight="102.0" prefWidth="228.0" text="Excelga ko'chirish">
+                                                <JFXButton mnemonicParsing="false" onAction="#dbToExcell" prefHeight="102.0" prefWidth="228.0" styleClass="calendar" text="Excelga ko'chirish">
                                                    <font>
                                                       <Font name="System Bold" size="14.0" />
                                                    </font>
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="5.0" top="10.0" />
                                                    </GridPane.margin>
-                                                </Button>
-                                                <Button mnemonicParsing="false" onAction="#Update" prefHeight="102.0" prefWidth="228.0" text="Yangilash" GridPane.columnIndex="1">
+                                                </JFXButton>
+                                                <JFXButton mnemonicParsing="false" onAction="#Update" prefHeight="102.0" prefWidth="228.0" styleClass="calendar" text="Yangilash" GridPane.columnIndex="1">
                                                    <font>
                                                       <Font name="System Bold" size="14.0" />
                                                    </font>
                                                    <GridPane.margin>
                                                       <Insets left="5.0" right="10.0" top="10.0" />
                                                    </GridPane.margin>
-                                                </Button>
-                                                <Button mnemonicParsing="false" onAction="#SetExcelFolder" prefHeight="120.0" prefWidth="228.0" text="Excel fayl joyi" GridPane.rowIndex="1">
+                                                </JFXButton>
+                                                <JFXButton mnemonicParsing="false" onAction="#SetExcelFolder" prefHeight="120.0" prefWidth="228.0" styleClass="calendar" text="Excel fayl joyi" GridPane.rowIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="5.0" top="10.0" />
                                                    </GridPane.margin>
                                                    <font>
                                                       <Font name="System Bold" size="14.0" />
                                                    </font>
-                                                </Button>
-                                                <Button mnemonicParsing="false" onAction="#PrinterAddAction" prefHeight="120.0" prefWidth="228.0" text="Printer qo'shish" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                </JFXButton>
+                                                <JFXButton mnemonicParsing="false" onAction="#PrinterAddAction" prefHeight="120.0" prefWidth="228.0" styleClass="calendar" text="Printer qo'shish" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="System Bold" size="14.0" />
                                                    </font>
                                                    <GridPane.margin>
                                                       <Insets left="5.0" right="10.0" top="10.0" />
                                                    </GridPane.margin>
-                                                </Button>
+                                                </JFXButton>
                                              </children>
                                           </GridPane>
                                        </children>
@@ -777,7 +888,7 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab styleClass="MainTabs" text="Muhim o'zgartmalar">
+                  <Tab id="Main-tab9" styleClass="MainTabs">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -792,14 +903,103 @@
                                        </BorderPane.margin>
                                     </TableView>
                                  </center>
+                                 <right>
+                                    <BorderPane prefHeight="695.0" prefWidth="547.0" BorderPane.alignment="CENTER">
+                                       <center>
+                                          <GridPane style="-fx-background-color: #eaeaee;" BorderPane.alignment="CENTER">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints maxHeight="259.0" minHeight="0.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                              <RowConstraints maxHeight="561.0" minHeight="10.0" prefHeight="553.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <HBox prefHeight="55.0" prefWidth="547.0">
+                                                   <children>
+                                                      <JFXButton onAction="#clearTables" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: red;" styleClass="calendar" text="Butunlay o'chirish">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                         <tooltip>
+                                                            <Tooltip text="Programmadagi hamma malumotlarni o'chirish" />
+                                                         </tooltip>
+                                                      </JFXButton>
+                                                      <JFXDatePicker fx:id="DDL_date1" prefHeight="50.0" styleClass="calendar1">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="8.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </JFXDatePicker>
+                                                      <JFXDatePicker fx:id="DDL_date2" prefHeight="50.0" styleClass="calendar1">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="8.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </JFXDatePicker>
+                                                      <JFXButton onAction="#TableDDLChange" prefHeight="50.0" prefWidth="200.0" styleClass="calendar" text="Saralash">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" right="5.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </JFXButton>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </GridPane>
+                                       </center></BorderPane>
+                                 </right>
                               </BorderPane>
                            </children>
                         </AnchorPane>
                      </content>
                   </Tab>
               </tabs>
-            </TabPane>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </JFXTabPane>
          </center>
+         <top>
+            <VBox prefHeight="69.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
+               <children>
+                  <MenuBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" style="-fx-background-color: #eaeaee;">
+                    <menus>
+                      <Menu mnemonicParsing="false" onAction="#ActionChiqish" text="Chiqish">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="Kirish oynasi" />
+                        </items>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
+                  <HBox prefHeight="50.0" prefWidth="1080.0">
+                     <children>
+                        <Label alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #FFFFFF;" text="SBD" textFill="#1ab394">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <GridPane prefHeight="40.0" prefWidth="744.0" styleClass="bottom-border">
+                          <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </top>
       </BorderPane>
    </children>
 </AnchorPane>

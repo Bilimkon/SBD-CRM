@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" prefHeight="52.0" prefWidth="1740.0" styleClass="text-black" stylesheets="@../../../style/css/mainPageStyle.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Design_fxml.CustomItems.CustomBasketItem.ShopItemListItem">
+<AnchorPane maxHeight="-Infinity" prefHeight="50.0" prefWidth="1740.0" styleClass="text-black" stylesheets="@../../../style/css/mainPageStyle.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Design_fxml.CustomItems.CustomBasketItem.ShopItemListItem">
    <children>
       <HBox alignment="CENTER_RIGHT" layoutX="441.0" layoutY="4.0" maxHeight="-Infinity" prefHeight="44.0" spacing="10" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="838.0" AnchorPane.topAnchor="4.0">
          <children>

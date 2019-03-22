@@ -63,7 +63,7 @@ public class Utils {
         return r.matcher(input);
     }
 
-    public static <T extends Comparable<T>> T isNumberInRange(T number, T min, T max) {
+    public static <T extends Comparable<T>> int isNumberInRange(Integer number, int min, int max) {
 
         if (number.compareTo(max) > 0) {
             return max;
@@ -73,19 +73,6 @@ public class Utils {
         }
         return number;
     }
-
-//    public static <T extends Comparable<T>> T maximum(T x, T y, T z) {
-//        T max = x;   // assume x is initially the largest
-//
-//        if(y.compareTo(max) > 0) {
-//            max = y;   // y is the largest so far
-//        }
-//
-//        if(z.compareTo(max) > 0) {
-//            max = z;   // z is the largest now
-//        }
-//        return max;   // returns the largest object
-//    }
 
     public static boolean isNumberValid(String number, Number type) {
         try {

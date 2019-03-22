@@ -101,16 +101,16 @@ public class MainPageController implements Initializable {
         TableColumn<ProductTable, String> type = new TableColumn<>("Turi");
         TableColumn<ProductTable, Integer> quantity = new TableColumn<>("Miqdori");
         TableColumn<ProductTable, Double> cost = new TableColumn<>("Narxi");
-        TableColumn<ProductTable, String> turlari = new TableColumn<>("Turlari");
 
-        tableSampleManual.getColumns().addAll(barcode, name, type, quantity, cost, turlari);
+
+        tableSampleManual.getColumns().addAll(barcode, name, type, quantity, cost);
 
         barcode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
         type.setCellValueFactory(new PropertyValueFactory<>("type"));
         quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         cost.setCellValueFactory(new PropertyValueFactory<>("cost"));
-        turlari.setCellValueFactory(new PropertyValueFactory<>("turlari"));
+
         addedItemsList.getChildren().addListener((ListChangeListener<Node>) c -> {
 //            List<Node> n = addedItemsList.getChildren();
             float sum = calculateCurrentTotalSum();
@@ -140,6 +140,8 @@ public class MainPageController implements Initializable {
             public void handle(KeyEvent event) {
                 if (event.getCode() == KeyCode.ENTER) {
                     onCodeScanClicked();
+
+
                 }
             }
         });
@@ -159,7 +161,7 @@ public class MainPageController implements Initializable {
             BasketItem i = (BasketItem) item.getUserData();
             if (i.isEqual(basketItem.getBarcode())) {
                 TextField field = (TextField) item.lookup("#amountField");
-                field.setText((Integer.valueOf(field.getText()) + 1) + "");
+                field.setText((Double.valueOf(field.getText()) + 1) + "");
                 changeBasketItemAmount(i.getBarcode(), i.getAmount() + 1);
             }
         }
@@ -282,8 +284,8 @@ public class MainPageController implements Initializable {
                     }
 
 
-                    int number = Utils.isNumberInRange(Integer.valueOf(newValue), 0, quantity);
-                    if (number != Integer.valueOf(newValue)) {
+                    int number =  Utils.isNumberInRange(Integer.valueOf(newValue), 0,  quantity);
+                    if (number != Double.valueOf(newValue)) {
                         field.setText(number + "");
                         field.selectAll();
                     } else {
@@ -413,8 +415,10 @@ public class MainPageController implements Initializable {
     public void onIsFromCardSelected() {
         if (isCardCheck.isSelected()) {
             cardSummField.setDisable(false);
+            cardSummField.setText(String.valueOf(calculateCurrentTotalSum()));
         } else {
             cardSummField.setDisable(true);
+            cardSummField.setText("");
             cardCost = 0;
             cardSum.setText("0.0 sum");
         }

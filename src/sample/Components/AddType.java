@@ -6,8 +6,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
-import sample.AdminPart;
 import sample.Components.models.AddTypeModel;
 import sample.DAO.Database;
 import sample.MaxsulotTableView.Sotuvchi;
@@ -37,8 +35,6 @@ public class AddType implements Initializable {
     @FXML TableView TypeTable;
 
     Connection connection;
-
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -99,7 +95,6 @@ public class AddType implements Initializable {
                     TypeId.setText(String.valueOf(apple2.getId()));
                     TypeName.setText(apple2.getName());
                     TypeDescription.setText(apple2.getDescription());
-                    Unit.setText(apple2.getMeasurement());
                 } catch (Exception exc) {
                 }
             });
@@ -107,86 +102,133 @@ public class AddType implements Initializable {
             JOptionPane.showMessageDialog(null, "Error" + exc, "Xatolik", JOptionPane.ERROR_MESSAGE);
         }
     }
-    public void updateDelete(){
-        String apple = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
+
+    public void AddTypeSaveAction() throws Exception {
+        String name = TypeName.getText();
+        String description = TypeDescription.getText();
+        PreparedStatement preparedStatement = null;
+        String apple1 = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
+
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Tur qo'shish");
+        alert.setHeaderText(null);
+        alert.setContentText("Yangi tur qo'shasizmi");
+
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.isPresent())
+            if (result.get() == ButtonType.OK) {
+                connection = Database.getConnection();
+                preparedStatement = connection.prepareStatement("INSERT INTO product_type(Name,Measurament,Description) VALUES (?,?,?)");
+
+                if (!name.isEmpty() && !description.isEmpty()) {
+                    if (Unit.isSelected()) {
+                        String apple = "1";
+                        preparedStatement.setString(1, name);
+                        preparedStatement.setString(2, apple);
+                        preparedStatement.setString(3, description);
+                        preparedStatement.executeUpdate();
+                        preparedStatement = Database.getConnection().prepareStatement("INSERT  INTO Table_history1 VALUES ('Admin','Yangi tur qoshildi' ,?)");
+                        preparedStatement.setString(1, apple1);
+                        preparedStatement.executeUpdate();
+                    } else {
+                        String apple = "2";
+                        preparedStatement.setString(1, name);
+                        preparedStatement.setString(2, apple);
+                        preparedStatement.setString(3, description);
+                        preparedStatement.executeUpdate();
+
+                        preparedStatement = Database.getConnection().prepareStatement("INSERT  INTO Table_history1 VALUES ('Admin','Yangi tur qoshildi' ,?)");
+                        preparedStatement.setString(1, apple1);
+                        preparedStatement.executeUpdate();
+                    }
+
+                    JOptionPane.showMessageDialog(null, "Yangi tur qo'shildi", "Bildirgi", JOptionPane.INFORMATION_MESSAGE);
+
+                    typeTable();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Iltimos hamma malumotlarni kiriting", "Xatolik", JOptionPane.ERROR_MESSAGE);
+
+                }
+            }
+    }
+    public  void updateType() throws Exception {
+        String id = TypeId.getText();
+        String name = TypeName.getText();
+        String Description = TypeDescription.getText();
+        String unit = Unit.getText();
+
+
+        String apple1 = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("O'zgartirish");
         alert.setHeaderText(null);
-        alert.setContentText("Maxsulotni rostdan ham o'zgartirasizmi ?");
+        alert.setContentText("Tur malumotlarini o'zgartirasizmi");
 
         Optional<ButtonType> result = alert.showAndWait();
 
         if (result.isPresent())
             if (result.get() == ButtonType.OK) {
 
+                if(name !=null && Description !=null && !id.isEmpty()) {
 
-                PreparedStatement preparedStatement = null;
-                String barcode1 = TypeId.getText();
-                Integer id1 = null;
-                try {
-                    preparedStatement = Database.getConnection().prepareStatement("DELETE  FROM product_type" + " WHERE item_barcode=?");
-                    preparedStatement.setString(1, barcode1);
-                    int delete = preparedStatement.executeUpdate();
-                    if (delete == 1) {
-                        preparedStatement = Database.getConnection().prepareStatement("INSERT  INTO Table_history1 VALUES ('Admin','Tur ozgartirildi' ,?)");
-                        preparedStatement.setString(1, apple);
-                        preparedStatement.executeUpdate();
-                        JOptionPane.showMessageDialog(null, "O'zgartirish", "Maxsulot o'chirildi", JOptionPane.INFORMATION_MESSAGE);
+                    PreparedStatement preparedStatement = null;
 
-                    }
+                    preparedStatement = Database.getConnection().prepareStatement("UPDATE product_type set name=?, Measurament=? ,Description=? where id=" + id);
+                    preparedStatement.setString(1, name);
+                    preparedStatement.setString(2, unit);
+                    preparedStatement.setString(3, Description);
+                    preparedStatement.executeUpdate();
 
+                    preparedStatement = Database.getConnection().prepareStatement("INSERT  INTO Table_history1 VALUES ('Admin','Tur ozgartirildi' ,?)");
+                    preparedStatement.setString(1, apple1);
 
-                } catch (Exception exc) {
-
-                } finally {
-                    // DaoUtils.close(preparedStatement);
+                    preparedStatement.executeUpdate();
+                    JOptionPane.showMessageDialog(null, " Ma'lumotlar o'zgartirildi", "Bildirgi", JOptionPane.INFORMATION_MESSAGE);
+                }else {
+                    JOptionPane.showMessageDialog(null, "Iltimos hamma malumotlarni kiriting", "Xatolik", JOptionPane.ERROR_MESSAGE);
 
                 }
             }
+        typeTable();
+
+
     }
+    public void deleteType() throws Exception {
+        String id = TypeId.getText();
 
 
+        String apple1 = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("O'chirish");
+        alert.setHeaderText(null);
+        alert.setContentText("Tanlangan turni o'zgartirasizmi");
 
-    public void AddTypeSaveAction() throws Exception {
-        String name = TypeName.getText();
-        String description = TypeDescription.getText();
-        PreparedStatement preparedStatement = null;
+        Optional<ButtonType> result = alert.showAndWait();
 
+        if (result.isPresent())
+            if (result.get() == ButtonType.OK) {
+                if(!id.isEmpty()) {
 
-        connection = Database.getConnection();
+                    PreparedStatement preparedStatement1 = null;
+                    preparedStatement1 = Database.getConnection().prepareStatement("DELETE FROM product_type WHERE id=" + id);
 
-        preparedStatement = connection.prepareStatement("INSERT INTO product_type(Name,Measurament,Description) VALUES (?,?,?)");
+                    preparedStatement1.executeUpdate();
+                    preparedStatement1 = Database.getConnection().prepareStatement("INSERT  INTO Table_history1 VALUES ('Admin','Tur ochirildi' ,?)");
+                    preparedStatement1.setString(1, apple1);
 
-        if (name != null && description != null) {
+                    preparedStatement1.executeUpdate();
 
+                    JOptionPane.showMessageDialog(null, "Tur o'chirildi", "Bildirgi", JOptionPane.INFORMATION_MESSAGE);
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "O'chirish uchun tur tanlanmadi", "Xatolik", JOptionPane.ERROR_MESSAGE);
 
-            if (Unit.isSelected()) {
-                String apple = "1";
-
-                preparedStatement.setString(1, name);
-                preparedStatement.setString(2, apple);
-                preparedStatement.setString(3, description);
-                preparedStatement.executeUpdate();
-
-            } else {
-                String apple = "2";
-                preparedStatement.setString(1, name);
-                preparedStatement.setString(2, apple);
-                preparedStatement.setString(3, description);
-                preparedStatement.executeUpdate();
-
+                }
             }
-            Stage stage = (Stage) SaveBtn.getScene().getWindow();
-            // do what you have to do
-            stage.close();
-            JOptionPane.showMessageDialog(null, "Yangi tur qo'shildi", "Bildirgi", JOptionPane.INFORMATION_MESSAGE);
+        typeTable();
 
-        }
-        else {
-            JOptionPane.showMessageDialog(null, "Iltimos hamma malumotlarni kiriting", "Xatolik", JOptionPane.ERROR_MESSAGE);
-            AdminPart adminPart = new AdminPart();
-            adminPart.UpdateBarChart();
-        }
     }
 
 }

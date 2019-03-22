@@ -29,18 +29,18 @@ public class HistoryDao {
 
     public List<History> getHistoryList() throws SQLException {
         //sotuvchi_id, item_name, item_type, item_quantity, tarix_id, item_barcode, paid_cost, paid_date, total_cost, remaining_cost, karta, action, action_time, karta_cost
-        String query = "SELECT * FROM " + historyTableName + " ORDER BY tarix_id";
+        String query = "SELECT * FROM (\n" +
+                "    SELECT * FROM history_v ORDER BY tarix_id DESC LIMIT 200\n" +
+                ") sub\n" +
+                "ORDER BY tarix_id ASC";
         ResultSet set = generateResultSet(query);
         List<History> histories = new ArrayList<>();
         while (set.next()) {
             History h = new History(
                     set.getInt("tarix_id"),
-                    set.getInt("sotuvchi_id"),
-                    set.getInt("item_id"),
                     set.getString("item_name"),
                     set.getString("item_type"),
                     set.getInt("item_quantity"),
-                    set.getString("item_barcode"),
                     set.getString("paid_date"),
                     set.getFloat("total_cost"));
 
@@ -119,11 +119,11 @@ public class HistoryDao {
         int itemId = history.getItemId();
         String barcode = history.getBarcode();
         String itemName = history.getItemName();
-        int itemQuantity = history.getItemQuantity();
+        Double itemQuantity = history.getItemQuantity();
         String itemType = history.getItemType();
 
         String paidDate = history.getPaidDate();
-        float totalCost = history.getTotalCost();
+        Double totalCost = history.getTotalCost();
         int userID = history.getUserId();
         return "INSERT INTO " + historyTableName + " (" +
                 "sotuvchi_id, " +

@@ -6,6 +6,7 @@ import javafx.beans.property.SimpleStringProperty;
 public class HistoryTable {
     private SimpleIntegerProperty savdoactionId = new SimpleIntegerProperty();
     private SimpleIntegerProperty tarixid = new SimpleIntegerProperty();
+    private SimpleIntegerProperty MaxsulotId = new SimpleIntegerProperty();
     private SimpleStringProperty itemname = new SimpleStringProperty();
     private SimpleStringProperty itemtype = new SimpleStringProperty();
     private SimpleIntegerProperty itemquantity = new SimpleIntegerProperty();
@@ -107,6 +108,18 @@ public class HistoryTable {
 
     public void setTotalcost(String totalcost) {
         this.totalcost.set(totalcost);
+    }
+
+    public int getMaxsulotId() {
+        return MaxsulotId.get();
+    }
+
+    public SimpleIntegerProperty maxsulotIdProperty() {
+        return MaxsulotId;
+    }
+
+    public void setMaxsulotId(int maxsulotId) {
+        this.MaxsulotId.set(maxsulotId);
     }
 }
 

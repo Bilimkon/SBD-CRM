@@ -100,6 +100,7 @@ public class ProductDao {
     public static void productTableGeneratorAdmin(ResultSet myRs, ObservableList<ProductTable> productTables) throws SQLException {
         while (myRs.next()) {
             ProductTable app = ProductTable.getInstance();
+            app.setId(myRs.getInt("id"));
             app.setBarcode(myRs.getString("item_barcode"));
             app.setName(myRs.getString("item_name"));
             app.setType(myRs.getString("item_type"));
@@ -178,7 +179,6 @@ public class ProductDao {
     private Product convertRowToProduct(ResultSet myRs) throws SQLException {
 
         int id = myRs.getInt("id");
-
         String itemBarcode = myRs.getString("item_barcode");
         String itemName = myRs.getString("item_name");
         String itemType = myRs.getString("item_type");

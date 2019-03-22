@@ -6,6 +6,7 @@ import javafx.beans.property.SimpleStringProperty;
 
 
 public class ProductTable {
+    private SimpleIntegerProperty id = new SimpleIntegerProperty();
     private SimpleDoubleProperty itemsalecost = new SimpleDoubleProperty();
     private SimpleStringProperty barcode = new SimpleStringProperty();
     private SimpleStringProperty name = new SimpleStringProperty();
@@ -16,6 +17,18 @@ public class ProductTable {
     private SimpleStringProperty expireDate = new SimpleStringProperty();
     private SimpleStringProperty suplier = new SimpleStringProperty();
     private SimpleStringProperty turlari = new SimpleStringProperty();
+
+    public int getId() {
+        return id.get();
+    }
+
+    public SimpleIntegerProperty idProperty() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id.set(id);
+    }
 
     public double getItemsalecost() {
         return itemsalecost.get();
