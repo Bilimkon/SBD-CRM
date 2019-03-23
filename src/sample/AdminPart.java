@@ -334,7 +334,7 @@ public class AdminPart implements Initializable {
         TableColumn Hcredit_S = new TableColumn("Qarz summa");
         TableColumn Hpaid_date_S = new TableColumn("to'langan sana");
         TableColumn Htotal_cost_S = new TableColumn("Umumiy summa");
-        TableColumn Hpaid_in_cash_S = new TableColumn("Naqtpul summa");
+        TableColumn Hpaid_in_cash_S = new TableColumn("Naqd pul summa");
 
         Xtable.getColumns().addAll(Hfirst_name_S, Hcard_amount_S, Hcredit_S, Hpaid_date_S, Htotal_cost_S, Hpaid_in_cash_S);
 

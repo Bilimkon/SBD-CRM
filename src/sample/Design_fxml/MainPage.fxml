@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -93,13 +94,13 @@
                      <VBox.margin>
                         <Insets left="5.0" right="5.0" />
                      </VBox.margin></Label>
-                  <Label fx:id="idTotalSum" prefHeight="34.0" prefWidth="161.0" style="-fx-background-color: #eaeaee;" styleClass="text-black" text="400 000 sum">
+                  <JFXButton fx:id="idTotalSum" onAction="#PrintReport" prefHeight="34.0" prefWidth="161.0" style="-fx-background-color: #eaeaee;" styleClass="text-black" text="400 000 sum">
                      <VBox.margin>
                         <Insets left="5.0" right="5.0" />
                      </VBox.margin>
                      <font>
                         <Font name="System Bold" size="17.0" />
-                     </font></Label>
+                     </font></JFXButton>
                </children>
                <GridPane.margin>
                   <Insets left="5.0" right="5.0" top="5.0" />
@@ -145,7 +146,7 @@
                             <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Button fx:id="btnSampleIzlash" maxWidth="-Infinity" mnemonicParsing="false" onAction="#btnActionIzlash" prefHeight="41.0" prefWidth="179.0" style="-fx-background-color: #009966;" styleClass="calendar" text="Izlash" GridPane.columnIndex="1">
+                              <Button fx:id="btnSampleIzlash" maxWidth="-Infinity" mnemonicParsing="false" onAction="#btnActionIzlash" prefHeight="41.0" prefWidth="179.0" style="-fx-background-color: #1ab394;" styleClass="calendar" text="Izlash" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="5.0" right="8.0" top="4.0" />
                                  </GridPane.margin>
@@ -171,7 +172,7 @@
                                  <GridPane.margin>
                                     <Insets bottom="4.0" left="4.0" top="4.0" />
                                  </GridPane.margin></TextField>
-                              <Button defaultButton="true" mnemonicParsing="false" onAction="#onCodeScanClicked" prefHeight="41.0" prefWidth="477.0" style="-fx-background-color: #009966;" styleClass="calendar" text="Ok" GridPane.columnIndex="1">
+                              <Button defaultButton="true" mnemonicParsing="false" onAction="#onCodeScanClicked" prefHeight="41.0" prefWidth="477.0" style="-fx-background-color: #1ab394;" styleClass="calendar" text="Ok" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="5.0" right="8.0" top="4.0" />
                                  </GridPane.margin>
@@ -203,7 +204,7 @@
                            <children>
                               <VBox minWidth="-Infinity" prefHeight="259.0" prefWidth="367.0" spacing="8.0" style="-fx-background-color: white;" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
                                  <children>
-                                    <Pane prefHeight="43.0" prefWidth="363.0" style="-fx-background-color: #009966;" />
+                                    <Pane maxHeight="24.0" minHeight="24.0" prefHeight="24.0" prefWidth="363.0" style="-fx-background-color: #1ab394;" />
                                     <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="8.0">
                                        <children>
                                           <CheckBox fx:id="isCardCheck" maxWidth="80.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#onIsFromCardSelected" prefWidth="100.0" text="Plastik karta" HBox.hgrow="ALWAYS">
@@ -330,7 +331,7 @@
    <top>
       <VBox prefHeight="140.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
          <children>
-            <MenuBar style="-fx-background-color: #009966;">
+            <MenuBar style="-fx-background-color: #1ab394;">
               <menus>
                 <Menu mnemonicParsing="false" onAction="#CloseAction" text="Chiqish" />
               </menus>

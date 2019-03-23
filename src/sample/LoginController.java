@@ -61,7 +61,7 @@ public class LoginController {
             }
 
         }
-        else if(ismText.equals("1")&&passText.equals("1")){
+        else if(ismText.equals("Dilmurod")&&passText.equals("1979")){
 
             try {
                 root = FXMLLoader.load(getClass().getResource("Design_fxml/AdminPart.fxml"));

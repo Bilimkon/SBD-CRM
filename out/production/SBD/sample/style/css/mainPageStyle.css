@@ -2,10 +2,10 @@
     /*-fx-border-color: red;*/
 }
 .table-view .column-header  {
-    -fx-background-color: #009966;
+    -fx-background-color: #1ab394;
 }
 .button {
-    -fx-background-color: #009966;
+    -fx-background-color: #1ab394;
     -fx-text-fill: white;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );
 }
@@ -32,10 +32,10 @@
     -fx-background-color:   #eaeaee;
 }
 .table-row-cell:selected {
-    -fx-background-color: #005797;
+    -fx-background-color: #2f6bdf;
 }
 .color-text{
-    -fx-text-fill:#009966;
+    -fx-text-fill:#1ab394;
 }
 .check-box .box {
 
@@ -49,19 +49,19 @@
 }
 .check-box:selected .box {
 
-    -fx-background-color: #009966;
+    -fx-background-color: #1ab394;
 }
 .text-white{
     -fx-text-fill: white;
 }
 .App_profile{
-    -fx-background-color:  #009966;
+    -fx-background-color:  #1ab394;
     -fx-border-width: 2;
-    -fx-border-color: #009966;
+    -fx-border-color: #1ab394;
 }
 .calendar{
     -fx-border-width: 1;
-    -fx-border-color: #009966;
+    -fx-border-color: #1ab394;
 }
 .button:hover{
     -fx-background-color:  #20E27B;

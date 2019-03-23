@@ -63,7 +63,7 @@ public class Utils {
         return r.matcher(input);
     }
 
-    public static <T extends Comparable<T>> int isNumberInRange(Integer number, int min, int max) {
+    public static <T extends Comparable<T>> T isNumberInRange(T number, T min, T max) {
 
         if (number.compareTo(max) > 0) {
             return max;
@@ -73,6 +73,7 @@ public class Utils {
         }
         return number;
     }
+
 
     public static boolean isNumberValid(String number, Number type) {
         try {

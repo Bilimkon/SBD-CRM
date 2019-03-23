@@ -1,5 +1,6 @@
 package sample;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
@@ -10,6 +11,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
@@ -18,6 +21,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import org.controlsfx.control.PopOver;
 import org.jetbrains.annotations.Nullable;
 import sample.Core.Models.BasketItem;
@@ -77,7 +81,7 @@ public class MainPageController implements Initializable {
     private Label idStartDate;
 
     @FXML
-    private Label idTotalSum;
+    private JFXButton idTotalSum;
 
     @FXML
     private GridPane topLeftGrid;
@@ -161,7 +165,7 @@ public class MainPageController implements Initializable {
             BasketItem i = (BasketItem) item.getUserData();
             if (i.isEqual(basketItem.getBarcode())) {
                 TextField field = (TextField) item.lookup("#amountField");
-                field.setText((Double.valueOf(field.getText()) + 1) + "");
+                field.setText((Integer.valueOf(field.getText()) + 1) + "");
                 changeBasketItemAmount(i.getBarcode(), i.getAmount() + 1);
             }
         }
@@ -200,7 +204,7 @@ public class MainPageController implements Initializable {
         }
         setUserData(u);
         Clock();
-       Thread.currentThread();
+        Thread.currentThread();
         System.out.println(Thread.currentThread().getName());
 
     }
@@ -284,8 +288,8 @@ public class MainPageController implements Initializable {
                     }
 
 
-                    int number =  Utils.isNumberInRange(Integer.valueOf(newValue), 0,  quantity);
-                    if (number != Double.valueOf(newValue)) {
+                    int number = Utils.isNumberInRange(Integer.valueOf(newValue), 0, quantity);
+                    if (number != Integer.valueOf(newValue)) {
                         field.setText(number + "");
                         field.selectAll();
                     } else {
@@ -388,6 +392,7 @@ public class MainPageController implements Initializable {
             ProductTable pt = dao.convertProductToProductTable(dao.getProduct(scanCodeField.getText().trim()));
             addProductTableToList(pt);
             scanCodeField.setText("");
+            scanCodeField.requestFocus();
         } catch (Exception e) {
             System.out.println("no such item: " + scanCodeField.getText());
         }
@@ -670,5 +675,26 @@ public class MainPageController implements Initializable {
         return null;
 
     }
+    public void PrintReport(){
+
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getResource("Components/PrintReport.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Report");
+            stage.setScene(new Scene(root, 600, 400));
+            stage.setResizable(false);
+            stage.isAlwaysOnTop();
+
+            stage.show();
+            // Hide this current window (if this is what you want)
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
 
 }

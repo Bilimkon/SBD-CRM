@@ -23,11 +23,12 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Design_fxml/Login.fxml"));
         primaryStage.setTitle("SBD boshqaruv tizimi.");
-//        primaryStage.setResizable(false);
+//      primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root, 1080, 720));
         primaryStage.setMinHeight(720);
         primaryStage.setMinWidth(1090);
-//        primaryStage.setScene(new Scene(root));
+//      primaryStage.getIcons().add(new Image(String.valueOf(getClass().getClassLoader().getResource("style/Images/22.png"))));
+//      primaryStage.setScene(new Scene(root));
         primaryStage.show();
         isStageAlive = true;
         primaryStage.setOnCloseRequest(event -> {
