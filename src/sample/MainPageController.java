@@ -95,7 +95,6 @@ public class MainPageController extends Parent implements Initializable {
     private Label DateText;
     @FXML private  Button BtnSell;
     public static String TotalCost2;
-
     public static List<BasketItem> basket = new ArrayList<>();
     private CreditModel credit = null;
 
@@ -159,10 +158,10 @@ public class MainPageController extends Parent implements Initializable {
                     isCardCheck.setSelected(true);
                     cardSummField.setText(String.valueOf(calculateCurrentTotalSum()));
                     scanCodeField.requestFocus();
+
                 }
             }
         });
-
 
         tableSampleManual.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
@@ -180,7 +179,6 @@ public class MainPageController extends Parent implements Initializable {
                 }
             }
         });
-
         tableSampleManual.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
@@ -190,7 +188,6 @@ public class MainPageController extends Parent implements Initializable {
                 }
             }
         });
-
         textSampleIzlash.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
@@ -237,10 +234,9 @@ public class MainPageController extends Parent implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         initializeTable();
         User u = LoginController.currentUser;
-
-
         cardSummField.textProperty().addListener((observable, oldValue, newValue) -> {
             if (Utils.isNumberValid(newValue, Utils.Number.FLOAT)) {
                 if (newValue.length() > 1 & newValue.charAt(0) == '0') {

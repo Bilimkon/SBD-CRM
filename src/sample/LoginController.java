@@ -1,11 +1,14 @@
 package sample;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -14,25 +17,34 @@ import sample.DAO.UserDao;
 import sample.Utils.Utils;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 
-public class LoginController {
+public class LoginController implements Initializable {
 
     public Button btnKirish;
     public TextField textIsm;
     public PasswordField textPassword;
+    @FXML private ProgressBar bar;
 
+    static double ii=0;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
 
     public void btnActionKirish() throws IOException {
 
+        // set progress to different level of progressbar
+        ii += 0.2;
+        bar.setProgress(ii);
+
         String ismText = textIsm.getText().toString();//getting string  values
         String passText = textPassword.getText().toString();//getting string  values
-
         Parent root = null;
-
-
-
         Stage stage = new Stage();
 
         if (isUserExists(ismText, passText)) {
@@ -77,17 +89,12 @@ public class LoginController {
                 stage.setMinHeight(720);
                 stage.setResizable(true);
                 // Hide this current window (if this is what you want)
-
-
-
                 this.btnKirish.getScene().getWindow().hide();
 
              } catch (IOException e) {
                 e.printStackTrace();
 
                 Utils.ErrorAlert("Error","Xatolik"+e, "Xatolik bor shu yerda");
-
-
             }
         }
        else {
@@ -108,6 +115,6 @@ public class LoginController {
             e.printStackTrace();
             return false;
         }
-
     }
+
 }

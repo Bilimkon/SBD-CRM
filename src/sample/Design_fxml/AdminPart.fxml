@@ -942,7 +942,7 @@
                <children>
                   <MenuBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" style="-fx-background-color: #eaeaee;">
                     <menus>
-                      <Menu mnemonicParsing="false" onAction="#ActionChiqish" text="Chiqish">
+                      <Menu mnemonicParsing="false" fx:id="btnChiqish" onAction="#ActionChiqish" text="Chiqish">
                         <items>
                           <MenuItem mnemonicParsing="false" text="Kirish oynasi" />
                         </items>

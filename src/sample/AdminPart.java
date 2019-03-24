@@ -198,6 +198,11 @@ public class AdminPart implements Initializable {
     @FXML DatePicker DDL_date1;
     @FXML DatePicker DDL_date2;
 
+    /**
+     * btnchiqish()
+     *
+     * */
+    @FXML Menu btnChiqish;
 
     @FXML
     private PieChart SavdoReytingPieChart;
@@ -248,7 +253,6 @@ public class AdminPart implements Initializable {
             e.printStackTrace();
         }
     }
-
     private void initializeProductTab() {
         //Maxsulotlar table
 //        TableColumn id = new TableColumn("Id");
@@ -1040,7 +1044,7 @@ public class AdminPart implements Initializable {
             //DaoUtils.close(myStmt);
         }
     }
-    public  void  setTarixAction(){
+    private   void  setTarixAction(){
         try {
             TarixTable.setOnMouseClicked(event -> {
                 HistoryTable sotuvchi = (HistoryTable) TarixTable.getItems().get(TarixTable.getSelectionModel().getSelectedIndex());
@@ -2073,12 +2077,6 @@ public class AdminPart implements Initializable {
         }
     }
 
-
-    /*
-     *
-     * AddType function
-     *
-     */
     public void AddTypeAction() {
 
         Parent root;
