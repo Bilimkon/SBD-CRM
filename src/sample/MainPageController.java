@@ -1,6 +1,5 @@
 package sample;
 
-import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
@@ -48,7 +47,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.*;
 
-public class MainPageController implements Initializable {
+public class MainPageController extends Parent implements Initializable {
     private ProductDao productDao;
     private MaxsulotTable maxsulotTable;
 
@@ -56,6 +55,7 @@ public class MainPageController implements Initializable {
 
     @FXML
     private Button btnDiscount;
+
 
     @FXML
     private TextField textSampleIzlash;
@@ -81,7 +81,7 @@ public class MainPageController implements Initializable {
     private Label idStartDate;
 
     @FXML
-    private JFXButton idTotalSum;
+    private Button idTotalSum;
 
     @FXML
     private GridPane topLeftGrid;
@@ -93,10 +93,10 @@ public class MainPageController implements Initializable {
     private Label ClockText;
     @FXML
     private Label DateText;
+    @FXML private  Button BtnSell;
     public static String TotalCost2;
 
     public static List<BasketItem> basket = new ArrayList<>();
-
     private CreditModel credit = null;
 
     private void initializeTable() {
@@ -105,7 +105,6 @@ public class MainPageController implements Initializable {
         TableColumn<ProductTable, String> type = new TableColumn<>("Turi");
         TableColumn<ProductTable, Integer> quantity = new TableColumn<>("Miqdori");
         TableColumn<ProductTable, Double> cost = new TableColumn<>("Narxi");
-
 
         tableSampleManual.getColumns().addAll(barcode, name, type, quantity, cost);
 
@@ -122,11 +121,8 @@ public class MainPageController implements Initializable {
 //                BasketItem basketItem = (BasketItem) (n.get(i)).getUserData();
 //                sum += (basketItem.getCost() * basketItem.getAmount());
 //            }
-
             totalCost.setText(new BigDecimal(sum).toPlainString() +" sum");
-
         });
-
         tableSampleManual.addEventHandler(MouseEvent.MOUSE_CLICKED, (EventHandler<Event>) event -> {
             try {
                 if (tableSampleManual.getSelectionModel().getSelectedItem() != null) {
@@ -144,12 +140,79 @@ public class MainPageController implements Initializable {
             public void handle(KeyEvent event) {
                 if (event.getCode() == KeyCode.ENTER) {
                     onCodeScanClicked();
-
-
                 }
             }
         });
+        scanCodeField.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.F6) {
+                    actionSell();
+                }
+            }
+        });
+
+        scanCodeField.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.F7) {
+                    isCardCheck.setSelected(true);
+                    cardSummField.setText(String.valueOf(calculateCurrentTotalSum()));
+                    scanCodeField.requestFocus();
+                }
+            }
+        });
+
+
+        tableSampleManual.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if(event.getCode()== KeyCode.F6){
+                    actionSell();
+                }
+            }
+        });
+        tableSampleManual.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if(event.getCode()==KeyCode.F7){
+                    PrintReport();
+                }
+            }
+        });
+
+        tableSampleManual.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if(event.getCode()==KeyCode.F5){
+                    btnActionIzlash();
+                    textSampleIzlash.requestFocus();
+                }
+            }
+        });
+
+        textSampleIzlash.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if(event.getCode()== KeyCode.F6){
+                    actionSell();
+                }
+            }
+        });
+        scrollView.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if(event.getCode()== KeyCode.F6){
+                    actionSell();
+                }
+            }
+        });
+
     }
+
+    /*
+    * Sell action with Enter
+    */
 
     private float calculateCurrentTotalSum() {
         float sum = 0;
@@ -206,7 +269,7 @@ public class MainPageController implements Initializable {
         Clock();
         Thread.currentThread();
         System.out.println(Thread.currentThread().getName());
-
+        scanCodeField.requestFocus();
     }
 
     private void setUserData(User u) {
@@ -231,8 +294,6 @@ public class MainPageController implements Initializable {
             e.printStackTrace();
         }
     }
-
-
     private int counter = 0;
 
     private void addProductTableToList(ProductTable productTable) {
@@ -260,7 +321,7 @@ public class MainPageController implements Initializable {
             addedItemsList.getChildren().add(p);
 
             item.setPane(p);
-            TextField field = (TextField) p.lookup("#amountField");
+           TextField field = (TextField) p.lookup("#amountField");
             field.requestFocus();
             field.selectAll();
 
@@ -281,12 +342,10 @@ public class MainPageController implements Initializable {
                         return;
                     }
 
-
                     if (newValue.length() > 1 & newValue.charAt(0) == '0') {
                         field.setText(newValue.replaceFirst("0", ""));
                         return;
                     }
-
 
                     int number = Utils.isNumberInRange(Integer.valueOf(newValue), 0, quantity);
                     if (number != Integer.valueOf(newValue)) {
@@ -450,7 +509,6 @@ public class MainPageController implements Initializable {
         }
     }
 
-
     /**
      * on cancelShop button clicked
      */
@@ -473,6 +531,7 @@ public class MainPageController implements Initializable {
      * on action sell
      */
     public void actionSell() {
+
         User u =LoginController.currentUser;
         for (BasketItem item : basket) {
             System.out.println(item.getBarcode() + " " + item.getAmount());
@@ -504,6 +563,7 @@ public class MainPageController implements Initializable {
                                 inserToHistoryTable(u);
                                 btnActionIzlash();
                                 printAction();
+                                scanCodeField.requestFocus();
                             } catch (Exception e) {
                                 Utils.ErrorAlert("Xatolik", "Savdo amalga oshmadi", e.getMessage());
 

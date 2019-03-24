@@ -7,31 +7,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Last commit">
-      <change afterPath="$PROJECT_DIR$/src/sample/Components/PrintReport.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/Components/PrintReport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/SBD.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SBD/META-INF/SBD.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/AdminPart.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SBD/sample/AdminPart.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/DAO/DaoUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SBD/sample/DAO/DaoUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/Components/AddType.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SBD/sample/Components/AddType.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/Design_fxml/AdminPart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SBD/sample/Design_fxml/AdminPart.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/Design_fxml/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SBD/sample/Design_fxml/Login.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/Design_fxml/MainPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SBD/sample/Design_fxml/MainPage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SBD/sample/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SBD/sample/Main$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SBD/sample/Main$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SBD/sample/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/MainPageController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SBD/sample/MainPageController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/MainPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SBD/sample/MainPageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/Utils/Utils$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SBD/sample/Utils/Utils$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/Utils/Utils$Number.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SBD/sample/Utils/Utils$Number.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/Utils/Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SBD/sample/Utils/Utils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/style/css/mainPageStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SBD/sample/style/css/mainPageStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/AdminPart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/AdminPart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/DAO/DaoUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/DAO/DaoUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Components/AddType.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Components/AddType.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Components/PrintReport.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Components/PrintReport.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Components/PrintReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Components/PrintReport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Design_fxml/AdminPart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Design_fxml/AdminPart.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Design_fxml/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Design_fxml/Login.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Design_fxml/MainPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Design_fxml/MainPage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/MainPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/MainPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Utils/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/style/css/mainPageStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/style/css/mainPageStyle.css" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -173,90 +168,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/AdminPart.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/sample/MainPageController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5985">
-              <caret line="1923" column="23" selection-start-line="1922" selection-start-column="11" selection-end-line="1930" selection-end-column="52" />
+            <state relative-caret-position="193">
+              <caret line="160" column="49" selection-start-line="160" selection-start-column="49" selection-end-line="160" selection-end-column="49" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#6019#6904#0" />
-                <element signature="e#6910#8526#0" />
-                <element signature="e#8532#9800#0" />
-                <element signature="e#9806#11614#0" />
-                <element signature="e#11620#12845#0" />
-                <element signature="e#12851#14621#0" />
-                <element signature="e#14627#16280#0" />
-                <element signature="e#16286#17042#0" />
-                <element signature="e#17048#17645#0" />
-                <element signature="e#17651#19114#0" />
-                <element signature="e#19120#19466#0" />
-                <element signature="e#19472#20047#0" />
-                <element signature="e#20053#23241#0" />
-                <element signature="e#21314#22729#1" />
-                <element signature="e#22755#22917#1" />
-                <element signature="e#22958#23133#0" />
-                <element signature="e#23247#23316#0" />
-                <element signature="e#23322#32182#0" />
-                <element signature="e#32188#33427#0" />
-                <element signature="e#33433#35999#0" />
-                <element signature="e#36005#37583#0" />
-                <element signature="e#37589#41651#0" />
-                <element signature="e#41657#41732#0" />
-                <element signature="e#41738#44306#0" />
-                <element signature="e#44312#46626#0" />
-                <element signature="e#46631#47613#0" />
-                <element signature="e#47618#49762#0" />
-                <element signature="e#49768#51203#0" />
-                <element signature="e#51209#52097#0" />
-                <element signature="e#52103#52979#0" />
-                <element signature="e#52985#53293#0" />
-                <element signature="e#53299#53667#0" />
-                <element signature="e#53673#54636#0" />
-                <element signature="e#54642#55742#0" />
-                <element signature="e#55748#57524#0" />
-                <element signature="e#57530#58065#0" />
-                <element signature="e#58071#60100#0" />
-                <element signature="e#60105#62199#0" />
-                <element signature="e#62205#64311#0" />
-                <element signature="e#64317#66558#0" />
-                <element signature="e#66564#66661#0" />
-                <element signature="e#66667#69375#0" />
-                <element signature="e#69381#70525#0" />
-                <element signature="e#70531#73197#0" />
-                <element signature="e#73203#73303#0" />
-                <element signature="e#73309#73404#0" />
-                <element signature="e#73410#74971#0" />
-                <element signature="e#74977#75425#0" />
-                <element signature="e#75431#75881#0" />
-                <element signature="e#75887#79786#0" />
-                <element signature="e#86323#87353#0" />
-                <element signature="e#87360#87955#0" />
-                <element signature="e#87961#88516#0" />
-                <element signature="e#88521#89826#0" />
+                <element signature="class#5375:5598" />
+                <element signature="class#5647:5870" />
+                <element signature="class#5920:6200" />
+                <element signature="class#6249:6472" />
+                <element signature="e#15640#15687#0" />
+                <element signature="e#15747#16136#0" />
+                <element signature="e#16142#16175#0" />
+                <element signature="e#20303#20336#0" />
+                <element signature="e#20410#21776#0" />
+                <element signature="e#21782#22319#0" />
+                <element signature="e#22325#23334#0" />
+                <element signature="e#23339#23878#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/MainPageController.java">
+        <entry file="file://$PROJECT_DIR$/src/sample/Core/Models/BasketItem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1764">
-              <caret line="388" column="36" selection-start-line="388" selection-start-column="36" selection-end-line="388" selection-end-column="36" />
-              <folding>
-                <element signature="e#2509#4763#0" />
-                <element signature="e#4769#4976#0" />
-                <element signature="e#4982#5525#0" />
-                <element signature="e#5132#5497#1" />
-                <element signature="e#5531#6809#0" />
-                <element signature="e#6815#7033#0" />
-                <element signature="e#7038#7706#0" />
-                <element signature="e#7743#10900#0" />
-                <element signature="e#10906#11166#0" />
-                <element signature="e#11172#11433#0" />
-                <element signature="e#11516#13632#0" />
-              </folding>
+            <state relative-caret-position="483">
+              <caret line="25" column="37" lean-forward="true" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Design_fxml/CustomItems/CustomBasketItem/ShopItemListItem.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Design_fxml/CustomItems/CustomBasketItem/ShopItemConnector.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Utils/Utils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="436">
+              <caret line="71" column="23" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -264,45 +230,18 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Design_fxml/MainPage.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3654">
-              <caret line="174" column="94" selection-start-line="174" selection-start-column="94" selection-end-line="174" selection-end-column="94" />
+            <state relative-caret-position="2264">
+              <caret line="344" column="42" lean-forward="true" selection-start-line="344" selection-start-column="42" selection-end-line="344" selection-end-column="42" />
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="das://de5db86e-3061-4414-82bc-890699c5c8f3/schema/sbd_market/table/maxsulotlar">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/DAO/Database.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="16" column="91" selection-start-line="16" selection-start-column="91" selection-end-line="16" selection-end-column="91" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/DAO/DaoUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="11" column="127" selection-start-line="11" selection-start-column="127" selection-end-line="11" selection-end-column="127" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="63" column="65" selection-start-line="63" selection-start-column="65" selection-end-line="63" selection-end-column="65" />
+            <state relative-caret-position="119">
+              <caret line="40" selection-start-line="40" selection-end-line="40" />
             </state>
           </provider>
         </entry>
@@ -321,11 +260,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>savdo ama</find>
-      <find>tarix</find>
-      <find>cardSumm</find>
-      <find>cardSum</find>
-      <find>total</find>
       <find>0 sum</find>
       <find>search</find>
       <find>izla</find>
@@ -351,6 +285,11 @@
       <find>onType</find>
       <find>updateListItemAmount</find>
       <find>add</find>
+      <find>JFXButton</find>
+      <find>JFXComboBox</find>
+      <find>JF</find>
+      <find>JFX</find>
+      <find>Request</find>
     </findStrings>
     <replaceStrings>
       <replace>float</replace>
@@ -359,6 +298,8 @@
       <replace>&quot; + DaoUtils.talbeName</replace>
       <replace>&quot; + historyTableName + &quot;</replace>
       <replace>#1ab394</replace>
+      <replace>ComboBox</replace>
+      <replace>Button</replace>
     </replaceStrings>
     <dirStrings>
       <dir>D:\sbd</dir>
@@ -406,13 +347,10 @@
         <option value="$PROJECT_DIR$/src/sample/DAO/printer.java" />
         <option value="$PROJECT_DIR$/src/sample/Core/Models/AddType.java" />
         <option value="$PROJECT_DIR$/src/sample/Components/models/AddTypeModel.java" />
-        <option value="$PROJECT_DIR$/src/sample/Design_fxml/Login.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Components/models/type_operation.java" />
         <option value="$PROJECT_DIR$/src/sample/Components/Type_operations.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Components/Type_operations.java" />
         <option value="$PROJECT_DIR$/src/sample/Components/models/Type_operation.java" />
-        <option value="$PROJECT_DIR$/src/sample/Components/AddType.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/Design_fxml/AdminPart.fxml" />
         <option value="/ca049a65/de5db86e-3061-4414-82bc-890699c5c8f3/schema/sbd_market/view/history_v.sql" />
         <option value="$PROJECT_DIR$/src/sample/MaxsulotTableView/HistoryTable.java" />
         <option value="$PROJECT_DIR$/src/sample/BarCodeService.java" />
@@ -426,21 +364,24 @@
         <option value="$PROJECT_DIR$/src/sample/Design_fxml/CustomItems/CustomBasketItem/AddedItemListItem.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Components/AddType.java" />
         <option value="$PROJECT_DIR$/src/sample/DAO/Database.java" />
-        <option value="$PROJECT_DIR$/src/sample/Design_fxml/CustomItems/CustomBasketItem/ShopItemListItem.java" />
         <option value="$PROJECT_DIR$/src/sample/Core/Models/BasketItem.java" />
         <option value="$PROJECT_DIR$/src/sample/DAO/HistoryDao.java" />
         <option value="$PROJECT_DIR$/src/sample/Core/History.java" />
-        <option value="$PROJECT_DIR$/src/sample/Design_fxml/MainPage.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/Components/PrintReport.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/AdminPart.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/src/sample/Utils/Utils.java" />
-        <option value="$PROJECT_DIR$/src/sample/Components/PrintReport.java" />
         <option value="$PROJECT_DIR$/src/sample/style/css/mainPageStyle.css" />
         <option value="$PROJECT_DIR$/src/sample/Main.java" />
-        <option value="$PROJECT_DIR$/src/sample/MainPageController.java" />
         <option value="$PROJECT_DIR$/src/sample/DAO/DaoUtils.java" />
+        <option value="$PROJECT_DIR$/src/sample/Design_fxml/MainPage.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/Design_fxml/Login.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/AdminPart.java" />
+        <option value="$PROJECT_DIR$/src/sample/Design_fxml/AdminPart.fxml" />
         <option value="$PROJECT_DIR$/src/sample/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/sample/Components/AddType.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/Components/PrintReport.java" />
+        <option value="$PROJECT_DIR$/src/sample/Components/PrintReport.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/Design_fxml/CustomItems/CustomBasketItem/ShopItemListItem.java" />
+        <option value="$PROJECT_DIR$/src/sample/MainPageController.java" />
       </list>
     </option>
   </component>
@@ -494,12 +435,6 @@
             <path>
               <item name="sbd" type="b2602c69:ProjectViewProjectNode" />
               <item name="sbd" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sbd" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sbd" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -513,26 +448,56 @@
               <item name="sbd" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="sample" type="462c0819:PsiDirectoryNode" />
-              <item name="DAO" type="462c0819:PsiDirectoryNode" />
+              <item name="Design_fxml" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sbd" type="b2602c69:ProjectViewProjectNode" />
               <item name="sbd" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="sample" type="462c0819:PsiDirectoryNode" />
-              <item name="style" type="462c0819:PsiDirectoryNode" />
+              <item name="Design_fxml" type="462c0819:PsiDirectoryNode" />
+              <item name="CustomItems" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sbd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sbd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="Design_fxml" type="462c0819:PsiDirectoryNode" />
+              <item name="CustomItems" type="462c0819:PsiDirectoryNode" />
+              <item name="CustomBasketItem" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sbd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sbd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="Design_fxml" type="462c0819:PsiDirectoryNode" />
+              <item name="CustomItems" type="462c0819:PsiDirectoryNode" />
+              <item name="CustomDiscountWindow" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sbd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sbd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="Utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="sbd" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="GoToFile.includeJavaFiles" value="false" />
@@ -546,7 +511,7 @@
     <property name="SearchEverywhereHistoryKey" value="java class path&#9;PSI&#9;JAVA://com.sun.javafx.application.LauncherImpl#MF_JAVAFX_CLASS_PATH" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553359438519" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553420197637" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL&#10;Sqlite (Xerial)" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="database.data.extractors.current.id" value="SQL Inserts" />
@@ -560,22 +525,23 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2678161" />
     <property name="recentsLimit" value="5" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Humoyun\Projects\SBD\SBD MYSQL edition\sbd\src\sample\style\Images" />
-      <recent name="E:\Humoyun\Projects\SBD\SBD sqlite edition\sbd\lib" />
-      <recent name="D:\Humoyun\Projects\SBD\SBD sqlite edition\sbd\src\sample\style\Images" />
-      <recent name="D:\sbd\lib" />
-      <recent name="D:\SBD\src\sample\utils" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\user\Downloads\Bilimkon-sbd-a28fb4a9fa03\src\sample\Design_fxml" />
       <recent name="D:\SBD\src\sample\Design_fxml\CustomItems\CustomAddedItemListItem" />
       <recent name="D:\SBD\src\sample\Design_fxml\CustomDiscountWindow" />
       <recent name="D:\SBD\src\sample\Design_fxml\CustomItems\CustomBasketItem" />
       <recent name="C:\Users\user\IdeaProjects\SBD\src\sample\Images" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Humoyun\Projects\SBD\SBD MYSQL edition\sbd\src\sample\style\Images" />
+      <recent name="E:\Humoyun\Projects\SBD\SBD sqlite edition\sbd\lib" />
+      <recent name="D:\Humoyun\Projects\SBD\SBD sqlite edition\sbd\src\sample\style\Images" />
+      <recent name="D:\sbd\lib" />
+      <recent name="D:\SBD\src\sample\utils" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -626,7 +592,7 @@
       </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="C:/Program Files/Java/jdk-9.0.1" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8.0_131 (2)" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="sample.Main" />
       <module name="SBD" />
@@ -1017,7 +983,8 @@
       <workItem from="1553149999594" duration="18944000" />
       <workItem from="1553186546191" duration="8513000" />
       <workItem from="1553230524922" duration="46069000" />
-      <workItem from="1553355829399" duration="2901000" />
+      <workItem from="1553355829399" duration="9638000" />
+      <workItem from="1553409851128" duration="8623000" />
     </task>
     <task id="LOCAL-00001" summary="test commit">
       <created>1524395418205</created>
@@ -1103,11 +1070,25 @@
       <option name="project" value="LOCAL" />
       <updated>1551798701473</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Last commit">
+      <created>1553359476982</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1553359476982</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Last commit">
+      <created>1553359506957</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1553359506957</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1499376000" />
+    <option name="totallyTimeSpent" value="1514736000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1120,6 +1101,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.24973147" />
       <window_info id="Capture Tool" order="1" />
@@ -1128,11 +1110,11 @@
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Web" order="6" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="7" sideWeight="0.6703755" visible="true" weight="0.15884861" />
+      <window_info content_ui="combo" id="Project" order="7" sideWeight="0.6703755" visible="true" weight="0.119936034" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32719395" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49307036" weight="0.2665222" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" weight="0.49404117" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49307036" weight="0.5449621" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" visible="true" weight="0.56013" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49520257" weight="0.32719395" />
@@ -1277,134 +1259,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sample/Components/models/Type_operation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Core/History.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1134">
-          <caret line="70" column="35" selection-start-line="70" selection-start-column="35" selection-end-line="70" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/DAO/HistoryDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="62" column="33" selection-start-line="62" selection-start-column="33" selection-end-line="62" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Design_fxml/CustomItems/CustomDiscountWindow/DiscountWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Core/Models/BasketItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="29" column="31" lean-forward="true" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
-          <folding>
-            <element signature="e#923#924#0" expanded="true" />
-            <element signature="e#952#953#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Components/AddType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-217">
-          <caret line="67" column="81" lean-forward="true" selection-start-line="66" selection-start-column="10" selection-end-line="67" selection-end-column="81" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#setUpdate#0;class#AddType#0" />
-            <element signature="method#updateType#0;class#AddType#0" />
-            <element signature="method#deleteType#0;class#AddType#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Design_fxml/CustomItems/CustomBasketItem/ShopItemConnector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Utils/NumberProperty.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Design_fxml/CustomItems/CustomBasketItem/ShopItemListItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="46" column="46" lean-forward="true" selection-start-line="46" selection-start-column="46" selection-end-line="46" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Utils/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-435">
-          <caret line="71" column="23" lean-forward="true" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Components/PrintReport.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="85" column="40" selection-start-line="85" selection-start-column="40" selection-end-line="85" selection-end-column="40" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Components/PrintReport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-133">
-          <caret line="99" column="62" selection-start-line="99" selection-start-column="62" selection-end-line="99" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#initialize#0;class#PrintReport#0" />
-            <element signature="method#NOW_LOCAL_DATE#0;class#PrintReport#0" />
-            <element signature="method#print#0;class#PrintReport#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/style/css/AdminPage.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="33" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/style/css/mainPageStyle.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1197">
-          <caret line="57" column="35" lean-forward="true" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://de5db86e-3061-4414-82bc-890699c5c8f3/schema/sbd_market/view/collapsedcredithistoryall">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/style/Images/sell1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/style/Images/Sell.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/style/Images/passwordIcon.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -1495,44 +1349,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/MainPageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1764">
-          <caret line="388" column="36" selection-start-line="388" selection-start-column="36" selection-end-line="388" selection-end-column="36" />
-          <folding>
-            <element signature="e#2509#4763#0" />
-            <element signature="e#4769#4976#0" />
-            <element signature="e#4982#5525#0" />
-            <element signature="e#5132#5497#1" />
-            <element signature="e#5531#6809#0" />
-            <element signature="e#6815#7033#0" />
-            <element signature="e#7038#7706#0" />
-            <element signature="e#7743#10900#0" />
-            <element signature="e#10906#11166#0" />
-            <element signature="e#11172#11433#0" />
-            <element signature="e#11516#13632#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Design_fxml/MainPage.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3654">
-          <caret line="174" column="94" selection-start-line="174" selection-start-column="94" selection-end-line="174" selection-end-column="94" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="das://de5db86e-3061-4414-82bc-890699c5c8f3/schema/sbd_market/table/maxsulotlar">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -1540,10 +1356,77 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/DAO/Database.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="16" column="91" selection-start-line="16" selection-start-column="91" selection-end-line="16" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/DAO/DaoUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="11" column="127" selection-start-line="11" selection-start-column="127" selection-end-line="11" selection-end-column="127" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-318">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Design_fxml/Login.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-842">
+          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Design_fxml/AdminPart.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-178">
+          <caret line="704" column="123" selection-start-line="704" selection-start-column="123" selection-end-line="704" selection-end-column="123" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Components/Type_operations.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="61">
+          <caret line="30" column="31" lean-forward="true" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Components/AddType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2793">
+          <caret line="197" column="46" lean-forward="true" selection-start-line="197" selection-start-column="46" selection-end-line="197" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#setUpdate#0;class#AddType#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Components/AddType.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="38" selection-start-column="38" selection-end-column="38" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/AdminPart.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5985">
-          <caret line="1923" column="23" selection-start-line="1922" selection-start-column="11" selection-end-line="1930" selection-end-column="52" />
+        <state relative-caret-position="124">
+          <caret line="2085" selection-start-line="2085" selection-end-line="2085" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#6019#6904#0" />
@@ -1597,31 +1480,140 @@
             <element signature="e#75431#75881#0" />
             <element signature="e#75887#79786#0" />
             <element signature="e#86323#87353#0" />
-            <element signature="e#87360#87955#0" />
             <element signature="e#87961#88516#0" />
             <element signature="e#88521#89826#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/DAO/Database.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/style/css/AdminPage.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="16" column="91" selection-start-line="16" selection-start-column="91" selection-end-line="16" selection-end-column="91" />
+        <state relative-caret-position="-1855">
+          <caret line="7" column="33" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/DAO/DaoUtils.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/Components/PrintReport.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="11" column="127" selection-start-line="11" selection-start-column="127" selection-end-line="11" selection-end-column="127" />
+        <state relative-caret-position="152">
+          <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#initialize#0;class#PrintReport#0" />
+            <element signature="method#NOW_LOCAL_DATE#0;class#PrintReport#0" />
+            <element signature="method#print#0;class#PrintReport#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Components/PrintReport.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-63">
+          <caret column="38" selection-start-column="38" selection-end-column="38" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_131/javafx-src.zip!/javafx/scene/input/KeyCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="244" column="4" selection-start-line="244" selection-start-column="4" selection-end-line="244" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="63" column="65" selection-start-line="63" selection-start-column="65" selection-end-line="63" selection-end-column="65" />
+        <state relative-caret-position="119">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Utils/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="71" column="23" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Design_fxml/CustomItems/CustomBasketItem/ShopItemConnector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_131/javafx-src.zip!/javafx/scene/Parent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="724" column="26" selection-start-line="724" selection-start-column="26" selection-end-line="724" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Design_fxml/MainPage.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2264">
+          <caret line="344" column="42" lean-forward="true" selection-start-line="344" selection-start-column="42" selection-end-line="344" selection-end-column="42" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Core/Models/BasketItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="25" column="37" lean-forward="true" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="110" column="17" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="163" column="11" selection-start-line="163" selection-start-column="11" selection-end-line="163" selection-end-column="11" />
+          <folding>
+            <element signature="e#6252#6253#0" expanded="true" />
+            <element signature="e#6320#6321#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_131/javafx-src.zip!/javafx/scene/layout/Pane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="96" column="13" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Design_fxml/CustomItems/CustomBasketItem/ShopItemListItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/MainPageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="160" column="49" selection-start-line="160" selection-start-column="49" selection-end-line="160" selection-end-column="49" />
+          <folding>
+            <element signature="class#5375:5598" />
+            <element signature="class#5647:5870" />
+            <element signature="class#5920:6200" />
+            <element signature="class#6249:6472" />
+            <element signature="e#15640#15687#0" />
+            <element signature="e#15747#16136#0" />
+            <element signature="e#16142#16175#0" />
+            <element signature="e#20303#20336#0" />
+            <element signature="e#20410#21776#0" />
+            <element signature="e#21782#22319#0" />
+            <element signature="e#22325#23334#0" />
+            <element signature="e#23339#23878#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1632,9 +1624,9 @@
         <settings>
           <artifact-editor>
             <show-content>
-              <type id="artifact" />
-              <type id="library" />
               <type id="jpa-descriptors" />
+              <type id="library" />
+              <type id="artifact" />
               <type id="javaee-facet-resources" />
             </show-content>
           </artifact-editor>
@@ -1643,7 +1635,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2678161" />
-                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

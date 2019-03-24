@@ -1,10 +1,10 @@
 package sample.Components;
 
-import com.jfoenix.controls.JFXDatePicker;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import sample.DAO.Database;
 import sample.DAO.printer;
@@ -34,9 +34,9 @@ public class PrintReport implements Initializable {
     @FXML
     public Label Usumma;
     @FXML
-    public JFXDatePicker RDate1;
+    public DatePicker RDate1;
     @FXML
-    public JFXDatePicker RDate2;
+    public DatePicker RDate2;
 
     Statement myStmt = null;
     ResultSet myRs = null;

@@ -1,8 +1,5 @@
 package sample;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXDatePicker;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -123,7 +120,7 @@ public class AdminPart implements Initializable {
     @FXML
     private DatePicker XDateValue2;
     @FXML
-    private JFXComboBox Xcombo1;
+    private ComboBox Xcombo1;
     @FXML
     private ComboBox Xcombo2;
     @FXML
@@ -135,7 +132,7 @@ public class AdminPart implements Initializable {
     @FXML
     private CheckBox CheckboxToday;
     @FXML
-    private JFXButton XbuttonSaralash;
+    private Button XbuttonSaralash;
     @FXML
     private AreaChart XLineChart;
     // @FXML
@@ -183,9 +180,9 @@ public class AdminPart implements Initializable {
     *  Tarix table
     */
     @FXML
-    JFXDatePicker TarixDate1;
+    DatePicker TarixDate1;
     @FXML
-    JFXDatePicker TarixDate2;
+    DatePicker TarixDate2;
     @FXML TextField TarixId;
     @FXML TextField TarixName;
     @FXML TextField TarixType;
@@ -198,8 +195,8 @@ public class AdminPart implements Initializable {
     *  DDL change tab
     *
     */
-    @FXML JFXDatePicker DDL_date1;
-    @FXML JFXDatePicker DDL_date2;
+    @FXML DatePicker DDL_date1;
+    @FXML DatePicker DDL_date2;
 
 
     @FXML
