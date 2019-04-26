@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTabPane?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
@@ -10,7 +12,7 @@
    <children>
       <BorderPane layoutX="363.0" layoutY="129.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
-            <TabPane prefHeight="200.0" prefWidth="200.0" side="LEFT" style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+            <JFXTabPane prefHeight="200.0" prefWidth="200.0" side="LEFT" style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
               <tabs>
                   <Tab id="Main-tab1" styleClass="MainTabs">
                      <content>
@@ -112,7 +114,7 @@
                                               <RowConstraints maxHeight="0.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                              <children>
-                                                <DatePicker fx:id="XDateValue1"  maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="129.0" styleClass="calendar1">
+                                                <DatePicker fx:id="XDateValue1" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="129.0" styleClass="calendar1">
                                                    <opaqueInsets>
                                                       <Insets />
                                                    </opaqueInsets>
@@ -125,7 +127,7 @@
                                                       <Insets bottom="5.0" left="8.0" top="5.0" />
                                                    </GridPane.margin>
                                                 </DatePicker>
-                                                <ComboBox fx:id="Xcombo1" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="200.0" promptText="Sotuvchilar" styleClass="calendar1"  GridPane.columnIndex="5">
+                                                <ComboBox fx:id="Xcombo1" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="200.0" promptText="Sotuvchilar" styleClass="calendar1" GridPane.columnIndex="5">
                                                    <GridPane.margin>
                                                       <Insets bottom="5.0" left="8.0" top="5.0" />
                                                    </GridPane.margin>
@@ -226,15 +228,15 @@
                                              <GridPane.margin>
                                                 <Insets right="5.0" top="9.0" />
                                              </GridPane.margin></TextField>
-                                          <DatePicker id="text-red" fx:id="AdminTextDan"  prefHeight="40.0" prefWidth="200.0" promptText="Ishlab chiqarilgan sana" styleClass="calendar1" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                          <DatePicker id="text-red" fx:id="AdminTextDan" prefHeight="40.0" prefWidth="200.0" promptText="Ishlab chiqarilgan sana" styleClass="calendar1" GridPane.columnIndex="1" GridPane.rowIndex="6">
                                              <GridPane.margin>
                                                 <Insets left="5.0" right="5.0" />
                                              </GridPane.margin></DatePicker>
-                                          <DatePicker id="text-red" fx:id="AdminTextGacha"  prefHeight="40.0" prefWidth="200.0" promptText="Oxirgi saqlash sanasi" styleClass="calendar1" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                          <DatePicker id="text-red" fx:id="AdminTextGacha" prefHeight="40.0" prefWidth="200.0" promptText="Oxirgi saqlash sanasi" styleClass="calendar1" GridPane.columnIndex="1" GridPane.rowIndex="7">
                                              <GridPane.margin>
                                                 <Insets left="5.0" right="5.0" />
                                              </GridPane.margin></DatePicker>
-                                          <ComboBox id="text-red" fx:id="ComboTypeList" onAction="#AddTypeComboboxAction" onContextMenuRequested="#AddTypeComboboxAction" onMouseClicked="#AddTypeComboboxAction" prefHeight="40.0" prefWidth="200.0" promptText="Turlar" styleClass="calendar1"  GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                          <ComboBox id="text-red" fx:id="ComboTypeList" onAction="#AddTypeComboboxAction" onContextMenuRequested="#AddTypeComboboxAction" onMouseClicked="#AddTypeComboboxAction" prefHeight="40.0" prefWidth="200.0" promptText="Turlar" styleClass="calendar1" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                              <GridPane.margin>
                                                 <Insets left="5.0" right="5.0" />
                                              </GridPane.margin>
@@ -363,7 +365,7 @@
                                              <HBox.margin>
                                                 <Insets right="10.0" />
                                              </HBox.margin></DatePicker>
-                                          <DatePicker fx:id="QarzDate2"  prefHeight="59.0" prefWidth="200.0" styleClass="calendar1">
+                                          <DatePicker fx:id="QarzDate2" prefHeight="59.0" prefWidth="200.0" styleClass="calendar1">
                                              <HBox.margin>
                                                 <Insets right="10.0" />
                                              </HBox.margin></DatePicker>
@@ -371,7 +373,6 @@
                                              <font>
                                                 <Font name="System Bold" size="12.0" />
                                              </font></Button>
-                                          <TextField fx:id="Qarzid" editable="false" prefHeight="58.0" prefWidth="140.0" />
                                           <Button mnemonicParsing="false" onAction="#deleteQarzlar" prefHeight="45.0" prefWidth="200.0" styleClass="calendar" text="Olib tashlash" textFill="WHITE">
                                              <font>
                                                 <Font name="System Bold" size="12.0" />
@@ -382,6 +383,27 @@
                                        </children>
                                     </HBox>
                                  </top>
+                                 <right>
+                                    <GridPane BorderPane.alignment="CENTER">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="52.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="148.0" minWidth="10.0" prefWidth="148.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="60.0" minHeight="0.0" prefHeight="59.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="243.0" minHeight="10.0" prefHeight="243.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <TextField fx:id="Qarzid" editable="false" prefHeight="71.0" prefWidth="148.0" GridPane.columnIndex="1" />
+                                          <Label alignment="CENTER" prefHeight="101.0" prefWidth="129.0" styleClass="label1" text="Id" />
+                                          <Label alignment="CENTER" prefHeight="143.0" prefWidth="136.0" styleClass="label1" text="Summa" GridPane.rowIndex="1" />
+                                          <TextField fx:id="CreditSumma" editable="false" prefHeight="67.0" prefWidth="148.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                       </children>
+                                    </GridPane>
+                                 </right>
                               </BorderPane>
                            </children></AnchorPane>
                      </content>
@@ -453,8 +475,8 @@
                                                 <Font name="System Bold" size="15.0" />
                                              </font>
                                           </Label>
-                                          <DatePicker fx:id="TarixDate1"  prefHeight="53.0" prefWidth="218.0" styleClass="calendar1" />
-                                          <DatePicker fx:id="TarixDate2"  prefHeight="52.0" prefWidth="218.0" styleClass="calendar1" />
+                                          <DatePicker fx:id="TarixDate1" prefHeight="53.0" prefWidth="218.0" styleClass="calendar1" />
+                                          <DatePicker fx:id="TarixDate2" prefHeight="52.0" prefWidth="218.0" styleClass="calendar1" />
                                           <Button mnemonicParsing="false" onAction="#tarixtable" prefHeight="43.0" prefWidth="254.0" styleClass="calendar" text="Saralash">
                                              <font>
                                                 <Font name="System Bold" size="14.0" />
@@ -652,7 +674,7 @@
                                                    <font>
                                                       <Font name="System Bold" size="12.0" />
                                                    </font></Label>
-                                                <TextField fx:id="jobTieleS" prefHeight="38.0" styleClass="labelTextField"  GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <TextField fx:id="jobTieleS" prefHeight="38.0" styleClass="labelTextField" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <opaqueInsets>
                                                       <Insets right="5.0" />
                                                    </opaqueInsets>
@@ -660,7 +682,7 @@
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField fx:id="passwordS" prefHeight="38.0" styleClass="labelTextField"  GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                                <TextField fx:id="passwordS" prefHeight="38.0" styleClass="labelTextField" GridPane.columnIndex="1" GridPane.rowIndex="6">
                                                    <opaqueInsets>
                                                       <Insets right="5.0" />
                                                    </opaqueInsets>
@@ -668,7 +690,7 @@
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField fx:id="emailS" prefHeight="38.0" styleClass="labelTextField"  GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                                <TextField fx:id="emailS" prefHeight="38.0" styleClass="labelTextField" GridPane.columnIndex="1" GridPane.rowIndex="7">
                                                    <opaqueInsets>
                                                       <Insets right="5.0" />
                                                    </opaqueInsets>
@@ -676,7 +698,7 @@
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField fx:id="firstNameSo" prefHeight="38.0" styleClass="labelTextField"  GridPane.columnIndex="1">
+                                                <TextField fx:id="firstNameSo" prefHeight="38.0" styleClass="labelTextField" GridPane.columnIndex="1">
                                                    <opaqueInsets>
                                                       <Insets right="5.0" />
                                                    </opaqueInsets>
@@ -684,7 +706,7 @@
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField fx:id="telephoneS" prefHeight="38.0" styleClass="labelTextField"  GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                <TextField fx:id="telephoneS" prefHeight="38.0" styleClass="labelTextField" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                                    <opaqueInsets>
                                                       <Insets right="5.0" />
                                                    </opaqueInsets>
@@ -692,7 +714,7 @@
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField fx:id="salaryS" prefHeight="38.0" styleClass="labelTextField"  GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <TextField fx:id="salaryS" prefHeight="38.0" styleClass="labelTextField" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <opaqueInsets>
                                                       <Insets right="5.0" />
                                                    </opaqueInsets>
@@ -700,7 +722,7 @@
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField fx:id="lastNameS" prefHeight="38.0" styleClass="labelTextField"  GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <TextField fx:id="lastNameS" prefHeight="38.0" styleClass="labelTextField" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <opaqueInsets>
                                                       <Insets right="5.0" />
                                                    </opaqueInsets>
@@ -720,7 +742,7 @@
                                                    <font>
                                                       <Font name="System Bold" size="12.0" />
                                                    </font></Label>
-                                                <DatePicker fx:id="birthDateS"  prefHeight="38.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                <DatePicker fx:id="birthDateS" prefHeight="38.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                                    <GridPane.margin>
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin></DatePicker>
@@ -852,6 +874,14 @@
                                                       <Insets left="5.0" right="10.0" top="10.0" />
                                                    </GridPane.margin>
                                                 </Button>
+                                                <Button mnemonicParsing="false" onAction="#listProduct" prefHeight="120.0" prefWidth="228.0" styleClass="calendar" text="List" GridPane.rowIndex="2">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" right="5.0" top="10.0" />
+                                                   </GridPane.margin>
+                                                </Button>
                                              </children>
                                           </GridPane>
                                        </children>
@@ -933,14 +963,14 @@
                <BorderPane.margin>
                   <Insets />
                </BorderPane.margin>
-            </TabPane>
+            </JFXTabPane>
          </center>
          <top>
             <VBox prefHeight="69.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
                <children>
                   <MenuBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" style="-fx-background-color: #eaeaee;">
                     <menus>
-                      <Menu mnemonicParsing="false" fx:id="btnChiqish" onAction="#ActionChiqish" text="Chiqish">
+                      <Menu fx:id="btnChiqish" mnemonicParsing="false" onAction="#ActionChiqish" text="Chiqish">
                         <items>
                           <MenuItem mnemonicParsing="false" text="Kirish oynasi" />
                         </items>

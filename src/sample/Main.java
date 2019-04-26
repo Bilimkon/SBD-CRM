@@ -21,7 +21,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Design_fxml/Login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Design_fxml/MainPage.fxml"));
         primaryStage.setTitle("SBD boshqaruv tizimi.");
 //      primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root, 1080, 720));

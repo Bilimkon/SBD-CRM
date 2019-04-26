@@ -17,30 +17,18 @@ import java.util.ResourceBundle;
 
 public class ShopItemListItem extends AnchorPane implements ShopItemConnector, Initializable {
 
-    @FXML
-    private Label itemTitle;
-
-    @FXML
-    private Label itemType;
-
-    @FXML
-    private Label itemPrice;
-
-    @FXML
-    private TextField amountField;
-
-    @FXML
-    private CheckBox isAccepted;
-
+    @FXML private Label itemTitle;
+    @FXML private Label itemType;
+    @FXML private Label itemPrice;
+    @FXML private TextField amountField;
+    @FXML private CheckBox isAccepted;
     private Pane self;
-
     public ShopItemListItem() {
 
     }
 
     public int id = -1;
     private String barcode = "0";
-
     public void setDetails(ProductTable maxsulot, boolean isAccepted) {
         itemTitle.setText(maxsulot.getName());
         itemType.setText(maxsulot.getType());
@@ -53,7 +41,6 @@ public class ShopItemListItem extends AnchorPane implements ShopItemConnector, I
 
     private Background paneBackground = null;
     private void setPaneBackgroundColor(int red, int green, int blue) {
-     //   Color c = new Color((double) 32 / 256, (double) 226 / 256, (double) 123 / 256, 1);
         Color c = new Color((double) red / 256, (double) green / 256, (double) blue / 256,1);
         BackgroundFill backgroundFill = new BackgroundFill(c, CornerRadii.EMPTY, Insets.EMPTY);
         Background background = new Background(backgroundFill);
@@ -65,33 +52,27 @@ public class ShopItemListItem extends AnchorPane implements ShopItemConnector, I
         paneBackground = p.getBackground();
         if (id != -1) {
             if (id % 2 == 0) {
-                System.out.println(id);
-                setPaneBackgroundColor(234, 234, 238);
+                setPaneBackgroundColor(203, 203, 203);
             }
         }
         p.setOnMouseClicked(event -> amountField.requestFocus());
 
-        p.setOnMouseEntered(event -> {//#eaffea
-            setPaneBackgroundColor(32, 226, 123);
-        });
+
 
         p.setOnMouseExited(event -> {
             if (id != -1) {
                 if (id % 2 == 0) {
-                    System.out.println(id);
-                    setPaneBackgroundColor(234, 234, 238);
+                    setPaneBackgroundColor(203, 203, 203);
                 } else {
-                    self.setBackground(paneBackground);
+                    //self.setBackground(paneBackground);
                 }
             }
         });
-
     }
 
     @Override
     public void onDispose() {
         VBox b = (VBox) self.getParent();
-
         for (int i = 0; i < MainPageController.basket.size(); i++) {
             if (MainPageController.basket.get(i).getBarcode().equals(barcode)) {
                 System.out.println("removing item barcode = " + barcode);
@@ -103,6 +84,5 @@ public class ShopItemListItem extends AnchorPane implements ShopItemConnector, I
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        System.out.println("initialize ShopItemListItem controller");
     }
 }

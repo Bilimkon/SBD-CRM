@@ -15,10 +15,10 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.DirectoryChooser;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.openxml4j.opc.OPCPackage;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -174,6 +174,7 @@ public class AdminPart implements Initializable {
     DatePicker QarzDate1;
     @FXML
     DatePicker QarzDate2;
+    @FXML TextField CreditSumma;
     //----------------------------------------------
 
     /*
@@ -721,10 +722,10 @@ public class AdminPart implements Initializable {
                     AdminTextNomi.setText(apple2.getName());
                     String narx1 = String.valueOf(apple2.getCost());
                     AdminTextNarxi.setText(narx1);
-                    String saleNarxi1 = String.valueOf(apple2.getItemsalecost());
+                    String saleNarxi1 = String.valueOf(apple2.getCost_o());
                     AdminTextSale.setText(saleNarxi1);
-                    AdminTextDan.setValue(LocalDate.parse(apple2.getDate()));
-                    AdminTextGacha.setValue(LocalDate.parse(apple2.getExpireDate()));
+                    AdminTextDan.setValue(LocalDate.parse(apple2.getDate_c()));
+                    AdminTextGacha.setValue(LocalDate.parse(apple2.getDate_o()));
                     String miqdor = String.valueOf(apple2.getQuantity());
                     AdminTextMiqdori.setText(miqdor);
                     AdminTextId.setText(String.valueOf(apple2.getId()));
@@ -1323,6 +1324,7 @@ public class AdminPart implements Initializable {
 
                 PreparedStatement preparedStatement = null;
                 String barcode1 = Qarzid.getText();
+                String creditCost = CreditSumma.getText();
 
                 if (barcode1 != null) {
 
@@ -1330,8 +1332,9 @@ public class AdminPart implements Initializable {
                     String apple = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
 
                     try {
-                        preparedStatement = myConn.prepareStatement("UPDATE savdoAction set creditDescription = CONCAT(creditDescription,' berildi ') " + " WHERE id=?");
-                        preparedStatement.setString(1, barcode1);
+                        preparedStatement = myConn.prepareStatement("UPDATE savdoAction set cardAmount= cardAmount+?, creditDescription = CONCAT(creditDescription,' berildi '), creditAmount=0 " + " WHERE id=?");
+                        preparedStatement.setString(1, creditCost);
+                        preparedStatement.setString(2, barcode1);
                         preparedStatement.executeUpdate();
 
                         preparedStatement = myConn.prepareStatement("INSERT  INTO Table_history1 VALUES ('Admin','Qarz Tolandi' ,?)");
@@ -1367,8 +1370,12 @@ public class AdminPart implements Initializable {
 
                 try {
                     String idQarzlar = String.valueOf(qarzTable.getIdQ());
+                    String creditSumma1 = qarzTable.getCredit_Q();
+
 
                     Qarzid.setText(idQarzlar);
+                    CreditSumma.setText(creditSumma1);
+
 
                 } catch (Exception exc) {
 
@@ -1531,30 +1538,25 @@ public class AdminPart implements Initializable {
 
     }
 
-    public void excelToDB() throws FileNotFoundException {
+    public void excelToDB() throws IOException, SQLException {
 
 
-        FileChooser fileChooser = new FileChooser();
-        Stage stage = null;
+      //  FileChooser fileChooser = new FileChooser();
+      //  Stage stage = null;
 
-        File selectFile = fileChooser.showOpenDialog(stage);
+      //  File selectFile = fileChooser.showOpenDialog(stage);
+//
+//        FileInputStream file2 = new FileInputStream("E:\\OmborXisobi.xls");
 
-        FileInputStream file2 = new FileInputStream("E:\\OmborXisobi.xls");
-
-
+/*
         try {
-
-            String Q1 = "INSERT INTO maxsulotlar(item_barcode, item_name, item_type, item_quantity,item_cost,item_sale_cost,item_date, item_expire_date,item_suplier,item_turlari) VALUES(?, ?, ?, ? , ? , ? , ? ,? ,? , ?)";
+            String Q1 = "INSERT INTO maxsulotlar(item_barcode, item_name, item_type, item_quantity,item_cost,item_sale_cost,item_date, item_expire_date) VALUES(?, ?, ?, ? , ? , ? , ? ,? )";
             preparedStatement = myConn.prepareStatement(Q1);
-
-            XSSFWorkbook wb = new XSSFWorkbook(file2);
+            XSSFWorkbook wb = new XSSFWorkbook(new File("E:\\OmborXisobi.xlsx"));
             XSSFSheet sheet = wb.getSheetAt(0);
-
             Row row;
-
             for (int i = 1; i <= sheet.getLastRowNum(); i++) {
                 row = sheet.getRow(i);
-
                 preparedStatement.setString(1, row.getCell(0).getStringCellValue());
                 preparedStatement.setString(2, row.getCell(1).getStringCellValue());
                 preparedStatement.setInt(3, (int) row.getCell(2).getNumericCellValue());
@@ -1563,23 +1565,17 @@ public class AdminPart implements Initializable {
                 preparedStatement.setString(6, row.getCell(5).getStringCellValue());
                 preparedStatement.setString(7, row.getCell(6).getStringCellValue());
                 preparedStatement.setString(8, row.getCell(7).getStringCellValue());
-                preparedStatement.setString(9, row.getCell(8).getStringCellValue());
-                preparedStatement.setString(10, row.getCell(9).getStringCellValue());
-                // preparedStatement.setString(, row.getCell(10).getStringCellValue());
-                preparedStatement.execute();
-
-                preparedStatement.close();
-                wb.close();
-                myConn.close();
-
-
-                JOptionPane.showMessageDialog(null, "All records are imported to database", "Ijobiy", JOptionPane.INFORMATION_MESSAGE);
             }
+            preparedStatement.execute();
+            preparedStatement.close();
+            wb.close();
 
-        } catch (Exception exe) {
-            JOptionPane.showMessageDialog(null, "Exel fileni qo'shishda muammo kuzatildi" + exe, " Xatolik", JOptionPane.ERROR_MESSAGE);
-
+            JOptionPane.showMessageDialog(null, "All records are imported to database", "Ijobiy", JOptionPane.INFORMATION_MESSAGE);
         }
+         catch (Exception exe) {
+            exe.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Exel fileni qo'shishda muammo kuzatildi" + exe, " Xatolik", JOptionPane.ERROR_MESSAGE);
+        }*/
     }
 
     public void ADDSeller() throws Exception {
@@ -1810,6 +1806,93 @@ public class AdminPart implements Initializable {
 
 
     }
+    public  void listProduct(){
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Excel fayl yaratish ");
+        alert.setHeaderText(null);
+        alert.setContentText("Ombordagi maxsulotlarni excell faylga ko'chirasizmi?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.isPresent())
+            if (result.get() == ButtonType.OK) {
+
+                printer printer = new printer();
+
+
+                String filename = printer.ExcelFilePath() + "List.xls";
+                HSSFWorkbook workbook = new HSSFWorkbook();
+                HSSFSheet sheet = workbook.createSheet("List");
+                FileOutputStream fileOut1 = null;
+                try {
+                    fileOut1 = new FileOutputStream(filename);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Xatolik" + e, "Xatolik", JOptionPane.ERROR_MESSAGE);
+                }
+                try {
+                    workbook.write(fileOut1);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Xatolik" + e, "Xatolik", JOptionPane.ERROR_MESSAGE);
+                }
+                try {
+                    fileOut1.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Xatolik" + e, "Xatolik", JOptionPane.ERROR_MESSAGE);
+                }
+                try {
+                    workbook.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Xatolik" + e, "Xatolik", JOptionPane.ERROR_MESSAGE);
+                }
+
+
+                Workbook writeWorkbook = new HSSFWorkbook();
+                Sheet desSheet = writeWorkbook.createSheet("list");
+
+                Statement stmt = null;
+                ResultSet rs = null;
+                try {
+                    String query = "SELECT * FROM listProduct";
+
+                    stmt = myConn.createStatement();
+                    rs = stmt.executeQuery(query);
+                    ResultSetMetaData rsmd = rs.getMetaData();
+                    int columnsNumber = rsmd.getColumnCount();
+
+                    Row desRow1 = desSheet.createRow(0);
+                    for (int col = 0; col < columnsNumber; col++) {
+                        org.apache.poi.ss.usermodel.Cell newpath = desRow1.createCell(col);
+                        newpath.setCellValue(rsmd.getColumnLabel(col + 1));
+                    }
+                    while (rs.next()) {
+                        System.out.println("Row number" + rs.getRow());
+                        Row desRow = desSheet.createRow(rs.getRow());
+                        for (int col = 0; col < columnsNumber; col++) {
+                            Cell newpath = desRow.createCell(col);
+                            newpath.setCellValue(rs.getString(col + 1));
+                        }
+
+                        FileOutputStream fileOut = new FileOutputStream(printer.ExcelFilePath() + "list.xls");
+                        writeWorkbook.write(fileOut);
+                        fileOut.close();
+                    }
+                    JOptionPane.showMessageDialog(null, "Excel fayl yaratildi", "Ma'lumot", JOptionPane.INFORMATION_MESSAGE);
+
+                } catch (SQLException e) {
+                    System.out.println("Failed to get data from database");
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+    }
 
     public void dbToExcell() throws IOException {
 
@@ -2013,7 +2096,6 @@ public class AdminPart implements Initializable {
 
     public void PrinterAddAction() {
 
-
         TextInputDialog dialog = new TextInputDialog("Printer");
         dialog.setTitle("Printer nomini qo'shish");
         dialog.setHeaderText("Iltimos printer nomini qo'shing");
@@ -2023,12 +2105,8 @@ public class AdminPart implements Initializable {
         Optional<String> result = dialog.showAndWait();
         if (result.isPresent()) {
             System.out.println(result.get());
-
             String apple = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
-
             PreparedStatement preparedStatement = null;
-
-
             try {
                 preparedStatement = myConn.prepareStatement("UPDATE printer set name=?");
                 preparedStatement.setString(1, result.get());
@@ -2037,30 +2115,20 @@ public class AdminPart implements Initializable {
                 preparedStatement = myConn.prepareStatement("INSERT  INTO Table_history1 VALUES ('Admin','Printer nomi qoshildi' ,?)");
                 preparedStatement.setString(1, apple);
                 preparedStatement.executeUpdate();
-
                 JOptionPane.showMessageDialog(null, "Yangi printer nomi qo'shildi", "Bildirgi", JOptionPane.INFORMATION_MESSAGE);
-
-
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
-
     }
 
     public void SetExcelFolder() {
-
         DirectoryChooser directoryChooser = new DirectoryChooser();
-
         Stage stage = null;
-
         File dir = directoryChooser.showDialog(stage);
-
         System.out.println(dir.getAbsolutePath() + "\\");
         String apple = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
-
         String Path = dir.getAbsolutePath() + "\\";
-
         try {
             preparedStatement = myConn.prepareStatement("UPDATE printer set Path=?");
             preparedStatement.setString(1, Path);
@@ -2071,14 +2139,12 @@ public class AdminPart implements Initializable {
             preparedStatement.executeUpdate();
 
             JOptionPane.showMessageDialog(null, "Excel yanaratiladigan joy qo'shildi", "Bildirgi", JOptionPane.INFORMATION_MESSAGE);
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     public void AddTypeAction() {
-
         Parent root;
         try {
             root = FXMLLoader.load(getClass().getResource("Components/AddType.fxml"));
@@ -2087,10 +2153,8 @@ public class AdminPart implements Initializable {
             stage.setScene(new Scene(root, 600, 400));
             stage.setResizable(false);
             stage.isAlwaysOnTop();
-
             stage.show();
             // Hide this current window (if this is what you want)
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -2105,20 +2169,15 @@ public class AdminPart implements Initializable {
             stage.setScene(new Scene(root, 600, 400));
             stage.setResizable(false);
             stage.isAlwaysOnTop();
-
             stage.show();
             // Hide this current window (if this is what you want)
-
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     public void GenerateBarcode(){
-
-
         if (AdminTextBarcode.getText().isEmpty()){
             String testCode = String.valueOf(numbGen());
-
             BarCodeService serv = new BarCodeService();
             String parsedString = serv.parseInput(testCode);
             AdminTextBarcode.setText(parsedString);

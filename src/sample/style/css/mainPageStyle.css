@@ -7,6 +7,7 @@
 .button {
     -fx-background-color: #1ab394;
     -fx-text-fill: white;
+    -fx-font-weight: bold;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );
 }
 .button:pressed {
@@ -15,7 +16,34 @@
 
 .label {
     -fx-text-fill: white;
-    -fx-padding: 4;
+}
+.label-list-item{
+    -fx-text-fill: white;
+}
+.label-summ{
+    -fx-text-fill:  #1ab394;
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+
+}
+.label-plastic{
+    -fx-text-fill: #1ab394;
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+
+}
+.toggle-button{
+    -fx-background-color: #1ab394;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );
+}
+.toggle-button:selected{
+    -fx-background-color: red;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0) , 0,0,0,0 );
 }
 
 .scroll-pane, .table-view {
@@ -26,7 +54,6 @@
 }
 .text-black{
     -fx-text-fill: black;
-
 }
 .table-row-cell:odd{
     -fx-background-color:   #eaeaee;
@@ -76,8 +103,21 @@
     -fx-graphic: url("../../style/Images/sell1.png");
 }
 .table-view .table-cell{
-
-    -fx-font-size:15px;
-
-
+    -fx-font-size:20px;
+}
+.list-view{
+    -fx-text-fill: white;
+    -fx-font-size: 30px;
+}
+.list-cell{
+    -fx-fill-height: 100px;
+}
+.list-cell:selected{
+    -fx-background-color: red;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+#item_list{
+    -fx-background-color: #e8e8e8;
+    -fx-text-fill: white;
 }

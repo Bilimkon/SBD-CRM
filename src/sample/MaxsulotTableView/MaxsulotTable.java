@@ -45,27 +45,23 @@ public class MaxsulotTable extends AbstractTableModel {
 
         switch (col) {
             case BARCODE_COL:
-                return tempEmployee.getItemBarcode();
+                return tempEmployee.getBarcode();
             case NAME_COL:
-                return tempEmployee.getItemName();
+                return tempEmployee.getName();
             case TYPE_COL:
-                return tempEmployee.getItemType();
+                return tempEmployee.getType();
             case QUANTITY_COL:
-                return tempEmployee.getItemQuantity();
+                return tempEmployee.getQuantity();
             case COST_COL :
-                return  tempEmployee.getItemCost();
+                return  tempEmployee.getCost();
             case DATE_COL:
-                return tempEmployee.getItemDate();
+                return tempEmployee.getDate_c();
             case EXPIRE_DATE_COL:
-                return tempEmployee.getItemExpireDate();
-            case SUPLIER_COL:
-                return tempEmployee.getItemSuplier();
-            case TURLARI_COL:
-                return tempEmployee.getItemTurlari();
+                return tempEmployee.getDate_o();
             case OBJECT_COL:
                 return tempEmployee;
             default:
-                return tempEmployee.getItemName();
+                return tempEmployee.getName();
         }
     }
 

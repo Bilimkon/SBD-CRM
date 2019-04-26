@@ -7,16 +7,19 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class ProductTable {
     private SimpleIntegerProperty id = new SimpleIntegerProperty();
-    private SimpleDoubleProperty itemsalecost = new SimpleDoubleProperty();
-    private SimpleStringProperty barcode = new SimpleStringProperty();
-    private SimpleStringProperty name = new SimpleStringProperty();
-    private SimpleStringProperty type = new SimpleStringProperty();
-    private SimpleIntegerProperty quantity = new SimpleIntegerProperty();
-    private SimpleDoubleProperty cost = new SimpleDoubleProperty();
-    private SimpleStringProperty date = new SimpleStringProperty();
-    private SimpleStringProperty expireDate = new SimpleStringProperty();
-    private SimpleStringProperty suplier = new SimpleStringProperty();
-    private SimpleStringProperty turlari = new SimpleStringProperty();
+    private SimpleStringProperty  barcode = new SimpleStringProperty();
+    private SimpleStringProperty  name = new SimpleStringProperty();
+    private SimpleStringProperty  type = new SimpleStringProperty();
+    private SimpleIntegerProperty  type_id = new SimpleIntegerProperty();
+    private SimpleStringProperty   cost = new SimpleStringProperty();
+    private SimpleIntegerProperty  quantity = new SimpleIntegerProperty();
+    private SimpleStringProperty  cost_o = new SimpleStringProperty();
+    private SimpleStringProperty  date_c = new SimpleStringProperty();
+    private SimpleStringProperty  date_o = new SimpleStringProperty();
+    private SimpleIntegerProperty  cr_by = new SimpleIntegerProperty();
+    private SimpleIntegerProperty  up_by = new SimpleIntegerProperty();
+    private SimpleStringProperty  date_cr = new SimpleStringProperty();
+    private SimpleStringProperty  date_up = new SimpleStringProperty();
 
     public int getId() {
         return id.get();
@@ -28,26 +31,6 @@ public class ProductTable {
 
     public void setId(int id) {
         this.id.set(id);
-    }
-
-    public double getItemsalecost() {
-        return itemsalecost.get();
-    }
-
-    public SimpleDoubleProperty itemsalecostProperty() {
-        return itemsalecost;
-    }
-
-    public void setItemsalecost(double itemsalecost) {
-        this.itemsalecost.set(itemsalecost);
-    }
-
-    public static ProductTable getInstance() {
-        return new ProductTable();
-    }
-
-    private ProductTable() {
-
     }
 
     public String getBarcode() {
@@ -86,6 +69,30 @@ public class ProductTable {
         this.type.set(type);
     }
 
+    public int getType_id() {
+        return type_id.get();
+    }
+
+    public SimpleIntegerProperty type_idProperty() {
+        return type_id;
+    }
+
+    public void setType_id(int type_id) {
+        this.type_id.set(type_id);
+    }
+
+    public String getCost() {
+        return cost.get();
+    }
+
+    public SimpleStringProperty costProperty() {
+        return cost;
+    }
+
+    public void setCost(String cost) {
+        this.cost.set(cost);
+    }
+
     public int getQuantity() {
         return quantity.get();
     }
@@ -98,63 +105,87 @@ public class ProductTable {
         this.quantity.set(quantity);
     }
 
-    public double getCost() {
-        return cost.get();
+    public String getCost_o() {
+        return cost_o.get();
     }
 
-    public SimpleDoubleProperty costProperty() {
-        return cost;
+    public SimpleStringProperty cost_oProperty() {
+        return cost_o;
     }
 
-    public void setCost(double cost) {
-        this.cost.set(cost);
+    public void setCost_o(String cost_o) {
+        this.cost_o.set(cost_o);
     }
 
-    public String getDate() {
-        return date.get();
+    public String getDate_c() {
+        return date_c.get();
     }
 
-    public SimpleStringProperty dateProperty() {
-        return date;
+    public SimpleStringProperty date_cProperty() {
+        return date_c;
     }
 
-    public void setDate(String date) {
-        this.date.set(date);
+    public void setDate_c(String date_c) {
+        this.date_c.set(date_c);
     }
 
-    public String getExpireDate() {
-        return expireDate.get();
+    public String getDate_o() {
+        return date_o.get();
     }
 
-    public SimpleStringProperty expireDateProperty() {
-        return expireDate;
+    public SimpleStringProperty date_oProperty() {
+        return date_o;
     }
 
-    public void setExpireDate(String expireDate) {
-        this.expireDate.set(expireDate);
+    public void setDate_o(String date_o) {
+        this.date_o.set(date_o);
     }
 
-    public String getSuplier() {
-        return suplier.get();
+    public int getCr_by() {
+        return cr_by.get();
     }
 
-    public SimpleStringProperty suplierProperty() {
-        return suplier;
+    public SimpleIntegerProperty cr_byProperty() {
+        return cr_by;
     }
 
-    public void setSuplier(String suplier) {
-        this.suplier.set(suplier);
+    public void setCr_by(int cr_by) {
+        this.cr_by.set(cr_by);
     }
 
-    public String getTurlari() {
-        return turlari.get();
+    public int getUp_by() {
+        return up_by.get();
     }
 
-    public SimpleStringProperty turlariProperty() {
-        return turlari;
+    public SimpleIntegerProperty up_byProperty() {
+        return up_by;
     }
 
-    public void setTurlari(String turlari) {
-        this.turlari.set(turlari);
+    public void setUp_by(int up_by) {
+        this.up_by.set(up_by);
+    }
+
+    public String getDate_cr() {
+        return date_cr.get();
+    }
+
+    public SimpleStringProperty date_crProperty() {
+        return date_cr;
+    }
+
+    public void setDate_cr(String date_cr) {
+        this.date_cr.set(date_cr);
+    }
+
+    public String getDate_up() {
+        return date_up.get();
+    }
+
+    public SimpleStringProperty date_upProperty() {
+        return date_up;
+    }
+
+    public void setDate_up(String date_up) {
+        this.date_up.set(date_up);
     }
 }

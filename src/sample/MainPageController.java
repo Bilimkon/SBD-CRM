@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -17,6 +18,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -32,6 +34,7 @@ import sample.DAO.HistoryDao;
 import sample.DAO.ProductDao;
 import sample.DAO.printer;
 import sample.Design_fxml.CustomItems.CustomBasketItem.ShopItemListItem;
+import sample.MaxsulotTableView.CustomerCreditTable;
 import sample.MaxsulotTableView.MaxsulotTable;
 import sample.MaxsulotTableView.ProductTable;
 import sample.Utils.PrinterService;
@@ -39,10 +42,11 @@ import sample.Utils.Utils;
 
 import javax.swing.*;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.*;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.*;
@@ -50,77 +54,69 @@ import java.util.*;
 public class MainPageController extends Parent implements Initializable {
     private ProductDao productDao;
     private MaxsulotTable maxsulotTable;
-
     private float cardCost = 0;
-
     @FXML
     private Button btnDiscount;
-
-
     @FXML
     private TextField textSampleIzlash;
-
     private Connection myConn;
-
     @FXML
     private TableView<ProductTable> tableSampleManual;
-
     @FXML
     private VBox addedItemsList;
-
     @FXML
     private Label totalCost;
-
     @FXML
     private TextField scanCodeField;
-
     @FXML
     private Label idUserName;
-
     @FXML
     private Label idStartDate;
-
-    @FXML
-    private Button idTotalSum;
-
     @FXML
     private GridPane topLeftGrid;
-
     @FXML
     private ScrollPane scrollView;
-
     @FXML
     private Label ClockText;
     @FXML
     private Label DateText;
-    @FXML private  Button BtnSell;
+    @FXML
+    private Button BtnSell;
+    @FXML
+    private Button saleBtn;
+    @FXML
+    private Label sale_text;
+    @FXML
+    private ListView<String> typeList;
+    private ObservableList<ProductTable> productTables;
     public static String TotalCost2;
     public static List<BasketItem> basket = new ArrayList<>();
     private CreditModel credit = null;
+    private int customer_id;
+    private float sale_cost;
+    private float paid_sum;
+    private float credit_sum_value;
 
     private void initializeTable() {
         TableColumn<ProductTable, String> barcode = new TableColumn<>("Barcode");
         TableColumn<ProductTable, String> name = new TableColumn<>("Nomi");
-        TableColumn<ProductTable, String> type = new TableColumn<>("Turi");
         TableColumn<ProductTable, Integer> quantity = new TableColumn<>("Miqdori");
         TableColumn<ProductTable, Double> cost = new TableColumn<>("Narxi");
 
-        tableSampleManual.getColumns().addAll(barcode, name, type, quantity, cost);
+        tableSampleManual.getColumns().addAll(barcode, name, quantity, cost);
 
         barcode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
-        type.setCellValueFactory(new PropertyValueFactory<>("type"));
         quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         cost.setCellValueFactory(new PropertyValueFactory<>("cost"));
 
         addedItemsList.getChildren().addListener((ListChangeListener<Node>) c -> {
-//            List<Node> n = addedItemsList.getChildren();
             float sum = calculateCurrentTotalSum();
-//            for (int i = 0; i < n.size(); i++) {
-//                BasketItem basketItem = (BasketItem) (n.get(i)).getUserData();
-//                sum += (basketItem.getCost() * basketItem.getAmount());
-//            }
-            totalCost.setText(new BigDecimal(sum).toPlainString() +" sum");
+            DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
+            symbols.setGroupingSeparator(' ');
+            DecimalFormat formatter = new DecimalFormat("###,###.##", symbols);
+            String app = String.valueOf(formatter.format(calculateCurrentTotalSum()));
+            totalCost.setText(app + " sum");
         });
         tableSampleManual.addEventHandler(MouseEvent.MOUSE_CLICKED, (EventHandler<Event>) event -> {
             try {
@@ -166,7 +162,7 @@ public class MainPageController extends Parent implements Initializable {
         tableSampleManual.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                if(event.getCode()== KeyCode.F6){
+                if (event.getCode() == KeyCode.F6) {
                     actionSell();
                 }
             }
@@ -174,7 +170,7 @@ public class MainPageController extends Parent implements Initializable {
         tableSampleManual.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                if(event.getCode()==KeyCode.F7){
+                if (event.getCode() == KeyCode.F7) {
                     PrintReport();
                 }
             }
@@ -182,7 +178,7 @@ public class MainPageController extends Parent implements Initializable {
         tableSampleManual.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                if(event.getCode()==KeyCode.F5){
+                if (event.getCode() == KeyCode.F5) {
                     btnActionIzlash();
                     textSampleIzlash.requestFocus();
                 }
@@ -191,7 +187,7 @@ public class MainPageController extends Parent implements Initializable {
         textSampleIzlash.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                if(event.getCode()== KeyCode.F6){
+                if (event.getCode() == KeyCode.F6) {
                     actionSell();
                 }
             }
@@ -199,18 +195,16 @@ public class MainPageController extends Parent implements Initializable {
         scrollView.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                if(event.getCode()== KeyCode.F6){
+                if (event.getCode() == KeyCode.F6) {
                     actionSell();
                 }
             }
         });
-
     }
 
-    /*
-    * Sell action with Enter
-    */
-
+    /**
+     * Sell action with Enter
+     */
     private float calculateCurrentTotalSum() {
         float sum = 0;
         for (BasketItem aBasket : basket) {
@@ -235,24 +229,34 @@ public class MainPageController extends Parent implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        initializeTable();
-        User u = LoginController.currentUser;
-        cardSummField.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (Utils.isNumberValid(newValue, Utils.Number.FLOAT)) {
-                if (newValue.length() > 1 & newValue.charAt(0) == '0') {
-                    cardSummField.setText(newValue.replaceFirst("0", ""));
-                }
-                cardCost = Float.parseFloat(cardSummField.getText());
-                cardSum.setText(new BigDecimal(cardCost).toPlainString()+ " sum");
-            } else {
-                Platform.runLater(() -> {
-                    cardSummField.setText("0");
-                    cardSummField.selectAll();
-                    cardCost = 0;
-                });
+        /**
+         * Initialising producttype listview
+         * */
+        try {
+            productDao.typeList(typeList);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        /**
+         * Sellecting type from list
+         * */
+        typeList.addEventHandler(MouseEvent.MOUSE_CLICKED, (EventHandler<Event>) event -> {
+            ResultSet rs;
+            productTables = FXCollections.observableArrayList();
+            String name = typeList.getSelectionModel().getSelectedItems().toString().replace("[", "").replace("]", "");
+            try {
+                rs = productDao.searchProductType(name);
+                ProductDao.productTableGenerator(rs, productTables);
+                tableSampleManual.setItems(productTables);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         });
 
+        cardSumAction();
+        initializeTable();
+        User u = LoginController.currentUser;
         if (u == null) {
             u = new User();
             u.setFirstName("Muhammadjo");
@@ -271,16 +275,16 @@ public class MainPageController extends Parent implements Initializable {
     private void setUserData(User u) {
         idUserName.setText(u.getFirstName() + " " + u.getLastName());
         idStartDate.setText(Utils.getCurrnetDateInStandardFormat());
-        idTotalSum.setText("0.0 sum");
     }
-    private  void inserToHistoryTable(User u){
+
+    private void inserToHistoryTable(User u) {
 
         String apple = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
         PreparedStatement preparedStatement = null;
         try {
             preparedStatement = myConn.prepareStatement("INSERT  INTO Table_history1 VALUES (?,'maxsulot sotildi' ,? )");
-            preparedStatement.setString(1,u.getFirstName()+" " +u.getLastName());
-            preparedStatement.setString(2,apple);
+            preparedStatement.setString(1, u.getFirstName() + " " + u.getLastName());
+            preparedStatement.setString(2, apple);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -290,20 +294,50 @@ public class MainPageController extends Parent implements Initializable {
             e.printStackTrace();
         }
     }
+
     private int counter = 0;
+
+    /**
+     * Sale button is clicked
+     */
+    public void saleBtnAction() {
+        try {
+            TextInputDialog dialog = new TextInputDialog("10");
+            dialog.setTitle("Chegirma %");
+            dialog.setHeaderText("Chegirma miqdorini kiriting!");
+            dialog.setContentText("%");
+            Optional<String> result = dialog.showAndWait();
+            int salePercentage = Integer.parseInt(result.get());
+            if (result.isPresent()) {
+                if (salePercentage < 100) {
+                    DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
+                    symbols.setGroupingSeparator(' ');
+                    DecimalFormat formatter = new DecimalFormat("###,###.##", symbols);
+                    sale_cost = Float.parseFloat(result.get());
+                    paid_sum = currentTotalCost - (currentTotalCost / 100 * sale_cost);
+                    String app = String.valueOf(formatter.format(paid_sum));
+                    sale_text.setText(app + " sum");
+                } else {
+                    Utils.ErrorAlert("Xatolik", "Xatolik", "100 % dan kam miqdor kiritishingiz kerak");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Utils.ErrorAlert("Xatolik", "Xatolik", "Faqat sonlar kirita olasiz!");
+
+        }
+    }
 
     private void addProductTableToList(ProductTable productTable) {
         FXMLLoader loader = createCustomItemLoader("AddedItemListItem", "CustomBasketItem/");
         assert loader != null;
         try {
             BasketItem basketItem = BasketItem.getInstance();
-            basketItem.setAll(productTable.getBarcode(), productTable.getName(), (float) productTable.getCost(), 1, true);
+            basketItem.setAll(productTable.getBarcode(), productTable.getName(), Float.parseFloat(productTable.getCost()), 1, true);
             Pane p = loader.load();
             p.setUserData(basketItem);
             ShopItemListItem item = loader.getController();
-
             item.setDetails(productTable, basketItem.isAccepted());
-
             for (BasketItem b : basket) {
                 if (b.isEqual(basketItem.getBarcode())) {
                     updateListItemAmount(b);
@@ -312,15 +346,12 @@ public class MainPageController extends Parent implements Initializable {
             }
             counter++;
             item.id = counter;
-
             basket.add(basketItem);
             addedItemsList.getChildren().add(p);
-
             item.setPane(p);
-           TextField field = (TextField) p.lookup("#amountField");
+            TextField field = (TextField) p.lookup("#amountField");
             field.requestFocus();
             field.selectAll();
-
             field.textProperty().addListener((observable, oldValue, newValue) -> {
                 try {
                     Label l = (Label) p.lookup("#itemPrice");
@@ -353,7 +384,11 @@ public class MainPageController extends Parent implements Initializable {
                             try {
                                 changeBasketItemAmount(i.getBarcode(), finalNewValue);
                                 currentTotalCost = calculateCurrentTotalSum();
-                                totalCost.setText(new BigDecimal(currentTotalCost).toPlainString() + " sum");
+                                DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
+                                symbols.setGroupingSeparator(' ');
+                                DecimalFormat formatter = new DecimalFormat("###,###.##", symbols);
+                                String app = String.valueOf(formatter.format(calculateCurrentTotalSum()));
+                                totalCost.setText(app + " sum");
                             } catch (Exception ex) {
                                 System.out.println(ex.getMessage());
                             }
@@ -362,6 +397,17 @@ public class MainPageController extends Parent implements Initializable {
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
+                /**
+                 * Basket quantity field, Enter is pressed.
+                 * */
+                field.setOnKeyPressed(new EventHandler<KeyEvent>() {
+                    @Override
+                    public void handle(KeyEvent event) {
+                        if (event.getCode() == KeyCode.ENTER) {
+                            scanCodeField.requestFocus();
+                        }
+                    }
+                });
             });
 
         } catch (IOException e) {
@@ -369,7 +415,6 @@ public class MainPageController extends Parent implements Initializable {
         }
     }
 
-    //
     private void changeBasketItemAmount(String barcode, int amount) {
         for (BasketItem item : basket) {
             if (item.getBarcode().equals(barcode)) {
@@ -384,7 +429,7 @@ public class MainPageController extends Parent implements Initializable {
             myConn = Database.getConnection();
             productDao = new ProductDao();
         } catch (Exception exc) {
-            Utils.ErrorAlert("Error","Xatolik"+exc, "Xatolik bor shu yerda");
+            Utils.ErrorAlert("Error", "Xatolik" + exc, "Xatolik bor shu yerda");
         }
     }
 
@@ -393,53 +438,9 @@ public class MainPageController extends Parent implements Initializable {
     @FXML
     private Label creditSum;
 
-    public void onBtnDiscountClicked() {
-        try {
-
-            FXMLLoader loader = createCustomItemLoader("DiscountWindow", "CustomDiscountWindow/");
-            assert loader != null;
-            VBox vBox = loader.load();
-            PopOver popOver = new PopOver(vBox);
-
-            Button btnCancel = (Button) vBox.lookup("#btnCancel");
-            Button btnOK = (Button) vBox.lookup("#discountOK");
-            TextField summFiled = (TextField) vBox.lookup("#summField");
-            TextArea descrField = (TextArea) vBox.lookup("#descrField");
-
-            if (credit != null) {
-                summFiled.setText(credit.getSumma() + "");
-                descrField.setText(credit.getDescription());
-            }
-
-            btnOK.setOnMouseClicked(event -> {
-                if (Utils.isNumberValid(summFiled.getText(), Utils.Number.FLOAT) && !descrField.getText().trim().equals("")) {
-                    Float credit_sum = Float.valueOf(summFiled.getText());
-                    currentTotalCost = calculateCurrentTotalSum();
-                    if (credit_sum <= currentTotalCost - cardCost) {
-                        credit = new CreditModel(credit_sum, descrField.getText().trim());
-                        popOver.hide();
-                        creditSum.setText(new BigDecimal(credit.getSumma()).toPlainString() + " sum");
-                    } else {
-                        Utils.ErrorAlert("Xatolik mavjud", "summada " + credit_sum, "siz " + (currentTotalCost - cardCost) + " dan kamroq summa kiritishingiz kerak");
-                    }
-                    popOver.hide();
-                } else {
-                    Utils.ErrorAlert("Xatolik mavjud", "Summa da yoki Izohda", "Siz izoh ni yozishingiz shart va summa kiritayotganizda faqat raqamlardan foydalanaing");
-                }
-            });
-
-            popOver.setDetachedTitle("Kreditga berish");
-
-            popOver.detach();
-
-            btnCancel.setOnMouseClicked(event -> popOver.hide());
-
-            popOver.show(btnDiscount);
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
+    /**
+     * End of custom credit table.
+     */
 
     public void onCodeScanClicked() {
         try {
@@ -447,38 +448,51 @@ public class MainPageController extends Parent implements Initializable {
             ProductTable pt = dao.convertProductToProductTable(dao.getProduct(scanCodeField.getText().trim()));
             addProductTableToList(pt);
             scanCodeField.setText("");
-            scanCodeField.requestFocus();
+            //scanCodeField.requestFocus();
         } catch (Exception e) {
             System.out.println("no such item: " + scanCodeField.getText());
         }
     }
 
-    @FXML
-    private CheckBox checkDiscount;
-
-    public void onSetDiscountChecked() {
-        if (checkDiscount.isSelected()) {
-            btnDiscount.setDisable(false);
-        } else {
-            credit = null;
-            creditSum.setText("0.0 sum");
-            btnDiscount.setDisable(true);
-        }
+    /**
+     * Card sum action
+     */
+    public void cardSumAction() {
+       /* cardSum.setOnMouseClicked(e->{
+            try{
+                TextInputDialog dialog = new TextInputDialog(String.valueOf(calculateCurrentTotalSum()));
+                dialog.setTitle("Karta summa");
+                dialog.setHeaderText("Karta summa miqdorini kiriting!");
+                dialog.setContentText("Karta summa");
+                Optional<String> result = dialog.showAndWait();
+                if (result.isPresent()) {
+                    if(calculateCurrentTotalSum()>=Float.valueOf(result.get())){
+                        cardCost = Float.parseFloat(result.get());
+                        cardSum.setText(result.get());
+                    }else {
+                        Utils.ErrorAlert("Xatolik","Xatolik","Umumiy summadan ko'p summa kirita olmaysiz!");
+                    }
+                }
+            }catch (Exception exe){
+                Utils.ErrorAlert("Xatolik","Xatolik","Faqat sonlarni kirita olasiz!");
+            }
+        });*/
     }
 
     @FXML
     private TextField cardSummField;
-
     @FXML
-    private CheckBox isCardCheck;
+    private ToggleButton isCardCheck;
 
     public void onIsFromCardSelected() {
         if (isCardCheck.isSelected()) {
-            cardSummField.setDisable(false);
-            cardSummField.setText(String.valueOf(calculateCurrentTotalSum()));
+            DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
+            symbols.setGroupingSeparator(' ');
+            DecimalFormat formatter = new DecimalFormat("###,###.##", symbols);
+            String app = String.valueOf(formatter.format(calculateCurrentTotalSum()));
+            cardSum.setText(app + " sum");
+            cardCost = calculateCurrentTotalSum();
         } else {
-            cardSummField.setDisable(true);
-            cardSummField.setText("");
             cardCost = 0;
             cardSum.setText("0.0 sum");
         }
@@ -490,8 +504,6 @@ public class MainPageController extends Parent implements Initializable {
         buildData(SearchItemName);
     }
 
-    private ObservableList<ProductTable> productTables;
-
     private void buildData(String name) {
         productTables = FXCollections.observableArrayList();
         ResultSet myRs;
@@ -501,7 +513,7 @@ public class MainPageController extends Parent implements Initializable {
             tableSampleManual.setItems(productTables);
             System.out.println("number of items: " + tableSampleManual.getItems().size());
         } catch (Exception exc) {
-            JOptionPane.showMessageDialog(null, "Error: " + exc, "Error", JOptionPane.ERROR_MESSAGE);
+            Utils.ErrorAlert("Xatolik", "Xatolik yuz berdi", "" + exc);
         }
     }
 
@@ -524,68 +536,196 @@ public class MainPageController extends Parent implements Initializable {
     }
 
     /**
+     * Custom customers credit  table  . It works when you press credit button.
+     */
+    public void onBtnDiscountClicked() {
+        try {
+            FXMLLoader loader = createCustomItemLoader("DiscountWindow", "CustomDiscountWindow/");
+            assert loader != null;
+            BorderPane vBox = loader.load();
+            PopOver popOver = new PopOver(vBox);
+            Button btnCancel = (Button) vBox.lookup("#btnCancel");
+            Button btnOK = (Button) vBox.lookup("#discountOK");
+            TableView tableView = (TableView) vBox.lookup("#table_credit");
+            TextField textFirstName = (TextField) vBox.lookup("#textFirstName");
+            TextField textLastName = (TextField) vBox.lookup("#textLastName");
+            TextField textSaleSumm = (TextField) vBox.lookup("#textSaleSumm");
+            TextField textSalePercent = (TextField) vBox.lookup("#textSalePercent");
+            TextField textPlastik = (TextField) vBox.lookup("#textPlastik");
+            TextField textCreditSumm = (TextField) vBox.lookup("#textCreditSumm");
+            Label LabelTotalSumm = (Label) vBox.lookup("#LabelTotalSumm");
+            Button btnAddCustomer = (Button) vBox.lookup("#btnAddCustomer");
+            ToggleButton btnTogglePlastik = (ToggleButton) vBox.lookup("#btnTogglePlastik");
+            Label labelCustomerName = (Label) vBox.lookup("#labelCustomerName");
+            Label labelCustomerId = (Label) vBox.lookup("#labelCustomerId");
+
+            /**
+             * Customer credit table
+             */
+            TableColumn<CustomerCreditTable, Integer> id = new TableColumn<>("Raqami");
+            TableColumn<CustomerCreditTable, String> firstName = new TableColumn<>("Ism");
+            TableColumn<CustomerCreditTable, String> lastName = new TableColumn<>("Familiya");
+
+            tableView.getColumns().addAll(id, firstName, lastName);
+
+            id.setCellValueFactory(new PropertyValueFactory<>("id"));
+            firstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+            lastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+
+            /**
+             *  Connecting table to the database
+             */
+            Statement statement;
+            ResultSet resultSet;
+            ObservableList<CustomerCreditTable> customerCreditTables = FXCollections.observableArrayList();
+
+            statement = myConn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM customer order by id");
+            while (resultSet.next()) {
+                CustomerCreditTable customerCreditTable = new CustomerCreditTable();
+                customerCreditTable.setId(resultSet.getInt("id"));
+                customerCreditTable.setFirstName(resultSet.getString("firstname"));
+                customerCreditTable.setLastName(resultSet.getString("lastname"));
+                customerCreditTables.addAll(customerCreditTable);
+            }
+            tableView.setItems(customerCreditTables);
+            resultSet.close();
+            statement.close();
+            /**
+             * End of connection to database
+             * */
+
+            /**
+             * Opreations
+             * */
+            DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
+            symbols.setGroupingSeparator(' ');
+            DecimalFormat formatter = new DecimalFormat("###,###.##", symbols);
+            String app = String.valueOf(formatter.format(calculateCurrentTotalSum()));
+
+
+            LabelTotalSumm.setText(app);
+            btnTogglePlastik.setOnMouseClicked(event -> {
+                            textPlastik.setText(LabelTotalSumm.getText());
+            });
+
+                textSaleSumm.textProperty().addListener((observable, oldValue, newValue) -> {
+                    if (!Utils.isNumberValid(newValue, Utils.Number.DOUBLE) || newValue.equals("")) {
+                        textSaleSumm.setText("0");
+                        return;
+                    }
+
+                    Task<Void> longRunningTask = new Task<Void>() {
+                        @Override
+                        protected Void call() throws Exception {
+                            Platform.runLater(() -> {
+                                Double salesum = Double.valueOf(newValue);
+                                Double saleQuantitySumm = (Double.valueOf(textSaleSumm.getText()));
+                                Double number = (Utils.isNumberInRange(Double.valueOf(newValue), 0.00,saleQuantitySumm )*100);
+                                textSalePercent.setText((String.valueOf(number/calculateCurrentTotalSum())).substring(0,3)+" %");
+                                LabelTotalSumm.setText(String.valueOf(calculateCurrentTotalSum() - salesum));
+                            });
+                            return null;
+                        }
+                    };
+                    new Thread(longRunningTask).start();
+                });
+
+            /**
+             * Sellecting customer from table.
+             * */
+            tableView.addEventHandler(MouseEvent.MOUSE_CLICKED, (EventHandler<Event>) event -> {
+                CustomerCreditTable customerCreditTable = (CustomerCreditTable) tableView.getSelectionModel().getSelectedItem();
+                labelCustomerId.setText(String.valueOf(customerCreditTable.getId()));
+                labelCustomerName.setText(customerCreditTable.getLastName());
+                textCreditSumm.setText(LabelTotalSumm.getText());
+            });
+            /**
+             * End  of selecting table item.
+             */
+            btnOK.setOnMouseClicked(event -> {
+                preActionSell();
+
+               /*
+                if (Utils.isNumberValid(summFiled.getText(), Utils.Number.FLOAT) && customer_id!=0) {
+                    Float credit_sum = Float.valueOf(summFiled.getText());
+                    currentTotalCost = calculateCurrentTotalSum();
+                    if (credit_sum <= currentTotalCost) {
+                        credit = new CreditModel(credit_sum, customer_id);
+                        popOver.hide();
+                    } else {
+                        Utils.ErrorAlert("Xatolik mavjud", "summada " + credit_sum, "siz " + (currentTotalCost) + " dan kamroq summa kiritishingiz kerak");
+                    }
+                    popOver.hide();
+                } else {
+                    Utils.ErrorAlert("Xatolik mavjud", "Summa da yoki Izohda", "Siz izoh ni yozishingiz shart va summa kiritayotganizda faqat raqamlardan foydalanaing");
+                }*/
+            });
+            popOver.setDetachedTitle("Savdo oynasi");
+            popOver.detach();
+            btnCancel.setOnMouseClicked(event -> popOver.hide());
+            popOver.show(BtnSell);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * on action sell
      */
     public void actionSell() {
+        onBtnDiscountClicked();
 
-        User u =LoginController.currentUser;
+    }
+
+    public void preActionSell() {
+        User u = LoginController.currentUser;
         for (BasketItem item : basket) {
             System.out.println(item.getBarcode() + " " + item.getAmount());
         }
-
         float sum1 = calculateCurrentTotalSum();
+        if (sum1 > 0) {
+            PreparedStatement preparedStatement;
 
-        if(sum1>0) {
-
-                    PreparedStatement preparedStatement;
-
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Savdoni amalga oshirish");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Savdoni amalga oshirasizmi?");
-
-                    Optional<ButtonType> result = alert.showAndWait();
-
-                    if (result.isPresent())
-                        if (result.get() == ButtonType.OK) {
-                            HistoryDao historyDao = new HistoryDao(myConn);
-
-                            try {
-                                currentTotalCost = calculateCurrentTotalSum();
-                                historyDao.insertBasketToHistory(basket, LoginController.currentUser, credit, cardCost);
-
-                                idTotalSum.setText(new BigDecimal(currentTotalCost + Float.parseFloat(idTotalSum.getText().split(" ")[0])).toPlainString() + " sum");
-                                reset();
-                                inserToHistoryTable(u);
-                                btnActionIzlash();
-                                printAction();
-                                scanCodeField.requestFocus();
-                            } catch (Exception e) {
-                                Utils.ErrorAlert("Xatolik", "Savdo amalga oshmadi", e.getMessage());
-
-                                System.out.println(e.getMessage());
-                            }
-                        }
+            HistoryDao historyDao = new HistoryDao(myConn);
+            try {
+                String sum_paid;
+                if (sale_cost == 0) {
+                    sum_paid = String.valueOf(currentTotalCost);
+                } else {
+                    sum_paid = String.valueOf(paid_sum);
                 }
-        else{
-            JOptionPane.showMessageDialog(null, "Sotish uchun hech narsa tanlanmagan!" , "Eslatma", JOptionPane.INFORMATION_MESSAGE);
+                String total = String.valueOf(currentTotalCost = calculateCurrentTotalSum());
+                String cash = String.valueOf(currentTotalCost - cardCost);
+                String card_sum = String.valueOf(cardCost);
+                String sale = String.valueOf(sale_cost);
+
+                String user_id = String.valueOf(LoginController.currentUser.getId());
+                historyDao.insertBasketToHistory(basket, LoginController.currentUser, credit, total, cash, card_sum, sale, user_id, sum_paid);
+                reset();
+                //  inserToHistoryTable(u);
+                btnActionIzlash();
+                //  printAction();
+                scanCodeField.requestFocus();
+            } catch (Exception e) {
+                Utils.ErrorAlert("Xatolik", "Savdo amalga oshmadi", e.getMessage());
+                e.printStackTrace();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Sotish uchun hech narsa tanlanmagan!", "Eslatma", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
     private float currentTotalCost = 0;
 
     private void reset() {
-        creditSum.setText("0.0 sum");
-        cardSum.setText("0.0 sum");
-        credit = null;
+        currentTotalCost = 0;
         basket = new ArrayList<>();
         addedItemsList.getChildren().removeAll(addedItemsList.getChildren());
         totalCost.setText("0.0 sum");
         currentTotalCost = 0;
         counter = 0;
-        checkDiscount.setSelected(false);
-        isCardCheck.setSelected(false);
-        cardSummField.setText("");
     }
 
     public void Clock() {
@@ -603,7 +743,7 @@ public class MainPageController extends Parent implements Initializable {
                 int year = cal.get(Calendar.YEAR);
 
                 DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-                Date date  =new Date();
+                Date date = new Date();
 
                 try {
                     Platform.runLater(() -> {
@@ -625,9 +765,8 @@ public class MainPageController extends Parent implements Initializable {
                                 + min_str + ":"
                                 + second_str);
                     });
-
                     Thread.sleep(1000);
-                }   catch (Exception exe) {
+                } catch (Exception exe) {
                     JOptionPane.showMessageDialog(null, exe);
                 }
             }
@@ -635,87 +774,64 @@ public class MainPageController extends Parent implements Initializable {
 
         clock.start();
     }
-    public void CloseAction(){
+
+    public void CloseAction() {
 
     }
-    public void BtnUpdateAction(){
+
+    public void BtnUpdateAction() {
         btnActionIzlash();
     }
 
-    public void printAction(){
+    public void printAction() {
         String apple = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
-
         PrinterService printerService = new PrinterService();
-
         System.out.println(printerService.getPrinters());
-
-        ArrayList<ReceiptCheck> receiptChecks =null;
-        receiptChecks =PerProduct();
-
+        ArrayList<ReceiptCheck> receiptChecks = null;
+        receiptChecks = PerProduct();
         StringBuilder storage = new StringBuilder();
-
         for (ReceiptCheck item : receiptChecks) {
-          storage.append(item.getName()+ "    Miqdori: " + item.getQuantity()+"   Umumiy narxi: " +item.getPrice()+"\n"+"----------------------------------------------\n");
+            storage.append(item.getName() + "    Miqdori: " + item.getQuantity() + "   Umumiy narxi: " + item.getPrice() + "\n" + "----------------------------------------------\n");
         }
         System.out.println(storage);
-
         System.out.println(TotalSum());
-
-        printer  printer = new printer();
-
-
+        printer printer = new printer();
         //print some stuff
         printerService.printString(printer.printerName(), "\n" +
-                "*********Software business development**********\n\n\n"+
-                "*********    Egamberdi ota do'koni    **********\n\n"+
-                storage+"\n"+
-                "Umumiy summa              "+TotalSum()+" sum\n\n\n" +
-                "***************"+apple+"***************\n"+
+                "*********Software business development**********\n\n\n" +
+                "*********    Egamberdi ota do'koni    **********\n\n" +
+                storage + "\n" +
+                "Umumiy summa              " + TotalSum() + " sum\n\n\n" +
+                "***************" + apple + "***************\n" +
                 "***********Xaridingiz uchun raxmat!***********\n\n\n\n\n\n\n\n");
-
         // cut that paper!
-        byte[] cutP = new byte[] { 0x1d, 'V', 1 };
-
+        byte[] cutP = new byte[]{0x1d, 'V', 1};
         printerService.printBytes(printer.printerName(), cutP);
-
     }
 
-    public int  TotalSum(){
-
-        Statement statement=null;
+    public int TotalSum() {
+        Statement statement = null;
         ResultSet resultSet = null;
-
         try {
-            statement=myConn.createStatement();
-
-            resultSet =statement.executeQuery("select total_cost from collapsedCreditHistoryAll where id = (select max(id) as 'last_item_id' from sbd_market.savdoAction)");
-
-            if(resultSet.next()){
+            statement = myConn.createStatement();
+            resultSet = statement.executeQuery("select total_cost from collapsedCreditHistoryAll where id = (select max(id) as 'last_item_id' from sbd_market.savdoAction)");
+            if (resultSet.next()) {
                 return resultSet.getInt("total_cost");
             }
-
-
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
         return -1;
-
     }
 
-    public  ArrayList<ReceiptCheck> PerProduct(){
-
-        Statement statement=null;
+    public ArrayList<ReceiptCheck> PerProduct() {
+        Statement statement = null;
         ResultSet resultSet = null;
         ArrayList<ReceiptCheck> receiptChecksList = new ArrayList<>();
-
         try {
-
-            statement=myConn.createStatement();
-
-            resultSet =statement.executeQuery("select * from history where savdo_action_id = (select max(id) as 'last_item_id' from sbd_market.savdoAction)");
-
-            while (resultSet.next()){
+            statement = myConn.createStatement();
+            resultSet = statement.executeQuery("select * from history where savdo_action_id = (select max(id) as 'last_item_id' from sbd_market.savdoAction)");
+            while (resultSet.next()) {
                 ReceiptCheck receiptCheck = new ReceiptCheck();
                 receiptCheck.setId(resultSet.getInt("item_id"));
                 receiptCheck.setName(resultSet.getString("item_name"));
@@ -724,15 +840,13 @@ public class MainPageController extends Parent implements Initializable {
                 receiptChecksList.add(receiptCheck);
             }
             return receiptChecksList;
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
         return null;
-
     }
-    public void PrintReport(){
 
+    public void PrintReport() {
         Parent root;
         try {
             root = FXMLLoader.load(getClass().getResource("Components/PrintReport.fxml"));
@@ -741,16 +855,10 @@ public class MainPageController extends Parent implements Initializable {
             stage.setScene(new Scene(root, 600, 400));
             stage.setResizable(false);
             stage.isAlwaysOnTop();
-
             stage.show();
             // Hide this current window (if this is what you want)
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
-
-
 }

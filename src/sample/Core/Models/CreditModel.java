@@ -2,19 +2,22 @@ package sample.Core.Models;
 
 public class CreditModel {
     private float summa;
-    private String description;
+    private int id;
 
-    public CreditModel(float summa, String description) {
+    public CreditModel(float summa, int id) {
         this.summa = summa;
-        this.description = description;
+        this.id = id;
     }
 
-    public String getDescription() {
-        return description;
+    public CreditModel(Float credit_sum, String trim) {
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public float getSumma() {

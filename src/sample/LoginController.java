@@ -73,7 +73,7 @@ public class LoginController implements Initializable {
             }
 
         }
-        else if(ismText.equals("1")&&passText.equals("1")){
+        else if(ismText.equals("Admin")&&passText.equals("7559")){
 
             try {
                 root = FXMLLoader.load(getClass().getResource("Design_fxml/AdminPart.fxml"));

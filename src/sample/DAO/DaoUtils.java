@@ -9,18 +9,15 @@ Humoyun Qo'rg'onov  SBD(Software Business Development)
 
 
 public class DaoUtils {
-    public static String tableName = "sbd_market?autoReconnect=true&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    public static String tableName = "new_sbd?autoReconnect=true&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
     public static void close(Connection myConn, Statement myStmt, ResultSet myRs)
             throws SQLException {
-
         if (myRs != null) {
             myRs.close();
         }
-
         if (myStmt != null) {
-
+            myStmt.close();
         }
-
         if (myConn != null) {
             myConn.close();
         }
