@@ -20,7 +20,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></CheckBox>
-            <Button fx:id="btnDeleteItem" mnemonicParsing="false" onMouseClicked="#onDispose" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: red;" text="O'chirish" />
+            <Button fx:id="btnDeleteItem" mnemonicParsing="false" onMouseClicked="#onDispose" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #fa6c7b;" text="O'chirish" />
          </children>
          <opaqueInsets>
             <Insets />

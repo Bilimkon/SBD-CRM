@@ -20,15 +20,20 @@
    <bottom>
       <HBox alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="839.0" spacing="8.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnCancel" minWidth="100.0" mnemonicParsing="false" onAction="#onDispose" prefHeight="50.0" prefWidth="216.0" style="-fx-background-color: red;" text="Bekor" textFill="WHITE">
+            <TextField fx:id="textComment" prefHeight="90.0" prefWidth="332.0" promptText="Izoh">
                <HBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  <Insets bottom="5.0" left="5.0" right="2.0" top="5.0" />
+               </HBox.margin>
+            </TextField>
+            <Button fx:id="btnCancel" minWidth="100.0" mnemonicParsing="false" onAction="#onDispose" prefHeight="50.0" prefWidth="216.0" style="-fx-background-color: #fa6c7b;" text="Bekor" textFill="WHITE">
+               <HBox.margin>
+                  <Insets bottom="5.0" right="5.0" top="5.0" />
                </HBox.margin>
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button fx:id="discountOK" defaultButton="true" minWidth="100.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="216.0" style="-fx-background-color: blue;" text="Sotish" textFill="WHITE">
+            <Button fx:id="discountOK" defaultButton="true" minWidth="100.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="216.0" style="-fx-background-color: #6c9dfa;" text="Sotish" textFill="WHITE">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
@@ -52,7 +57,7 @@
                 <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="btnAddCustomer" mnemonicParsing="false" prefHeight="46.0" prefWidth="104.0" stylesheets="@../../../style/css/mainPageStyle.css" text="+" GridPane.columnIndex="2">
+                  <Button fx:id="btnAddCustomer" defaultButton="true" mnemonicParsing="false" prefHeight="46.0" prefWidth="104.0" stylesheets="@../../../style/css/mainPageStyle.css" text="+" GridPane.columnIndex="2">
                      <GridPane.margin>
                         <Insets bottom="7.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
@@ -77,7 +82,7 @@
                 <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField prefHeight="40.0" promptText="Izlang...">
+                  <TextField fx:id="textSearch" prefHeight="40.0" promptText="Izlang...">
                      <GridPane.margin>
                         <Insets bottom="3.0" left="5.0" right="5.0" />
                      </GridPane.margin>
@@ -89,8 +94,8 @@
                   <Insets left="5.0" right="5.0" />
                </VBox.margin>
                <stylesheets>
-                  <URL value="@../../../style/css/mainPageStyle.css" />
                   <URL value="@../../../style/css/AdminPage.css" />
+                  <URL value="@../../../style/css/mainPageStyle.css" />
                </stylesheets>
             </TableView>
          </children>
@@ -102,9 +107,10 @@
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="232.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="426.0" minHeight="10.0" prefHeight="304.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="426.0" minHeight="10.0" prefHeight="125.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="232.0" minHeight="10.0" prefHeight="84.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="426.0" minHeight="10.0" prefHeight="281.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="426.0" minHeight="10.0" prefHeight="98.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="426.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <GridPane GridPane.rowIndex="1">
@@ -119,17 +125,17 @@
                   <RowConstraints maxHeight="329.0" minHeight="10.0" prefHeight="329.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField fx:id="textSaleSumm" prefHeight="50.0">
+                  <TextField fx:id="textSaleSumm" prefHeight="50.0" promptText="Chegirma">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="textSalePercent" editable="false" prefHeight="50.0" GridPane.columnIndex="1">
+                  <TextField fx:id="textSalePercent" editable="false" prefHeight="50.0" promptText="\%" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="textPlastik" prefHeight="50.0" GridPane.rowIndex="1">
+                  <TextField fx:id="textPlastik" prefHeight="50.0" promptText="Plastik miqdori" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
@@ -158,22 +164,19 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="textCreditSumm" prefHeight="50.0" GridPane.rowIndex="3">
+                  <TextField fx:id="textCreditSumm" prefHeight="50.0" promptText="Qarz summa" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <Label alignment="CENTER" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #d6d6d5;" text="Qarz summa" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <ToggleButton fx:id="btnToggleQarz" mnemonicParsing="false" prefHeight="50.0" prefWidth="137.0" stylesheets="@../../../style/css/mainPageStyle.css" text="Qarz" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
+                  </ToggleButton>
                </children>
             </GridPane>
-            <Label fx:id="LabelTotalSumm" alignment="CENTER" prefHeight="207.0" prefWidth="533.0" style="-fx-background-color: #d6d6d5;" styleClass="text-black" stylesheets="@../../../style/css/mainPageStyle.css" text="Paid summ" GridPane.rowIndex="2">
+            <Label fx:id="LabelTotalSumm" alignment="CENTER" prefHeight="115.0" prefWidth="330.0" style="-fx-background-color: #d6d6d5;" styleClass="text-black" stylesheets="@../../../style/css/mainPageStyle.css" text="Paid summ" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
@@ -181,9 +184,17 @@
                   <Font name="Calibri Bold" size="24.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="141.0" prefWidth="597.0" styleClass="text-black" stylesheets="@../../../style/css/mainPageStyle.css" text="Software business development">
+            <Label alignment="CENTER" prefHeight="141.0" prefWidth="597.0" styleClass="text-black" stylesheets="@../../../style/css/mainPageStyle.css" text="Software Business Development">
                <font>
-                  <Font name="Calibri" size="18.0" />
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelDollar" alignment="CENTER" prefHeight="106.0" prefWidth="555.0" style="-fx-background-color: #d6d6d5;" styleClass="text-black" stylesheets="@../../../style/css/mainPageStyle.css" text="\$" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
          </children>

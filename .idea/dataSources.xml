@@ -29,14 +29,25 @@
         <property name="yearIsDateType" value="false" />
       </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="new_sbd" uuid="7bf27f44-b2e4-4817-a0c3-cecc40c10165">
+    <data-source source="LOCAL" name="new_sbd [2]" uuid="33b47fad-7e78-4b57-b3be-96c857eedd84">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/src/sample/DAO\new_sbd</jdbc-url>
+      <jdbc-url>jdbc:sqlite:D:\Humoyun\Projects\SBD\SBD MYSQL edition\sbd\new_sbd</jdbc-url>
+      <explain-plan-config>
+        <provider>com.intellij.database.plan.mysql.MysqlExplainPlanProvider</provider>
+      </explain-plan-config>
       <driver-properties>
         <property name="enable_load_extension" value="true" />
       </driver-properties>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.25.1/license.txt</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.25.1/sqlite-jdbc-3.25.1.jar</url>
+        </library>
+      </libraries>
     </data-source>
   </component>
 </project>

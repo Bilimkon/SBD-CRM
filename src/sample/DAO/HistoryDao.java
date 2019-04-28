@@ -58,14 +58,14 @@ public class HistoryDao {
         return histories;
     }
 
-    public void insertBasketToHistory(List<BasketItem> basket, User user, @Nullable CreditModel credit, String total_cost, String cash,  String  card, String sale, String cr_by, String cost_paid ) throws Exception {
+    public void insertBasketToHistory(List<BasketItem> basket, User user, @Nullable CreditModel credit, String total_cost, String cash,  String  card, String sale, String cr_by, String cost_paid, String commnet ) throws Exception {
         try {
             ProductDao productDao = new ProductDao(myConn);
             if (credit == null) {
                 credit = new CreditModel(0, 0);
             }
             String apple = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
-            pt = myConn.prepareStatement("insert  into new_sbd.sellaction(total_cost, cash, card, sale, credit, date_cr, cr_by, cost_paid, customer_id) values (?,?,?,?,?,?,?,?,?)");
+            pt = myConn.prepareStatement("insert  into main.sellaction(total_cost, cash, card, sale, credit, date_cr, cr_by, cost_paid, customer_id,comment) values (?,?,?,?,?,?,?,?,?,?)");
             pt.setString(1, total_cost);
             pt.setString(2, cash);
             pt.setString(3, card);
@@ -75,13 +75,14 @@ public class HistoryDao {
             pt.setString(7, cr_by);
             pt.setString(8, cost_paid);
             pt.setString(9, String.valueOf(credit.getId()));
+            pt.setString(10,commnet);
             pt.executeUpdate();
 
         int actionId = createAction();
         for (BasketItem item : basket) {
             Product p = productDao.getProduct(item.getBarcode());
             float totalCost = item.getAmount() * item.getCost();
-            pt=myConn.prepareStatement("INSERT INTO new_sbd.history(product_barcode," +
+            pt=myConn.prepareStatement("INSERT INTO main.history(product_barcode," +
                     " product_id, product_name, product_type, product_quantity, seller_id," +
                     " cost, date_cr, cr_by, customer_id, sell_action_id)" +
                     "VALUES(?,?,?,?,?,?,?,?,?,?,?)");
@@ -108,7 +109,7 @@ public class HistoryDao {
 
     private int createAction() {
         try {
-            String q = "select max(id) as 'last_item_id' from new_sbd.sellaction";
+            String q = "select max(id) as 'last_item_id' from main.sellaction";
             ResultSet resultSet = generateResultSet(q);
             if (resultSet.next()) {
                 return resultSet.getInt("last_item_id");
@@ -129,43 +130,28 @@ public class HistoryDao {
         return myStmt.execute(query);
     }
 
-    private void insertIntoHistory(History history, int action_id) throws SQLException {
-        String query = createHistoryQuery(history, action_id);
-        System.out.println("executing query insert History: " + executeQuery(query));
+    public void addCustomer(String firstname ,String lastname) throws SQLException {
+        try {
+            pt = myConn.prepareStatement("INSERT  INTO customer(firstName,lastName) values (?,?)");
+            pt.setString(1,firstname);
+            pt.setString(2,lastname);
+            pt.executeUpdate();
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            pt.close();
+        }
     }
-
-    private String createHistoryQuery(History history, int action_id) {
-
-        int itemId = history.getProduct_id();
-        String barcode = history.getProduct_barcode();
-        String name = history.getProduct_name();
-        int type =history.getProduct_type();
-        int quantity =history.getProduct_quantity();
-        int seller_id = history.getSeller_id();
-        String cost =history.getCost();
-        String date_cr =history.getDate_cr();
-        int cr_by = history.getCr_by();
-        String date_up =history.getDate_up();
-        int up_by =history.getUp_by();
-        int customer_id =history.getCustomer_id();
-       // int sell_action_id =history.getSell_action_id();
-
-        return "INSERT INTO " + historyTableName + " (" +
-                "product_barcode, " +
-                "product_id, " +
-                "product_name, " +
-                "product_type, " +
-                "product_quantity, " +
-                "seller_id, " +
-                "cost, " +
-                "date_cr," +
-                "cr_by," +
-                "date_up," +
-                "up_by, " +
-                "customer_id," +
-                "sell_action_id" + ") VALUES(" + barcode + ", " + itemId + ", '" + name
-                + "', '" + type + "', " + quantity + ", '" + seller_id + "', '" + 1
-                + "', " + date_cr + ", " + cr_by + ", " + date_up+ ", " +up_by+ ", " +customer_id
-                + ", " +action_id+ ")";
+    public  ResultSet searchCustomers(String name) throws SQLException {
+        if (name.isEmpty()) {
+            st =  myConn.createStatement();
+            rs = st.executeQuery("select * from main.customer order by firstname ");
+        } else {
+            name += "%";
+            pt = myConn.prepareStatement("select * from main.customer where  main.customer.firstname like ?  order by main.customer.firstname");
+            pt.setString(1, name);
+            rs = pt.executeQuery();
+        }
+        return rs;
     }
 }

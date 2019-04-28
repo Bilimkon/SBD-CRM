@@ -1,6 +1,5 @@
 package sample;
 
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
@@ -8,8 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import sample.Core.User;
@@ -27,9 +26,7 @@ public class LoginController implements Initializable {
     public Button btnKirish;
     public TextField textIsm;
     public PasswordField textPassword;
-    @FXML private ProgressBar bar;
 
-    static double ii=0;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -39,8 +36,7 @@ public class LoginController implements Initializable {
     public void btnActionKirish() throws IOException {
 
         // set progress to different level of progressbar
-        ii += 0.2;
-        bar.setProgress(ii);
+
 
         String ismText = textIsm.getText().toString();//getting string  values
         String passText = textPassword.getText().toString();//getting string  values
@@ -60,9 +56,11 @@ public class LoginController implements Initializable {
                 Rectangle2D bounds = screen.getVisualBounds();
                 stage.setScene(new Scene(root));
                 stage.show();
+                stage.getIcons().add(new Image(Main.class.getResourceAsStream("style/Images/SBD-logo.png")));
                 stage.setMinHeight(720);
                 stage.setMinWidth(1080);
                 stage.setResizable(true);
+                stage.setMaximized(true);
 
 
             // Hide this current window (if this is what you want)
@@ -73,7 +71,7 @@ public class LoginController implements Initializable {
             }
 
         }
-        else if(ismText.equals("Admin")&&passText.equals("7559")){
+        else if(ismText.equals("1")&&passText.equals("1")){
 
             try {
                 root = FXMLLoader.load(getClass().getResource("Design_fxml/AdminPart.fxml"));
@@ -85,6 +83,7 @@ public class LoginController implements Initializable {
                 Rectangle2D bounds = screen.getVisualBounds();
                 stage.setScene(new Scene(root));
                 stage.show();
+                stage.getIcons().add(new Image(Main.class.getResourceAsStream("style/Images/SBD-logo.png")));
                 stage.setMinWidth(1080);
                 stage.setMinHeight(720);
                 stage.setResizable(true);

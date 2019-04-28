@@ -1,10 +1,10 @@
 package sample.Core.Models;
 
 public class CreditModel {
-    private float summa;
+    private double summa;
     private int id;
 
-    public CreditModel(float summa, int id) {
+    public CreditModel(double summa, int id) {
         this.summa = summa;
         this.id = id;
     }
@@ -20,7 +20,7 @@ public class CreditModel {
         this.id = id;
     }
 
-    public float getSumma() {
+    public double getSumma() {
         return summa;
     }
 

@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -97,8 +96,8 @@
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="458.0" minHeight="10.0" prefHeight="458.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="234.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="458.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <ImageView fitHeight="500.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -109,7 +108,6 @@
                         <Rectangle2D width="500.0" />
                      </viewport>
                   </ImageView>
-                  <ProgressBar fx:id="bar" prefHeight="19.0" prefWidth="470.0" progress="0.0" style="-fx-background-color: White;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
                </children>
             </GridPane>

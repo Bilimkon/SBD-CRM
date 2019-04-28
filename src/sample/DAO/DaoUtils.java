@@ -9,7 +9,7 @@ Humoyun Qo'rg'onov  SBD(Software Business Development)
 
 
 public class DaoUtils {
-    public static String tableName = "new_sbd?autoReconnect=true&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    public static String tableName = "new_sbd";
     public static void close(Connection myConn, Statement myStmt, ResultSet myRs)
             throws SQLException {
         if (myRs != null) {

@@ -1,5 +1,4 @@
 #cancelShop {
-    /*-fx-border-color: red;*/
 }
 .table-view .column-header  {
     -fx-background-color: #1ab394;
@@ -41,7 +40,7 @@
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );
 }
 .toggle-button:selected{
-    -fx-background-color: red;
+    -fx-background-color: #fa6c7b;
     -fx-text-fill: white;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0) , 0,0,0,0 );
 }
@@ -59,7 +58,7 @@
     -fx-background-color:   #eaeaee;
 }
 .table-row-cell:selected {
-    -fx-background-color: #2f6bdf;
+    -fx-background-color: #6c9dfa;
 }
 .color-text{
     -fx-text-fill:#1ab394;
@@ -95,25 +94,27 @@
 }
 #Main-update{
     -fx-graphic: url("../../style/Images/update1.png");
+    -fx-background-color: #6c9dfa;
 }
 #Main-cancel{
     -fx-graphic: url("../../style/Images/cancel1.png");
+    -fx-background-color:#fa6c7b ;
 }
 #Main-sell{
     -fx-graphic: url("../../style/Images/sell1.png");
 }
 .table-view .table-cell{
-    -fx-font-size:20px;
+    -fx-font-size:16px;
 }
 .list-view{
     -fx-text-fill: white;
-    -fx-font-size: 30px;
+    -fx-font-size: 25px;
 }
 .list-cell{
     -fx-fill-height: 100px;
 }
 .list-cell:selected{
-    -fx-background-color: red;
+    -fx-background-color: #fa6c7b;
     -fx-text-fill: white;
     -fx-font-weight: bold;
 }

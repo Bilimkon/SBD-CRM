@@ -26,15 +26,15 @@ public class UserDao {
     public User getUser(String name, String password) {
         try {
             Statement preparedStatement = myConn.createStatement();
-            ResultSet res = preparedStatement.executeQuery("select * from sbd_market.sotuvchi where sbd_market.sotuvchi.email = '" + name + "' and sbd_market.sotuvchi.password = '" + password + "';");
+            ResultSet res = preparedStatement.executeQuery("select * from main.seller where main.seller.username = '" + name + "' and main.seller.password = '" + password + "';");
             while (res.next()) {
                 User u = new User(
-                        res.getInt("sotuvchi_id"),
-                        res.getString("first_name"),
-                        res.getString("last_name"),
-                        res.getString("tel_number"), null, res.getFloat("salary"), null, res.getString("lavozim"));
+                        res.getInt("id"),
+                        res.getString("firstname"),
+                        res.getString("lastname"),
+                        res.getString("username"), null, res.getFloat("salary"), null, res.getString("position"));
                 u.setAdmin(false);
-                if (res.getString("lavozim").equals("owner")) {
+                if (res.getString("position").equals("owner")) {
                     u.setAdmin(true);
                 }
                // myConn.close();
