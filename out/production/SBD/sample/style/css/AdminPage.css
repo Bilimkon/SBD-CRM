@@ -123,7 +123,7 @@ html{
     -fx-border-radius: 20px;
 }
 .table-view .table-cell{
-    -fx-font-size:17px;
+    -fx-font-size:14px;
 }
 .labelTextField{
     -fx-text-fill: black;

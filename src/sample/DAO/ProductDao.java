@@ -212,27 +212,28 @@ public class ProductDao {
         return tempMaxsulot;
     }
 
-    public void addProduct(String pBarcode, String pName ,String pType ,String pTannarx ,String pCost ,String pQuantity ,String pDan ,String pGacha ,String pSuplier) throws SQLException {
+    public void addProduct(String pBarcode, String pName ,String pType ,String pTannarx ,String pCost ,String unit ,String pQuantity ,String pDan ,String pGacha ,String pSuplier) throws SQLException {
 
         try {
             pr = myConn.prepareStatement("INSERT INTO product(barcode, name, " +
-                    "type, type_id, cost, quantity, cost_o, date_c," +
+                    "type, type_id, cost,unit, quantity, cost_o, date_c," +
                     " date_o, cr_by, date_cr, up_by, date_up, suplier_id) " +
-                    "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                    "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             pr.setString(1, pBarcode);
             pr.setString(2, pName);
             pr.setString(3, pType);
             pr.setString(4, "1");
             pr.setString(5, pCost);
-            pr.setString(6, pQuantity);
-            pr.setString(7, pTannarx);
-            pr.setString(8, pDan);
-            pr.setString(9, pGacha);
-            pr.setString(10, "1");
-            pr.setString(11, apple);
-            pr.setString(12, "1");
-            pr.setString(13, apple);
-            pr.setString(14, pSuplier);
+            pr.setString(6,unit);
+            pr.setString(7, pQuantity);
+            pr.setString(8, pTannarx);
+            pr.setString(9, pDan);
+            pr.setString(10, pGacha);
+            pr.setString(11, "1");
+            pr.setString(12, apple);
+            pr.setString(13, "1");
+            pr.setString(14, apple);
+            pr.setString(15, pSuplier);
             pr.executeUpdate();
         }catch (Exception e){
             e.printStackTrace();
@@ -241,23 +242,20 @@ public class ProductDao {
             pr.close();
         }
     }
-    public void updateProduct(String pBarcode, String pName ,String pType ,String pTannarx ,String pCost ,String pQuantity ,String pDan ,String pGacha ,String pSuplier) throws SQLException {
-        pr =myConn.prepareStatement("UPDATE product SET  barcode=?,name=?,type=?,type_id=?,cost=?,quantity=?,cost_o=?,date_c=?,date_o=?,suplier_id=?,date_c=?,date_o=?,date_up=?");
+    public void updateProduct(String pBarcode, String pName ,String pType ,String pTannarx ,String pCost ,String pQuantity ,String pDan ,String pGacha ,String pSuplier,String id) throws SQLException {
+        pr =myConn.prepareStatement("UPDATE product SET  barcode=?,name=?,type=?,type_id=?,cost=?,quantity=?,cost_o=?,date_c=?,date_o=?,cr_by=?,date_cr=?,suplier_id=? WHERE id="+id);
         pr.setString(1,pBarcode);
         pr.setString(2,pName);
-        pr.setString(1,pType);
-        pr.setString(1,"1");
-        pr.setString(1,pCost);
-        pr.setString(1,pQuantity);
-        pr.setString(1,pTannarx);
-        pr.setString(1,pDan);
-        pr.setString(1,pGacha);
-        pr.setString(1,"1");
-        pr.setString(1,apple);
-        pr.setString(1,pBarcode);
-        pr.setString(1,pBarcode);
-        pr.setString(1,pBarcode);
-        pr.setString(1,pBarcode);
+        pr.setString(3,pType);
+        pr.setString(4,"1");//type_id
+        pr.setString(5,pCost);
+        pr.setString(6,pQuantity);
+        pr.setString(7,pTannarx);
+        pr.setString(8,pDan);
+        pr.setString(9,pGacha);
+        pr.setString(10,"1");//cr_by
+        pr.setString(11,apple);
+        pr.setString(12,"1");//suplier id
 
     }
 

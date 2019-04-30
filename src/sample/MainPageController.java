@@ -5,6 +5,7 @@
 
 package sample;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
@@ -15,17 +16,20 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import org.controlsfx.control.PopOver;
 import org.jetbrains.annotations.Nullable;
@@ -79,6 +83,7 @@ public class MainPageController extends Parent implements Initializable {
     private Label DateText;
     @FXML
     private Button BtnSell;
+    @FXML private JFXButton btnLogOut;
     @FXML
     private ListView<String> typeList;
     private ObservableList<ProductTable> productTables;
@@ -86,6 +91,7 @@ public class MainPageController extends Parent implements Initializable {
     public static List<BasketItem> basket = new ArrayList<>();
     private CreditModel credit = null;
     Double dollar = 8500.0;
+    Task<Void> longTaskRun;
     private HistoryDao historyDao;
 
     {
@@ -471,7 +477,6 @@ public class MainPageController extends Parent implements Initializable {
             ObservableList<CustomerCreditTable> customerCreditTables = FXCollections.observableArrayList();
 
             //Searching customers from customer table
-
             statement = myConn.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM main.customer ORDER BY id");
             while (resultSet.next()) {
@@ -525,26 +530,28 @@ public class MainPageController extends Parent implements Initializable {
                 }
 
 
-                Task<Void> longRunningTask = new Task<Void>() {
+                 longTaskRun = new Task<Void>() {
+
                     @Override
                     protected Void call() throws Exception {
                         Platform.runLater(() -> {
+                            while (Main.is_clock_alive) {
+                                if (Double.valueOf(newValue) >= calculateCurrentTotalSum()) {
+                                    textSaleSumm.setText(String.valueOf(calculateCurrentTotalSum()));
+                                }
 
-                            if (Double.valueOf(newValue) >= calculateCurrentTotalSum()) {
-                                textSaleSumm.setText(String.valueOf(calculateCurrentTotalSum()));
-                            }
-
-                            Double salesum = Double.valueOf(newValue);
-                            Double saleQuantitySumm = (Double.valueOf(textSaleSumm.getText()));
-                            Double number = (Utils.isNumberInRange(Double.valueOf(newValue), 0.00, saleQuantitySumm) * 100);
-                            textSalePercent.setText((String.valueOf(number / calculateCurrentTotalSum())).substring(0, 3) + " %");
-                            LabelTotalSumm.setText(String.valueOf(calculateCurrentTotalSum() - salesum));
-                            labelDollar.setText("$ " + String.valueOf((calculateCurrentTotalSum() - salesum) / dollar).substring(0, 3));
-                        });
+                                Double salesum = Double.valueOf(newValue);
+                                Double saleQuantitySumm = (Double.valueOf(textSaleSumm.getText()));
+                                Double number = (Utils.isNumberInRange(Double.valueOf(newValue), 0.00, saleQuantitySumm) * 100);
+                                textSalePercent.setText((String.valueOf(number / calculateCurrentTotalSum())).substring(0, 3) + " %");
+                                LabelTotalSumm.setText(String.valueOf(calculateCurrentTotalSum() - salesum));
+                                labelDollar.setText("$ " + String.valueOf((calculateCurrentTotalSum() - salesum) / dollar).substring(0, 3));
+                            } });
                         return null;
                     }
                 };
-                new Thread(longRunningTask).start();
+
+                new Thread(longTaskRun).start();
             });
 
             /**
@@ -589,11 +596,11 @@ public class MainPageController extends Parent implements Initializable {
              * */
             btnOK.setOnMouseClicked(event -> {
 
+
                 User u = LoginController.currentUser;
                 for (BasketItem item : basket) {
                     System.out.println(item.getBarcode() + " " + item.getAmount());
                 }
-                PreparedStatement preparedStatement;
                 HistoryDao historyDao = new HistoryDao(myConn);
                 try {
                     String saleSum = "0.0";
@@ -609,7 +616,7 @@ public class MainPageController extends Parent implements Initializable {
                     Double creditSum = 0.0;
                     int customerId = 0;
                     if (textCreditSumm.getText() != null && textCreditSumm.getText().length() > 0) {
-                        creditSum = Double.valueOf(textCreditSumm.getText().replaceAll("\\s+", ""));
+                        creditSum = (Double.valueOf(textCreditSumm.getText().replaceAll("\\s+", "")));
                         customerId = Integer.parseInt(labelCustomerId.getText().trim());
                         credit = new CreditModel(creditSum, customerId);
                     }
@@ -678,7 +685,6 @@ public class MainPageController extends Parent implements Initializable {
 
     private void reset() {
         credit = null;
-
         basket = new ArrayList<>();
         addedItemsList.getChildren().removeAll(addedItemsList.getChildren());
         totalCost.setText("0.0 sum");
@@ -816,5 +822,36 @@ public class MainPageController extends Parent implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public void btnLogOutAction(){
+        Parent root = null;
+        Stage stage = new Stage();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Chiqish");
+        alert.setHeaderText(null);
+        alert.setContentText("Dasturdan chiqasizmi?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent())
+            if (result.get() == ButtonType.OK) {
+                try {
+                    root = FXMLLoader.load(getClass().getResource("Design_fxml/login.fxml"));
+                    stage.setTitle("SBD boshqaruv tizimi");
+                    stage.setResizable(true);
+                    // stage.setOnCloseRequest(event -> Main.is_clock_alive = false);
+                    Screen screen = Screen.getPrimary();
+                    Rectangle2D bounds = screen.getVisualBounds();
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                    stage.getIcons().add(new Image(Main.class.getResourceAsStream("style/Images/SBD-logo.png")));
+                    stage.setMinHeight(720);
+                    stage.setMinWidth(1080);
+                    stage.setResizable(true);
+                    stage.setMaximized(true);
+                    // Hide this current window (if this is what you want)
+                    this.btnLogOut.getScene().getWindow().hide();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
     }
 }

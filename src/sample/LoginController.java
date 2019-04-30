@@ -27,7 +27,6 @@ public class LoginController implements Initializable {
     public TextField textIsm;
     public PasswordField textPassword;
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -50,7 +49,7 @@ public class LoginController implements Initializable {
 
                 stage.setTitle("SBD boshqaruv tizimi");
                 stage.setResizable(true);
-               // stage.setOnCloseRequest(event -> Main.is_clock_alive = false);
+                stage.setOnCloseRequest(event -> Main.is_clock_alive = false);
 
                 Screen screen = Screen.getPrimary();
                 Rectangle2D bounds = screen.getVisualBounds();
@@ -92,7 +91,6 @@ public class LoginController implements Initializable {
 
              } catch (IOException e) {
                 e.printStackTrace();
-
                 Utils.ErrorAlert("Error","Xatolik"+e, "Xatolik bor shu yerda");
             }
         }

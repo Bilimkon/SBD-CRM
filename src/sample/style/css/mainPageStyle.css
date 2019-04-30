@@ -122,3 +122,6 @@
     -fx-background-color: #e8e8e8;
     -fx-text-fill: white;
 }
+#btnlLogOut{
+    -fx-fit-to-width: 100px;
+}

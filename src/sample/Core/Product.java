@@ -20,7 +20,7 @@ public class Product {
     private String date_cr;
     private int up_by;
     private String date_up;
-    private Product() {
+    public Product() {
 
     }
 
