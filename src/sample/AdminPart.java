@@ -16,7 +16,6 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
@@ -66,8 +65,10 @@ public class AdminPart implements Initializable {
     private TextField AdminTextNomi;
     @FXML
     private TextField AdminTextId;
-    @FXML private ComboBox ComboTypeList;
-    @FXML private ComboBox<String> ComboBoxUnit;
+    @FXML
+    private ComboBox ComboTypeList;
+    @FXML
+    private ComboBox<String> ComboBoxUnit;
     @FXML
     private TextField AdminTextMiqdori;
     @FXML
@@ -78,42 +79,22 @@ public class AdminPart implements Initializable {
     private DatePicker AdminTextDan;
     @FXML
     private DatePicker AdminTextGacha;
-    @FXML private JFXButton btnLogOut;
+    @FXML
+    private JFXButton btnLogOut;
     @FXML
     private Button btnAddProduct;
-    @FXML ComboBox comboBoxSuplier;
+    @FXML
+    ComboBox comboBoxSuplier;
     //Savdo table -------------------------------
-    @FXML
-    private TableView SavdoTable;
-    @FXML
-    private TableView SavdoTable1;
-    //--------------------------------------------
-    @FXML
-    private TableView QarzlarTable;
     @FXML
     private TableView TarixTable;
     @FXML
     private TableView SotuvchiTable;
-    @FXML
-    private TableView MuhimChangeTable;
-    @FXML
-    private TableView OmborHisobiTable;
-    @FXML
-    private ImageView ImageSotuvchi;
     //SavdoRateTable------------------------------
     @FXML
     private TableView SoldRateTable;
     @FXML
     private TableView SavdoRateTable1;
-    //-------------------------------------------
-    @FXML
-    private TextField Qarzid;
-    //Savdo oynasi   oynasidan hamma variablelar  initialize qilsih kerak
-    @FXML
-    private DatePicker SavdoDateP1;
-    @FXML
-    private DatePicker SavdoDateP2;
-    //--------------------------------------------
     // Hisoblar oynasi uchun qilinadigan barcha variablar shu yerda initialize qilina
     @FXML
     private TableView Xtable;
@@ -130,17 +111,10 @@ public class AdminPart implements Initializable {
     @FXML
     private ComboBox Xcombo1;
     @FXML
-    private ComboBox Xcombo2;
-    @FXML
-    private ComboBox Xcombo3;
-    @FXML
     private CheckBox Xcheckbox1;
     @FXML
     private CheckBox CheckQarzbox;
-    @FXML
-    private CheckBox CheckboxToday;
-    @FXML
-    private Button XbuttonSaralash;
+
     @FXML
     private AreaChart XLineChart;
     // @FXML
@@ -238,21 +212,23 @@ public class AdminPart implements Initializable {
     ArrayList<String> name1 = new ArrayList<String>();
     private Connection myConn;
     private PreparedStatement preparedStatement = null;
-    private Statement statement=null;
+    private Statement statement = null;
     private ResultSet resultSet = null;
     ProductDao productDao = new ProductDao();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initializeProductTab();
+        initializeHistoryTab();
         setOzgaartirishMaxsulot();
-        ComboBoxUnit.getItems().addAll("Dona","Kg");
+        ComboBoxUnit.getItems().addAll("Dona", "Kg");
         try {
             AddTypeComboboxAction();
             productTable();
             product_sold_rate();
             SavdoRateTable();
             SoldRateTab();
+            tarixtable();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -271,7 +247,7 @@ public class AdminPart implements Initializable {
         TableColumn date_o = new TableColumn("...gacha");
         TableColumn suplier = new TableColumn("Taminotchi");
         TableColumn date = new TableColumn("Sana");
-        AdminTable.getColumns().addAll(id, unit, barcode, name, type, cost_o, cost,quantity, date_c, date_o,suplier,date);
+        AdminTable.getColumns().addAll(id, unit, barcode, name, type, cost_o, cost, quantity, date_c, date_o, suplier, date);
         id.setCellValueFactory(new PropertyValueFactory<product, String>("id"));
         unit.setCellValueFactory(new PropertyValueFactory<product, String>("unit"));
         barcode.setCellValueFactory(new PropertyValueFactory<product, String>("barcode"));
@@ -287,22 +263,31 @@ public class AdminPart implements Initializable {
     }
 
     private void initializeHistoryTab() {
-        TableColumn TarixH = new TableColumn(" Id");
-        TableColumn Tarix_M_Id = new TableColumn("Maxsulot raqami");
-        TableColumn NameH = new TableColumn("Nomi");
-        TableColumn TypeH = new TableColumn("Turi");
-        TableColumn QuantityH = new TableColumn("Miqdori");
-        TableColumn PaidDateH = new TableColumn("To'langan sana");
-        TableColumn TotalCostH = new TableColumn("Umumiy summa");
+        TableColumn id = new TableColumn(" Id");
+        TableColumn username = new TableColumn(" Ism");
+        TableColumn customer = new TableColumn(" Mijoz");
+        TableColumn barcode = new TableColumn(" Barcode");
+        TableColumn product_name = new TableColumn(" Nomi");
+        TableColumn type_name = new TableColumn(" Turi");
+        TableColumn total_cost = new TableColumn(" Umumiy narxi");
+        TableColumn cost = new TableColumn(" Narxi");
+        TableColumn quantity = new TableColumn(" Miqdori");
+        TableColumn date = new TableColumn(" Sana");
+        TableColumn sell_action_id = new TableColumn("S_id");
 
-        TarixTable.getColumns().addAll(TarixH, Tarix_M_Id, NameH, TypeH, QuantityH, PaidDateH, TotalCostH);
-        TarixH.setCellValueFactory(new PropertyValueFactory<HistoryTable, Integer>("tarixid"));
-        Tarix_M_Id.setCellValueFactory(new PropertyValueFactory<HistoryTable, Integer>("MaxsulotId"));
-        NameH.setCellValueFactory(new PropertyValueFactory<HistoryTable, String>("itemname"));
-        TypeH.setCellValueFactory(new PropertyValueFactory<HistoryTable, String>("itemtype"));
-        QuantityH.setCellValueFactory(new PropertyValueFactory<HistoryTable, Integer>("itemquantity"));
-        PaidDateH.setCellValueFactory(new PropertyValueFactory<HistoryTable, String>("paiddata"));
-        TotalCostH.setCellValueFactory(new PropertyValueFactory<HistoryTable, Double>("totalcost"));
+
+        TarixTable.getColumns().addAll(id, username, customer, barcode, product_name, type_name, total_cost, cost, quantity, date, sell_action_id);
+        id.setCellValueFactory(new PropertyValueFactory<HistoryTable, Integer>("id"));
+        username.setCellValueFactory(new PropertyValueFactory<HistoryTable, Integer>("username"));
+        customer.setCellValueFactory(new PropertyValueFactory<HistoryTable, String>("customer"));
+        barcode.setCellValueFactory(new PropertyValueFactory<HistoryTable, String>("barcode"));
+        product_name.setCellValueFactory(new PropertyValueFactory<HistoryTable, Integer>("product_name"));
+        type_name.setCellValueFactory(new PropertyValueFactory<HistoryTable, String>("type_name"));
+        total_cost.setCellValueFactory(new PropertyValueFactory<HistoryTable, Double>("total_cost"));
+        cost.setCellValueFactory(new PropertyValueFactory<HistoryTable, Double>("cost"));
+        quantity.setCellValueFactory(new PropertyValueFactory<HistoryTable, Double>("quantity"));
+        date.setCellValueFactory(new PropertyValueFactory<HistoryTable, Double>("date"));
+        sell_action_id.setCellValueFactory(new PropertyValueFactory<HistoryTable, Double>("sell_action_id"));
     }
 
     private void SotuvchiTab() {
@@ -349,7 +334,6 @@ public class AdminPart implements Initializable {
     }
 
 
-
     private void SoldRateTab() {
         TableColumn nameSR = new TableColumn("Nomi");
         TableColumn barcodeSR = new TableColumn("Barcode");
@@ -381,15 +365,15 @@ public class AdminPart implements Initializable {
         try {
             myRs = ProductDao.getResultSet(textIzlash2, AdminTextSearch, myConn);
             ProductDao.productTableGeneratorAdmin(myRs, apple);
-           // AdminTable.setItems(apple);
+            // AdminTable.setItems(apple);
         } catch (Exception exc) {
-            JOptionPane.showMessageDialog(null, "Xatolik" + exc, "Xatolik", JOptionPane.ERROR_MESSAGE);
+            exc.printStackTrace();
         }
 
     }
 
     private void productTable() throws SQLException {
-        ObservableList<product> products =FXCollections.observableArrayList();
+        ObservableList<product> products = FXCollections.observableArrayList();
         try {
             statement = myConn.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM product_v ORDER BY id");
@@ -410,9 +394,9 @@ public class AdminPart implements Initializable {
                 products.addAll(product);
             }
             AdminTable.setItems(products);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             statement.close();
             resultSet.close();
         }
@@ -433,13 +417,13 @@ public class AdminPart implements Initializable {
                     String list = ComboTypeList.getSelectionModel().getSelectedItem().toString();
                     String barcode1 = AdminTextBarcode.getText();
                     String nomi1 = AdminTextNomi.getText();
-                    String unit =ComboBoxUnit.getSelectionModel().getSelectedItem().toString();
+                    String unit = ComboBoxUnit.getSelectionModel().getSelectedItem().toString();
                     String Miqdori1 = AdminTextMiqdori.getText();
                     String narxi1 = AdminTextNarxi.getText();
                     String saleNarxi = AdminTextSale.getText();
                     String dan1 = AdminTextDan.getValue().toString();
                     String gacha1 = AdminTextGacha.getValue().toString();
-                    productDao.addProduct(barcode1, nomi1, list, saleNarxi, narxi1, Miqdori1, dan1, gacha1, "1",unit);
+                    productDao.addProduct(barcode1, nomi1, list, saleNarxi, narxi1, Miqdori1, dan1, gacha1, "1", unit);
                     btnIzlashAction();
                     AdminTextBarcode.setText("");
                     AdminTextNomi.setText("");
@@ -448,7 +432,6 @@ public class AdminPart implements Initializable {
                     AdminTextSale.setText("");
                 } catch (Exception exc) {
                     exc.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "Xatolik" + exc, "Xatolik", JOptionPane.ERROR_MESSAGE);
                 }
             }
     }
@@ -472,7 +455,7 @@ public class AdminPart implements Initializable {
             });
 
         } catch (Exception exc) {
-            JOptionPane.showMessageDialog(null, "Error" + exc, "Xatolik", JOptionPane.ERROR_MESSAGE);
+            exc.printStackTrace();
         }
     }
 
@@ -502,7 +485,6 @@ public class AdminPart implements Initializable {
                     btnIzlashAction();
                 } catch (Exception exc) {
                     exc.printStackTrace();
-                    JOptionPane.showMessageDialog(null, exc, "Bildirgi", JOptionPane.ERROR_MESSAGE);
                 }
             }
     }
@@ -607,7 +589,7 @@ public class AdminPart implements Initializable {
                 preparedStatement.setString(2, sdate2);
                 myRsTotal = preparedStatement.executeQuery();
 
-                /*
+                /**
                  *   Getting data from database to XYChart
                  */
                 ResultSet myGraphRestutSet = null;
@@ -669,7 +651,6 @@ public class AdminPart implements Initializable {
             Xtable.setItems(HappleC);
 
         } catch (Exception exc) {
-            JOptionPane.showMessageDialog(null, "Error" + exc, "Xatolik", JOptionPane.ERROR_MESSAGE);
             exc.printStackTrace();
         }
 
@@ -709,7 +690,8 @@ public class AdminPart implements Initializable {
                 } catch (Exception exc) {
 
                 } finally {
-                    // DaoUtils.close(preparedStatement);
+                    statement.close();
+                    resultSet.close();
 
                 }
             }
@@ -721,57 +703,49 @@ public class AdminPart implements Initializable {
         LocalDate DeptData1 = TarixDate1.getValue();
         LocalDate DeptData2 = TarixDate2.getValue();
 
-
-        Statement myStmt = null;
-        ResultSet myRs = null;
-        //List to add items
         ObservableList<HistoryTable> appleQ = FXCollections.observableArrayList();
         try {
-
             if (DeptData1 != null && DeptData2 != null) {
-
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 String Qdate1 = df.format(Date.from(DeptData1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 String Qdate2 = df.format(Date.from(DeptData2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-
                 preparedStatement = myConn.prepareStatement("SELECT * FROM history_v\n" +
-                        "WHERE substr(paid_date,7,10)\n" +
+                        "WHERE substr(date,7,10)\n" +
                         "BETWEEN ? AND ?");
                 preparedStatement.setString(1, Qdate1);
                 preparedStatement.setString(2, Qdate2);
-                myRs = preparedStatement.executeQuery();
+                resultSet = preparedStatement.executeQuery();
             } else {
-
-                myStmt = myConn.createStatement();
-
-                myRs = myStmt.executeQuery("SELECT * FROM (\n" +
-                        "    SELECT * FROM history_v ORDER BY Tarix_id DESC LIMIT 300\n" +
+                statement = myConn.createStatement();
+                resultSet = statement.executeQuery("SELECT * FROM (\n" +
+                        "    SELECT * FROM history_v ORDER BY product_id DESC LIMIT 300\n" +
                         ") sub\n" +
-                        "ORDER BY Tarix_id ASC");
+                        "ORDER BY product_id ASC");
             }
-
-            while (myRs.next()) {
+            while (resultSet.next()) {
                 HistoryTable qarzTable = new HistoryTable();
 
-                qarzTable.setTarixid(myRs.getInt("tarix_id"));
-                qarzTable.setMaxsulotId(myRs.getInt("item_id"));
-                qarzTable.setItemname(myRs.getString("item_name"));
-                qarzTable.setItemtype(myRs.getString("item_type"));
-                qarzTable.setItemquantity(myRs.getInt("item_quantity"));
-                qarzTable.setPaiddata(myRs.getString("paid_date"));
-                qarzTable.setTotalcost(new BigDecimal(myRs.getDouble("total_cost")).toPlainString());
+                qarzTable.setId(resultSet.getString("product_id"));
+                qarzTable.setUsername(resultSet.getString("username"));
+                qarzTable.setCustomer(resultSet.getString("customer"));
+                qarzTable.setBarcode(resultSet.getString("barcode"));
+                qarzTable.setProduct_name(resultSet.getString("product_name"));
+                qarzTable.setType_name(resultSet.getString("type_name"));
+                qarzTable.setTotal_cost(resultSet.getString("total_cost"));
+                qarzTable.setCost(resultSet.getString("cost"));
+                qarzTable.setQuantity(resultSet.getString("quantity"));
+                qarzTable.setDate(resultSet.getString("date"));
+                qarzTable.setSell_action_id(resultSet.getString("sell_action_id"));
                 appleQ.add(qarzTable);
             }
             TarixTable.setItems(appleQ);
-
-
         } catch (Exception exc) {
-            JOptionPane.showMessageDialog(null, "Error" + exc, "Xatolik", JOptionPane.ERROR_MESSAGE);
+            exc.printStackTrace();
         } finally {
-            //DaoUtils.close(myStmt);
+            statement.close();
+            resultSet.close();
         }
     }
-
 
 
     private void SotuvchiTable() throws Exception {
@@ -798,7 +772,7 @@ public class AdminPart implements Initializable {
 
 
         } catch (Exception exc) {
-            JOptionPane.showMessageDialog(null, "Error" + exc, "Xatolik", JOptionPane.ERROR_MESSAGE);
+            exc.printStackTrace();
         } finally {
             statement.close();
             resultSet.close();
@@ -818,7 +792,7 @@ public class AdminPart implements Initializable {
                 name.add(resultSet.getString("name"));
             }
         } catch (Exception exc) {
-                exc.printStackTrace();
+            exc.printStackTrace();
         } finally {
             resultSet.close();
             statement.close();
@@ -853,8 +827,8 @@ public class AdminPart implements Initializable {
         } catch (Exception exc) {
             exc.printStackTrace();
         } finally {
-             statement.close();
-             resultSet.close();
+            statement.close();
+            resultSet.close();
         }
     }
 
@@ -884,7 +858,7 @@ public class AdminPart implements Initializable {
                     JOptionPane.showMessageDialog(null, " Barcha malumotlar tozalandi", "Barcha malumotlar o'chirib tashlandi", JOptionPane.INFORMATION_MESSAGE);
 
                 } catch (Exception exc) {
-                    JOptionPane.showMessageDialog(null, exc, "Bildirgi", JOptionPane.ERROR_MESSAGE);
+                    exc.printStackTrace();
                 } finally {
                     preparedStatement.close();
                 }
@@ -934,7 +908,7 @@ public class AdminPart implements Initializable {
         Update();
     }
 
-    private void sotuvchiQoshish() {
+    private void sotuvchiQoshish() throws SQLException {
         String apple = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("O'zgartirish");
@@ -972,18 +946,15 @@ public class AdminPart implements Initializable {
                     JOptionPane.showMessageDialog(null, "Yangi sotuvchi qo'shildi", "Bildirgi", JOptionPane.INFORMATION_MESSAGE);
 
                 } catch (Exception exc) {
-
-                    JOptionPane.showMessageDialog(null, "Xatolik" + exc, "Xatolik", JOptionPane.ERROR_MESSAGE);
+                    exc.printStackTrace();
                 } finally {
-
-
+                    preparedStatement.close();
                 }
             }
 
     }
 
     private void ozgartirishStuvchiAction() {
-
         try {
             SotuvchiTable.setOnMouseClicked(event -> {
                 Sotuvchi sotuvchi = (Sotuvchi) SotuvchiTable.getItems().get(SotuvchiTable.getSelectionModel().getSelectedIndex());
@@ -997,12 +968,12 @@ public class AdminPart implements Initializable {
                     passwordS.setText(sotuvchi.getPassword_sotuvchi());
                     birthDateS.setValue(LocalDate.parse(sotuvchi.getDate_sotuvchi()));
                     telephoneS.setText(sotuvchi.getTelNumber_sotuvchi());
-
                 } catch (Exception exc) {
+                    exc.printStackTrace();
                 }
             });
         } catch (Exception exc) {
-            JOptionPane.showMessageDialog(null, "Error" + exc, "Xatolik", JOptionPane.ERROR_MESSAGE);
+            exc.printStackTrace();
         }
     }
 
@@ -1012,9 +983,7 @@ public class AdminPart implements Initializable {
         alert.setTitle("O'zgartirish");
         alert.setHeaderText(null);
         alert.setContentText("Sotuvchi malumotlarini o'zgartirasizmi ?");
-
         Optional<ButtonType> result = alert.showAndWait();
-
         if (result.isPresent())
             if (result.get() == ButtonType.OK) {
                 try {
@@ -1026,9 +995,7 @@ public class AdminPart implements Initializable {
                     String passwordSotuvchi = passwordS.getText().toString();
                     String telephoneSotuchi = telephoneS.getText().toString();
                     String birthDateSotuvchi = birthDateS.getValue().toString();
-
                     preparedStatement = myConn.prepareStatement("UPDATE  sotuvchi SET  first_name=?, last_name=?, tel_number=?,salary=?, date=?, lavozim=?, password=? WHERE email=?");
-
                     preparedStatement.setString(1, nameSotuvchi);
                     preparedStatement.setString(2, lastnameSotuvchi);
                     preparedStatement.setString(3, telephoneSotuchi);
@@ -1037,22 +1004,15 @@ public class AdminPart implements Initializable {
                     preparedStatement.setString(6, jobTitleSotuvchi);
                     preparedStatement.setString(7, passwordSotuvchi);
                     preparedStatement.setString(8, emailSotuvchi);
-
-
                     preparedStatement.executeUpdate();
-
                     preparedStatement = myConn.prepareStatement("INSERT  INTO Table_history1 VALUES ('Admin',' Sotuvchi  malumotlari ozgartirildi' ,?)");
                     preparedStatement.setString(1, apple);
                     preparedStatement.executeUpdate();
-
-                    JOptionPane.showMessageDialog(null, "Sotuvchi  malumotlari ozgartirildi", "Bildirgi", JOptionPane.INFORMATION_MESSAGE);
-
+                    Utils.InfoAlert("Bildirgi","Sotuvchi","Sotuvchi  malumotlari ozgartirildi");
                 } catch (Exception exc) {
-
-                    JOptionPane.showMessageDialog(null, "Xatolik" + exc, "Xatolik", JOptionPane.ERROR_MESSAGE);
+                    Utils.ErrorAlert("Xatolik", "Sotuvchi" ,""+exc);
                 } finally {
                     preparedStatement.close();
-
                 }
             }
     }
@@ -1073,9 +1033,7 @@ public class AdminPart implements Initializable {
         alert.setTitle("O'zgartirish");
         alert.setHeaderText(null);
         alert.setContentText(" Sotuvchini rostdan ham o'chirasizmi ?");
-
         Optional<ButtonType> result = alert.showAndWait();
-
         if (result.isPresent())
             if (result.get() == ButtonType.OK) {
                 String emailSotuvchi1 = emailS.getText();
@@ -1089,12 +1047,10 @@ public class AdminPart implements Initializable {
                         preparedStatement.setString(1, apple);
                         preparedStatement.executeUpdate();
                         JOptionPane.showMessageDialog(null, "O'chirildi", "Sotuvchi o'chirildi", JOptionPane.INFORMATION_MESSAGE);
-
                     }
                     btnIzlashAction();
-
-
                 } catch (Exception exc) {
+                    exc.printStackTrace();
                 } finally {
                     preparedStatement.close();
                 }
@@ -1102,39 +1058,35 @@ public class AdminPart implements Initializable {
     }
 
     private void SotuvchiCombobox() throws SQLException {
-        Statement statement = null;
-        ResultSet resultSet;
-
-        statement = myConn.createStatement();
-
-        resultSet = statement.executeQuery("SELECT first_name FROM sbd_market.sotuvchi");
-
-        while (resultSet.next()) {  // loop
-
-            // Now add the comboBox addAll statement
-            Xcombo1.getItems().addAll(resultSet.getString("first_name"));
-
+        try {
+            statement = myConn.createStatement();
+            resultSet = statement.executeQuery("SELECT first_name FROM sbd_market.sotuvchi");
+            while (resultSet.next()) {  // loop
+                // Now add the comboBox addAll statement
+                Xcombo1.getItems().addAll(resultSet.getString("first_name"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            statement.close();
+            resultSet.close();
         }
-
-
     }
 
     public void AddTypeComboboxAction() throws SQLException {
-        Statement statement = null;
-        ResultSet resultSet;
-
-        statement = myConn.createStatement();
-
-        resultSet = statement.executeQuery("SELECT Name FROM main.type");
-
-        while (resultSet.next()) {  // loop
-
-            // Now add the comboBox addAll statement
-            ComboTypeList.getItems().addAll(resultSet.getString("name"));
-
+        try {
+            statement = myConn.createStatement();
+            resultSet = statement.executeQuery("SELECT Name FROM main.type");
+            while (resultSet.next()) {  // loop
+                // Now add the comboBox addAll statement
+                ComboTypeList.getItems().addAll(resultSet.getString("name"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            statement.close();
+            resultSet.close();
         }
-
-
     }
 
     public void listProduct() {
@@ -1143,15 +1095,10 @@ public class AdminPart implements Initializable {
         alert.setTitle("Excel fayl yaratish ");
         alert.setHeaderText(null);
         alert.setContentText("Ombordagi maxsulotlarni excell faylga ko'chirasizmi?");
-
         Optional<ButtonType> result = alert.showAndWait();
-
         if (result.isPresent())
             if (result.get() == ButtonType.OK) {
-
                 printer printer = new printer();
-
-
                 String filename = printer.ExcelFilePath() + "List.xls";
                 HSSFWorkbook workbook = new HSSFWorkbook();
                 HSSFSheet sheet = workbook.createSheet("List");
@@ -1160,31 +1107,25 @@ public class AdminPart implements Initializable {
                     fileOut1 = new FileOutputStream(filename);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "Xatolik" + e, "Xatolik", JOptionPane.ERROR_MESSAGE);
                 }
                 try {
                     workbook.write(fileOut1);
                 } catch (IOException e) {
                     e.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "Xatolik" + e, "Xatolik", JOptionPane.ERROR_MESSAGE);
                 }
                 try {
                     fileOut1.close();
                 } catch (IOException e) {
                     e.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "Xatolik" + e, "Xatolik", JOptionPane.ERROR_MESSAGE);
                 }
                 try {
                     workbook.close();
                 } catch (IOException e) {
                     e.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "Xatolik" + e, "Xatolik", JOptionPane.ERROR_MESSAGE);
                 }
-
 
                 Workbook writeWorkbook = new HSSFWorkbook();
                 Sheet desSheet = writeWorkbook.createSheet("list");
-
                 Statement stmt = null;
                 ResultSet rs = null;
                 try {
@@ -1194,7 +1135,6 @@ public class AdminPart implements Initializable {
                     rs = stmt.executeQuery(query);
                     ResultSetMetaData rsmd = rs.getMetaData();
                     int columnsNumber = rsmd.getColumnCount();
-
                     Row desRow1 = desSheet.createRow(0);
                     for (int col = 0; col < columnsNumber; col++) {
                         org.apache.poi.ss.usermodel.Cell newpath = desRow1.createCell(col);
@@ -1207,13 +1147,11 @@ public class AdminPart implements Initializable {
                             Cell newpath = desRow.createCell(col);
                             newpath.setCellValue(rs.getString(col + 1));
                         }
-
                         FileOutputStream fileOut = new FileOutputStream(printer.ExcelFilePath() + "list.xls");
                         writeWorkbook.write(fileOut);
                         fileOut.close();
                     }
-                    JOptionPane.showMessageDialog(null, "Excel fayl yaratildi", "Ma'lumot", JOptionPane.INFORMATION_MESSAGE);
-
+                    Utils.InfoAlert("Bildirgi","Excell","Excell fayl yaratildi");
                 } catch (SQLException e) {
                     System.out.println("Failed to get data from database");
                 } catch (FileNotFoundException e) {
@@ -1232,15 +1170,10 @@ public class AdminPart implements Initializable {
         alert.setTitle("Excel fayl yaratish ");
         alert.setHeaderText(null);
         alert.setContentText("Ombordagi maxsulotlarni excell faylga ko'chirasizmi?");
-
         Optional<ButtonType> result = alert.showAndWait();
-
         if (result.isPresent())
             if (result.get() == ButtonType.OK) {
-
                 printer printer = new printer();
-
-
                 String filename = printer.ExcelFilePath() + "OmborXisobi.xls";
                 HSSFWorkbook workbook = new HSSFWorkbook();
                 HSSFSheet sheet = workbook.createSheet("Ombor Xisobi");
@@ -1249,41 +1182,32 @@ public class AdminPart implements Initializable {
                     fileOut1 = new FileOutputStream(filename);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "Xatolik" + e, "Xatolik", JOptionPane.ERROR_MESSAGE);
                 }
                 try {
                     workbook.write(fileOut1);
                 } catch (IOException e) {
                     e.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "Xatolik" + e, "Xatolik", JOptionPane.ERROR_MESSAGE);
                 }
                 try {
                     fileOut1.close();
                 } catch (IOException e) {
                     e.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "Xatolik" + e, "Xatolik", JOptionPane.ERROR_MESSAGE);
                 }
                 try {
                     workbook.close();
                 } catch (IOException e) {
                     e.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "Xatolik" + e, "Xatolik", JOptionPane.ERROR_MESSAGE);
                 }
-                System.out.println("Your excel file has been generated!");
-
                 Workbook writeWorkbook = new HSSFWorkbook();
                 Sheet desSheet = writeWorkbook.createSheet("new sheet");
-
                 Statement stmt = null;
                 ResultSet rs = null;
                 try {
                     String query = "SELECT * FROM OmborHisoblari";
-
                     stmt = myConn.createStatement();
                     rs = stmt.executeQuery(query);
                     ResultSetMetaData rsmd = rs.getMetaData();
                     int columnsNumber = rsmd.getColumnCount();
-
                     Row desRow1 = desSheet.createRow(0);
                     for (int col = 0; col < columnsNumber; col++) {
                         org.apache.poi.ss.usermodel.Cell newpath = desRow1.createCell(col);
@@ -1296,14 +1220,12 @@ public class AdminPart implements Initializable {
                             Cell newpath = desRow.createCell(col);
                             newpath.setCellValue(rs.getString(col + 1));
                         }
-
                         FileOutputStream fileOut = new FileOutputStream(printer.ExcelFilePath() + "OmborXisobi.xls");
                         writeWorkbook.write(fileOut);
                         fileOut.close();
                     }
-                    JOptionPane.showMessageDialog(null, "Excel fayl yaratildi", "Ma'lumot", JOptionPane.INFORMATION_MESSAGE);
-
-                } catch (SQLException e) {
+                    Utils.InfoAlert("Bildirgi","Excell","Excell fayl yaratildi");
+                    } catch (SQLException e) {
                     System.out.println("Failed to get data from database");
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -1408,13 +1330,11 @@ public class AdminPart implements Initializable {
                         e.printStackTrace();
                     }
                 }
-
-
         }
 
     }
 
-    public void PrinterAddAction() {
+    public void PrinterAddAction() throws SQLException {
 
         TextInputDialog dialog = new TextInputDialog("Printer");
         dialog.setTitle("Printer nomini qo'shish");
@@ -1426,7 +1346,6 @@ public class AdminPart implements Initializable {
         if (result.isPresent()) {
             System.out.println(result.get());
             String apple = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
-            PreparedStatement preparedStatement = null;
             try {
                 preparedStatement = myConn.prepareStatement("UPDATE printer SET name=?");
                 preparedStatement.setString(1, result.get());
@@ -1438,11 +1357,13 @@ public class AdminPart implements Initializable {
                 JOptionPane.showMessageDialog(null, "Yangi printer nomi qo'shildi", "Bildirgi", JOptionPane.INFORMATION_MESSAGE);
             } catch (SQLException e) {
                 e.printStackTrace();
+            } finally {
+                preparedStatement.close();
             }
         }
     }
 
-    public void SetExcelFolder() {
+    public void SetExcelFolder() throws SQLException {
         DirectoryChooser directoryChooser = new DirectoryChooser();
         Stage stage = null;
         File dir = directoryChooser.showDialog(stage);
@@ -1453,14 +1374,14 @@ public class AdminPart implements Initializable {
             preparedStatement = myConn.prepareStatement("UPDATE printer SET Path=?");
             preparedStatement.setString(1, Path);
             preparedStatement.executeUpdate();
-
             preparedStatement = myConn.prepareStatement("INSERT  INTO Table_history1 VALUES ('Admin','Excel joylashuvi qoshildi' ,?)");
             preparedStatement.setString(1, apple);
             preparedStatement.executeUpdate();
-
-            JOptionPane.showMessageDialog(null, "Excel yanaratiladigan joy qo'shildi", "Bildirgi", JOptionPane.INFORMATION_MESSAGE);
+            Utils.InfoAlert("Bildirgi", "Excell", "Excell joyi qo'shildi!");
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            preparedStatement.close();
         }
     }
 
@@ -1474,7 +1395,6 @@ public class AdminPart implements Initializable {
             stage.setResizable(false);
             stage.isAlwaysOnTop();
             stage.show();
-            // Hide this current window (if this is what you want)
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -1490,7 +1410,6 @@ public class AdminPart implements Initializable {
             stage.setResizable(false);
             stage.isAlwaysOnTop();
             stage.show();
-            // Hide this current window (if this is what you want)
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -1502,9 +1421,7 @@ public class AdminPart implements Initializable {
             BarCodeService serv = new BarCodeService();
             String parsedString = serv.parseInput(testCode);
             AdminTextBarcode.setText(parsedString);
-            //System.out.println("Input: " + testCode + ", parsed string: " + parsedString);
             String barCodeString = serv.generateCode(parsedString);
-            // System.out.println("Result: " + barCodeString);
         } else {
             String barcode = AdminTextBarcode.getText();
             int lenght = barcode.length();
@@ -1512,19 +1429,12 @@ public class AdminPart implements Initializable {
                 BarCodeService serv = new BarCodeService();
                 String parsedString = serv.parseInput(barcode);
                 AdminTextBarcode.setText(parsedString);
-                //  System.out.println("Input: " + barcode + ", parsed string: " + parsedString);
                 String barCodeString = serv.generateCode(parsedString);
-                //  System.out.println("Result: " + barCodeString);
             } else {
-                JOptionPane.showMessageDialog(null, "Barcodega 13 honali son kiritilishi shart", "Bildirgi", JOptionPane.ERROR_MESSAGE);
-
+                Utils.ErrorAlert("Eslatma", "Barcode", "Barcodega 13 honali son kiritilishi shart!");
             }
         }
-
-
     }
-
-
 }
 
 

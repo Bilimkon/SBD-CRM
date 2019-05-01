@@ -1,125 +1,150 @@
 package sample.MaxsulotTableView;
 
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class HistoryTable {
-    private SimpleIntegerProperty savdoactionId = new SimpleIntegerProperty();
-    private SimpleIntegerProperty tarixid = new SimpleIntegerProperty();
-    private SimpleIntegerProperty MaxsulotId = new SimpleIntegerProperty();
-    private SimpleStringProperty itemname = new SimpleStringProperty();
-    private SimpleStringProperty itemtype = new SimpleStringProperty();
-    private SimpleIntegerProperty itemquantity = new SimpleIntegerProperty();
-    private SimpleStringProperty itembarcode = new SimpleStringProperty();
-    private SimpleStringProperty paiddata = new SimpleStringProperty();
-    private SimpleStringProperty totalcost = new SimpleStringProperty();
+    SimpleStringProperty id = new SimpleStringProperty();
+    SimpleStringProperty username = new SimpleStringProperty();
+    SimpleStringProperty customer = new SimpleStringProperty();
+    SimpleStringProperty barcode = new SimpleStringProperty();
+    SimpleStringProperty product_name = new SimpleStringProperty();
+    SimpleStringProperty type_name = new SimpleStringProperty();
+    SimpleStringProperty total_cost = new SimpleStringProperty();
+    SimpleStringProperty cost = new SimpleStringProperty();
+    SimpleStringProperty quantity = new SimpleStringProperty();
+    SimpleStringProperty date = new SimpleStringProperty();
+    SimpleStringProperty sell_action_id = new SimpleStringProperty();
 
-    public int getSavdoactionId() {
-        return savdoactionId.get();
+    public String getId() {
+        return id.get();
     }
 
-    public SimpleIntegerProperty savdoactionIdProperty() {
-        return savdoactionId;
+    public SimpleStringProperty idProperty() {
+        return id;
     }
 
-    public void setSavdoactionId(int savdoactionId) {
-        this.savdoactionId.set(savdoactionId);
+    public void setId(String id) {
+        this.id.set(id);
     }
 
-    public int getTarixid() {
-        return tarixid.get();
+    public String getUsername() {
+        return username.get();
     }
 
-    public SimpleIntegerProperty tarixidProperty() {
-        return tarixid;
+    public SimpleStringProperty usernameProperty() {
+        return username;
     }
 
-    public void setTarixid(int tarixid) {
-        this.tarixid.set(tarixid);
+    public void setUsername(String username) {
+        this.username.set(username);
     }
 
-    public String getItemname() {
-        return itemname.get();
+    public String getCustomer() {
+        return customer.get();
     }
 
-    public SimpleStringProperty itemnameProperty() {
-        return itemname;
+    public SimpleStringProperty customerProperty() {
+        return customer;
     }
 
-    public void setItemname(String itemname) {
-        this.itemname.set(itemname);
+    public void setCustomer(String customer) {
+        this.customer.set(customer);
     }
 
-    public String getItemtype() {
-        return itemtype.get();
+    public String getBarcode() {
+        return barcode.get();
     }
 
-    public SimpleStringProperty itemtypeProperty() {
-        return itemtype;
+    public SimpleStringProperty barcodeProperty() {
+        return barcode;
     }
 
-    public void setItemtype(String itemtype) {
-        this.itemtype.set(itemtype);
+    public void setBarcode(String barcode) {
+        this.barcode.set(barcode);
     }
 
-    public int getItemquantity() {
-        return itemquantity.get();
+    public String getProduct_name() {
+        return product_name.get();
     }
 
-    public SimpleIntegerProperty itemquantityProperty() {
-        return itemquantity;
+    public SimpleStringProperty product_nameProperty() {
+        return product_name;
     }
 
-    public void setItemquantity(int itemquantity) {
-        this.itemquantity.set(itemquantity);
+    public void setProduct_name(String product_name) {
+        this.product_name.set(product_name);
     }
 
-    public String getItembarcode() {
-        return itembarcode.get();
+    public String getType_name() {
+        return type_name.get();
     }
 
-    public SimpleStringProperty itembarcodeProperty() {
-        return itembarcode;
+    public SimpleStringProperty type_nameProperty() {
+        return type_name;
     }
 
-    public void setItembarcode(String itembarcode) {
-        this.itembarcode.set(itembarcode);
+    public void setType_name(String type_name) {
+        this.type_name.set(type_name);
     }
 
-    public String getPaiddata() {
-        return paiddata.get();
+    public String getTotal_cost() {
+        return total_cost.get();
     }
 
-    public SimpleStringProperty paiddataProperty() {
-        return paiddata;
+    public SimpleStringProperty total_costProperty() {
+        return total_cost;
     }
 
-    public void setPaiddata(String paiddata) {
-        this.paiddata.set(paiddata);
+    public void setTotal_cost(String total_cost) {
+        this.total_cost.set(total_cost);
     }
 
-    public String getTotalcost() {
-        return totalcost.get();
+    public String getCost() {
+        return cost.get();
     }
 
-    public SimpleStringProperty totalcostProperty() {
-        return totalcost;
+    public SimpleStringProperty costProperty() {
+        return cost;
     }
 
-    public void setTotalcost(String totalcost) {
-        this.totalcost.set(totalcost);
+    public void setCost(String cost) {
+        this.cost.set(cost);
     }
 
-    public int getMaxsulotId() {
-        return MaxsulotId.get();
+    public String getQuantity() {
+        return quantity.get();
     }
 
-    public SimpleIntegerProperty maxsulotIdProperty() {
-        return MaxsulotId;
+    public SimpleStringProperty quantityProperty() {
+        return quantity;
     }
 
-    public void setMaxsulotId(int maxsulotId) {
-        this.MaxsulotId.set(maxsulotId);
+    public void setQuantity(String quantity) {
+        this.quantity.set(quantity);
+    }
+
+    public String getDate() {
+        return date.get();
+    }
+
+    public SimpleStringProperty dateProperty() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date.set(date);
+    }
+
+    public String getSell_action_id() {
+        return sell_action_id.get();
+    }
+
+    public SimpleStringProperty sell_action_idProperty() {
+        return sell_action_id;
+    }
+
+    public void setSell_action_id(String sell_action_id) {
+        this.sell_action_id.set(sell_action_id);
     }
 }
 

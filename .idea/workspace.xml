@@ -7,40 +7,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Last commit mysql editionda">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/sample/MaxsulotTableView/product.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/sample/style/Images/logout.png" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2006b843-5cee-4314-8b53-932e9bf56c5b.xml" afterPath="" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/33b47fad-7e78-4b57-b3be-96c857eedd84.corrupted.20190501-121134.reason.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/33b47fad-7e78-4b57-b3be-96c857eedd84.corrupted.20190501-121134.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/33b47fad-7e78-4b57-b3be-96c857eedd84/storage_v2/_staging_/schema/main.uQUzAA.meta" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/33b47fad-7e78-4b57-b3be-96c857eedd84/storage_v2/_staging_/schema/main.uQUzAA/view/soldRate.1CvuVw.meta" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/33b47fad-7e78-4b57-b3be-96c857eedd84/storage_v2/_staging_/schema/main.uQUzAA/view/soldRate.1CvuVw.sql" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/de5db86e-3061-4414-82bc-890699c5c8f3.corrupted.20190501-121134.reason.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/de5db86e-3061-4414-82bc-890699c5c8f3.corrupted.20190501-121134.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/33b47fad-7e78-4b57-b3be-96c857eedd84.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/33b47fad-7e78-4b57-b3be-96c857eedd84.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/33b47fad-7e78-4b57-b3be-96c857eedd84/storage_v2/_src_/schema/main.uQUzAA.zip" afterPath="$PROJECT_DIR$/.idea/dataSources/33b47fad-7e78-4b57-b3be-96c857eedd84/storage_v2/_src_/schema/main.uQUzAA.zip" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/de5db86e-3061-4414-82bc-890699c5c8f3.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/de5db86e-3061-4414-82bc-890699c5c8f3.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/new_sbd" afterPath="$PROJECT_DIR$/new_sbd" />
       <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/AdminPart.class" afterPath="$PROJECT_DIR$/out/production/SBD/sample/AdminPart.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/Core/Product.class" afterPath="$PROJECT_DIR$/out/production/SBD/sample/Core/Product.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/DAO/ProductDao.class" afterPath="$PROJECT_DIR$/out/production/SBD/sample/DAO/ProductDao.class" />
       <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/Design_fxml/AdminPart.fxml" afterPath="$PROJECT_DIR$/out/production/SBD/sample/Design_fxml/AdminPart.fxml" />
-      <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/Design_fxml/MainPage.fxml" afterPath="$PROJECT_DIR$/out/production/SBD/sample/Design_fxml/MainPage.fxml" />
-      <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/MainPageController$1.class" afterPath="$PROJECT_DIR$/out/production/SBD/sample/MainPageController$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/MainPageController$2.class" afterPath="$PROJECT_DIR$/out/production/SBD/sample/MainPageController$2.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/MainPageController$3.class" afterPath="$PROJECT_DIR$/out/production/SBD/sample/MainPageController$3.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/MainPageController$4.class" afterPath="$PROJECT_DIR$/out/production/SBD/sample/MainPageController$4.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/MainPageController$5.class" afterPath="$PROJECT_DIR$/out/production/SBD/sample/MainPageController$5.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/MainPageController$6.class" afterPath="$PROJECT_DIR$/out/production/SBD/sample/MainPageController$6.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/MainPageController$7.class" afterPath="$PROJECT_DIR$/out/production/SBD/sample/MainPageController$7.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/MainPageController$8.class" afterPath="$PROJECT_DIR$/out/production/SBD/sample/MainPageController$8.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/MainPageController$9.class" afterPath="$PROJECT_DIR$/out/production/SBD/sample/MainPageController$9.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/MainPageController.class" afterPath="$PROJECT_DIR$/out/production/SBD/sample/MainPageController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/style/css/AdminPage.css" afterPath="$PROJECT_DIR$/out/production/SBD/sample/style/css/AdminPage.css" />
-      <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/style/css/mainPageStyle.css" afterPath="$PROJECT_DIR$/out/production/SBD/sample/style/css/mainPageStyle.css" />
+      <change beforePath="$PROJECT_DIR$/out/production/SBD/sample/MaxsulotTableView/HistoryTable.class" afterPath="$PROJECT_DIR$/out/production/SBD/sample/MaxsulotTableView/HistoryTable.class" />
       <change beforePath="$PROJECT_DIR$/src/sample/AdminPart.java" afterPath="$PROJECT_DIR$/src/sample/AdminPart.java" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Core/Product.java" afterPath="$PROJECT_DIR$/src/sample/Core/Product.java" />
-      <change beforePath="$PROJECT_DIR$/src/sample/DAO/ProductDao.java" afterPath="$PROJECT_DIR$/src/sample/DAO/ProductDao.java" />
       <change beforePath="$PROJECT_DIR$/src/sample/Design_fxml/AdminPart.fxml" afterPath="$PROJECT_DIR$/src/sample/Design_fxml/AdminPart.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Design_fxml/MainPage.fxml" afterPath="$PROJECT_DIR$/src/sample/Design_fxml/MainPage.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/sample/LoginController.java" afterPath="$PROJECT_DIR$/src/sample/LoginController.java" />
-      <change beforePath="$PROJECT_DIR$/src/sample/MainPageController.java" afterPath="$PROJECT_DIR$/src/sample/MainPageController.java" />
-      <change beforePath="$PROJECT_DIR$/src/sample/style/css/AdminPage.css" afterPath="$PROJECT_DIR$/src/sample/style/css/AdminPage.css" />
-      <change beforePath="$PROJECT_DIR$/src/sample/style/css/mainPageStyle.css" afterPath="$PROJECT_DIR$/src/sample/style/css/mainPageStyle.css" />
+      <change beforePath="$PROJECT_DIR$/src/sample/MaxsulotTableView/HistoryTable.java" afterPath="$PROJECT_DIR$/src/sample/MaxsulotTableView/HistoryTable.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -104,18 +88,15 @@
         <item name="new_sbd [2]" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="new_sbd [2]" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
         <item name="views" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="new_sbd@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="sbd_market@localhost" type="feb32156:DbDataSourceImpl" />
       </path>
     </expand>
     <select />
@@ -170,77 +151,59 @@
       <file leaf-file-name="AdminPart.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/AdminPart.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3190">
-              <caret line="893" column="62" lean-forward="false" selection-start-line="893" selection-start-column="62" selection-end-line="893" selection-end-column="62" />
+            <state relative-caret-position="245">
+              <caret line="1219" column="65" lean-forward="false" selection-start-line="1219" selection-start-column="65" selection-end-line="1219" selection-end-column="65" />
               <folding>
-                <element signature="e#5855#5864#0" expanded="true" />
-                <element signature="e#5910#5918#0" expanded="true" />
-                <element signature="e#6095#6104#0" expanded="true" />
-                <element signature="e#6151#6159#0" expanded="true" />
-                <marker date="1556633200237" expanded="true" signature="14936:14971" ph="SELECT * fro... product_v" />
-                <marker date="1556633200237" expanded="true" signature="20984:21044" ph="SELECT * FRO... collapsedCreditHistoryAll" />
-                <marker date="1556633200237" expanded="true" signature="21109:21337" ph="SELECT sum(c... collapsedCreditHistoryAll" />
-                <marker date="1556633200237" expanded="true" signature="21763:21932" ph="SELECT * FRO... collapsedCreditHistoryAll" />
-                <marker date="1556633200237" expanded="true" signature="22184:22492" ph="SELECT sum(c... collapsedCreditHistoryAll" />
-                <marker date="1556633200237" expanded="true" signature="22912:22966" ph="SELECT * FRO... collapsedCreditHistoryAll" />
-                <marker date="1556633200237" expanded="true" signature="23032:23254" ph="SELECT sum(c... collapsedCreditHistoryAll" />
-                <marker date="1556633200237" expanded="true" signature="23679:23844" ph="SELECT * FRO... collapsedCreditHistoryAll" />
-                <marker date="1556633200237" expanded="true" signature="24097:24401" ph="SELECT sum(c... collapsedCreditHistoryAll" />
-                <marker date="1556633200237" expanded="true" signature="25081:25225" ph="SELECT * FRO... collapsedCreditHistoryAll" />
-                <marker date="1556633200237" expanded="true" signature="25462:25745" ph="SELECT sum(c... collapsedCreditHistoryAll" />
-                <marker date="1556633200237" expanded="true" signature="26135:26279" ph="SELECT * FRO... collapsedCreditHistoryAll" />
-                <marker date="1556633200237" expanded="true" signature="27020:27244" ph="SELECT * FRO... *" />
-                <marker date="1556633200237" expanded="true" signature="27082:27148" ph="SELECT * FRO... collapsedCreditHistoryAll" />
-                <marker date="1556633200237" expanded="true" signature="27311:27489" ph="SELECT sum(c... collapsedCreditHistoryAll" />
-                <marker date="1556633200237" expanded="true" signature="30007:30057" ph="DELETE FROM maxsulotlar" />
-                <marker date="1556633200237" expanded="true" signature="30299:30367" ph="INSERT INTO Table_history1" />
-                <marker date="1556633200237" expanded="true" signature="31635:31763" ph="SELECT * FRO... history_v" />
-                <marker date="1556633200237" expanded="true" signature="32054:32248" ph="SELECT * FRO... *" />
-                <marker date="1556633200237" expanded="true" signature="32104:32160" ph="SELECT * FRO... history_v" />
-                <marker date="1556633200237" expanded="true" signature="33426:33469" ph="SELECT * FRO... sotuvchi" />
-                <marker date="1556633200237" expanded="true" signature="34840:34854" ph="SELECT * FRO... product_sold_rate" />
-                <marker date="1556633200237" expanded="true" signature="34840:34862" ph="SELECT * FRO... soldRate" />
-                <marker date="1556633200237" expanded="true" signature="35836:35868" ph="SELECT * FRO... product_sold_rate" />
-                <marker date="1556633200237" expanded="true" signature="35836:35876" ph="SELECT * FRO... soldRate" />
-                <marker date="1556633200237" expanded="true" signature="37056:37068" ph="DELETE FROM savdoAction... " />
-                <marker date="1556633200237" expanded="true" signature="37056:37078" ph="DELETE FROM sellaction... " />
-                <marker date="1556633200237" expanded="true" signature="37204:37216" ph="DELETE FROM history... " />
-                <marker date="1556633200237" expanded="true" signature="37204:37223" ph="DELETE FROM history... " />
-                <marker date="1556633200237" expanded="true" signature="37347:37359" ph="DELETE FROM maxsulotlar... " />
-                <marker date="1556633200237" expanded="true" signature="37347:37366" ph="DELETE FROM product... " />
-                <marker date="1556633200237" expanded="true" signature="37490:37502" ph="DELETE FROM product_type... " />
-                <marker date="1556633200237" expanded="true" signature="37490:37508" ph="DELETE FROM seller... " />
-                <marker date="1556633200237" expanded="true" signature="37632:37644" ph="DELETE FROM sotuvchi... " />
-                <marker date="1556633200237" expanded="true" signature="37632:37652" ph="DELETE FROM customer... " />
-                <marker date="1556633200237" expanded="true" signature="37776:37788" ph="DELETE FROM printer... " />
-                <marker date="1556633200237" expanded="true" signature="37776:37795" ph="DELETE FROM suplier... " />
-                <marker date="1556633200237" expanded="true" signature="37919:37935" ph="DELETE FROM type... " />
-                <marker date="1556633200237" expanded="true" signature="41737:41925" ph="INSERT INTO sotuvchi... " />
-                <marker date="1556633200237" expanded="true" signature="42601:42675" ph="INSERT INTO Table_history1" />
-                <marker date="1556633200237" expanded="true" signature="45509:45624" ph="UPDATE sotuvchi " />
-                <marker date="1556633200237" expanded="true" signature="46304:46389" ph="INSERT INTO Table_history1" />
-                <marker date="1556633200237" expanded="true" signature="47796:47845" ph="DELETE FROM sotuvchi" />
-                <marker date="1556633200237" expanded="true" signature="48093:48161" ph="INSERT INTO Table_history1" />
-                <marker date="1556633200237" expanded="true" signature="48853:48895" ph="SELECT first... sotuvchi" />
-                <marker date="1556633200237" expanded="true" signature="49311:49337" ph="SELECT Name type" />
-                <marker date="1556633200237" expanded="true" signature="51631:51656" ph="SELECT * FRO... listProduct" />
-                <marker date="1556633200237" expanded="true" signature="55527:55555" ph="SELECT * FRO... OmborHisoblari" />
-                <marker date="1556633200237" expanded="true" signature="59991:60151" ph="SELECT * FRO... collapsedCreditHistoryAll" />
-                <marker date="1556633200237" expanded="true" signature="62694:62719" ph="UPDATE printer... " />
-                <marker date="1556633200237" expanded="true" signature="62898:62969" ph="INSERT INTO Table_history1" />
-                <marker date="1556633200237" expanded="true" signature="63765:63790" ph="UPDATE printer... " />
-                <marker date="1556633200237" expanded="true" signature="63949:64024" ph="INSERT INTO Table_history1" />
+                <element signature="e#5023#5032#0" expanded="true" />
+                <element signature="e#5078#5086#0" expanded="true" />
+                <element signature="e#5263#5272#0" expanded="true" />
+                <element signature="e#5319#5327#0" expanded="true" />
+                <marker date="1556687290483" expanded="true" signature="14741:14776" ph="SELECT * FRO... product_v" />
+                <marker date="1556687290483" expanded="true" signature="20514:20574" ph="SELECT * FRO... collapsedCreditHistoryAll" />
+                <marker date="1556687290483" expanded="true" signature="20639:20867" ph="SELECT sum(c... collapsedCreditHistoryAll" />
+                <marker date="1556687290483" expanded="true" signature="21293:21462" ph="SELECT * FRO... collapsedCreditHistoryAll" />
+                <marker date="1556687290483" expanded="true" signature="21714:22022" ph="SELECT sum(c... collapsedCreditHistoryAll" />
+                <marker date="1556687290483" expanded="true" signature="22442:22496" ph="SELECT * FRO... collapsedCreditHistoryAll" />
+                <marker date="1556687290483" expanded="true" signature="22562:22784" ph="SELECT sum(c... collapsedCreditHistoryAll" />
+                <marker date="1556687290483" expanded="true" signature="23209:23374" ph="SELECT * FRO... collapsedCreditHistoryAll" />
+                <marker date="1556687290483" expanded="true" signature="23627:23931" ph="SELECT sum(c... collapsedCreditHistoryAll" />
+                <marker date="1556687290483" expanded="true" signature="24611:24755" ph="SELECT * FRO... collapsedCreditHistoryAll" />
+                <marker date="1556687290483" expanded="true" signature="24992:25275" ph="SELECT sum(c... collapsedCreditHistoryAll" />
+                <marker date="1556687290483" expanded="true" signature="25666:25810" ph="SELECT * FRO... collapsedCreditHistoryAll" />
+                <marker date="1556687290483" expanded="true" signature="26551:26775" ph="SELECT * FRO... *" />
+                <marker date="1556687290483" expanded="true" signature="26613:26679" ph="SELECT * FRO... collapsedCreditHistoryAll" />
+                <marker date="1556687290483" expanded="true" signature="26842:27020" ph="SELECT sum(c... collapsedCreditHistoryAll" />
+                <marker date="1556687290483" expanded="true" signature="29436:29486" ph="DELETE FROM maxsulotlar" />
+                <marker date="1556687290483" expanded="true" signature="29728:29796" ph="INSERT INTO Table_history1" />
+                <marker date="1556687290483" expanded="true" signature="30988:31111" ph="SELECT * FRO... history_v" />
+                <marker date="1556687290483" expanded="true" signature="31416:31614" ph="SELECT * FRO... *" />
+                <marker date="1556687290483" expanded="true" signature="31466:31524" ph="SELECT * FRO... history_v" />
+                <marker date="1556687290483" expanded="true" signature="33039:33082" ph="SELECT * FRO... sotuvchi" />
+                <marker date="1556687290483" expanded="true" signature="34386:34408" ph="SELECT * FRO... soldRate" />
+                <marker date="1556687290483" expanded="true" signature="35378:35418" ph="SELECT * FRO... soldRate" />
+                <marker date="1556687290483" expanded="true" signature="36596:36618" ph="DELETE FROM sellaction... " />
+                <marker date="1556687290483" expanded="true" signature="36744:36763" ph="DELETE FROM history... " />
+                <marker date="1556687290483" expanded="true" signature="36887:36906" ph="DELETE FROM product... " />
+                <marker date="1556687290483" expanded="true" signature="37030:37048" ph="DELETE FROM seller... " />
+                <marker date="1556687290483" expanded="true" signature="37172:37192" ph="DELETE FROM customer... " />
+                <marker date="1556687290483" expanded="true" signature="37316:37335" ph="DELETE FROM suplier... " />
+                <marker date="1556687290483" expanded="true" signature="37459:37475" ph="DELETE FROM type... " />
+                <marker date="1556687290483" expanded="true" signature="41239:41427" ph="INSERT INTO sotuvchi... " />
+                <marker date="1556687290483" expanded="true" signature="42103:42177" ph="INSERT INTO Table_history1" />
+                <marker date="1556687290483" expanded="true" signature="44957:45072" ph="UPDATE sotuvchi " />
+                <marker date="1556687290483" expanded="true" signature="45748:45833" ph="INSERT INTO Table_history1" />
+                <marker date="1556687290483" expanded="true" signature="47148:47197" ph="DELETE FROM sotuvchi" />
+                <marker date="1556687290483" expanded="true" signature="47445:47513" ph="INSERT INTO Table_history1" />
+                <marker date="1556687290483" expanded="true" signature="48200:48242" ph="SELECT first... sotuvchi" />
+                <marker date="1556687290483" expanded="true" signature="48781:48807" ph="SELECT Name type" />
+                <marker date="1556687290483" expanded="true" signature="50822:50847" ph="SELECT * FRO... listProduct" />
+                <marker date="1556687290483" expanded="true" signature="54149:54177" ph="SELECT * FRO... OmborHisoblari" />
+                <marker date="1556687290483" expanded="true" signature="58569:58729" ph="SELECT * FRO... collapsedCreditHistoryAll" />
+                <marker date="1556687290483" expanded="true" signature="61234:61259" ph="UPDATE printer... " />
+                <marker date="1556687290483" expanded="true" signature="61438:61509" ph="INSERT INTO Table_history1" />
+                <marker date="1556687290483" expanded="true" signature="62392:62417" ph="UPDATE printer... " />
+                <marker date="1556687290483" expanded="true" signature="62575:62650" ph="INSERT INTO Table_history1" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/33b47fad-7e78-4b57-b3be-96c857eedd84/console.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -254,6 +217,120 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="HistoryTable.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/MaxsulotTableView/HistoryTable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="17" column="27" lean-forward="false" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+              <folding>
+                <element signature="e#875#876#0" expanded="true" />
+                <element signature="e#923#924#0" expanded="true" />
+                <element signature="e#948#949#0" expanded="true" />
+                <element signature="e#984#985#0" expanded="true" />
+                <element signature="e#1015#1016#0" expanded="true" />
+                <element signature="e#1050#1051#0" expanded="true" />
+                <element signature="e#1087#1088#0" expanded="true" />
+                <element signature="e#1141#1142#0" expanded="true" />
+                <element signature="e#1172#1173#0" expanded="true" />
+                <element signature="e#1220#1221#0" expanded="true" />
+                <element signature="e#1263#1264#0" expanded="true" />
+                <element signature="e#1298#1299#0" expanded="true" />
+                <element signature="e#1335#1336#0" expanded="true" />
+                <element signature="e#1389#1390#0" expanded="true" />
+                <element signature="e#1420#1421#0" expanded="true" />
+                <element signature="e#1468#1469#0" expanded="true" />
+                <element signature="e#1511#1512#0" expanded="true" />
+                <element signature="e#1545#1546#0" expanded="true" />
+                <element signature="e#1581#1582#0" expanded="true" />
+                <element signature="e#1634#1635#0" expanded="true" />
+                <element signature="e#1664#1665#0" expanded="true" />
+                <element signature="e#1710#1711#0" expanded="true" />
+                <element signature="e#1751#1752#0" expanded="true" />
+                <element signature="e#1790#1791#0" expanded="true" />
+                <element signature="e#1831#1832#0" expanded="true" />
+                <element signature="e#1889#1890#0" expanded="true" />
+                <element signature="e#1924#1925#0" expanded="true" />
+                <element signature="e#1980#1981#0" expanded="true" />
+                <element signature="e#2031#2032#0" expanded="true" />
+                <element signature="e#2067#2068#0" expanded="true" />
+                <element signature="e#2105#2106#0" expanded="true" />
+                <element signature="e#2160#2161#0" expanded="true" />
+                <element signature="e#2192#2193#0" expanded="true" />
+                <element signature="e#2242#2243#0" expanded="true" />
+                <element signature="e#2287#2288#0" expanded="true" />
+                <element signature="e#2324#2325#0" expanded="true" />
+                <element signature="e#2363#2364#0" expanded="true" />
+                <element signature="e#2419#2420#0" expanded="true" />
+                <element signature="e#2452#2453#0" expanded="true" />
+                <element signature="e#2504#2505#0" expanded="true" />
+                <element signature="e#2551#2552#0" expanded="true" />
+                <element signature="e#2582#2583#0" expanded="true" />
+                <element signature="e#2615#2616#0" expanded="true" />
+                <element signature="e#2665#2666#0" expanded="true" />
+                <element signature="e#2692#2693#0" expanded="true" />
+                <element signature="e#2732#2733#0" expanded="true" />
+                <element signature="e#2767#2768#0" expanded="true" />
+                <element signature="e#2802#2803#0" expanded="true" />
+                <element signature="e#2839#2840#0" expanded="true" />
+                <element signature="e#2893#2894#0" expanded="true" />
+                <element signature="e#2924#2925#0" expanded="true" />
+                <element signature="e#2972#2973#0" expanded="true" />
+                <element signature="e#3015#3016#0" expanded="true" />
+                <element signature="e#3046#3047#0" expanded="true" />
+                <element signature="e#3079#3080#0" expanded="true" />
+                <element signature="e#3129#3130#0" expanded="true" />
+                <element signature="e#3156#3157#0" expanded="true" />
+                <element signature="e#3196#3197#0" expanded="true" />
+                <element signature="e#3231#3232#0" expanded="true" />
+                <element signature="e#3272#3273#0" expanded="true" />
+                <element signature="e#3315#3316#0" expanded="true" />
+                <element signature="e#3375#3376#0" expanded="true" />
+                <element signature="e#3412#3413#0" expanded="true" />
+                <element signature="e#3472#3473#0" expanded="true" />
+                <element signature="e#3527#3528#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="history_v" pinned="false" current-in-tab="false">
+        <entry file="das://view:/2f63d7e4/33b47fad-7e78-4b57-b3be-96c857eedd84/main.history_v">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="actionHistory_v" pinned="false" current-in-tab="true">
+        <entry file="das://view:/2f63d7e4/33b47fad-7e78-4b57-b3be-96c857eedd84/main.actionHistory_v">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/33b47fad-7e78-4b57-b3be-96c857eedd84/console.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="22">
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/LoginController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-239">
+              <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="soldRate" pinned="false" current-in-tab="false">
         <entry file="das://view:/2f63d7e4/33b47fad-7e78-4b57-b3be-96c857eedd84/main.soldRate">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
@@ -263,26 +340,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/sample/LoginController.java">
+      <file leaf-file-name="AdminPart.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Design_fxml/AdminPart.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+            <state relative-caret-position="-858">
+              <caret line="450" column="49" lean-forward="false" selection-start-line="450" selection-start-column="49" selection-end-line="450" selection-end-column="49" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminPart.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Design_fxml/AdminPart.fxml">
+      <file leaf-file-name="mainPageStyle.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/style/css/mainPageStyle.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-121">
-              <caret line="967" column="70" lean-forward="false" selection-start-line="967" selection-start-column="70" selection-end-line="967" selection-end-column="70" />
+            <state relative-caret-position="61">
+              <caret line="96" column="33" lean-forward="false" selection-start-line="96" selection-start-column="26" selection-end-line="96" selection-end-column="33" />
               <folding />
             </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
           </provider>
         </entry>
       </file>
@@ -365,9 +442,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/sample/Components/models/Type_operation.java" />
         <option value="/ca049a65/de5db86e-3061-4414-82bc-890699c5c8f3/schema/sbd_market/view/history_v.sql" />
-        <option value="$PROJECT_DIR$/src/sample/MaxsulotTableView/HistoryTable.java" />
         <option value="$PROJECT_DIR$/src/sample/BarCodeService.java" />
         <option value="$PROJECT_DIR$/src/sample/Utils/BarCodeService.java" />
         <option value="$PROJECT_DIR$/src/sample/Components/TypeOperations.java" />
@@ -414,7 +489,9 @@
         <option value="$PROJECT_DIR$/src/sample/LoginController.java" />
         <option value="$PROJECT_DIR$/src/sample/MainPageController.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/33b47fad-7e78-4b57-b3be-96c857eedd84/console.sql" />
+        <option value="/ca049a65/33b47fad-7e78-4b57-b3be-96c857eedd84/schema/main/view/soldRate.sql" />
         <option value="$PROJECT_DIR$/src/sample/Design_fxml/AdminPart.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/MaxsulotTableView/HistoryTable.java" />
         <option value="$PROJECT_DIR$/src/sample/AdminPart.java" />
       </list>
     </option>
@@ -469,7 +546,24 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="sbd" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SBD" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="sbd" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SBD" type="616d4139:PackageViewModuleNode" />
+              <item name="sample" type="1f31426a:PackageElementNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -495,28 +589,26 @@
               <item name="sample" type="462c0819:PsiDirectoryNode" />
               <item name="Design_fxml" type="462c0819:PsiDirectoryNode" />
             </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
             <path>
-              <item name="sbd" type="58d84e3e:PackageViewProjectNode" />
-              <item name="SBD" type="616d4139:PackageViewModuleNode" />
+              <item name="sbd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sbd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="style" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="sbd" type="58d84e3e:PackageViewProjectNode" />
-              <item name="SBD" type="616d4139:PackageViewModuleNode" />
-              <item name="sample" type="1f31426a:PackageElementNode" />
+              <item name="sbd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sbd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="style" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1117,6 +1209,8 @@
       <workItem from="1556553577041" duration="3755000" />
       <workItem from="1556604340287" duration="12000" />
       <workItem from="1556605752919" duration="22118000" />
+      <workItem from="1556649239988" duration="1056000" />
+      <workItem from="1556651498159" duration="5652000" />
     </task>
     <task id="LOCAL-00001" summary="test commit">
       <created>1524395418205</created>
@@ -1234,7 +1328,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1815024000" />
+    <option name="totallyTimeSpent" value="1821732000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1247,33 +1341,30 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5439377" sideWeight="0.5074627" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15896885" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="SQL Generator" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.89098996" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15458423" sideWeight="0.82276654" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21108742" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19509594" sideWeight="0.46849757" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24946696" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.61067855" sideWeight="0.4989339" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32719395" sideWeight="0.49520257" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32035595" sideWeight="0.49785176" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32719395" sideWeight="0.49733475" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5439377" sideWeight="0.5074627" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15896885" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5439377" sideWeight="0.49253732" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3359288" sideWeight="0.49733475" order="16" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2625139" sideWeight="0.49785176" order="18" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1663113" sideWeight="0.5308776" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16950959" sideWeight="0.5308776" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17803837" sideWeight="0.46912244" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15458423" sideWeight="0.82276654" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19509594" sideWeight="0.46849757" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21108742" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24946696" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6095662" sideWeight="0.4989339" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19509594" sideWeight="0.46849757" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Duplicate detector" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="20" side_tool="false" content_ui="tabs" />
@@ -1283,12 +1374,14 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Database Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="SQL Generator" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.89098996" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="19" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1684435" sideWeight="0.17723343" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2625139" sideWeight="0.49785176" order="18" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32719395" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1383,9 +1476,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="Last commit mysql editionda" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="1" />
-    </breakpoint-manager>
+    <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1402,8 +1493,14 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://33b47fad-7e78-4b57-b3be-96c857eedd84/schema/main/table/utils" />
-    <entry file="das://33b47fad-7e78-4b57-b3be-96c857eedd84/schema/main/table/seller" />
+    <entry file="file://$PROJECT_DIR$/src/sample/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1232">
+          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/DAO/UserDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -1431,7 +1528,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
           <caret line="16" column="78" lean-forward="true" selection-start-line="16" selection-start-column="78" selection-end-line="16" selection-end-column="78" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1477,7 +1573,6 @@
     </entry>
     <entry file="dbSrc:///ca049a65/de5db86e-3061-4414-82bc-890699c5c8f3/schema/sbd_market/view/collapsedcredithistory.sql" />
     <entry file="das://33b47fad-7e78-4b57-b3be-96c857eedd84/schema/main/table/product" />
-    <entry file="das://33b47fad-7e78-4b57-b3be-96c857eedd84/schema/main/view/product_v" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/sql/ResultSet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
@@ -1492,98 +1587,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/MaxsulotTableView/HistoryTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/SBD/sample/MaxsulotTableView/product.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/MaxsulotTableView/product.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1254">
           <caret line="93" column="18" lean-forward="false" selection-start-line="93" selection-start-column="18" selection-end-line="93" selection-end-column="18" />
-          <folding>
-            <element signature="e#981#982#0" expanded="false" />
-            <element signature="e#1012#1013#0" expanded="false" />
-            <element signature="e#1060#1061#0" expanded="false" />
-            <element signature="e#1085#1086#0" expanded="false" />
-            <element signature="e#1121#1122#0" expanded="false" />
-            <element signature="e#1152#1153#0" expanded="false" />
-            <element signature="e#1183#1184#0" expanded="false" />
-            <element signature="e#1216#1217#0" expanded="false" />
-            <element signature="e#1266#1267#0" expanded="false" />
-            <element signature="e#1293#1294#0" expanded="false" />
-            <element signature="e#1333#1334#0" expanded="false" />
-            <element signature="e#1368#1369#0" expanded="false" />
-            <element signature="e#1402#1403#0" expanded="false" />
-            <element signature="e#1438#1439#0" expanded="false" />
-            <element signature="e#1491#1492#0" expanded="false" />
-            <element signature="e#1521#1522#0" expanded="false" />
-            <element signature="e#1567#1568#0" expanded="false" />
-            <element signature="e#1608#1609#0" expanded="false" />
-            <element signature="e#1639#1640#0" expanded="false" />
-            <element signature="e#1672#1673#0" expanded="false" />
-            <element signature="e#1722#1723#0" expanded="false" />
-            <element signature="e#1749#1750#0" expanded="false" />
-            <element signature="e#1789#1790#0" expanded="false" />
-            <element signature="e#1824#1825#0" expanded="false" />
-            <element signature="e#1855#1856#0" expanded="false" />
-            <element signature="e#1888#1889#0" expanded="false" />
-            <element signature="e#1938#1939#0" expanded="false" />
-            <element signature="e#1965#1966#0" expanded="false" />
-            <element signature="e#2005#2006#0" expanded="false" />
-            <element signature="e#2040#2041#0" expanded="false" />
-            <element signature="e#2073#2074#0" expanded="false" />
-            <element signature="e#2108#2109#0" expanded="false" />
-            <element signature="e#2160#2161#0" expanded="false" />
-            <element signature="e#2189#2190#0" expanded="false" />
-            <element signature="e#2233#2234#0" expanded="false" />
-            <element signature="e#2272#2273#0" expanded="false" />
-            <element signature="e#2303#2304#0" expanded="false" />
-            <element signature="e#2336#2337#0" expanded="false" />
-            <element signature="e#2386#2387#0" expanded="false" />
-            <element signature="e#2413#2414#0" expanded="false" />
-            <element signature="e#2453#2454#0" expanded="false" />
-            <element signature="e#2488#2489#0" expanded="false" />
-            <element signature="e#2523#2524#0" expanded="false" />
-            <element signature="e#2560#2561#0" expanded="false" />
-            <element signature="e#2614#2615#0" expanded="false" />
-            <element signature="e#2645#2646#0" expanded="false" />
-            <element signature="e#2693#2694#0" expanded="false" />
-            <element signature="e#2736#2737#0" expanded="false" />
-            <element signature="e#2769#2770#0" expanded="false" />
-            <element signature="e#2804#2805#0" expanded="false" />
-            <element signature="e#2856#2857#0" expanded="false" />
-            <element signature="e#2885#2886#0" expanded="false" />
-            <element signature="e#2929#2930#0" expanded="false" />
-            <element signature="e#2968#2969#0" expanded="false" />
-            <element signature="e#3001#3002#0" expanded="false" />
-            <element signature="e#3036#3037#0" expanded="false" />
-            <element signature="e#3088#3089#0" expanded="false" />
-            <element signature="e#3117#3118#0" expanded="false" />
-            <element signature="e#3161#3162#0" expanded="false" />
-            <element signature="e#3200#3201#0" expanded="false" />
-            <element signature="e#3234#3235#0" expanded="false" />
-            <element signature="e#3270#3271#0" expanded="false" />
-            <element signature="e#3323#3324#0" expanded="false" />
-            <element signature="e#3353#3354#0" expanded="false" />
-            <element signature="e#3399#3400#0" expanded="false" />
-            <element signature="e#3440#3441#0" expanded="false" />
-            <element signature="e#3471#3472#0" expanded="false" />
-            <element signature="e#3504#3505#0" expanded="false" />
-            <element signature="e#3554#3555#0" expanded="false" />
-            <element signature="e#3581#3582#0" expanded="false" />
-            <element signature="e#3621#3622#0" expanded="false" />
-            <element signature="e#3656#3657#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1598,7 +1605,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="5" column="20" lean-forward="false" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1606,7 +1612,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1614,25 +1619,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4906">
           <caret line="235" column="27" lean-forward="false" selection-start-line="235" selection-start-column="27" selection-end-line="235" selection-end-column="27" />
-          <folding>
-            <marker date="1556540491472" expanded="true" signature="1380:1484" ph="select * fro... product" />
-            <marker date="1556540491472" expanded="true" signature="1999:2058" ph="select * fro... product" />
-            <marker date="1556540491472" expanded="true" signature="3808:3867" ph="select * fro... product" />
-            <marker date="1556540491472" expanded="true" signature="3961:4063" ph="select * fro... product" />
-            <marker date="1556540491472" expanded="true" signature="4432:4508" ph="select * fro... product" />
-            <marker date="1556540491472" expanded="true" signature="4935:5011" ph="select * fro... product" />
-            <marker date="1556540491472" expanded="true" signature="5469:5495" ph="SELECT name type" />
-            <marker date="1556540491472" expanded="true" signature="7727:7979" ph="INSERT INTO product... " />
-            <marker date="1556540491472" expanded="true" signature="8935:9074" ph="UPDATE product... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/style/css/mainPageStyle.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1029">
-          <caret line="125" column="0" lean-forward="false" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1640,7 +1626,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1670,50 +1655,193 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/2f63d7e4/33b47fad-7e78-4b57-b3be-96c857eedd84/main.seller">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/2f63d7e4/33b47fad-7e78-4b57-b3be-96c857eedd84/main.type">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/2f63d7e4/33b47fad-7e78-4b57-b3be-96c857eedd84/main.product">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbSrc:///2f63d7e4/33b47fad-7e78-4b57-b3be-96c857eedd84/schema/main/view/product_v.sql">
+    <entry file="das://table:/2f63d7e4/33b47fad-7e78-4b57-b3be-96c857eedd84/main.seller" />
+    <entry file="das://table:/2f63d7e4/33b47fad-7e78-4b57-b3be-96c857eedd84/main.type" />
+    <entry file="das://table:/2f63d7e4/33b47fad-7e78-4b57-b3be-96c857eedd84/main.product" />
+    <entry file="dbSrc:///2f63d7e4/33b47fad-7e78-4b57-b3be-96c857eedd84/schema/main/view/product_v.sql" />
+    <entry file="das://table:/2f63d7e4/33b47fad-7e78-4b57-b3be-96c857eedd84/main.customer" />
+    <entry file="das://table:/2f63d7e4/33b47fad-7e78-4b57-b3be-96c857eedd84/main.sellaction" />
+    <entry file="das://table:/2f63d7e4/33b47fad-7e78-4b57-b3be-96c857eedd84/main.history" />
+    <entry file="das://view:/2f63d7e4/de5db86e-3061-4414-82bc-890699c5c8f3/sbd.product_sold_rate" />
+    <entry file="das://table:/2f63d7e4/33b47fad-7e78-4b57-b3be-96c857eedd84/main.utils" />
+    <entry file="das://33b47fad-7e78-4b57-b3be-96c857eedd84/schema/main/view/product_v" />
+    <entry file="dbSrc:///ca049a65/33b47fad-7e78-4b57-b3be-96c857eedd84/schema/main/view/soldRate.sql" />
+    <entry file="das://33b47fad-7e78-4b57-b3be-96c857eedd84/schema/main/view/soldRate" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/33b47fad-7e78-4b57-b3be-96c857eedd84/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="24" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="5" selection-end-column="24" />
+        <state relative-caret-position="22">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/2f63d7e4/33b47fad-7e78-4b57-b3be-96c857eedd84/main.customer">
+    <entry file="file://$PROJECT_DIR$/src/sample/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-239">
+          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Design_fxml/AdminPart.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-858">
+          <caret line="450" column="49" lean-forward="false" selection-start-line="450" selection-start-column="49" selection-end-line="450" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/style/css/mainPageStyle.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="61">
+          <caret line="96" column="33" lean-forward="false" selection-start-line="96" selection-start-column="26" selection-end-line="96" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/MaxsulotTableView/HistoryTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="27" lean-forward="false" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+          <folding>
+            <element signature="e#875#876#0" expanded="true" />
+            <element signature="e#923#924#0" expanded="true" />
+            <element signature="e#948#949#0" expanded="true" />
+            <element signature="e#984#985#0" expanded="true" />
+            <element signature="e#1015#1016#0" expanded="true" />
+            <element signature="e#1050#1051#0" expanded="true" />
+            <element signature="e#1087#1088#0" expanded="true" />
+            <element signature="e#1141#1142#0" expanded="true" />
+            <element signature="e#1172#1173#0" expanded="true" />
+            <element signature="e#1220#1221#0" expanded="true" />
+            <element signature="e#1263#1264#0" expanded="true" />
+            <element signature="e#1298#1299#0" expanded="true" />
+            <element signature="e#1335#1336#0" expanded="true" />
+            <element signature="e#1389#1390#0" expanded="true" />
+            <element signature="e#1420#1421#0" expanded="true" />
+            <element signature="e#1468#1469#0" expanded="true" />
+            <element signature="e#1511#1512#0" expanded="true" />
+            <element signature="e#1545#1546#0" expanded="true" />
+            <element signature="e#1581#1582#0" expanded="true" />
+            <element signature="e#1634#1635#0" expanded="true" />
+            <element signature="e#1664#1665#0" expanded="true" />
+            <element signature="e#1710#1711#0" expanded="true" />
+            <element signature="e#1751#1752#0" expanded="true" />
+            <element signature="e#1790#1791#0" expanded="true" />
+            <element signature="e#1831#1832#0" expanded="true" />
+            <element signature="e#1889#1890#0" expanded="true" />
+            <element signature="e#1924#1925#0" expanded="true" />
+            <element signature="e#1980#1981#0" expanded="true" />
+            <element signature="e#2031#2032#0" expanded="true" />
+            <element signature="e#2067#2068#0" expanded="true" />
+            <element signature="e#2105#2106#0" expanded="true" />
+            <element signature="e#2160#2161#0" expanded="true" />
+            <element signature="e#2192#2193#0" expanded="true" />
+            <element signature="e#2242#2243#0" expanded="true" />
+            <element signature="e#2287#2288#0" expanded="true" />
+            <element signature="e#2324#2325#0" expanded="true" />
+            <element signature="e#2363#2364#0" expanded="true" />
+            <element signature="e#2419#2420#0" expanded="true" />
+            <element signature="e#2452#2453#0" expanded="true" />
+            <element signature="e#2504#2505#0" expanded="true" />
+            <element signature="e#2551#2552#0" expanded="true" />
+            <element signature="e#2582#2583#0" expanded="true" />
+            <element signature="e#2615#2616#0" expanded="true" />
+            <element signature="e#2665#2666#0" expanded="true" />
+            <element signature="e#2692#2693#0" expanded="true" />
+            <element signature="e#2732#2733#0" expanded="true" />
+            <element signature="e#2767#2768#0" expanded="true" />
+            <element signature="e#2802#2803#0" expanded="true" />
+            <element signature="e#2839#2840#0" expanded="true" />
+            <element signature="e#2893#2894#0" expanded="true" />
+            <element signature="e#2924#2925#0" expanded="true" />
+            <element signature="e#2972#2973#0" expanded="true" />
+            <element signature="e#3015#3016#0" expanded="true" />
+            <element signature="e#3046#3047#0" expanded="true" />
+            <element signature="e#3079#3080#0" expanded="true" />
+            <element signature="e#3129#3130#0" expanded="true" />
+            <element signature="e#3156#3157#0" expanded="true" />
+            <element signature="e#3196#3197#0" expanded="true" />
+            <element signature="e#3231#3232#0" expanded="true" />
+            <element signature="e#3272#3273#0" expanded="true" />
+            <element signature="e#3315#3316#0" expanded="true" />
+            <element signature="e#3375#3376#0" expanded="true" />
+            <element signature="e#3412#3413#0" expanded="true" />
+            <element signature="e#3472#3473#0" expanded="true" />
+            <element signature="e#3527#3528#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/AdminPart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="1219" column="65" lean-forward="false" selection-start-line="1219" selection-start-column="65" selection-end-line="1219" selection-end-column="65" />
+          <folding>
+            <element signature="e#5023#5032#0" expanded="true" />
+            <element signature="e#5078#5086#0" expanded="true" />
+            <element signature="e#5263#5272#0" expanded="true" />
+            <element signature="e#5319#5327#0" expanded="true" />
+            <marker date="1556687290483" expanded="true" signature="14741:14776" ph="SELECT * FRO... product_v" />
+            <marker date="1556687290483" expanded="true" signature="20514:20574" ph="SELECT * FRO... collapsedCreditHistoryAll" />
+            <marker date="1556687290483" expanded="true" signature="20639:20867" ph="SELECT sum(c... collapsedCreditHistoryAll" />
+            <marker date="1556687290483" expanded="true" signature="21293:21462" ph="SELECT * FRO... collapsedCreditHistoryAll" />
+            <marker date="1556687290483" expanded="true" signature="21714:22022" ph="SELECT sum(c... collapsedCreditHistoryAll" />
+            <marker date="1556687290483" expanded="true" signature="22442:22496" ph="SELECT * FRO... collapsedCreditHistoryAll" />
+            <marker date="1556687290483" expanded="true" signature="22562:22784" ph="SELECT sum(c... collapsedCreditHistoryAll" />
+            <marker date="1556687290483" expanded="true" signature="23209:23374" ph="SELECT * FRO... collapsedCreditHistoryAll" />
+            <marker date="1556687290483" expanded="true" signature="23627:23931" ph="SELECT sum(c... collapsedCreditHistoryAll" />
+            <marker date="1556687290483" expanded="true" signature="24611:24755" ph="SELECT * FRO... collapsedCreditHistoryAll" />
+            <marker date="1556687290483" expanded="true" signature="24992:25275" ph="SELECT sum(c... collapsedCreditHistoryAll" />
+            <marker date="1556687290483" expanded="true" signature="25666:25810" ph="SELECT * FRO... collapsedCreditHistoryAll" />
+            <marker date="1556687290483" expanded="true" signature="26551:26775" ph="SELECT * FRO... *" />
+            <marker date="1556687290483" expanded="true" signature="26613:26679" ph="SELECT * FRO... collapsedCreditHistoryAll" />
+            <marker date="1556687290483" expanded="true" signature="26842:27020" ph="SELECT sum(c... collapsedCreditHistoryAll" />
+            <marker date="1556687290483" expanded="true" signature="29436:29486" ph="DELETE FROM maxsulotlar" />
+            <marker date="1556687290483" expanded="true" signature="29728:29796" ph="INSERT INTO Table_history1" />
+            <marker date="1556687290483" expanded="true" signature="30988:31111" ph="SELECT * FRO... history_v" />
+            <marker date="1556687290483" expanded="true" signature="31416:31614" ph="SELECT * FRO... *" />
+            <marker date="1556687290483" expanded="true" signature="31466:31524" ph="SELECT * FRO... history_v" />
+            <marker date="1556687290483" expanded="true" signature="33039:33082" ph="SELECT * FRO... sotuvchi" />
+            <marker date="1556687290483" expanded="true" signature="34386:34408" ph="SELECT * FRO... soldRate" />
+            <marker date="1556687290483" expanded="true" signature="35378:35418" ph="SELECT * FRO... soldRate" />
+            <marker date="1556687290483" expanded="true" signature="36596:36618" ph="DELETE FROM sellaction... " />
+            <marker date="1556687290483" expanded="true" signature="36744:36763" ph="DELETE FROM history... " />
+            <marker date="1556687290483" expanded="true" signature="36887:36906" ph="DELETE FROM product... " />
+            <marker date="1556687290483" expanded="true" signature="37030:37048" ph="DELETE FROM seller... " />
+            <marker date="1556687290483" expanded="true" signature="37172:37192" ph="DELETE FROM customer... " />
+            <marker date="1556687290483" expanded="true" signature="37316:37335" ph="DELETE FROM suplier... " />
+            <marker date="1556687290483" expanded="true" signature="37459:37475" ph="DELETE FROM type... " />
+            <marker date="1556687290483" expanded="true" signature="41239:41427" ph="INSERT INTO sotuvchi... " />
+            <marker date="1556687290483" expanded="true" signature="42103:42177" ph="INSERT INTO Table_history1" />
+            <marker date="1556687290483" expanded="true" signature="44957:45072" ph="UPDATE sotuvchi " />
+            <marker date="1556687290483" expanded="true" signature="45748:45833" ph="INSERT INTO Table_history1" />
+            <marker date="1556687290483" expanded="true" signature="47148:47197" ph="DELETE FROM sotuvchi" />
+            <marker date="1556687290483" expanded="true" signature="47445:47513" ph="INSERT INTO Table_history1" />
+            <marker date="1556687290483" expanded="true" signature="48200:48242" ph="SELECT first... sotuvchi" />
+            <marker date="1556687290483" expanded="true" signature="48781:48807" ph="SELECT Name type" />
+            <marker date="1556687290483" expanded="true" signature="50822:50847" ph="SELECT * FRO... listProduct" />
+            <marker date="1556687290483" expanded="true" signature="54149:54177" ph="SELECT * FRO... OmborHisoblari" />
+            <marker date="1556687290483" expanded="true" signature="58569:58729" ph="SELECT * FRO... collapsedCreditHistoryAll" />
+            <marker date="1556687290483" expanded="true" signature="61234:61259" ph="UPDATE printer... " />
+            <marker date="1556687290483" expanded="true" signature="61438:61509" ph="INSERT INTO Table_history1" />
+            <marker date="1556687290483" expanded="true" signature="62392:62417" ph="UPDATE printer... " />
+            <marker date="1556687290483" expanded="true" signature="62575:62650" ph="INSERT INTO Table_history1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://view:/2f63d7e4/33b47fad-7e78-4b57-b3be-96c857eedd84/main.soldRate">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/2f63d7e4/33b47fad-7e78-4b57-b3be-96c857eedd84/main.sellaction">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/2f63d7e4/33b47fad-7e78-4b57-b3be-96c857eedd84/main.history">
+    <entry file="das://view:/2f63d7e4/33b47fad-7e78-4b57-b3be-96c857eedd84/main.product_v">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -1727,131 +1855,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://view:/2f63d7e4/de5db86e-3061-4414-82bc-890699c5c8f3/sbd.product_sold_rate">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://view:/2f63d7e4/33b47fad-7e78-4b57-b3be-96c857eedd84/main.actionHistory_v">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/2f63d7e4/33b47fad-7e78-4b57-b3be-96c857eedd84/main.utils">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/AdminPart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3190">
-          <caret line="893" column="62" lean-forward="false" selection-start-line="893" selection-start-column="62" selection-end-line="893" selection-end-column="62" />
-          <folding>
-            <element signature="e#5855#5864#0" expanded="true" />
-            <element signature="e#5910#5918#0" expanded="true" />
-            <element signature="e#6095#6104#0" expanded="true" />
-            <element signature="e#6151#6159#0" expanded="true" />
-            <marker date="1556633200237" expanded="true" signature="14936:14971" ph="SELECT * fro... product_v" />
-            <marker date="1556633200237" expanded="true" signature="20984:21044" ph="SELECT * FRO... collapsedCreditHistoryAll" />
-            <marker date="1556633200237" expanded="true" signature="21109:21337" ph="SELECT sum(c... collapsedCreditHistoryAll" />
-            <marker date="1556633200237" expanded="true" signature="21763:21932" ph="SELECT * FRO... collapsedCreditHistoryAll" />
-            <marker date="1556633200237" expanded="true" signature="22184:22492" ph="SELECT sum(c... collapsedCreditHistoryAll" />
-            <marker date="1556633200237" expanded="true" signature="22912:22966" ph="SELECT * FRO... collapsedCreditHistoryAll" />
-            <marker date="1556633200237" expanded="true" signature="23032:23254" ph="SELECT sum(c... collapsedCreditHistoryAll" />
-            <marker date="1556633200237" expanded="true" signature="23679:23844" ph="SELECT * FRO... collapsedCreditHistoryAll" />
-            <marker date="1556633200237" expanded="true" signature="24097:24401" ph="SELECT sum(c... collapsedCreditHistoryAll" />
-            <marker date="1556633200237" expanded="true" signature="25081:25225" ph="SELECT * FRO... collapsedCreditHistoryAll" />
-            <marker date="1556633200237" expanded="true" signature="25462:25745" ph="SELECT sum(c... collapsedCreditHistoryAll" />
-            <marker date="1556633200237" expanded="true" signature="26135:26279" ph="SELECT * FRO... collapsedCreditHistoryAll" />
-            <marker date="1556633200237" expanded="true" signature="27020:27244" ph="SELECT * FRO... *" />
-            <marker date="1556633200237" expanded="true" signature="27082:27148" ph="SELECT * FRO... collapsedCreditHistoryAll" />
-            <marker date="1556633200237" expanded="true" signature="27311:27489" ph="SELECT sum(c... collapsedCreditHistoryAll" />
-            <marker date="1556633200237" expanded="true" signature="30007:30057" ph="DELETE FROM maxsulotlar" />
-            <marker date="1556633200237" expanded="true" signature="30299:30367" ph="INSERT INTO Table_history1" />
-            <marker date="1556633200237" expanded="true" signature="31635:31763" ph="SELECT * FRO... history_v" />
-            <marker date="1556633200237" expanded="true" signature="32054:32248" ph="SELECT * FRO... *" />
-            <marker date="1556633200237" expanded="true" signature="32104:32160" ph="SELECT * FRO... history_v" />
-            <marker date="1556633200237" expanded="true" signature="33426:33469" ph="SELECT * FRO... sotuvchi" />
-            <marker date="1556633200237" expanded="true" signature="34840:34854" ph="SELECT * FRO... product_sold_rate" />
-            <marker date="1556633200237" expanded="true" signature="34840:34862" ph="SELECT * FRO... soldRate" />
-            <marker date="1556633200237" expanded="true" signature="35836:35868" ph="SELECT * FRO... product_sold_rate" />
-            <marker date="1556633200237" expanded="true" signature="35836:35876" ph="SELECT * FRO... soldRate" />
-            <marker date="1556633200237" expanded="true" signature="37056:37068" ph="DELETE FROM savdoAction... " />
-            <marker date="1556633200237" expanded="true" signature="37056:37078" ph="DELETE FROM sellaction... " />
-            <marker date="1556633200237" expanded="true" signature="37204:37216" ph="DELETE FROM history... " />
-            <marker date="1556633200237" expanded="true" signature="37204:37223" ph="DELETE FROM history... " />
-            <marker date="1556633200237" expanded="true" signature="37347:37359" ph="DELETE FROM maxsulotlar... " />
-            <marker date="1556633200237" expanded="true" signature="37347:37366" ph="DELETE FROM product... " />
-            <marker date="1556633200237" expanded="true" signature="37490:37502" ph="DELETE FROM product_type... " />
-            <marker date="1556633200237" expanded="true" signature="37490:37508" ph="DELETE FROM seller... " />
-            <marker date="1556633200237" expanded="true" signature="37632:37644" ph="DELETE FROM sotuvchi... " />
-            <marker date="1556633200237" expanded="true" signature="37632:37652" ph="DELETE FROM customer... " />
-            <marker date="1556633200237" expanded="true" signature="37776:37788" ph="DELETE FROM printer... " />
-            <marker date="1556633200237" expanded="true" signature="37776:37795" ph="DELETE FROM suplier... " />
-            <marker date="1556633200237" expanded="true" signature="37919:37935" ph="DELETE FROM type... " />
-            <marker date="1556633200237" expanded="true" signature="41737:41925" ph="INSERT INTO sotuvchi... " />
-            <marker date="1556633200237" expanded="true" signature="42601:42675" ph="INSERT INTO Table_history1" />
-            <marker date="1556633200237" expanded="true" signature="45509:45624" ph="UPDATE sotuvchi " />
-            <marker date="1556633200237" expanded="true" signature="46304:46389" ph="INSERT INTO Table_history1" />
-            <marker date="1556633200237" expanded="true" signature="47796:47845" ph="DELETE FROM sotuvchi" />
-            <marker date="1556633200237" expanded="true" signature="48093:48161" ph="INSERT INTO Table_history1" />
-            <marker date="1556633200237" expanded="true" signature="48853:48895" ph="SELECT first... sotuvchi" />
-            <marker date="1556633200237" expanded="true" signature="49311:49337" ph="SELECT Name type" />
-            <marker date="1556633200237" expanded="true" signature="51631:51656" ph="SELECT * FRO... listProduct" />
-            <marker date="1556633200237" expanded="true" signature="55527:55555" ph="SELECT * FRO... OmborHisoblari" />
-            <marker date="1556633200237" expanded="true" signature="59991:60151" ph="SELECT * FRO... collapsedCreditHistoryAll" />
-            <marker date="1556633200237" expanded="true" signature="62694:62719" ph="UPDATE printer... " />
-            <marker date="1556633200237" expanded="true" signature="62898:62969" ph="INSERT INTO Table_history1" />
-            <marker date="1556633200237" expanded="true" signature="63765:63790" ph="UPDATE printer... " />
-            <marker date="1556633200237" expanded="true" signature="63949:64024" ph="INSERT INTO Table_history1" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/33b47fad-7e78-4b57-b3be-96c857eedd84/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Design_fxml/AdminPart.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-121">
-          <caret line="967" column="70" lean-forward="false" selection-start-line="967" selection-start-column="70" selection-end-line="967" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="das://view:/2f63d7e4/33b47fad-7e78-4b57-b3be-96c857eedd84/main.product_v">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://view:/2f63d7e4/33b47fad-7e78-4b57-b3be-96c857eedd84/main.soldRate">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
