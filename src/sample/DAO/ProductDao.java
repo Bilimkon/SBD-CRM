@@ -16,16 +16,17 @@ import java.util.List;
 public class ProductDao {
 
     private Connection myConn;
-    PreparedStatement pr=null;
-    Statement st=null;
-    ResultSet rs=null;
+    PreparedStatement pr = null;
+    Statement st = null;
+    ResultSet rs = null;
     String apple = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
 
     public ProductDao(Connection conn) {
         this.myConn = conn;
     }
+
     public ProductDao() throws Exception {
-        myConn =Database.getConnection();
+        myConn = Database.getConnection();
     }
 
     public int getQuantity(String barcode) {
@@ -70,7 +71,7 @@ public class ProductDao {
         ResultSet myRs = null;
         try {
             myStmt = myConn.createStatement();
-            myRs = myStmt.executeQuery("select * from main.product where quantity > 0 order by name ");
+            myRs = myStmt.executeQuery("SELECT * FROM main.product WHERE quantity > 0 ORDER BY name ");
             while (myRs.next()) {
                 Product tempEmployee = convertRowToProduct(myRs);
                 list.add(tempEmployee);
@@ -92,6 +93,7 @@ public class ProductDao {
             productTables.add(app);
         }
     }
+
     public static void productTableGeneratorAdmin(ResultSet myRs, ObservableList<ProductTable> productTables) throws SQLException {
         while (myRs.next()) {
             ProductTable app = new ProductTable();
@@ -112,10 +114,10 @@ public class ProductDao {
         PreparedStatement myStmt1;
         if (textSampleIzlash.getText().trim().isEmpty()) {
             myStmt = myConn.createStatement();
-            myRs = myStmt.executeQuery("select * from main.product where quantity > 0 order by name ");
+            myRs = myStmt.executeQuery("SELECT * FROM main.product WHERE quantity > 0 ORDER BY name ");
         } else {
             name += "%";
-            myStmt1 = myConn.prepareStatement("select * from main.product where quantity > 0 and main.product.name like ?  order by main.product.name");
+            myStmt1 = myConn.prepareStatement("SELECT * FROM main.product WHERE quantity > 0 AND main.product.name LIKE ?  ORDER BY main.product.name");
             myStmt1.setString(1, name);
             myRs = myStmt1.executeQuery();
         }
@@ -127,7 +129,7 @@ public class ProductDao {
         ResultSet myRs = null;
         try {
             SearchItemName += "%";
-            myStmt = myConn.prepareStatement("select * from main.product where quantity > 0 and name like ?  order by name");
+            myStmt = myConn.prepareStatement("SELECT * FROM main.product WHERE quantity > 0 AND name LIKE ?  ORDER BY name");
             myStmt.setString(1, SearchItemName);
             myRs = myStmt.executeQuery();
             return myRs;
@@ -141,22 +143,21 @@ public class ProductDao {
         ResultSet myRs = null;
         try {
             Name += "%";
-            myStmt = myConn.prepareStatement("select * from main.product where quantity > 0 and type like ?  order by name");
+            myStmt = myConn.prepareStatement("SELECT * FROM main.product WHERE quantity > 0 AND type LIKE ?  ORDER BY name");
             myStmt.setString(1, Name);
             myRs = myStmt.executeQuery();
             return myRs;
-        }
-        finally {
+        } finally {
         }
     }
 
     public ListView<String> typeList(ListView<String> list) throws SQLException {
         ObservableList<String> items = FXCollections.observableArrayList();
-        Statement st=null;
-        ResultSet rs=null;
+        Statement st = null;
+        ResultSet rs = null;
         try {
             st = myConn.createStatement();
-            rs = st.executeQuery("SELECT name from main.type");
+            rs = st.executeQuery("SELECT name FROM main.type");
             while (rs.next()) {
                 items.add(rs.getString("name"));
             }
@@ -193,26 +194,35 @@ public class ProductDao {
     private Product convertRowToProduct(ResultSet myRs) throws SQLException {
 
         int id = myRs.getInt("id");
-        String barcode =myRs.getString("barcode");
-        String name =myRs.getString("name");
-        String type =myRs.getString("type");
-        int type_id =myRs.getInt("type_id");
+        String barcode = myRs.getString("barcode");
+        String name = myRs.getString("name");
+        String type = myRs.getString("type");
+        int type_id = myRs.getInt("type_id");
         String cost = myRs.getString("cost");
-        int quantity =myRs.getInt("quantity");
-        String cost_o =myRs.getString("cost_o");
+        int quantity = myRs.getInt("quantity");
+        String cost_o = myRs.getString("cost_o");
         String date_c = myRs.getString("date_c");
-        String date_o =myRs.getString("date_o");
+        String date_o = myRs.getString("date_o");
         int cr_by = myRs.getInt("cr_by");
-        String date_cr =myRs.getString("date_cr");
-        int up_by =myRs.getInt("up_by");
-        String date_up =myRs.getString("date_up");
+        String date_cr = myRs.getString("date_cr");
+        int up_by = myRs.getInt("up_by");
+        String date_up = myRs.getString("date_up");
 
-        Product tempMaxsulot = new Product(id, barcode, name, type, type_id, cost, quantity, cost_o, date_c, date_o,cr_by,date_cr,up_by,date_up);
+        Product tempMaxsulot = new Product(id, barcode, name, type, type_id, cost, quantity, cost_o, date_c, date_o, cr_by, date_cr, up_by, date_up);
 
         return tempMaxsulot;
     }
 
-    public void addProduct(String pBarcode, String pName ,String pType ,String pTannarx ,String pCost ,String unit ,String pQuantity ,String pDan ,String pGacha ,String pSuplier) throws SQLException {
+    public void addProduct(String pBarcode, String pName, String pType, String pTannarx, String pCost, String unit, String pQuantity, String pDan, String pGacha, String pSuplier) throws SQLException {
+
+        String type_id = getComboBoxId("Type", "name", pType);
+        String suplier_id = getComboBoxId("suplier", "firstname", pSuplier);
+        String unit_id = "1";
+        if (unit.equals("Kg")) {
+            unit_id = "2";
+        } else if (unit.equals("Dona")) {
+            unit_id = "1";
+        }
 
         try {
             pr = myConn.prepareStatement("INSERT INTO product(barcode, name, " +
@@ -222,9 +232,9 @@ public class ProductDao {
             pr.setString(1, pBarcode);
             pr.setString(2, pName);
             pr.setString(3, pType);
-            pr.setString(4, "1");
+            pr.setString(4, type_id);
             pr.setString(5, pCost);
-            pr.setString(6,unit);
+            pr.setString(6, unit_id);
             pr.setString(7, pQuantity);
             pr.setString(8, pTannarx);
             pr.setString(9, pDan);
@@ -233,32 +243,50 @@ public class ProductDao {
             pr.setString(12, apple);
             pr.setString(13, "1");
             pr.setString(14, apple);
-            pr.setString(15, pSuplier);
+            pr.setString(15, suplier_id);
             pr.executeUpdate();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             pr.close();
         }
     }
-    public void updateProduct(String pBarcode, String pName ,String pType ,String pTannarx ,String pCost ,String pQuantity ,String pDan ,String pGacha ,String pSuplier,String id) throws SQLException {
-        pr =myConn.prepareStatement("UPDATE product SET  barcode=?,name=?,type=?,type_id=?,cost=?,quantity=?,cost_o=?,date_c=?,date_o=?,cr_by=?,date_cr=?,suplier_id=? WHERE id="+id);
-        pr.setString(1,pBarcode);
-        pr.setString(2,pName);
-        pr.setString(3,pType);
-        pr.setString(4,"1");//type_id
-        pr.setString(5,pCost);
-        pr.setString(6,pQuantity);
-        pr.setString(7,pTannarx);
-        pr.setString(8,pDan);
-        pr.setString(9,pGacha);
-        pr.setString(10,"1");//cr_by
-        pr.setString(11,apple);
-        pr.setString(12,"1");//suplier id
 
+    public void updateProduct(String pBarcode, String pName, String pTannarx, String pCost, String pQuantity, String pDan, String pGacha, String id) throws SQLException {
+        try {
+            pr = myConn.prepareStatement("UPDATE main.product SET  barcode=?,name=?,cost=?,quantity=?,cost_o=?,date_c=?,date_o=?,date_up=? WHERE id=" + id);
+            pr.setString(1, pBarcode);
+            pr.setString(2, pName);
+            pr.setString(3, pCost);
+            pr.setString(4, pQuantity);
+            pr.setString(5, pTannarx);
+            pr.setString(6, pDan);
+            pr.setString(7, pGacha);
+            pr.setString(8, apple);
+            pr.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            pr.close();
+        }
     }
 
+    private String getComboBoxId(String tableName, String columnName, String name) {
+        try {
+            String q = "SELECT Id FROM main." + tableName + " WHERE " + columnName.trim() + "= '" + name.trim() + "'";
+            rs = generateResultSet(q);
+            if (rs.next()) {
+                return rs.getString("id");
+            } else return null;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
+    private ResultSet generateResultSet(String query) throws SQLException {
+        Statement myStmt = myConn.createStatement();
+        return myStmt.executeQuery(query);
+    }
 }
 

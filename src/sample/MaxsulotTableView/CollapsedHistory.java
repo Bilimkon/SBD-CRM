@@ -1,138 +1,150 @@
 package sample.MaxsulotTableView;
 
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class CollapsedHistory {
 
-    SimpleIntegerProperty id_C = new SimpleIntegerProperty();
-    SimpleIntegerProperty sotuvchi_id_C = new SimpleIntegerProperty();
-    SimpleStringProperty first_name_C = new SimpleStringProperty();
-    SimpleStringProperty last_name_C = new SimpleStringProperty();
-    SimpleStringProperty  card_amount_C = new SimpleStringProperty();
-    SimpleStringProperty credit_C  = new SimpleStringProperty();
-    SimpleStringProperty credit_description_C = new SimpleStringProperty();
-    SimpleStringProperty paid_date_C = new SimpleStringProperty();
-    SimpleStringProperty total_cost_C = new SimpleStringProperty();
-    SimpleStringProperty paid_in_cash_C = new SimpleStringProperty();
+    SimpleStringProperty id = new SimpleStringProperty();
+    SimpleStringProperty seller = new SimpleStringProperty();
+    SimpleStringProperty customer = new SimpleStringProperty();
+    SimpleStringProperty cost_paid = new SimpleStringProperty();
+    SimpleStringProperty total_cost = new SimpleStringProperty();
+    SimpleStringProperty sale = new SimpleStringProperty();
+    SimpleStringProperty credit = new SimpleStringProperty();
+    SimpleStringProperty card = new SimpleStringProperty();
+    SimpleStringProperty cash = new SimpleStringProperty();
+    SimpleStringProperty comment = new SimpleStringProperty();
+    SimpleStringProperty date = new SimpleStringProperty();
 
-    public int getId_C() {
-        return id_C.get();
+    public String getId() {
+        return id.get();
     }
 
-    public SimpleIntegerProperty id_CProperty() {
-        return id_C;
+    public SimpleStringProperty idProperty() {
+        return id;
     }
 
-    public void setId_C(int id_C) {
-        this.id_C.set(id_C);
+    public void setId(String id) {
+        this.id.set(id);
     }
 
-    public int getSotuvchi_id_C() {
-        return sotuvchi_id_C.get();
+    public String getSeller() {
+        return seller.get();
     }
 
-    public SimpleIntegerProperty sotuvchi_id_CProperty() {
-        return sotuvchi_id_C;
+    public SimpleStringProperty sellerProperty() {
+        return seller;
     }
 
-    public void setSotuvchi_id_C(int sotuvchi_id_C) {
-        this.sotuvchi_id_C.set(sotuvchi_id_C);
+    public void setSeller(String seller) {
+        this.seller.set(seller);
     }
 
-    public String getFirst_name_C() {
-        return first_name_C.get();
+    public String getCustomer() {
+        return customer.get();
     }
 
-    public SimpleStringProperty first_name_CProperty() {
-        return first_name_C;
+    public SimpleStringProperty customerProperty() {
+        return customer;
     }
 
-    public void setFirst_name_C(String first_name_C) {
-        this.first_name_C.set(first_name_C);
+    public void setCustomer(String customer) {
+        this.customer.set(customer);
     }
 
-    public String getLast_name_C() {
-        return last_name_C.get();
+    public String getCost_paid() {
+        return cost_paid.get();
     }
 
-    public SimpleStringProperty last_name_CProperty() {
-        return last_name_C;
+    public SimpleStringProperty cost_paidProperty() {
+        return cost_paid;
     }
 
-    public void setLast_name_C(String last_name_C) {
-        this.last_name_C.set(last_name_C);
+    public void setCost_paid(String cost_paid) {
+        this.cost_paid.set(cost_paid);
     }
 
-    public String getCard_amount_C() {
-        return card_amount_C.get();
+    public String getTotal_cost() {
+        return total_cost.get();
     }
 
-    public SimpleStringProperty card_amount_CProperty() {
-        return card_amount_C;
+    public SimpleStringProperty total_costProperty() {
+        return total_cost;
     }
 
-    public void setCard_amount_C(String card_amount_C) {
-        this.card_amount_C.set(card_amount_C);
+    public void setTotal_cost(String total_cost) {
+        this.total_cost.set(total_cost);
     }
 
-    public String getCredit_C() {
-        return credit_C.get();
+    public String getSale() {
+        return sale.get();
     }
 
-    public SimpleStringProperty credit_CProperty() {
-        return credit_C;
+    public SimpleStringProperty saleProperty() {
+        return sale;
     }
 
-    public void setCredit_C(String credit_C) {
-        this.credit_C.set(credit_C);
+    public void setSale(String sale) {
+        this.sale.set(sale);
     }
 
-    public String  getCredit_description_C() {
-        return credit_description_C.get();
+    public String getCredit() {
+        return credit.get();
     }
 
-    public SimpleStringProperty credit_description_CProperty() {
-        return credit_description_C;
+    public SimpleStringProperty creditProperty() {
+        return credit;
     }
 
-    public void setCredit_description_C(String credit_description_C) {
-        this.credit_description_C.set(credit_description_C);
+    public void setCredit(String credit) {
+        this.credit.set(credit);
     }
 
-    public String getPaid_date_C() {
-        return paid_date_C.get();
+    public String getCard() {
+        return card.get();
     }
 
-    public SimpleStringProperty paid_date_CProperty() {
-        return paid_date_C;
+    public SimpleStringProperty cardProperty() {
+        return card;
     }
 
-    public void setPaid_date_C(String paid_date_C) {
-        this.paid_date_C.set(paid_date_C);
+    public void setCard(String card) {
+        this.card.set(card);
     }
 
-    public String getTotal_cost_C() {
-        return total_cost_C.get();
+    public String getCash() {
+        return cash.get();
     }
 
-    public SimpleStringProperty total_cost_CProperty() {
-        return total_cost_C;
+    public SimpleStringProperty cashProperty() {
+        return cash;
     }
 
-    public void setTotal_cost_C(String total_cost_C) {
-        this.total_cost_C.set(total_cost_C);
+    public void setCash(String cash) {
+        this.cash.set(cash);
     }
 
-    public String getPaid_in_cash_C() {
-        return paid_in_cash_C.get();
+    public String getComment() {
+        return comment.get();
     }
 
-    public SimpleStringProperty paid_in_cash_CProperty() {
-        return paid_in_cash_C;
+    public SimpleStringProperty commentProperty() {
+        return comment;
     }
 
-    public void setPaid_in_cash_C(String paid_in_cash_C) {
-        this.paid_in_cash_C.set(paid_in_cash_C);
+    public void setComment(String comment) {
+        this.comment.set(comment);
+    }
+
+    public String getDate() {
+        return date.get();
+    }
+
+    public SimpleStringProperty dateProperty() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date.set(date);
     }
 }

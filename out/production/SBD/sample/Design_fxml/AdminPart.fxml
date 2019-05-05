@@ -346,7 +346,7 @@
                                                       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                    </GridPane.margin>
                                                 </Button>
-                                                <Button mnemonicParsing="false" onAction="#TypeOperation" prefHeight="86.0" prefWidth="127.0" text="\%" GridPane.columnIndex="1">
+                                                <Button mnemonicParsing="false" prefHeight="86.0" prefWidth="127.0" text="\%" GridPane.columnIndex="1">
                                                    <GridPane.margin>
                                                       <Insets bottom="5.0" left="5.0" right="7.0" top="5.0" />
                                                    </GridPane.margin>

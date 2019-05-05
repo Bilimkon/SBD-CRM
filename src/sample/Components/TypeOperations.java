@@ -56,7 +56,7 @@ public class TypeOperations implements Initializable {
         ObservableList<Type_operation> Sotuvchi_S = FXCollections.observableArrayList();
         try {
             myStmt = Database.getConnection().createStatement();
-            myRs = myStmt.executeQuery("SELECT * FROM type_operation ORDER BY id");
+            myRs = myStmt.executeQuery("SELECT * FROM type ORDER BY id");
 
             while (myRs.next()) {
                 Type_operation addTypeModel = new Type_operation();

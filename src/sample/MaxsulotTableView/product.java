@@ -8,16 +8,18 @@ import javafx.beans.property.SimpleStringProperty;
 public class product {
     private SimpleStringProperty id = new SimpleStringProperty();
     private SimpleStringProperty unit = new SimpleStringProperty();
-    private SimpleStringProperty  barcode = new SimpleStringProperty();
-    private SimpleStringProperty  name = new SimpleStringProperty();
-    private SimpleStringProperty  type = new SimpleStringProperty();
-    private SimpleStringProperty  cost_o = new SimpleStringProperty();
-    private SimpleStringProperty   cost = new SimpleStringProperty();
-    private SimpleStringProperty  quantity = new SimpleStringProperty();
-    private SimpleStringProperty  date_c = new SimpleStringProperty();
-    private SimpleStringProperty  date_o = new SimpleStringProperty();
-    private SimpleStringProperty  suplier = new SimpleStringProperty();
-    private SimpleStringProperty  date = new SimpleStringProperty();
+    private SimpleStringProperty barcode = new SimpleStringProperty();
+    private SimpleStringProperty name = new SimpleStringProperty();
+    private SimpleStringProperty type = new SimpleStringProperty();
+    private SimpleStringProperty cost_o = new SimpleStringProperty();
+    private SimpleStringProperty cost = new SimpleStringProperty();
+    private SimpleStringProperty quantity = new SimpleStringProperty();
+    private SimpleStringProperty date_c = new SimpleStringProperty();
+    private SimpleStringProperty date_o = new SimpleStringProperty();
+    private SimpleStringProperty suplier = new SimpleStringProperty();
+    private SimpleStringProperty date = new SimpleStringProperty();
+    private SimpleStringProperty total_cost_o = new SimpleStringProperty();
+    private SimpleStringProperty total_cost = new SimpleStringProperty();
 
     public String getId() {
         return id.get();
@@ -161,6 +163,30 @@ public class product {
 
     public void setDate(String date) {
         this.date.set(date);
+    }
+
+    public String getTotal_cost_o() {
+        return total_cost_o.get();
+    }
+
+    public SimpleStringProperty total_cost_oProperty() {
+        return total_cost_o;
+    }
+
+    public void setTotal_cost_o(String total_cost_o) {
+        this.total_cost_o.set(total_cost_o);
+    }
+
+    public String getTotal_cost() {
+        return total_cost.get();
+    }
+
+    public SimpleStringProperty total_costProperty() {
+        return total_cost;
+    }
+
+    public void setTotal_cost(String total_cost) {
+        this.total_cost.set(total_cost);
     }
 }
 
