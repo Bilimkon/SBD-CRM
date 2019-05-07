@@ -23,18 +23,20 @@ public class UserDao {
         System.out.println("Employee DAO - DB connection successful to jdbc:sqlite:" + DaoUtils.tableName);*/
     }
 
-    public User getUser(String name, String password) {
+    public User getUser(String name, String password) throws SQLException {
+        Statement statement=null;
+        ResultSet  res = null;
         try {
-            Statement preparedStatement = myConn.createStatement();
-            ResultSet res = preparedStatement.executeQuery("select * from main.seller where main.seller.username = '" + name + "' and main.seller.password = '" + password + "';");
+            statement  = myConn.createStatement();
+             res = statement.executeQuery("select * from main.seller where main.seller.username = '" + name + "' and main.seller.password = '" + password + "';");
             while (res.next()) {
                 User u = new User(
                         res.getInt("id"),
                         res.getString("firstname"),
                         res.getString("lastname"),
-                        res.getString("username"), null, res.getFloat("salary"), null, res.getString("position"));
+                        res.getString("username"), null, res.getFloat("salary"), null, res.getString("admin"));
                 u.setAdmin(false);
-                if (res.getString("position").equals("owner")) {
+                if (res.getString("admin").equals("owner")) {
                     u.setAdmin(true);
                 }
                // myConn.close();
@@ -42,6 +44,9 @@ public class UserDao {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            statement.close();
+            res.close();
         }
 
         return null;

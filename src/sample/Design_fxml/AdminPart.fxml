@@ -33,7 +33,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: white;" stylesheets="@../style/css/AdminPage.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AdminPart">
+<AnchorPane minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: white;" stylesheets="@../style/css/AdminPage.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AdminPart">
    <children>
       <BorderPane layoutX="363.0" layoutY="129.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -557,7 +557,7 @@
                                                    <font>
                                                       <Font name="System Bold" size="12.0" />
                                                    </font></Label>
-                                                <Label alignment="CENTER" prefWidth="200.0" text="Email" GridPane.rowIndex="7">
+                                                <Label alignment="CENTER" prefWidth="200.0" text="Id" GridPane.rowIndex="7">
                                                    <font>
                                                       <Font name="System Bold" size="12.0" />
                                                    </font></Label>
@@ -577,7 +577,7 @@
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField fx:id="emailS" prefHeight="38.0" styleClass="labelTextField" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                                <TextField fx:id="text_id" editable="false" prefHeight="38.0" styleClass="labelTextField" GridPane.columnIndex="1" GridPane.rowIndex="7">
                                                    <opaqueInsets>
                                                       <Insets right="5.0" />
                                                    </opaqueInsets>
@@ -593,7 +593,7 @@
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField fx:id="telephoneS" prefHeight="38.0" styleClass="labelTextField" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                <TextField fx:id="text_username" prefHeight="38.0" styleClass="labelTextField" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                                    <opaqueInsets>
                                                       <Insets right="5.0" />
                                                    </opaqueInsets>
@@ -625,7 +625,7 @@
                                                    <font>
                                                       <Font name="System Bold" size="12.0" />
                                                    </font></Label>
-                                                <Label alignment="CENTER" prefWidth="200.0" text="Telefon" GridPane.rowIndex="2">
+                                                <Label alignment="CENTER" prefWidth="200.0" text="Username" GridPane.rowIndex="2">
                                                    <font>
                                                       <Font name="System Bold" size="12.0" />
                                                    </font></Label>
@@ -718,7 +718,7 @@
                                                       <Insets left="5.0" right="10.0" top="10.0" />
                                                    </GridPane.margin>
                                                 </Button>
-                                                <Button mnemonicParsing="false" onAction="#listProduct" prefHeight="120.0" prefWidth="228.0" styleClass="calendar" text="List" GridPane.rowIndex="2">
+                                                <Button mnemonicParsing="false"  prefHeight="120.0" prefWidth="228.0" styleClass="calendar" text="List" GridPane.rowIndex="2">
                                                    <font>
                                                       <Font name="System Bold" size="14.0" />
                                                    </font>

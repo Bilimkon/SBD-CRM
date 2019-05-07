@@ -92,7 +92,7 @@ public class PrintReport implements Initializable {
         }
 
     }
-    public void printReceipt(){
+    public void printReceipt() throws SQLException {
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Kunlik hisoblarni yaratish ");

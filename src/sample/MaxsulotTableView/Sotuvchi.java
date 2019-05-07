@@ -6,121 +6,121 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class Sotuvchi {
 
-    SimpleIntegerProperty sotuvchi_id = new SimpleIntegerProperty();
-    SimpleStringProperty  firstName_sotuvchi = new SimpleStringProperty();
-    SimpleStringProperty  lastName_sotuvchi = new SimpleStringProperty();
-    SimpleStringProperty  telNumber_sotuvchi = new SimpleStringProperty();
-    SimpleDoubleProperty  salary_sotuvchi = new SimpleDoubleProperty();
-    SimpleStringProperty  date_sotuvchi = new SimpleStringProperty();
-    SimpleStringProperty  lavozim_sotuvchi = new SimpleStringProperty();
-    SimpleStringProperty  password_sotuvchi = new SimpleStringProperty();
-    SimpleStringProperty  email_sotuvchi = new SimpleStringProperty();
+    SimpleStringProperty id = new SimpleStringProperty();
+    SimpleStringProperty username = new SimpleStringProperty();
+    SimpleStringProperty firstname = new SimpleStringProperty();
+    SimpleStringProperty lastname = new SimpleStringProperty();
+    SimpleStringProperty admin = new SimpleStringProperty();
+    SimpleStringProperty salary = new SimpleStringProperty();
+    SimpleStringProperty password = new SimpleStringProperty();
+    SimpleStringProperty birthdate = new SimpleStringProperty();
+    SimpleStringProperty date_cr = new SimpleStringProperty();
 
-    public int getSotuvchi_id() {
-        return sotuvchi_id.get();
+    public String getId() {
+        return id.get();
     }
 
-    public SimpleIntegerProperty sotuvchi_idProperty() {
-        return sotuvchi_id;
+    public SimpleStringProperty idProperty() {
+        return id;
     }
 
-    public void setSotuvchi_id(int sotuvchi_id) {
-        this.sotuvchi_id.set(sotuvchi_id);
+    public void setId(String id) {
+        this.id.set(id);
     }
 
-    public String getFirstName_sotuvchi() {
-        return firstName_sotuvchi.get();
+    public String getUsername() {
+        return username.get();
     }
 
-    public SimpleStringProperty firstName_sotuvchiProperty() {
-        return firstName_sotuvchi;
+    public SimpleStringProperty usernameProperty() {
+        return username;
     }
 
-    public void setFirstName_sotuvchi(String firstName_sotuvchi) {
-        this.firstName_sotuvchi.set(firstName_sotuvchi);
+    public void setUsername(String username) {
+        this.username.set(username);
     }
 
-    public String getLastName_sotuvchi() {
-        return lastName_sotuvchi.get();
+    public String getFirstname() {
+        return firstname.get();
     }
 
-    public SimpleStringProperty lastName_sotuvchiProperty() {
-        return lastName_sotuvchi;
+    public SimpleStringProperty firstnameProperty() {
+        return firstname;
     }
 
-    public void setLastName_sotuvchi(String lastName_sotuvchi) {
-        this.lastName_sotuvchi.set(lastName_sotuvchi);
+    public void setFirstname(String firstname) {
+        this.firstname.set(firstname);
     }
 
-    public String getTelNumber_sotuvchi() {
-        return telNumber_sotuvchi.get();
+    public String getLastname() {
+        return lastname.get();
     }
 
-    public SimpleStringProperty telNumber_sotuvchiProperty() {
-        return telNumber_sotuvchi;
+    public SimpleStringProperty lastnameProperty() {
+        return lastname;
     }
 
-    public void setTelNumber_sotuvchi(String telNumber_sotuvchi) {
-        this.telNumber_sotuvchi.set(telNumber_sotuvchi);
+    public void setLastname(String lastname) {
+        this.lastname.set(lastname);
     }
 
-    public double getSalary_sotuvchi() {
-        return salary_sotuvchi.get();
+    public String getAdmin() {
+        return admin.get();
     }
 
-    public SimpleDoubleProperty salary_sotuvchiProperty() {
-        return salary_sotuvchi;
+    public SimpleStringProperty adminProperty() {
+        return admin;
     }
 
-    public void setSalary_sotuvchi(double salary_sotuvchi) {
-        this.salary_sotuvchi.set(salary_sotuvchi);
+    public void setAdmin(String admin) {
+        this.admin.set(admin);
     }
 
-    public String getDate_sotuvchi() {
-        return date_sotuvchi.get();
+    public String getSalary() {
+        return salary.get();
     }
 
-    public SimpleStringProperty date_sotuvchiProperty() {
-        return date_sotuvchi;
+    public SimpleStringProperty salaryProperty() {
+        return salary;
     }
 
-    public void setDate_sotuvchi(String date_sotuvchi) {
-        this.date_sotuvchi.set(date_sotuvchi);
+    public void setSalary(String salary) {
+        this.salary.set(salary);
     }
 
-    public String getLavozim_sotuvchi() {
-        return lavozim_sotuvchi.get();
+    public String getPassword() {
+        return password.get();
     }
 
-    public SimpleStringProperty lavozim_sotuvchiProperty() {
-        return lavozim_sotuvchi;
+    public SimpleStringProperty passwordProperty() {
+        return password;
     }
 
-    public void setLavozim_sotuvchi(String lavozim_sotuvchi) {
-        this.lavozim_sotuvchi.set(lavozim_sotuvchi);
+    public void setPassword(String password) {
+        this.password.set(password);
     }
 
-    public String getPassword_sotuvchi() {
-        return password_sotuvchi.get();
+    public String getBirthdate() {
+        return birthdate.get();
     }
 
-    public SimpleStringProperty password_sotuvchiProperty() {
-        return password_sotuvchi;
+    public SimpleStringProperty birthdateProperty() {
+        return birthdate;
     }
 
-    public void setPassword_sotuvchi(String password_sotuvchi) {
-        this.password_sotuvchi.set(password_sotuvchi);
+    public void setBirthdate(String birthdate) {
+        this.birthdate.set(birthdate);
     }
 
-    public String getEmail_sotuvchi() {
-        return email_sotuvchi.get();
+    public String getDate_cr() {
+        return date_cr.get();
     }
 
-    public SimpleStringProperty email_sotuvchiProperty() {
-        return email_sotuvchi;
+    public SimpleStringProperty date_crProperty() {
+        return date_cr;
     }
 
-    public void setEmail_sotuvchi(String email_sotuvchi) {
-        this.email_sotuvchi.set(email_sotuvchi);
+    public void setDate_cr(String date_cr) {
+        this.date_cr.set(date_cr);
     }
 }

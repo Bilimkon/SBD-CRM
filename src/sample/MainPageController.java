@@ -83,7 +83,8 @@ public class MainPageController extends Parent implements Initializable {
     private Label DateText;
     @FXML
     private Button BtnSell;
-    @FXML private JFXButton btnLogOut;
+    @FXML
+    private JFXButton btnLogOut;
     @FXML
     private ListView<String> typeList;
     private ObservableList<ProductTable> productTables;
@@ -530,23 +531,22 @@ public class MainPageController extends Parent implements Initializable {
                 }
 
 
-                 longTaskRun = new Task<Void>() {
+                longTaskRun = new Task<Void>() {
 
                     @Override
                     protected Void call() throws Exception {
                         Platform.runLater(() -> {
-                            while (Main.is_clock_alive) {
-                                if (Double.valueOf(newValue) >= calculateCurrentTotalSum()) {
-                                    textSaleSumm.setText(String.valueOf(calculateCurrentTotalSum()));
-                                }
+                            if (Double.valueOf(newValue) >= calculateCurrentTotalSum()) {
+                                textSaleSumm.setText(String.valueOf(calculateCurrentTotalSum()));
+                            }
 
-                                Double salesum = Double.valueOf(newValue);
-                                Double saleQuantitySumm = (Double.valueOf(textSaleSumm.getText()));
-                                Double number = (Utils.isNumberInRange(Double.valueOf(newValue), 0.00, saleQuantitySumm) * 100);
-                                textSalePercent.setText((String.valueOf(number / calculateCurrentTotalSum())).substring(0, 3) + " %");
-                                LabelTotalSumm.setText(String.valueOf(calculateCurrentTotalSum() - salesum));
-                                labelDollar.setText("$ " + String.valueOf((calculateCurrentTotalSum() - salesum) / dollar).substring(0, 3));
-                            } });
+                            Double salesum = Double.valueOf(newValue);
+                            Double saleQuantitySumm = (Double.valueOf(textSaleSumm.getText()));
+                            Double number = (Utils.isNumberInRange(Double.valueOf(newValue), 0.00, saleQuantitySumm) * 100);
+                            textSalePercent.setText((String.valueOf(number / calculateCurrentTotalSum())).substring(0, 3) + " %");
+                            LabelTotalSumm.setText(String.valueOf(calculateCurrentTotalSum() - salesum));
+                            labelDollar.setText("$ " + String.valueOf((calculateCurrentTotalSum() - salesum) / dollar).substring(0, 3));
+                        });
                         return null;
                     }
                 };
@@ -635,9 +635,8 @@ public class MainPageController extends Parent implements Initializable {
                     String user_id = String.valueOf(LoginController.currentUser.getId());
                     historyDao.insertBasketToHistory(basket, LoginController.currentUser, credit, total, cash, plastikSum, saleSum, user_id, String.valueOf(sum_paid), commnet);
                     reset();
-                    //  inserToHistoryTable(u);
                     btnActionIzlash();
-                    //  printAction();
+                    printAction();
                     scanCodeField.requestFocus();
                     popOver.hide();
                 } catch (Exception e) {
@@ -680,7 +679,6 @@ public class MainPageController extends Parent implements Initializable {
             e.printStackTrace();
         }
     }
-
 
 
     private void reset() {
@@ -745,7 +743,7 @@ public class MainPageController extends Parent implements Initializable {
         btnActionIzlash();
     }
 
-    public void printAction() {
+    public void printAction() throws SQLException {
         String apple = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
         PrinterService printerService = new PrinterService();
         System.out.println(printerService.getPrinters());
@@ -776,7 +774,7 @@ public class MainPageController extends Parent implements Initializable {
         ResultSet resultSet = null;
         try {
             statement = myConn.createStatement();
-            resultSet = statement.executeQuery("SELECT total_cost FROM collapsedCreditHistoryAll WHERE id = (SELECT max(id) AS 'last_item_id' FROM sbd_market.savdoAction)");
+            resultSet = statement.executeQuery("SELECT total_cost FROM sellaction WHERE id = (SELECT max(id) AS 'last_item_id' FROM main.sellaction)");
             if (resultSet.next()) {
                 return resultSet.getInt("total_cost");
             }
@@ -792,13 +790,13 @@ public class MainPageController extends Parent implements Initializable {
         ArrayList<ReceiptCheck> receiptChecksList = new ArrayList<>();
         try {
             statement = myConn.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM history WHERE savdo_action_id = (SELECT max(id) AS 'last_item_id' FROM sbd_market.savdoAction)");
+            resultSet = statement.executeQuery("SELECT * FROM history WHERE sell_action_id = (SELECT max(id) AS 'last_item_id' FROM main.sellaction)");
             while (resultSet.next()) {
                 ReceiptCheck receiptCheck = new ReceiptCheck();
-                receiptCheck.setId(resultSet.getInt("item_id"));
-                receiptCheck.setName(resultSet.getString("item_name"));
-                receiptCheck.setQuantity(resultSet.getInt("item_quantity"));
-                receiptCheck.setPrice(resultSet.getDouble("total_cost"));
+                receiptCheck.setId(resultSet.getInt("id"));
+                receiptCheck.setName(resultSet.getString("product_name"));
+                receiptCheck.setQuantity(resultSet.getInt("product_quantity"));
+                receiptCheck.setPrice(resultSet.getDouble("cost"));
                 receiptChecksList.add(receiptCheck);
             }
             return receiptChecksList;
@@ -823,7 +821,8 @@ public class MainPageController extends Parent implements Initializable {
             e.printStackTrace();
         }
     }
-    public void btnLogOutAction(){
+
+    public void btnLogOutAction() {
         Parent root = null;
         Stage stage = new Stage();
         Alert alert = new Alert(Alert.AlertType.INFORMATION);

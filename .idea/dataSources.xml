@@ -33,10 +33,7 @@
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:D:\Humoyun\Projects\SBD\SBD MYSQL edition\sbd\new_sbd</jdbc-url>
-      <explain-plan-config>
-        <provider>com.intellij.database.plan.mysql.MysqlExplainPlanProvider</provider>
-      </explain-plan-config>
+      <jdbc-url>jdbc:sqlite:E:\Humoyun\Projects\SBD\SBD MYSQL edition\sbd\new_sbd</jdbc-url>
       <driver-properties>
         <property name="enable_load_extension" value="true" />
       </driver-properties>
