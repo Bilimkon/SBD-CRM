@@ -9,48 +9,56 @@ import static sample.DAO.Database.myConn;
 public class printer {
 
 
-
     public String printerName() throws SQLException {
 
-        Statement statement=null;
+        Statement statement = null;
         ResultSet resultSet = null;
 
         try {
-            statement=myConn.createStatement();
+            statement = myConn.createStatement();
 
-            resultSet =statement.executeQuery("SELECT * FROM utils");
+            resultSet = statement.executeQuery("SELECT * FROM utils");
 
-            if(resultSet.next()){
+            if (resultSet.next()) {
                 return String.valueOf(resultSet.getString("printerName"));
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            statement.close();
-            resultSet.close();
+        } finally {
+            if (statement != null) {
+                statement.close();
+            }
+            if (resultSet != null) {
+                resultSet.close();
+            }
         }
         return null;
     }
+
     public String ExcelFilePath() throws SQLException {
 
-        Statement statement1=null;
+        Statement statement1 = null;
         ResultSet resultSet1 = null;
 
         try {
-            statement1=myConn.createStatement();
+            statement1 = myConn.createStatement();
 
-            resultSet1 =statement1.executeQuery("SELECT * FROM utils");
+            resultSet1 = statement1.executeQuery("SELECT * FROM utils");
 
-            if(resultSet1.next()){
+            if (resultSet1.next()) {
                 return String.valueOf(resultSet1.getString("filePath"));
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            statement1.close();
-            resultSet1.close();
+        } finally {
+            if (statement1 != null) {
+                statement1.close();
+            }
+            if (resultSet1 != null) {
+                resultSet1.close();
+            }
         }
         return null;
 

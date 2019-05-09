@@ -1,6 +1,5 @@
 package sample;
 
-import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
@@ -14,11 +13,9 @@ import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
-import javafx.scene.control.TextField;
 import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.DirectoryChooser;
@@ -29,10 +26,8 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import sample.DAO.Database;
-import sample.DAO.ProductDao;
-import sample.DAO.printer;
-import sample.MaxsulotTableView.*;
+import sample.DAO.*;
+import sample.productTableView.*;
 import sample.Utils.BarCodeService;
 import sample.Utils.Utils;
 
@@ -60,7 +55,7 @@ public class AdminPart implements Initializable {
     @FXML
     private TextField AdminTextSearch;
     @FXML
-    private TableView AdminTable;
+    private TableView<product> AdminTable;
     //O'zgarmalar Maydoni textFiledlari
     @FXML
     private TextField AdminTextBarcode;
@@ -69,7 +64,7 @@ public class AdminPart implements Initializable {
     @FXML
     private TextField AdminTextId;
     @FXML
-    private ComboBox ComboTypeList;
+    private ComboBox<String> ComboTypeList;
     @FXML
     private ComboBox<String> ComboBoxUnit;
     @FXML
@@ -83,24 +78,18 @@ public class AdminPart implements Initializable {
     @FXML
     private DatePicker AdminTextGacha;
     @FXML
-    private JFXButton btnLogOut;
-    @FXML
-    private Button btnAddProduct;
-    @FXML
-    private ComboBox comboBoxSuplier;
+    private ComboBox<String> comboBoxSuplier;
     //Savdo table -------------------------------
     @FXML
-    private TableView TarixTable;
+    private TableView<HistoryTable> TarixTable;
     @FXML
-    private TableView SotuvchiTable;
+    private TableView<Sotuvchi> SotuvchiTable;
     //SavdoRateTable------------------------------
     @FXML
-    private TableView SoldRateTable;
-    @FXML
-    private TableView SavdoRateTable1;
+    private TableView<SoldRate> SavdoRateTable1;
     // Hisoblar oynasi uchun qilinadigan barcha variablar shu yerda initialize qilina
     @FXML
-    private TableView Xtable;
+    private TableView<CollapsedHistory> Xtable;
     @FXML
     Label LabelTotalCost;
     @FXML
@@ -112,7 +101,7 @@ public class AdminPart implements Initializable {
     @FXML
     private DatePicker XDateValue2;
     @FXML
-    private ComboBox Xcombo1;
+    private ComboBox<String> Xcombo1;
     @FXML
     private CheckBox Xcheckbox1;
     @FXML
@@ -124,8 +113,6 @@ public class AdminPart implements Initializable {
     //private BarChart<String, Double> XisobTabBarChart;
     // -----------------------------------------------
     //AllTotal1
-    @FXML
-    private TableView AllTotal1;
     //---------------------------------------------------------------------------------------------
 
     // Sotuvchi page
@@ -145,23 +132,8 @@ public class AdminPart implements Initializable {
     DatePicker birthDateS;
     @FXML
     TextField jobTieleS;
-    //--------------------------------------------
-    //Ombor hisobi  panel
-    @FXML
-    Label OUmumiySumma;
-    @FXML
-    Label OmborChegirmaLabel;
     @FXML
     Label LabalTotalNaqtCost;
-    //---------------------------------------------
-    //Qarzlar tab
-    @FXML
-    DatePicker QarzDate1;
-    @FXML
-    DatePicker QarzDate2;
-    @FXML
-    TextField CreditSumma;
-    //----------------------------------------------
 
     /*
      *  Tarix table
@@ -170,35 +142,10 @@ public class AdminPart implements Initializable {
     DatePicker TarixDate1;
     @FXML
     DatePicker TarixDate2;
-    @FXML
-    TextField TarixId;
-    @FXML
-    TextField TarixName;
-    @FXML
-    TextField TarixType;
-    @FXML
-    TextField TarixMiqdori;
-    @FXML
-    TextField TarixSana;
-    @FXML
-    TextField TarixSumma;
-    @FXML
-    TextField TarixProductId;
-
-    /*
-     *  DDL change tab
-     *
-     */
-    @FXML
-    DatePicker DDL_date1;
-    @FXML
-    DatePicker DDL_date2;
 
     /**
      * btnchiqish()
      */
-    @FXML
-    Menu btnChiqish;
 
     @FXML
     private PieChart SavdoReytingPieChart;
@@ -207,17 +154,13 @@ public class AdminPart implements Initializable {
     private BarChart<String, Integer> KunlikReytingBarChart;
     ArrayList<Integer> cell = new ArrayList<Integer>();
     ArrayList<String> name = new ArrayList<String>();
-    @FXML
-    private AreaChart<String, Integer> KunlikAreaChart;
-    @FXML
-    private BarChart<String, Integer> HisobBarchart;
-    ArrayList<Integer> cell1 = new ArrayList<Integer>();
-    ArrayList<String> name1 = new ArrayList<String>();
     private Connection myConn;
     private PreparedStatement preparedStatement = null;
     private Statement statement = null;
     private ResultSet resultSet = null;
     ProductDao productDao = new ProductDao();
+    UtilsDao utilsDao = new UtilsDao();
+    SellerDao sellerDao = new SellerDao();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -244,20 +187,20 @@ public class AdminPart implements Initializable {
     }
 
     private void initializeProductTab() {
-        TableColumn id = new TableColumn("Id");
-        TableColumn unit = new TableColumn("Birlik");
-        TableColumn barcode = new TableColumn("Barcode");
-        TableColumn name = new TableColumn("Nomi");
-        TableColumn type = new TableColumn("Turi");
-        TableColumn cost_o = new TableColumn("Tannarx");
-        TableColumn cost = new TableColumn("Narx");
-        TableColumn quantity = new TableColumn("Miqdori");
-        TableColumn date_c = new TableColumn("...dan");
-        TableColumn date_o = new TableColumn("...gacha");
-        TableColumn suplier = new TableColumn("Taminotchi");
-        TableColumn date = new TableColumn("Sana");
-        TableColumn total_cost_o = new TableColumn("Umumiy Tannarx");
-        TableColumn total_cost = new TableColumn("Umimy sotuv summa");
+        TableColumn<product, String> id = new TableColumn<>("Id");
+        TableColumn<product, String> unit = new TableColumn<>("Birlik");
+        TableColumn<product, String> barcode = new TableColumn<>("Barcode");
+        TableColumn<product, String> name = new TableColumn<>("Nomi");
+        TableColumn<product, String> type = new TableColumn<>("Turi");
+        TableColumn<product, String> cost_o = new TableColumn<>("Tannarx");
+        TableColumn<product, String> cost = new TableColumn<>("Narx");
+        TableColumn<product, String> quantity = new TableColumn<>("Miqdori");
+        TableColumn<product, String> date_c = new TableColumn<>("...dan");
+        TableColumn<product, String> date_o = new TableColumn<product, String>("...gacha");
+        TableColumn<product, String> suplier = new TableColumn<product, String>("Taminotchi");
+        TableColumn<product, String> date = new TableColumn<product, String>("Sana");
+        TableColumn<product, String> total_cost_o = new TableColumn<product, String>("Umumiy Tannarx");
+        TableColumn<product, String> total_cost = new TableColumn<product, String>("Umimy sotuv summa");
         AdminTable.getColumns().addAll(id, unit, barcode, name, type, cost_o, cost, quantity, date_c, date_o, suplier, total_cost_o, total_cost, date);
         id.setCellValueFactory(new PropertyValueFactory<product, String>("id"));
         unit.setCellValueFactory(new PropertyValueFactory<product, String>("unit"));
@@ -276,17 +219,17 @@ public class AdminPart implements Initializable {
     }
 
     private void initializeHistoryTab() {
-        TableColumn id = new TableColumn(" Id");
-        TableColumn username = new TableColumn(" Ism");
-        TableColumn customer = new TableColumn(" Mijoz");
-        TableColumn barcode = new TableColumn(" Barcode");
-        TableColumn product_name = new TableColumn(" Nomi");
-        TableColumn type_name = new TableColumn(" Turi");
-        TableColumn total_cost = new TableColumn(" Umumiy narxi");
-        TableColumn cost = new TableColumn(" Narxi");
-        TableColumn quantity = new TableColumn(" Miqdori");
-        TableColumn date = new TableColumn(" Sana");
-        TableColumn sell_action_id = new TableColumn("S_id");
+        TableColumn<HistoryTable, Integer> id = new TableColumn<HistoryTable, Integer>(" Id");
+        TableColumn<HistoryTable, Integer> username = new TableColumn<>(" Ism");
+        TableColumn<HistoryTable, String> customer = new TableColumn<>(" Mijoz");
+        TableColumn<HistoryTable, String> barcode = new TableColumn<HistoryTable, String>(" Barcode");
+        TableColumn<HistoryTable, Integer> product_name = new TableColumn<>(" Nomi");
+        TableColumn<HistoryTable, String> type_name = new TableColumn<HistoryTable, String>(" Turi");
+        TableColumn<HistoryTable, Double> total_cost = new TableColumn<HistoryTable, Double>(" Umumiy narxi");
+        TableColumn<HistoryTable, Double> cost = new TableColumn<>(" Narxi");
+        TableColumn<HistoryTable, Double> quantity = new TableColumn<>(" Miqdori");
+        TableColumn<HistoryTable, Double> date = new TableColumn<HistoryTable, Double>(" Sana");
+        TableColumn<HistoryTable, Double> sell_action_id = new TableColumn<>("S_id");
 
 
         TarixTable.getColumns().addAll(id, username, customer, barcode, product_name, type_name, total_cost, cost, quantity, date, sell_action_id);
@@ -304,15 +247,15 @@ public class AdminPart implements Initializable {
     }
 
     private void SotuvchiTab() {
-        TableColumn id = new TableColumn("Id");
-        TableColumn username = new TableColumn("Username");
-        TableColumn firstname = new TableColumn("Ism");
-        TableColumn lastname = new TableColumn("Familiya");
-        TableColumn admin = new TableColumn("Admin");
-        TableColumn salary = new TableColumn("Maosh");
-        TableColumn password = new TableColumn("Password");
-        TableColumn birthdate = new TableColumn("Tug'ulgan sana");
-        TableColumn date_cr = new TableColumn("Sana");
+        TableColumn<Sotuvchi, String> id = new TableColumn<Sotuvchi, String>("Id");
+        TableColumn<Sotuvchi, String> username = new TableColumn<Sotuvchi, String>("Username");
+        TableColumn<Sotuvchi, String> firstname = new TableColumn<Sotuvchi, String>("Ism");
+        TableColumn<Sotuvchi, String> lastname = new TableColumn<Sotuvchi, String>("Familiya");
+        TableColumn<Sotuvchi, String> admin = new TableColumn<Sotuvchi, String>("Admin");
+        TableColumn<Sotuvchi, String> salary = new TableColumn<Sotuvchi, String>("Maosh");
+        TableColumn<Sotuvchi, String> password = new TableColumn<>("Password");
+        TableColumn<Sotuvchi, String> birthdate = new TableColumn<Sotuvchi, String>("Tug'ulgan sana");
+        TableColumn<Sotuvchi, String> date_cr = new TableColumn<Sotuvchi, String>("Sana");
 
         SotuvchiTable.getColumns().addAll(id, username, firstname, lastname, admin, salary, password, birthdate, date_cr);
 
@@ -330,40 +273,40 @@ public class AdminPart implements Initializable {
 
     private void Xisoblartab() {
 
-        TableColumn id = new TableColumn("id");
-        TableColumn seller = new TableColumn("Sotuvchi");
-        TableColumn customer = new TableColumn("Xaridor");
-        TableColumn cost_paid = new TableColumn("to'langan summa");
-        TableColumn total_cost = new TableColumn("Umumiy summa");
-        TableColumn sale = new TableColumn("Chegirma");
-        TableColumn credit = new TableColumn("Qarz");
-        TableColumn card = new TableColumn("Karta summa");
-        TableColumn cash = new TableColumn("Naqt pul");
-        TableColumn comment = new TableColumn("Izoh");
-        TableColumn date = new TableColumn("Sana");
+        TableColumn<CollapsedHistory, String> id = new TableColumn<>("id");
+        TableColumn<CollapsedHistory, String> seller = new TableColumn<>("Sotuvchi");
+        TableColumn<CollapsedHistory, String> customer = new TableColumn<>("Xaridor");
+        TableColumn<CollapsedHistory, String> cost_paid = new TableColumn<>("to'langan summa");
+        TableColumn<CollapsedHistory, String> total_cost = new TableColumn<>("Umumiy summa");
+        TableColumn<CollapsedHistory, String> sale = new TableColumn<>("Chegirma");
+        TableColumn<CollapsedHistory, String> credit = new TableColumn<>("Qarz");
+        TableColumn<CollapsedHistory, String> card = new TableColumn<>("Karta summa");
+        TableColumn<CollapsedHistory, String> cash = new TableColumn<>("Naqt pul");
+        TableColumn<CollapsedHistory, String> comment = new TableColumn<>("Izoh");
+        TableColumn<CollapsedHistory, String> date = new TableColumn<>("Sana");
 
 
         Xtable.getColumns().addAll(id, seller, customer, cost_paid, total_cost, sale, credit, card, cash, comment, date);
 
-        id.setCellValueFactory(new PropertyValueFactory<CollapsedHistory, String>("id"));
-        seller.setCellValueFactory(new PropertyValueFactory<CollapsedHistory, String>("seller"));
-        customer.setCellValueFactory(new PropertyValueFactory<CollapsedHistory, String>("customer"));
-        cost_paid.setCellValueFactory(new PropertyValueFactory<CollapsedHistory, String>("cost_paid"));
-        total_cost.setCellValueFactory(new PropertyValueFactory<CollapsedHistory, String>("total_cost"));
-        sale.setCellValueFactory(new PropertyValueFactory<CollapsedHistory, String>("sale"));
-        credit.setCellValueFactory(new PropertyValueFactory<CollapsedHistory, String>("credit"));
-        card.setCellValueFactory(new PropertyValueFactory<CollapsedHistory, String>("card"));
-        cash.setCellValueFactory(new PropertyValueFactory<CollapsedHistory, String>("cash"));
-        comment.setCellValueFactory(new PropertyValueFactory<CollapsedHistory, String>("comment"));
-        date.setCellValueFactory(new PropertyValueFactory<CollapsedHistory, String>("date"));
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        seller.setCellValueFactory(new PropertyValueFactory<>("seller"));
+        customer.setCellValueFactory(new PropertyValueFactory<>("customer"));
+        cost_paid.setCellValueFactory(new PropertyValueFactory<>("cost_paid"));
+        total_cost.setCellValueFactory(new PropertyValueFactory<>("total_cost"));
+        sale.setCellValueFactory(new PropertyValueFactory<>("sale"));
+        credit.setCellValueFactory(new PropertyValueFactory<>("credit"));
+        card.setCellValueFactory(new PropertyValueFactory<>("card"));
+        cash.setCellValueFactory(new PropertyValueFactory<>("cash"));
+        comment.setCellValueFactory(new PropertyValueFactory<>("comment"));
+        date.setCellValueFactory(new PropertyValueFactory<>("date"));
     }
 
 
     private void SoldRateTab() {
-        TableColumn nameSR = new TableColumn("Nomi");
-        TableColumn barcodeSR = new TableColumn("Barcode");
-        TableColumn tCostSR = new TableColumn("Umumiy summa");
-        TableColumn soldQuantirySR = new TableColumn("Sotilgan soni");
+        TableColumn<SoldRate, Integer> nameSR = new TableColumn<>("Nomi");
+        TableColumn<SoldRate, String> barcodeSR = new TableColumn<SoldRate, String>("Barcode");
+        TableColumn<SoldRate, String> tCostSR = new TableColumn<>("Umumiy summa");
+        TableColumn<SoldRate, Float> soldQuantirySR = new TableColumn<SoldRate, Float>("Sotilgan soni");
 
         SavdoRateTable1.getColumns().addAll(nameSR, barcodeSR, tCostSR, soldQuantirySR);
         nameSR.setCellValueFactory(new PropertyValueFactory<SoldRate, Integer>("nameSR"));
@@ -383,7 +326,7 @@ public class AdminPart implements Initializable {
     }
 
 
-    public void btnIzlashAction()   {
+    public void btnIzlashAction() {
         String textIzlash2 = AdminTextSearch.getText();
 
     }
@@ -421,7 +364,7 @@ public class AdminPart implements Initializable {
     }
 
     @FXML
-    public void maxsulotQoshish()   {
+    public void maxsulotQoshish() {
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("O'zgartirish");
@@ -442,7 +385,6 @@ public class AdminPart implements Initializable {
                     String dan1 = AdminTextDan.getValue().toString();
                     String gacha1 = AdminTextGacha.getValue().toString();
                     productDao.addProduct(barcode1, nomi1, type, saleNarxi, narxi1, unit, Miqdori1, dan1, gacha1, Suplier);
-                    btnIzlashAction();
                     AdminTextBarcode.setText("");
                     AdminTextNomi.setText("");
                     AdminTextMiqdori.setText("");
@@ -451,6 +393,7 @@ public class AdminPart implements Initializable {
                     productTable();
                 } catch (Exception exc) {
                     exc.printStackTrace();
+                    Utils.ErrorAlert("Xatolik", "Eslatma", "Hamma joylarni to'ldiring" + exc);
                 }
             }
     }
@@ -459,7 +402,7 @@ public class AdminPart implements Initializable {
     private void setOzgaartirishMaxsulot() {
         try {
             AdminTable.addEventHandler(MouseEvent.MOUSE_CLICKED, (EventHandler<Event>) event -> {
-                product apple2 = (product) AdminTable.getSelectionModel().getSelectedItem();
+                product apple2 = AdminTable.getSelectionModel().getSelectedItem();
                 try {
                     AdminTextBarcode.setText(apple2.getBarcode());
                     AdminTextNomi.setText(apple2.getName());
@@ -513,22 +456,16 @@ public class AdminPart implements Initializable {
         alert.setTitle("O'zgartirish");
         alert.setHeaderText(null);
         alert.setContentText("Maxsulotni rostdan ham o'chirasizmi ?");
-
         Optional<ButtonType> result = alert.showAndWait();
-
         if (result.isPresent())
             if (result.get() == ButtonType.OK) {
                 String id = AdminTextId.getText();
                 try {
-                    preparedStatement = myConn.prepareStatement("DELETE  FROM product" + " WHERE id=?");
-                    preparedStatement.setString(1, id);
-                    preparedStatement.executeUpdate();
+                    productDao.deleteProduct(id);
                     Utils.InfoAlert("Bildirgi", "Muoffaqqiyatli", "Maxsulot o'chirildi!");
                     productTable();
                 } catch (Exception exc) {
                     exc.printStackTrace();
-                } finally {
-                    preparedStatement.close();
                 }
             }
     }
@@ -547,7 +484,7 @@ public class AdminPart implements Initializable {
         PreparedStatement statement;
         ResultSet myRs = null;
         ResultSet myRsTotal = null;
-        Statement myStmt;
+        Statement myStmt = null;
         //List to add items
         ObservableList<CollapsedHistory> HappleC = FXCollections.observableArrayList();
         try {
@@ -705,7 +642,7 @@ public class AdminPart implements Initializable {
 
 
     @FXML
-    private void tarixtable() throws SQLException {
+    private void tarixtable() {
 
         LocalDate DeptData1 = TarixDate1.getValue();
         LocalDate DeptData2 = TarixDate2.getValue();
@@ -748,9 +685,6 @@ public class AdminPart implements Initializable {
             TarixTable.setItems(appleQ);
         } catch (Exception exc) {
             exc.printStackTrace();
-        } finally {
-            statement.close();
-            resultSet.close();
         }
     }
 
@@ -777,8 +711,6 @@ public class AdminPart implements Initializable {
                 Sotuvchi_S.add(sotuvchi);
             }
             SotuvchiTable.setItems(Sotuvchi_S);
-
-
         } catch (Exception exc) {
             exc.printStackTrace();
         } finally {
@@ -835,7 +767,7 @@ public class AdminPart implements Initializable {
         }
     }
 
-    public void clearTables() throws Exception {
+    public void clearTables() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("O'zgartirish");
         alert.setHeaderText(null);
@@ -844,37 +776,20 @@ public class AdminPart implements Initializable {
         if (result.isPresent())
             if (result.get() == ButtonType.OK) {
                 try {
-                    preparedStatement = myConn.prepareStatement("DELETE FROM sellaction  ");
-                    preparedStatement.executeUpdate();
-                    preparedStatement = myConn.prepareStatement("DELETE FROM history");
-                    preparedStatement.executeUpdate();
-                    preparedStatement = myConn.prepareStatement("DELETE FROM product");
-                    preparedStatement.executeUpdate();
-                    preparedStatement = myConn.prepareStatement("DELETE FROM seller");
-                    preparedStatement.executeUpdate();
-                    preparedStatement = myConn.prepareStatement("DELETE FROM customer");
-                    preparedStatement.executeUpdate();
-                    preparedStatement = myConn.prepareStatement("DELETE FROM suplier");
-                    preparedStatement.executeUpdate();
-                    preparedStatement = myConn.prepareStatement("DELETE FROM type");
-                    preparedStatement.executeUpdate();
-                    JOptionPane.showMessageDialog(null, " Barcha malumotlar tozalandi", "Barcha malumotlar o'chirib tashlandi", JOptionPane.INFORMATION_MESSAGE);
-
+                    utilsDao.clearAll();
                 } catch (Exception exc) {
                     exc.printStackTrace();
-                } finally {
-                    preparedStatement.close();
                 }
             }
     }
 
-    public void excelToDB() throws  SQLException {
+    public void excelToDB() throws SQLException {
         try {
-            FileDialog dialog = new FileDialog((Frame)null, "Select File to Open");
+            FileDialog dialog = new FileDialog((Frame) null, "Select File to Open");
             dialog.setMode(FileDialog.LOAD);
             dialog.setVisible(true);
             String file1 = dialog.getFile();
-            FileInputStream file = new FileInputStream(new File(dialog.getDirectory()+file1));
+            FileInputStream file = new FileInputStream(new File(dialog.getDirectory() + file1));
             XSSFWorkbook workbook = new XSSFWorkbook(file);
             XSSFSheet sheet = workbook.getSheetAt(0);
             Iterator<Row> rowIterator = sheet.iterator();
@@ -913,40 +828,14 @@ public class AdminPart implements Initializable {
                 String suplier_id = row.getCell(11).getStringCellValue();
                 String unit = row.getCell(12).getStringCellValue();
 
-                InsertRowInDB(barcode, name, type, type_id, cost, quantity, cost_o, date_c, date_o, cr_by, date_cr, suplier_id, unit);
+                utilsDao.InsertRowInDB(barcode, name, type, type_id, cost, quantity, cost_o, date_c, date_o, cr_by, date_cr, suplier_id, unit);
+                productTable();
             }
             file.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
-    private void InsertRowInDB(String barcode, String name, String type, String type_id, String cost, String quantity, String cost_o, String date_c, String date_o, String cr_by, String date_cr, String suplier_id, String unit) throws SQLException {
-        try {
-            String sql = "Insert into product (barcode, name, type, type_id, cost, quantity, cost_o, date_c, date_o, cr_by, date_cr, suplier_id, unit) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
-            preparedStatement = myConn.prepareStatement(sql);
-            preparedStatement.setString(1, barcode);
-            preparedStatement.setString(2, name);
-            preparedStatement.setString(3, type);
-            preparedStatement.setString(4, type_id);
-            preparedStatement.setString(5, cost);
-            preparedStatement.setString(6, quantity);
-            preparedStatement.setString(7, cost_o);
-            preparedStatement.setString(8, date_c);
-            preparedStatement.setString(9, date_o);
-            preparedStatement.setString(10, cr_by);
-            preparedStatement.setString(11, date_cr);
-            preparedStatement.setString(12, suplier_id);
-            preparedStatement.setString(13, unit);
-            preparedStatement.executeUpdate();
-            productTable();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }finally {
-            preparedStatement.close();
-        }
-    }
-
 
     public void ADDSeller() throws Exception {
         sotuvchiQoshish();
@@ -963,24 +852,15 @@ public class AdminPart implements Initializable {
         if (result.isPresent())
             if (result.get() == ButtonType.OK) {
                 try {
-                    String nameSotuvchi = firstNameSo.getText().toString();
-                    String lastnameSotuvchi = lastNameS.getText().toString();
-                    String jobTitleSotuvchi = jobTieleS.getText().toString();
-                    String oyliklar = salaryS.getText().toString();
-                    String passwordSotuvchi = passwordS.getText().toString();
+                    String firstname = firstNameSo.getText().toString();
+                    String lastname = lastNameS.getText().toString();
+                    String admin = jobTieleS.getText().toString();
+                    String salary = salaryS.getText().toString();
+                    String password = passwordS.getText().toString();
                     String username = text_username.getText().toString();
-                    String birthDateSotuvchi = birthDateS.getValue().toString();
-                    preparedStatement = myConn.prepareStatement("INSERT INTO seller (username, firstname, lastname, admin, salary, password, birthdate, date_cr) "
-                            + "VALUES (?,?,?,?,?,?,?,?)");
-                    preparedStatement.setString(1, username);
-                    preparedStatement.setString(2, nameSotuvchi);
-                    preparedStatement.setString(3, lastnameSotuvchi);
-                    preparedStatement.setString(4, jobTitleSotuvchi);
-                    preparedStatement.setString(5, oyliklar);
-                    preparedStatement.setString(6, passwordSotuvchi);
-                    preparedStatement.setString(7, birthDateSotuvchi);
-                    preparedStatement.setString(8, apple);
-                    preparedStatement.executeUpdate();
+                    String birthDate = birthDateS.getValue().toString();
+
+                    sellerDao.addSeller(firstname,lastname,admin,salary,password,birthDate,username);
                     Utils.InfoAlert("Sotuvchi", "Muvvoffaqiyatli", "Yangi sotuvchi qo'shildi");
                     SotuvchiTable();
                 } catch (Exception exc) {
@@ -995,7 +875,7 @@ public class AdminPart implements Initializable {
     private void ozgartirishStuvchiAction() {
         try {
             SotuvchiTable.setOnMouseClicked(event -> {
-                Sotuvchi sotuvchi = (Sotuvchi) SotuvchiTable.getItems().get(SotuvchiTable.getSelectionModel().getSelectedIndex());
+                Sotuvchi sotuvchi = SotuvchiTable.getItems().get(SotuvchiTable.getSelectionModel().getSelectedIndex());
                 try {
                     firstNameSo.setText(sotuvchi.getFirstname());
                     lastNameS.setText(sotuvchi.getLastname());
@@ -1024,25 +904,15 @@ public class AdminPart implements Initializable {
         if (result.isPresent())
             if (result.get() == ButtonType.OK) {
                 try {
-                    String nameSotuvchi = firstNameSo.getText().toString();
-                    String lastnameSotuvchi = lastNameS.getText().toString();
-                    String jobTitleSotuvchi = jobTieleS.getText().toString();
-                    String salarySotuvchi = salaryS.getText().toString();
+                    String firstname = firstNameSo.getText().toString();
+                    String lastname = lastNameS.getText().toString();
+                    String admin = jobTieleS.getText().toString();
+                    String salary = salaryS.getText().toString();
                     String id = text_id.getText().toString();
-                    String passwordSotuvchi = passwordS.getText().toString();
+                    String password = passwordS.getText().toString();
                     String username = text_username.getText().toString();
-                    String birthDateSotuvchi = birthDateS.getValue().toString();
-                    preparedStatement = myConn.prepareStatement("UPDATE  seller SET  firstname=?, lastname=?, admin=?,salary=?, password=?, birthdate=?, username=? WHERE id=?");
-                    preparedStatement.setString(1, nameSotuvchi);
-                    preparedStatement.setString(2, lastnameSotuvchi);
-                    preparedStatement.setString(3, jobTitleSotuvchi);
-                    preparedStatement.setString(4, salarySotuvchi);
-                    preparedStatement.setString(5, passwordSotuvchi);
-                    preparedStatement.setString(6, birthDateSotuvchi);
-                    preparedStatement.setString(7, username);
-                    preparedStatement.setString(8, id);
-                    preparedStatement.executeUpdate();
-
+                    String birthdate = birthDateS.getValue().toString();
+                    sellerDao.updateSeller(firstname,lastname,admin,salary,password,birthdate,username,id);
                     Utils.InfoAlert("Bildirgi", "Sotuvchi", "Sotuvchi  malumotlari ozgartirildi");
                     SotuvchiTable();
                 } catch (Exception exc) {
@@ -1064,7 +934,6 @@ public class AdminPart implements Initializable {
     }
 
     private void sotuvchiDelete() throws SQLException {
-        String apple = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("O'zgartirish");
         alert.setHeaderText(null);
@@ -1073,16 +942,11 @@ public class AdminPart implements Initializable {
         if (result.isPresent())
             if (result.get() == ButtonType.OK) {
                 String id = text_id.getText();
-                Integer id1 = null;
                 try {
-                    preparedStatement = myConn.prepareStatement("DELETE  FROM seller" + " WHERE seller.id=?");
-                    preparedStatement.setString(1, id);
-                    preparedStatement.executeUpdate();
+                    sellerDao.deleteSeller(id);
                     SotuvchiTable();
                 } catch (Exception exc) {
                     exc.printStackTrace();
-                } finally {
-                    preparedStatement.close();
                 }
             }
     }
@@ -1202,9 +1066,13 @@ public class AdminPart implements Initializable {
                     System.out.println("Failed to get data from database");
                 } catch (IOException e) {
                     e.printStackTrace();
-                }finally {
-                    rs.close();
-                    stmt.close();
+                } finally {
+                    if (rs != null) {
+                        rs.close();
+                    }
+                    if (stmt != null) {
+                        stmt.close();
+                    }
                 }
             }
     }
@@ -1299,6 +1167,12 @@ public class AdminPart implements Initializable {
                         System.out.println("Failed to get data from database");
                     } catch (IOException e) {
                         e.printStackTrace();
+                    } finally {
+                        preparedStatement.close();
+                        if (rs != null) {
+                            rs.close();
+                        }
+                        myConn.close();
                     }
                 }
         }
@@ -1311,39 +1185,29 @@ public class AdminPart implements Initializable {
         dialog.setTitle("Printer nomini qo'shish");
         dialog.setHeaderText("Iltimos printer nomini qo'shing");
         dialog.setContentText("Printer nomi");
-
-// Traditional way to get the response value.
         Optional<String> result = dialog.showAndWait();
         if (result.isPresent()) {
             try {
-                preparedStatement = myConn.prepareStatement("UPDATE utils SET printerName=?");
-                preparedStatement.setString(1, result.get());
-                preparedStatement.executeUpdate();
+                 utilsDao.setPrinterName(result.get());
                 JOptionPane.showMessageDialog(null, "Yangi printer nomi qo'shildi", "Bildirgi", JOptionPane.INFORMATION_MESSAGE);
-            } catch (SQLException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
-            } finally {
-                preparedStatement.close();
             }
         }
     }
 
-    public void SetExcelFolder() throws SQLException {
+    public void SetExcelFolder() {
+
         DirectoryChooser directoryChooser = new DirectoryChooser();
         Stage stage = null;
         File dir = directoryChooser.showDialog(stage);
         System.out.println(dir.getAbsolutePath() + "\\");
-        String apple = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
-        String Path = dir.getAbsolutePath() + "\\";
+        String path = dir.getAbsolutePath() + "\\";
         try {
-            preparedStatement = myConn.prepareStatement("UPDATE utils SET filePath=?");
-            preparedStatement.setString(1, Path);
-            preparedStatement.executeUpdate();
+           utilsDao.excellFolder(path);
             Utils.InfoAlert("Bildirgi", "Excell", "Excell joyi qo'shildi!");
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            preparedStatement.close();
         }
     }
 

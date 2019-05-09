@@ -5,7 +5,6 @@
 
 package sample;
 
-import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
@@ -37,29 +36,29 @@ import sample.Core.Models.BasketItem;
 import sample.Core.Models.CreditModel;
 import sample.Core.Models.ReceiptCheck;
 import sample.Core.User;
-import sample.DAO.Database;
-import sample.DAO.HistoryDao;
-import sample.DAO.ProductDao;
-import sample.DAO.printer;
-import sample.Design_fxml.CustomItems.CustomBasketItem.ShopItemListItem;
-import sample.MaxsulotTableView.CustomerCreditTable;
-import sample.MaxsulotTableView.ProductTable;
+import sample.DAO.*;
+import sample.views.CustomItems.CustomBasketItem.ShopItemListItem;
+import sample.productTableView.CustomerCreditTable;
+import sample.productTableView.ProductTable;
 import sample.Utils.PrinterService;
 import sample.Utils.Utils;
 
 import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.Date;
 
 public class MainPageController extends Parent implements Initializable {
     private ProductDao productDao;
+    private UtilsDao utilsDao;
     @FXML
     private TextField textSampleIzlash;
     private Connection myConn;
@@ -84,7 +83,9 @@ public class MainPageController extends Parent implements Initializable {
     @FXML
     private Button BtnSell;
     @FXML
-    private JFXButton btnLogOut;
+    private Button btnClose;
+    @FXML
+    private Button btnLogOut;
     @FXML
     private ListView<String> typeList;
     private ObservableList<ProductTable> productTables;
@@ -144,56 +145,7 @@ public class MainPageController extends Parent implements Initializable {
                 }
             }
         });
-        scanCodeField.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                if (event.getCode() == KeyCode.F6) {
-                    actionSell();
-                }
-            }
-        });
 
-        tableSampleManual.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                if (event.getCode() == KeyCode.F6) {
-                    actionSell();
-                }
-            }
-        });
-        tableSampleManual.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                if (event.getCode() == KeyCode.F7) {
-                    PrintReport();
-                }
-            }
-        });
-        tableSampleManual.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                if (event.getCode() == KeyCode.F5) {
-                    btnActionIzlash();
-                    textSampleIzlash.requestFocus();
-                }
-            }
-        });
-        textSampleIzlash.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                if (event.getCode() == KeyCode.F6) {
-                    actionSell();
-                }
-            }
-        });
-        scrollView.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                if (event.getCode() == KeyCode.F6) {
-                    actionSell();
-                }
-            }
-        });
     }
 
     /**
@@ -207,7 +159,7 @@ public class MainPageController extends Parent implements Initializable {
         return sum;
     }
 
-    public boolean updateListItemAmount(BasketItem basketItem) {
+    private boolean updateListItemAmount(BasketItem basketItem) {
         List<Node> items = addedItemsList.getChildren();
         for (Node item : items) {
             BasketItem i = (BasketItem) item.getUserData();
@@ -263,6 +215,20 @@ public class MainPageController extends Parent implements Initializable {
         Clock();
         Thread.currentThread();
         scanCodeField.requestFocus();
+
+        btnClose.setOnMouseClicked(event -> {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Yopish");
+            alert.setHeaderText(null);
+            alert.setContentText("Dasturni yopasizmi?");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent())
+                if (result.get() == ButtonType.OK) {
+                    Platform.exit();
+                    System.exit(0);
+                }
+        });
+
     }
 
     private void setUserData(User u) {
@@ -386,7 +352,6 @@ public class MainPageController extends Parent implements Initializable {
             ProductTable pt = dao.convertProductToProductTable(dao.getProduct(scanCodeField.getText().trim()));
             addProductTableToList(pt);
             scanCodeField.setText("");
-            //scanCodeField.requestFocus();
         } catch (Exception e) {
             System.out.println("no such item: " + scanCodeField.getText());
         }
@@ -421,7 +386,7 @@ public class MainPageController extends Parent implements Initializable {
         try {
             if (folder == null) folder = "";
             String path = folder + title + ".fxml";
-            return new FXMLLoader(getClass().getResource("Design_fxml/CustomItems/" + path));
+            return new FXMLLoader(getClass().getResource("views/CustomItems/" + path));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -431,7 +396,7 @@ public class MainPageController extends Parent implements Initializable {
     /**
      * Custom sellaction  dialogbox  . It works when you press sell button.
      */
-    public void onBtnDiscountClicked() {
+    private void onBtnDiscountClicked() {
         try {
             FXMLLoader loader = createCustomItemLoader("DiscountWindow", "CustomDiscountWindow/");
             assert loader != null;
@@ -542,7 +507,7 @@ public class MainPageController extends Parent implements Initializable {
 
                             Double salesum = Double.valueOf(newValue);
                             Double saleQuantitySumm = (Double.valueOf(textSaleSumm.getText()));
-                            Double number = (Utils.isNumberInRange(Double.valueOf(newValue), 0.00, saleQuantitySumm) * 100);
+                            double number = (Utils.isNumberInRange(Double.valueOf(newValue), 0.00, saleQuantitySumm) * 100);
                             textSalePercent.setText((String.valueOf(number / calculateCurrentTotalSum())).substring(0, 3) + " %");
                             LabelTotalSumm.setText(String.valueOf(calculateCurrentTotalSum() - salesum));
                             labelDollar.setText("$ " + String.valueOf((calculateCurrentTotalSum() - salesum) / dollar).substring(0, 3));
@@ -634,11 +599,11 @@ public class MainPageController extends Parent implements Initializable {
 
                     String user_id = String.valueOf(LoginController.currentUser.getId());
                     historyDao.insertBasketToHistory(basket, LoginController.currentUser, credit, total, cash, plastikSum, saleSum, user_id, String.valueOf(sum_paid), commnet);
-                    reset();
                     btnActionIzlash();
-                    printAction();
+                  //  printAction();
                     scanCodeField.requestFocus();
                     popOver.hide();
+                    reset();
                 } catch (Exception e) {
                     Utils.ErrorAlert("Xatolik", "Savdo amalga oshmadi", e.getMessage());
                     e.printStackTrace();
@@ -672,7 +637,7 @@ public class MainPageController extends Parent implements Initializable {
     /**
      * btnAddCustomer action
      */
-    public void btnAddCustomerAction(String firstname, String lastname) {
+    private void btnAddCustomerAction(String firstname, String lastname) {
         try {
             historyDao.addCustomer(firstname, lastname);
         } catch (Exception e) {
@@ -690,7 +655,7 @@ public class MainPageController extends Parent implements Initializable {
         counter = 0;
     }
 
-    public void Clock() {
+    private void Clock() {
         Thread clock = new Thread(() -> {
             while (Main.is_clock_alive) {
                 Calendar cal = Calendar.getInstance();
@@ -735,33 +700,30 @@ public class MainPageController extends Parent implements Initializable {
         clock.start();
     }
 
-    public void CloseAction() {
-
-    }
 
     public void BtnUpdateAction() {
         btnActionIzlash();
     }
 
-    public void printAction() throws SQLException {
+    private void printAction() throws SQLException {
         String apple = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
         PrinterService printerService = new PrinterService();
         System.out.println(printerService.getPrinters());
         ArrayList<ReceiptCheck> receiptChecks = null;
-        receiptChecks = PerProduct();
+        receiptChecks=utilsDao.PerProduct();
         StringBuilder storage = new StringBuilder();
         for (ReceiptCheck item : receiptChecks) {
-            storage.append(item.getName() + "    Miqdori: " + item.getQuantity() + "   Umumiy narxi: " + item.getPrice() + "\n" + "----------------------------------------------\n");
+            storage.append(item.getName()).append("    Miqdori: ").append(item.getQuantity()).append("   Umumiy narxi: ").append(item.getPrice()).append("\n").append("----------------------------------------------\n");
         }
         System.out.println(storage);
-        System.out.println(TotalSum());
+        System.out.println(utilsDao.TotalSum());
         printer printer = new printer();
         //print some stuff
         printerService.printString(printer.printerName(), "\n" +
                 "*********Software business development**********\n\n\n" +
                 "*********    Egamberdi ota do'koni    **********\n\n" +
                 storage + "\n" +
-                "Umumiy summa              " + TotalSum() + " sum\n\n\n" +
+                "Umumiy summa              " + utilsDao.TotalSum() + " sum\n\n\n" +
                 "***************" + apple + "***************\n" +
                 "***********Xaridingiz uchun raxmat!***********\n\n\n\n\n\n\n\n");
         // cut that paper!
@@ -769,58 +731,6 @@ public class MainPageController extends Parent implements Initializable {
         printerService.printBytes(printer.printerName(), cutP);
     }
 
-    public int TotalSum() {
-        Statement statement = null;
-        ResultSet resultSet = null;
-        try {
-            statement = myConn.createStatement();
-            resultSet = statement.executeQuery("SELECT total_cost FROM sellaction WHERE id = (SELECT max(id) AS 'last_item_id' FROM main.sellaction)");
-            if (resultSet.next()) {
-                return resultSet.getInt("total_cost");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return -1;
-    }
-
-    public ArrayList<ReceiptCheck> PerProduct() {
-        Statement statement = null;
-        ResultSet resultSet = null;
-        ArrayList<ReceiptCheck> receiptChecksList = new ArrayList<>();
-        try {
-            statement = myConn.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM history WHERE sell_action_id = (SELECT max(id) AS 'last_item_id' FROM main.sellaction)");
-            while (resultSet.next()) {
-                ReceiptCheck receiptCheck = new ReceiptCheck();
-                receiptCheck.setId(resultSet.getInt("id"));
-                receiptCheck.setName(resultSet.getString("product_name"));
-                receiptCheck.setQuantity(resultSet.getInt("product_quantity"));
-                receiptCheck.setPrice(resultSet.getDouble("cost"));
-                receiptChecksList.add(receiptCheck);
-            }
-            return receiptChecksList;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public void PrintReport() {
-        Parent root;
-        try {
-            root = FXMLLoader.load(getClass().getResource("Components/PrintReport.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("Report");
-            stage.setScene(new Scene(root, 600, 400));
-            stage.setResizable(false);
-            stage.isAlwaysOnTop();
-            stage.show();
-            // Hide this current window (if this is what you want)
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     public void btnLogOutAction() {
         Parent root = null;
@@ -833,7 +743,7 @@ public class MainPageController extends Parent implements Initializable {
         if (result.isPresent())
             if (result.get() == ButtonType.OK) {
                 try {
-                    root = FXMLLoader.load(getClass().getResource("Design_fxml/login.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("views/login.fxml"));
                     stage.setTitle("SBD boshqaruv tizimi");
                     stage.setResizable(true);
                     // stage.setOnCloseRequest(event -> Main.is_clock_alive = false);
@@ -853,4 +763,6 @@ public class MainPageController extends Parent implements Initializable {
                 }
             }
     }
+
+
 }

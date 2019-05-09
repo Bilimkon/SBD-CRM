@@ -27,7 +27,7 @@ public class Main extends Application {
     }
 
     public void start(Stage primaryStage) throws Exception {
-        Parent root = (Parent)FXMLLoader.load(this.getClass().getResource("Design_fxml/MainPage.fxml"));
+        Parent root = (Parent)FXMLLoader.load(this.getClass().getResource("views/MainPage.fxml"));
         primaryStage.setTitle("SBD boshqaruv tizimi.");
         primaryStage.setScene(new Scene(root, 1080.0D, 720.0D));
         primaryStage.setMinHeight(720.0D);

@@ -17,7 +17,7 @@ public class PrinterService implements Printable {
         DocFlavor flavor = DocFlavor.BYTE_ARRAY.AUTOSENSE;
         PrintRequestAttributeSet pras = new HashPrintRequestAttributeSet();
 
-        PrintService printServices[] = PrintServiceLookup.lookupPrintServices(
+        PrintService[] printServices = PrintServiceLookup.lookupPrintServices(
                 flavor, pras);
 
         List<String> printerList = new ArrayList<String>();
@@ -55,11 +55,15 @@ public class PrinterService implements Printable {
         DocFlavor flavor = DocFlavor.BYTE_ARRAY.AUTOSENSE;
         PrintRequestAttributeSet pras = new HashPrintRequestAttributeSet();
 
-        PrintService printService[] = PrintServiceLookup.lookupPrintServices(
+        PrintService[] printService = PrintServiceLookup.lookupPrintServices(
                 flavor, pras);
         PrintService service = findPrintService(printerName, printService);
 
-        DocPrintJob job = service.createPrintJob();
+
+        DocPrintJob job = null;
+        if (service != null) {
+            job = service.createPrintJob();
+        }
 
         try {
 
@@ -71,7 +75,9 @@ public class PrinterService implements Printable {
             Doc doc = new SimpleDoc(bytes, flavor, null);
 
 
-            job.print(doc, null);
+            if (job != null) {
+                job.print(doc, null);
+            }
 
         } catch (Exception e) {
             // TODO Auto-generated catch block
@@ -85,17 +91,22 @@ public class PrinterService implements Printable {
         DocFlavor flavor = DocFlavor.BYTE_ARRAY.AUTOSENSE;
         PrintRequestAttributeSet pras = new HashPrintRequestAttributeSet();
 
-        PrintService printService[] = PrintServiceLookup.lookupPrintServices(
+        PrintService[] printService = PrintServiceLookup.lookupPrintServices(
                 flavor, pras);
         PrintService service = findPrintService(printerName, printService);
 
-        DocPrintJob job = service.createPrintJob();
+        DocPrintJob job = null;
+        if (service != null) {
+            job = service.createPrintJob();
+        }
 
         try {
 
             Doc doc = new SimpleDoc(bytes, flavor, null);
 
-            job.print(doc, null);
+            if (job != null) {
+                job.print(doc, null);
+            }
 
         } catch (Exception e) {
             e.printStackTrace();

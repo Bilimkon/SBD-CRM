@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
@@ -11,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import sample.Core.User;
 import sample.DAO.UserDao;
 import sample.Utils.Utils;
@@ -34,9 +36,6 @@ public class LoginController implements Initializable {
 
     public void btnActionKirish() throws IOException {
 
-        // set progress to different level of progressbar
-
-
         String ismText = textIsm.getText().toString();//getting string  values
         String passText = textPassword.getText().toString();//getting string  values
         Parent root = null;
@@ -45,16 +44,18 @@ public class LoginController implements Initializable {
         if (isUserExists(ismText, passText)) {
 
             try {
-                root = FXMLLoader.load(getClass().getResource("Design_fxml/MainPage.fxml"));
+                root = FXMLLoader.load(getClass().getResource("views/MainPage.fxml"));
 
                 stage.setTitle("SBD boshqaruv tizimi");
                 stage.setResizable(true);
                 stage.setOnCloseRequest(event -> Main.is_clock_alive = false);
-
                 Screen screen = Screen.getPrimary();
                 Rectangle2D bounds = screen.getVisualBounds();
                 stage.setScene(new Scene(root));
+                stage.initStyle(StageStyle.UNDECORATED);
                 stage.show();
+                stage.setOnCloseRequest(e-> Platform.exit());
+                stage.setOnCloseRequest(e->System.exit(0));
                 stage.getIcons().add(new Image(Main.class.getResourceAsStream("style/Images/SBD-logo.png")));
                 stage.setMinHeight(720);
                 stage.setMinWidth(1080);
@@ -73,7 +74,7 @@ public class LoginController implements Initializable {
         else if(ismText.equals("1")&&passText.equals("1")){
 
             try {
-                root = FXMLLoader.load(getClass().getResource("Design_fxml/AdminPart.fxml"));
+                root = FXMLLoader.load(getClass().getResource("views/AdminPart.fxml"));
 
                 stage.setTitle("SBD admin tizimi");
                 stage.setResizable(true);
@@ -82,6 +83,8 @@ public class LoginController implements Initializable {
                 Rectangle2D bounds = screen.getVisualBounds();
                 stage.setScene(new Scene(root));
                 stage.show();
+                stage.setOnCloseRequest(e-> Platform.exit());
+                stage.setOnCloseRequest(e-> System.exit(0));
                 stage.getIcons().add(new Image(Main.class.getResourceAsStream("style/Images/SBD-logo.png")));
                 stage.setMinWidth(1080);
                 stage.setMinHeight(720);

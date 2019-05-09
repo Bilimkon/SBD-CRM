@@ -5,21 +5,16 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import sample.Core.Product;
-import sample.MaxsulotTableView.ProductTable;
+import sample.productTableView.ProductTable;
 import sample.Utils.Utils;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class ProductDao {
 
     private Connection myConn;
-    PreparedStatement pr = null;
-    Statement st = null;
-    ResultSet rs = null;
-    String apple = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
+    private String apple = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
 
     public ProductDao(Connection conn) {
         this.myConn = conn;
@@ -65,22 +60,6 @@ public class ProductDao {
         return null;
     }
 
-    public List<Product> getAllProduct() throws Exception {
-        List<Product> list = new ArrayList<Product>();
-        Statement myStmt = null;
-        ResultSet myRs = null;
-        try {
-            myStmt = myConn.createStatement();
-            myRs = myStmt.executeQuery("SELECT * FROM main.product WHERE quantity > 0 ORDER BY name ");
-            while (myRs.next()) {
-                Product tempEmployee = convertRowToProduct(myRs);
-                list.add(tempEmployee);
-            }
-            return list;
-        } finally {
-            DaoUtils.close(myStmt, myRs);
-        }
-    }
 
     public static void productTableGenerator(ResultSet myRs, ObservableList<ProductTable> productTables) throws SQLException {
         while (myRs.next()) {
@@ -94,49 +73,28 @@ public class ProductDao {
         }
     }
 
-    public static void productTableGeneratorAdmin(ResultSet myRs, ObservableList<ProductTable> productTables) throws SQLException {
-        while (myRs.next()) {
-            ProductTable app = new ProductTable();
-            app.setId(myRs.getInt("id"));
-            app.setBarcode(myRs.getString("barcode"));
-            app.setName(myRs.getString("name"));
-            app.setType(myRs.getString("type"));
-            app.setQuantity(myRs.getInt("quantity"));
-            app.setCost_o(myRs.getString("cost_o"));
-            app.setCost(myRs.getString("cost"));
-            productTables.add(app);
-        }
-    }
-
     public static ResultSet getResultSet(String name, TextField textSampleIzlash, Connection myConn) throws SQLException {
-        Statement myStmt;
-        ResultSet myRs;
-        PreparedStatement myStmt1;
-        if (textSampleIzlash.getText().trim().isEmpty()) {
-            myStmt = myConn.createStatement();
-            myRs = myStmt.executeQuery("SELECT * FROM main.product WHERE quantity > 0 ORDER BY name ");
-        } else {
-            name += "%";
-            myStmt1 = myConn.prepareStatement("SELECT * FROM main.product WHERE quantity > 0 AND main.product.name LIKE ?  ORDER BY main.product.name");
-            myStmt1.setString(1, name);
-            myRs = myStmt1.executeQuery();
-        }
-        return myRs;
-    }
-
-    public ResultSet searchProduct(String SearchItemName) throws Exception {
-        PreparedStatement myStmt = null;
+        Statement myStmt = null;
         ResultSet myRs = null;
         try {
-            SearchItemName += "%";
-            myStmt = myConn.prepareStatement("SELECT * FROM main.product WHERE quantity > 0 AND name LIKE ?  ORDER BY name");
-            myStmt.setString(1, SearchItemName);
-            myRs = myStmt.executeQuery();
+            PreparedStatement myStmt1;
+            if (textSampleIzlash.getText().trim().isEmpty()) {
+                myStmt = myConn.createStatement();
+                myRs = myStmt.executeQuery("SELECT * FROM main.product WHERE quantity > 0 ORDER BY name ");
+            } else {
+                name += "%";
+                myStmt1 = myConn.prepareStatement("SELECT * FROM main.product WHERE quantity > 0 AND main.product.name LIKE ?  ORDER BY main.product.name");
+                myStmt1.setString(1, name);
+                myRs = myStmt1.executeQuery();
+            }
+
             return myRs;
-        } finally {
-            DaoUtils.close(myStmt, myRs);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        return null;
     }
+
 
     public ResultSet searchProductType(String Name) throws Exception {
         PreparedStatement myStmt = null;
@@ -147,8 +105,12 @@ public class ProductDao {
             myStmt.setString(1, Name);
             myRs = myStmt.executeQuery();
             return myRs;
+        } catch (Exception e) {
+            e.printStackTrace();
         } finally {
+            DaoUtils.close(myStmt, myRs);
         }
+        return null;
     }
 
     public ListView<String> typeList(ListView<String> list) throws SQLException {
@@ -166,8 +128,7 @@ public class ProductDao {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            st.close();
-            rs.close();
+            DaoUtils.close(st, rs);
         }
         return list;
     }
@@ -208,9 +169,9 @@ public class ProductDao {
         int up_by = myRs.getInt("up_by");
         String date_up = myRs.getString("date_up");
 
-        Product tempMaxsulot = new Product(id, barcode, name, type, type_id, cost, quantity, cost_o, date_c, date_o, cr_by, date_cr, up_by, date_up);
+        Product product = new Product(id, barcode, name, type, type_id, cost, quantity, cost_o, date_c, date_o, cr_by, date_cr, up_by, date_up);
 
-        return tempMaxsulot;
+        return product;
     }
 
     public void addProduct(String pBarcode, String pName, String pType, String pTannarx, String pCost, String unit, String pQuantity, String pDan, String pGacha, String pSuplier) throws SQLException {
@@ -223,6 +184,7 @@ public class ProductDao {
         } else if (unit.equals("Dona")) {
             unit_id = "1";
         }
+        PreparedStatement pr = null;
 
         try {
             pr = myConn.prepareStatement("INSERT INTO product(barcode, name, " +
@@ -248,11 +210,14 @@ public class ProductDao {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            pr.close();
+            if (pr != null) {
+                pr.close();
+            }
         }
     }
 
     public void updateProduct(String pBarcode, String pName, String pTannarx, String pCost, String pQuantity, String pDan, String pGacha, String id) throws SQLException {
+        PreparedStatement pr = null;
         try {
             pr = myConn.prepareStatement("UPDATE main.product SET  barcode=?,name=?,cost=?,quantity=?,cost_o=?,date_c=?,date_o=?,date_up=? WHERE id=" + id);
             pr.setString(1, pBarcode);
@@ -267,26 +232,42 @@ public class ProductDao {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            pr.close();
+            if (pr != null) {
+                pr.close();
+            }
         }
+    }
+
+    public void deleteProduct(String id) throws SQLException {
+        PreparedStatement pt = null;
+        try {
+            pt = myConn.prepareStatement("DELETE FROM product WHERE product.id=?");
+            pt.setString(1, id);
+            pt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (pt != null) {
+                pt.close();
+            }
+        }
+
     }
 
     private String getComboBoxId(String tableName, String columnName, String name) {
         try {
             String q = "SELECT Id FROM main." + tableName + " WHERE " + columnName.trim() + "= '" + name.trim() + "'";
-            rs = generateResultSet(q);
+            Statement st = myConn.createStatement();
+            ResultSet rs = st.executeQuery(q);
             if (rs.next()) {
                 return rs.getString("id");
-            } else return null;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
-            return null;
         }
+        return null;
+
     }
 
-    private ResultSet generateResultSet(String query) throws SQLException {
-        Statement myStmt = myConn.createStatement();
-        return myStmt.executeQuery(query);
-    }
 }
 

@@ -7,20 +7,8 @@ import java.sql.*;
 public class UserDao {
     Connection myConn;
 
-
-
-    public UserDao(Connection myConn) {
-        this.myConn = myConn;
-    }
-
     public UserDao() throws ClassNotFoundException, SQLException {
-
         myConn = Database.getConnection();
-
-        /*Class.forName("org.sqlite.JDBC");
-        // connect to database
-        myConn = DriverManager.getConnection("jdbc:sqlite:" + DaoUtils.tableName);
-        System.out.println("Employee DAO - DB connection successful to jdbc:sqlite:" + DaoUtils.tableName);*/
     }
 
     public User getUser(String name, String password) throws SQLException {
@@ -39,7 +27,6 @@ public class UserDao {
                 if (res.getString("admin").equals("owner")) {
                     u.setAdmin(true);
                 }
-               // myConn.close();
                 return u;
             }
         } catch (SQLException e) {
@@ -48,7 +35,6 @@ public class UserDao {
             statement.close();
             res.close();
         }
-
         return null;
     }
 

@@ -13,7 +13,6 @@ public class Database {
 
     public static Connection getConnection() throws ClassNotFoundException, SQLException {
         try {
-            //Class.forName("org.sqlite.JDBC");
             myConn = DriverManager.getConnection("jdbc:sqlite:"+DaoUtils.tableName);
             ProductDao productDao = new ProductDao(myConn);
         } catch (Exception exc) {

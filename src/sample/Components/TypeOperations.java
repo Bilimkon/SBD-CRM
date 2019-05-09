@@ -8,7 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.Components.models.Type_operation;
 import sample.DAO.Database;
-import sample.MaxsulotTableView.Sotuvchi;
+import sample.productTableView.Sotuvchi;
 import sample.Utils.Utils;
 
 import javax.swing.*;

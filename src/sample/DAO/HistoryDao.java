@@ -1,7 +1,6 @@
 package sample.DAO;
 
 import org.jetbrains.annotations.Nullable;
-import sample.Core.History;
 import sample.Core.Models.BasketItem;
 import sample.Core.Models.CreditModel;
 import sample.Core.Product;
@@ -10,52 +9,18 @@ import sample.LoginController;
 import sample.Utils.Utils;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class HistoryDao {
     private Connection myConn;
-    public static String historyTableName = "history";
-    PreparedStatement pt;
-    ResultSet rs;
-    Statement st;
+    private PreparedStatement pt;
 
     public HistoryDao() throws Exception {
-
-        myConn =Database.getConnection();// DriverManager.getConnection("jdbc:sqlite:" + DaoUtils.tableName);
+        myConn =Database.getConnection();
     }
 
     public HistoryDao(Connection c) {
         myConn = c;
-    }
-
-    public List<History> getHistoryList() throws SQLException {
-        //sotuvchi_id, item_name, item_type, item_quantity, tarix_id, item_barcode, paid_cost, paid_date, total_cost, remaining_cost, karta, action, action_time, karta_cost
-        String query = "SELECT * FROM (\n" +
-                "    SELECT * FROM history ORDER BY id DESC LIMIT 200\n" +
-                ") sub\n" +
-                "ORDER BY id ASC";
-        ResultSet set = generateResultSet(query);
-        List<History> histories = new ArrayList<>();
-        while (set.next()) {
-            History h = new History(
-                    set.getInt("id"),
-                    set.getString("product_barcode"),
-                    set.getInt("product_id"),
-                    set.getString("product_name"),
-                    set.getInt("product_type"),
-                    set.getInt("product_quantity"),
-                    set.getInt("seller_id"),
-                    set.getString("cost"),
-                    set.getString("date_cr"),
-                    set.getInt("cr_by"),
-                    set.getString("date_up"),
-                    set.getInt("date_up"),
-                    set.getInt("customer_id"),
-                    set.getInt("sell_action_id"));
-            histories.add(h);
-        }
-        return histories;
     }
 
     public void insertBasketToHistory(List<BasketItem> basket, User user, @Nullable CreditModel credit, String total_cost, String cash,  String  card, String sale, String cr_by, String cost_paid, String commnet ) throws Exception {
@@ -125,11 +90,6 @@ public class HistoryDao {
         return myStmt.executeQuery(query);
     }
 
-    private boolean executeQuery(String query) throws SQLException {
-        Statement myStmt = myConn.createStatement();
-        return myStmt.execute(query);
-    }
-
     public void addCustomer(String firstname ,String lastname) throws SQLException {
         try {
             pt = myConn.prepareStatement("INSERT  INTO customer(firstName,lastName) values (?,?)");
@@ -142,16 +102,5 @@ public class HistoryDao {
             pt.close();
         }
     }
-    public  ResultSet searchCustomers(String name) throws SQLException {
-        if (name.isEmpty()) {
-            st =  myConn.createStatement();
-            rs = st.executeQuery("select * from main.customer order by firstname ");
-        } else {
-            name += "%";
-            pt = myConn.prepareStatement("select * from main.customer where  main.customer.firstname like ?  order by main.customer.firstname");
-            pt.setString(1, name);
-            rs = pt.executeQuery();
-        }
-        return rs;
-    }
+
 }

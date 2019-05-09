@@ -78,5 +78,6 @@
     <orderEntry type="library" name="jfoenix-9.0.8" level="project" />
     <orderEntry type="library" name="sqlite-jdbc-3.27.2.1" level="project" />
     <orderEntry type="library" name="activation-1.1.1" level="project" />
+    <orderEntry type="library" name="javafx11" level="application" />
   </component>
 </module>
