@@ -1,7 +1,7 @@
 # SBD-CRM
 ISBD
 
-SBD-CRM . JavaFX  desctop application development.
+SBD-CRM . JavaFX  desktop application development.
 
 Use source code for only education purposes.
 
